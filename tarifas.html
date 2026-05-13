@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarifas 2026 · Taxi Santa Susanna</title>
+<meta name="description" content="Tarifas 2026 oficiales. Precios fijos regulados por la administración. Aeropuertos, estaciones, ciudades, shopping. Reserva online.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* =====================================================================
+   TARIFAS — Componentes específicos (no presentes en styles.css)
+   ===================================================================== */
+
+/* Hero compacto */
+.tarifas-hero {
+  position: relative;
+  padding: 110px 24px 56px;
+  background:
+    radial-gradient(ellipse at top right, rgba(243,200,0,0.10) 0%, transparent 55%),
+    linear-gradient(180deg, #002313 0%, #004726 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+.tarifas-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg, transparent 0, transparent 60px, rgba(243,200,0,0.03) 60px, rgba(243,200,0,0.03) 61px);
+  pointer-events: none;
+}
+.tarifas-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.tarifas-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #F3C800;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.tarifas-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: #F3C800;
+  border-radius: 1px;
+}
+.tarifas-h1 {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+  max-width: 820px;
+}
+.tarifas-h1 .price-hl {
+  color: #FFD940;
+  position: relative;
+  white-space: nowrap;
+}
+.tarifas-subhead {
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.55;
+  max-width: 680px;
+  margin: 0;
+}
+.tarifas-subhead strong {
+  color: #FFD940;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Filtros (chips) */
+.tarifas-filters {
+  background: #f8faf6;
+  padding: 18px 24px;
+  position: sticky;
+  top: 72px;
+  z-index: 10;
+  border-bottom: 1px solid #e6ece8;
+}
+.tarifas-filters-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.tarifas-filter-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5a6660;
+  margin-right: 8px;
+}
+.tarifas-chip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: white;
+  border: 1.5px solid #d8e0db;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2d3631;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tarifas-chip:hover { border-color: #008F4C; color: #008F4C; }
+.tarifas-chip.active {
+  background: #008F4C;
+  border-color: #008F4C;
+  color: white;
+}
+
+/* Grid de tarjetas tarifa */
+.tarifas-section {
+  padding: 56px 24px;
+  background: #ffffff;
+}
+.tarifas-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.tarifa-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e6ece8;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+.tarifa-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,143,76,0.12);
+  border-color: #B2DDC9;
+}
+.tarifa-card-image {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.tarifa-card-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0,35,19,0.55) 100%);
+}
+.tarifa-card-category {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  color: #006435;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 999px;
+  z-index: 2;
+}
+.tarifa-card-body {
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.tarifa-card-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1a2620;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+.tarifa-card-meta {
+  font-size: 12px;
+  color: #5a6660;
+  font-weight: 500;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tarifa-card-meta svg {
+  width: 13px;
+  height: 13px;
+  color: #008F4C;
+}
+.tarifa-card-prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #e0e6e2;
+}
+.tarifa-price-block {
+  display: flex;
+  flex-direction: column;
+}
+.tarifa-price-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5a6660;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 2px;
+}
+.tarifa-price-label svg {
+  width: 11px;
+  height: 11px;
+}
+.tarifa-price-label.dia { color: #B07F00; }
+.tarifa-price-label.noche { color: #2d3a8f; }
+.tarifa-price-num {
+  font-size: 22px;
+  font-weight: 800;
+  color: #006435;
+  letter-spacing: -0.02em;
+}
+.tarifa-card-cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 16px;
+  background: #008F4C;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.tarifa-card-cta:hover {
+  background: #006435;
+  transform: translateY(-1px);
+}
+
+/* Sección "Tarifa oficial regulada" */
+.tarifas-oficial {
+  padding: 56px 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8faf6 100%);
+}
+.tarifas-oficial-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.tarifas-oficial-text .tarifas-eyebrow {
+  color: #B07F00;
+  margin-bottom: 12px;
+}
+.tarifas-oficial-text .tarifas-eyebrow::before {
+  background: #F3C800;
+}
+.tarifas-oficial-text h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a2620;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.tarifas-oficial-text p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2d3631;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+.tarifas-oficial-text p strong {
+  color: #008F4C;
+  font-weight: 800;
+}
+.tarifas-oficial-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.tarifas-oficial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #EAF6F0;
+  color: #006435;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  border: 0.5px solid #B2DDC9;
+}
+.tarifas-oficial-badge svg { width: 13px; height: 13px; }
+.tarifas-oficial-actions {
+  display: inline-flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tarifas-oficial-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.tarifas-oficial-btn.primary {
+  background: #008F4C;
+  color: white;
+}
+.tarifas-oficial-btn.primary:hover { background: #006435; transform: translateY(-1px); }
+.tarifas-oficial-btn.secondary {
+  background: white;
+  color: #006435;
+  border: 1.5px solid #B2DDC9;
+}
+.tarifas-oficial-btn.secondary:hover { border-color: #008F4C; }
+.tarifas-oficial-btn svg { width: 15px; height: 15px; }
+
+.tarifas-oficial-img-wrap {
+  background: white;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow:
+    0 20px 50px rgba(51, 47, 111, 0.18),
+    0 0 0 1px rgba(51, 47, 111, 0.05);
+  position: relative;
+  max-width: 380px;
+  justify-self: center;
+}
+.tarifas-oficial-img-wrap::before {
+  content: "OFICIAL";
+  position: absolute;
+  top: -10px;
+  right: 18px;
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  padding: 5px 12px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(243, 200, 0, 0.4);
+}
+.tarifas-oficial-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+.tarifas-oficial-source {
+  font-size: 11px;
+  color: #5a6660;
+  margin-top: 10px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Sección "Qué incluye tu tarifa" */
+.tarifas-includes {
+  padding: 56px 24px;
+  background: linear-gradient(180deg, #f8faf6 0%, #ffffff 100%);
+}
+.tarifas-includes-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.tarifas-section-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a2620;
+  margin: 0 0 8px;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+.tarifas-section-subtitle {
+  font-size: 15px;
+  color: #5a6660;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 0 36px;
+  font-style: italic;
+}
+.includes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.includes-card {
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #e6ece8;
+  padding: 22px 18px 20px;
+  text-align: center;
+  position: relative;
+  border-top: 3px solid #008F4C;
+}
+.includes-card.gold { border-top-color: #F3C800; }
+.includes-card .ico {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #EAF6F0;
+  color: #008F4C;
+  margin: 0 auto 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.includes-card.gold .ico { background: #FFF6CC; color: #B07F00; }
+.includes-card .ico svg { width: 22px; height: 22px; }
+.includes-card h4 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1a2620;
+  margin: 0 0 6px;
+  letter-spacing: -0.005em;
+}
+.includes-card p {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #2d3631;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* FAQ */
+.tarifas-faq {
+  padding: 56px 24px 64px;
+  background: #ffffff;
+}
+.faq-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.faq-item {
+  border-bottom: 1px solid #e6ece8;
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a2620;
+  text-align: left;
+  font-family: inherit;
+  letter-spacing: -0.005em;
+}
+.faq-question:hover { color: #008F4C; }
+.faq-toggle {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #008F4C;
+  transition: transform 0.25s ease;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+.faq-answer-inner {
+  padding: 0 0 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3631;
+  line-height: 1.6;
+}
+.faq-answer-inner strong { color: #008F4C; font-weight: 800; }
+.faq-item.open .faq-answer { max-height: 220px; }
+
+/* CTA final (reutilizamos estructura) */
+.tarifas-cta-final {
+  padding: 0 24px 64px;
+  background: #ffffff;
+}
+.tarifas-cta-final-inner { max-width: 1100px; margin: 0 auto; }
+
+/* ===== Responsive ===== */
+@media (max-width: 980px) {
+  .tarifas-grid { grid-template-columns: repeat(2, 1fr); }
+  .includes-grid { grid-template-columns: repeat(2, 1fr); }
+  .tarifas-oficial-inner { grid-template-columns: 1fr; gap: 36px; }
+  .tarifas-oficial-img-wrap { max-width: 320px; }
+}
+@media (max-width: 640px) {
+  .tarifas-hero { padding: 90px 20px 40px; }
+  .tarifas-h1 { font-size: 32px; letter-spacing: -0.025em; }
+  .tarifas-subhead { font-size: 14px; }
+  .tarifas-filters { padding: 14px 20px; top: 60px; }
+  .tarifas-chip { padding: 6px 12px; font-size: 12px; }
+  .tarifas-section { padding: 36px 20px; }
+  .tarifas-grid { grid-template-columns: 1fr; }
+  .tarifas-includes { padding: 40px 20px; }
+  .tarifas-section-title { font-size: 22px; }
+  .tarifas-section-subtitle { font-size: 13px; margin-bottom: 26px; }
+  .includes-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .includes-card { padding: 18px 12px 14px; }
+  .includes-card .ico { width: 44px; height: 44px; }
+  .tarifas-faq { padding: 36px 20px 40px; }
+  .faq-question { font-size: 14.5px; padding: 16px 0; }
+  .faq-answer-inner { font-size: 13px; padding-bottom: 18px; }
+  .tarifas-oficial { padding: 40px 20px; }
+  .tarifas-oficial-text h2 { font-size: 24px; }
+  .tarifas-oficial-text p { font-size: 14px; }
+  .tarifas-oficial-img-wrap { max-width: 280px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" aria-label="Navegación principal">
+  <div class="logo">
+    <a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Taxi Santa Susanna - Taxi oficial 24/7" class="logo-official">
+    </a>
+  </div>
+  <div class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="tarifas.html" class="active">Tarifas</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Preferent</a>
+  </div>
+  <div class="lang">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-globe" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    ES
+    <svg class="lang-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+  </div>
+</nav>
+
+<main>
+
+<!-- ====== HERO ====== -->
+<section class="tarifas-hero">
+  <div class="tarifas-hero-inner">
+    <div class="tarifas-eyebrow">Tarifas 2026</div>
+    <h1 class="tarifas-h1">Precio fijo, sin sorpresas. Desde <span class="price-hl">64 €</span>.</h1>
+    <p class="tarifas-subhead">Tarifas <strong>reguladas por la administración</strong>. El mismo precio reservando online, llamando o por email — todo cerrado antes de salir.</p>
+  </div>
+</section>
+
+<!-- ====== FILTROS ====== -->
+<section class="tarifas-filters" aria-label="Filtrar tarifas">
+  <div class="tarifas-filters-inner">
+    <span class="tarifas-filter-label">Filtrar por</span>
+    <button class="tarifas-chip active" data-filter="all">Todos</button>
+    <button class="tarifas-chip" data-filter="aeropuertos">Aeropuertos</button>
+    <button class="tarifas-chip" data-filter="trenes">Trenes</button>
+    <button class="tarifas-chip" data-filter="ciudades">Ciudades</button>
+    <button class="tarifas-chip" data-filter="shopping">Shopping</button>
+    <button class="tarifas-chip" data-filter="ocio">Ocio</button>
+  </div>
+</section>
+
+<!-- ====== GRID DE TARIFAS ====== -->
+<section class="tarifas-section" aria-label="Listado de tarifas">
+  <div class="tarifas-grid">
+
+    <!-- 1. Aeropuerto BCN -->
+    <article class="tarifa-card" data-category="aeropuertos">
+      <div class="tarifa-card-image" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80&auto=format&fit=crop');">
+        <span class="tarifa-card-category">Aeropuerto</span>
+      </div>
+      <div class="tarifa-card-body">
+        <h3 class="tarifa-card-name">Barcelona-El Prat</h3>
+        <div class="tarifa-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          70–100 min · BCN
+        </div>
+        <div class="tarifa-card-prices">
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label dia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Día</span>
+            <span class="tarifa-price-num">142 €</span>
+          </div>
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label noche"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Noche</span>
+            <span class="tarifa-price-num">153 €</span>
+          </div>
+        </div>
+        <a href="#reservar" class="tarifa-card-cta">Reservar →</a>
+      </div>
+    </article>
+
+    <!-- 2. Aeropuerto Girona -->
+    <article class="tarifa-card" data-category="aeropuertos">
+      <div class="tarifa-card-image" style="background-image: url('https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=600&q=80&auto=format&fit=crop');">
+        <span class="tarifa-card-category">Aeropuerto</span>
+      </div>
+      <div class="tarifa-card-body">
+        <h3 class="tarifa-card-name">Girona-Costa Brava</h3>
+        <div class="tarifa-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          25–35 min · GRO
+        </div>
+        <div class="tarifa-card-prices">
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label dia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Día</span>
+            <span class="tarifa-price-num">64 €</span>
+          </div>
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label noche"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Noche</span>
+            <span class="tarifa-price-num">69 €</span>
+          </div>
+        </div>
+        <a href="#reservar" class="tarifa-card-cta">Reservar →</a>
+      </div>
+    </article>
+
+    <!-- 3. Aeropuerto Reus -->
+    <article class="tarifa-card" data-category="aeropuertos">
+      <div class="tarifa-card-image" style="background-image: url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=80&auto=format&fit=crop');">
+        <span class="tarifa-card-category">Aeropuerto</span>
+      </div>
+      <div class="tarifa-card-body">
+        <h3 class="tarifa-card-name">Aeropuerto de Reus</h3>
+        <div class="tarifa-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          120–140 min · REU
+        </div>
+        <div class="tarifa-card-prices">
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label dia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Día</span>
+            <span class="tarifa-price-num">242 €</span>
+          </div>
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label noche"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Noche</span>
+            <span class="tarifa-price-num">265 €</span>
+          </div>
+        </div>
+        <a href="#reservar" class="tarifa-card-cta">Reservar →</a>
+      </div>
+    </article>
+
+    <!-- 4. Barcelona Sants -->
+    <article class="tarifa-card" data-category="trenes">
+      <div class="tarifa-card-image" style="background-image: url('images/cat-transportes.png');">
+        <span class="tarifa-card-category">Tren AVE</span>
+      </div>
+      <div class="tarifa-card-body">
+        <h3 class="tarifa-card-name">Barcelona Sants</h3>
+        <div class="tarifa-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          60–75 min · Estación
+        </div>
+        <div class="tarifa-card-prices">
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label dia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Día</span>
+            <span class="tarifa-price-num">123 €</span>
+          </div>
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label noche"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Noche</span>
+            <span class="tarifa-price-num">134 €</span>
+          </div>
+        </div>
+        <a href="#reservar" class="tarifa-card-cta">Reservar →</a>
+      </div>
+    </article>
+
+    <!-- 5. Girona AVE -->
+    <article class="tarifa-card" data-category="trenes">
+      <div class="tarifa-card-image" style="background-image: url('images/cat-transportes.png'); background-position: right center;">
+        <span class="tarifa-card-category">Tren AVE</span>
+      </div>
+      <div class="tarifa-card-body">
+        <h3 class="tarifa-card-name">Girona AVE</h3>
+        <div class="tarifa-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          45–60 min · Estación
+        </div>
+        <div class="tarifa-card-prices">
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label dia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Día</span>
+            <span class="tarifa-price-num">79 €</span>
+          </div>
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label noche"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Noche</span>
+            <span class="tarifa-price-num">88 €</span>
+          </div>
+        </div>
+        <a href="#reservar" class="tarifa-card-cta">Reservar →</a>
+      </div>
+    </article>
+
+    <!-- 6. Barcelona ciudad -->
+    <article class="tarifa-card" data-category="ciudades">
+      <div class="tarifa-card-image" style="background-image: url('images/cat-barcelona.png');">
+        <span class="tarifa-card-category">Ciudad</span>
+      </div>
+      <div class="tarifa-card-body">
+        <h3 class="tarifa-card-name">Barcelona centro</h3>
+        <div class="tarifa-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          60–80 min · Pl. Catalunya, Sagrada F., Camp Nou
+        </div>
+        <div class="tarifa-card-prices">
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label dia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Día</span>
+            <span class="tarifa-price-num">130 €</span>
+          </div>
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label noche"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Noche</span>
+            <span class="tarifa-price-num">142 €</span>
+          </div>
+        </div>
+        <a href="#reservar" class="tarifa-card-cta">Reservar →</a>
+      </div>
+    </article>
+
+    <!-- 7. Girona ciudad -->
+    <article class="tarifa-card" data-category="ciudades">
+      <div class="tarifa-card-image" style="background-image: url('images/cat-girona.png');">
+        <span class="tarifa-card-category">Ciudad</span>
+      </div>
+      <div class="tarifa-card-body">
+        <h3 class="tarifa-card-name">Girona centro</h3>
+        <div class="tarifa-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          45–60 min · Catedral, Montilivi
+        </div>
+        <div class="tarifa-card-prices">
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label dia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Día</span>
+            <span class="tarifa-price-num">72 €</span>
+          </div>
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label noche"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Noche</span>
+            <span class="tarifa-price-num">79 €</span>
+          </div>
+        </div>
+        <a href="#reservar" class="tarifa-card-cta">Reservar →</a>
+      </div>
+    </article>
+
+    <!-- 8. La Roca Village -->
+    <article class="tarifa-card" data-category="shopping">
+      <div class="tarifa-card-image" style="background-image: url('images/cat-shopping.png');">
+        <span class="tarifa-card-category">Shopping</span>
+      </div>
+      <div class="tarifa-card-body">
+        <h3 class="tarifa-card-name">La Roca Village</h3>
+        <div class="tarifa-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          45–60 min · Outlet premium
+        </div>
+        <div class="tarifa-card-prices">
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label dia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Día</span>
+            <span class="tarifa-price-num">79 €</span>
+          </div>
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label noche"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Noche</span>
+            <span class="tarifa-price-num">87 €</span>
+          </div>
+        </div>
+        <a href="#reservar" class="tarifa-card-cta">Reservar →</a>
+      </div>
+    </article>
+
+    <!-- 9. PortAventura -->
+    <article class="tarifa-card" data-category="ocio">
+      <div class="tarifa-card-image" style="background-image: url('https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=600&q=80&auto=format&fit=crop');">
+        <span class="tarifa-card-category">Ocio</span>
+      </div>
+      <div class="tarifa-card-body">
+        <h3 class="tarifa-card-name">PortAventura World</h3>
+        <div class="tarifa-card-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          110–130 min · Salou
+        </div>
+        <div class="tarifa-card-prices">
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label dia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg> Día</span>
+            <span class="tarifa-price-num">215 €</span>
+          </div>
+          <div class="tarifa-price-block">
+            <span class="tarifa-price-label noche"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Noche</span>
+            <span class="tarifa-price-num">235 €</span>
+          </div>
+        </div>
+        <a href="#reservar" class="tarifa-card-cta">Reservar →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ====== TARIFA OFICIAL REGULADA ====== -->
+<section class="tarifas-oficial">
+  <div class="tarifas-oficial-inner">
+    <div class="tarifas-oficial-text">
+      <div class="tarifas-eyebrow">Tarifa oficial 2026</div>
+      <h2>Lista oficial regulada por la administración</h2>
+      <p>Todas nuestras tarifas están <strong>aprobadas y publicadas oficialmente</strong> por la administración competente. El precio que ves en cada destino se corresponde exactamente con el cartel oficial, sin recargos ocultos ni variaciones.</p>
+      <div class="tarifas-oficial-badges">
+        <span class="tarifas-oficial-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Tarifas aprobadas</span>
+        <span class="tarifas-oficial-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> 100% transparente</span>
+        <span class="tarifas-oficial-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="6" rx="2"/><line x1="12" x2="12" y1="6" y2="20"/></svg> Sin recargos ocultos</span>
+      </div>
+      <div class="tarifas-oficial-actions">
+        <a href="images/lista-precios-2026.svg" target="_blank" rel="noopener" class="tarifas-oficial-btn primary">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          Descargar PDF
+        </a>
+        <a href="images/lista-precios-2026.svg" target="_blank" rel="noopener" class="tarifas-oficial-btn secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          Ver pantalla completa
+        </a>
+      </div>
+    </div>
+    <div class="tarifas-oficial-img-wrap">
+      <img src="images/lista-precios-2026.svg" alt="Lista oficial de precios taxis Santa Susanna 2026 — Tarifa regulada por la administración" loading="lazy">
+      <p class="tarifas-oficial-source">Cartel oficial publicado · Tarifa vigente 2026</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== QUÉ INCLUYE TU TARIFA ====== -->
+<section class="tarifas-includes">
+  <div class="tarifas-includes-inner">
+    <h2 class="tarifas-section-title">Qué incluye tu tarifa</h2>
+    <p class="tarifas-section-subtitle">Sin extras, sin sorpresas. El precio que ves es el que pagas.</p>
+    <div class="includes-grid">
+      <div class="includes-card gold">
+        <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"/><path d="M3 12h18"/><path d="M5 18h14"/><path d="M7 18v3"/><path d="M17 18v3"/></svg></div>
+        <h4>Peajes incluidos</h4>
+        <p>Sin extras al final. Todo lo que ves está dentro.</p>
+      </div>
+      <div class="includes-card">
+        <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.01h.01"/><path d="M15 12.01h.01"/><path d="M9.5 16a2.5 2.5 0 0 0 5 0"/><path d="M19 18.59A9 9 0 1 0 5 19"/><path d="M12 22v-3"/></svg></div>
+        <h4>Sillitas gratis</h4>
+        <p>Para bebés y niños. Sin coste, solo avísanos al reservar.</p>
+      </div>
+      <div class="includes-card">
+        <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 11.5C14 10.119 12.881 9 11.5 9S9 10.119 9 11.5 10.119 14 11.5 14"/><path d="M16 9a4 4 0 0 1 0 8"/><path d="m13 8 4-4"/><path d="M21 5h-4"/><circle cx="11.5" cy="11.5" r="6.5"/></svg></div>
+        <h4>Accesible</h4>
+        <p>Espacio para silla de ruedas y rampa disponible.</p>
+      </div>
+      <div class="includes-card">
+        <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></div>
+        <h4>Pet-friendly</h4>
+        <p>Tu mascota viaja contigo. Sin recargo extra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FAQ ====== -->
+<section class="tarifas-faq" aria-label="Preguntas frecuentes">
+  <div class="faq-inner">
+    <h2 class="tarifas-section-title">Preguntas frecuentes</h2>
+    <p class="tarifas-section-subtitle">Todo lo que necesitas saber sobre nuestras tarifas.</p>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        ¿El precio incluye peajes y propina?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí. <strong>Todo está incluido</strong>: peajes, IVA y propinas. El precio que ves al reservar es el precio final que pagas.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        ¿Qué pasa si mi vuelo se retrasa?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Seguimos tu vuelo en directo. Si llega tarde, <strong>ajustamos la hora sin coste extra</strong> (hasta 75 min de espera incluidos en recogidas).</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        ¿Puedo pagar con tarjeta o Bizum?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí. Aceptamos <strong>tarjeta, Bizum, PayPal, transferencia y efectivo</strong>. Puedes pagar al reservar online o al final del trayecto, como prefieras.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        ¿La tarifa nocturna se aplica en fin de semana?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">La tarifa nocturna aplica de <strong>22:00 a 06:00</strong> todos los días, incluido fin de semana y festivos. No hay recargo extra de festivo.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        ¿Puedo cancelar mi reserva sin coste?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí. Hasta <strong>12 horas antes</strong> del servicio puedes cancelar o modificar sin penalización. Si cancelas más tarde, se aplica un 50% del importe.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        ¿Cuántas personas y maletas caben?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Trabajamos con vans de <strong>6, 7 y 8 plazas</strong>. Capacidad estándar: 6 maletas grandes + 6 cabina. Si necesitas más espacio (bicicletas, esquís, golf), avísanos al reservar.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== CTA FINAL ====== -->
+<section class="tarifas-cta-final">
+  <div class="tarifas-cta-final-inner">
+    <div class="cta-extra-v2">
+      <div class="cta-glow"></div>
+      <div class="cta-glow-2"></div>
+      <div class="cta-icon-wrap">
+        <div class="cta-icon-ring"></div>
+        <div class="cta-icon-circle">
+          <svg class="cta-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+        </div>
+      </div>
+      <div class="cta-text-block">
+        <div class="cta-eyebrow cta-eyebrow-nobar">¿NO ENCUENTRAS TU DESTINO?</div>
+        <div class="cta-title">Donde llegue la carretera, <span class="accent">llegamos nosotros</span></div>
+        <p class="cta-tagline">Puedes <strong>llamar</strong> o <strong>escribirnos</strong> para tarifas personalizadas o destinos no listados.</p>
+      </div>
+      <div class="cta-contact-icons">
+        <a href="tel:+34937678571" class="cta-icon-btn" aria-label="Llamar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+        <a href="mailto:info@taxisantasusanna.com" class="cta-icon-btn" aria-label="Escribir">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====== FOOTER simplificado ====== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <a href="index.html" class="footer-logo-link">
+          <img src="images/logo.png" alt="Taxi Santa Susanna - Servicio oficial desde 1998" class="footer-logo-img">
+        </a>
+        <p class="footer-tagline">Central de taxis Santa Susanna desde 1998</p>
+      </div>
+      <div class="footer-col">
+        <h5 class="footer-col-title">Páginas</h5>
+        <nav class="footer-nav">
+          <a href="index.html">Inicio</a>
+          <a href="tarifas.html">Tarifas</a>
+          <a href="quienes-somos.html">Nosotros</a>
+          <a href="#">Preferent</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5 class="footer-col-title">Avisos</h5>
+        <nav class="footer-nav">
+          <a href="#">Aviso legal</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Cookies</a>
+          <a href="#">Términos</a>
+        </nav>
+      </div>
+      <div class="footer-col footer-col-cta">
+        <a href="tel:+34937678571" class="footer-phone-cta footer-cta-phone">
+          <span class="footer-phone-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span class="footer-phone-cta-text"><span class="footer-phone-cta-label">Atención 24/7</span><span class="footer-phone-cta-num">+34 937 67 85 71</span></span>
+        </a>
+        <a href="mailto:info@taxisantasusanna.com" class="footer-phone-cta footer-cta-email">
+          <span class="footer-phone-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+          <span class="footer-phone-cta-text"><span class="footer-phone-cta-label">Escríbenos</span><span class="footer-phone-cta-num">info@taxisantasusanna.com</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Taxi Santa Susanna · Todos los derechos reservados</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Filtros chips
+document.querySelectorAll('.tarifas-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.tarifas-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    const filter = chip.dataset.filter;
+    document.querySelectorAll('.tarifa-card').forEach(card => {
+      card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+    });
+  });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+    q.setAttribute('aria-expanded', !isOpen);
+  });
+});
+
+// Nav scroll
+(function() {
+  const nav = document.querySelector(".nav");
+  if (!nav) return;
+  const update = () => {
+    if (window.scrollY > 40) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+  };
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+})();
+</script>
+
+</body>
+</html>
