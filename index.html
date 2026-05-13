@@ -6455,8 +6455,10 @@ a.dest-card-premium {
 .dest-other-cats-corp .oc-block-tren { grid-column: 1 / -1; }
 .dest-other-cats-corp .oc-block-tren .oc-items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px 12px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  gap: 10px 18px;
 }
 
 /* Imagen banner superior en cada tarjeta (sangra al padding del bloque) */
@@ -6484,15 +6486,46 @@ a.dest-card-premium {
 .dest-other-cats-corp .oc-block-tren .oc-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 6px 8px 6px 12px;
+  gap: 12px;
+  padding: 12px 12px 12px 14px;
+  background: linear-gradient(135deg, #ffffff 0%, #f6fbf8 100%);
+  border: 2px solid #B2DDC9;
+  border-radius: 14px;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.dest-other-cats-corp .oc-block-tren .oc-item:hover {
+  border-color: #008F4C;
+  background: linear-gradient(135deg, #f6fbf8 0%, #eaf6f0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 143, 76, 0.15);
+}
+.dest-other-cats-corp .oc-block-tren .oc-item-badge {
+  background: #008F4C;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 6px 10px;
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+.dest-other-cats-corp .oc-block-tren .oc-item-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.dest-other-cats-corp .oc-block-tren .oc-item-meta {
+  font-size: 11px;
+  font-weight: 500;
+  color: #5a6660;
+  letter-spacing: 0.005em;
+  margin-top: 1px;
 }
 .dest-other-cats-corp .oc-block-tren .oc-item-name {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14.5px;
+  font-weight: 800;
   color: #1a2620;
-  flex: 1;
   min-width: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -6554,7 +6587,11 @@ a.dest-card-premium {
 
 /* Móvil: items de Transportes en 1 columna */
 @media (max-width: 640px) {
-  .dest-other-cats-corp .oc-block-tren .oc-items { grid-template-columns: 1fr; }
+  .dest-other-cats-corp .oc-block-tren .oc-items {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
 }
 
 /* ====================================================================
@@ -7079,13 +7116,39 @@ a.dest-card-premium {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>
             </div>
           </div>
-          <ul class="oc-items">
-            <li class="oc-item"><span class="oc-item-name">Barcelona Sants</span><a href="#reservar" class="oc-item-cta">Reservar</a></li>
-            <li class="oc-item"><span class="oc-item-name">Girona AVE</span><a href="#reservar" class="oc-item-cta">Reservar</a></li>
-            <li class="oc-item"><span class="oc-item-name">Estació del Nord</span><a href="#reservar" class="oc-item-cta">Reservar</a></li>
-            <li class="oc-item"><span class="oc-item-name">Port de Barcelona</span><a href="#reservar" class="oc-item-cta">Reservar</a></li>
-            <li class="oc-item"><span class="oc-item-name">Aeropuerto de Reus</span><a href="#reservar" class="oc-item-cta">Reservar</a></li>
-            <li class="oc-item"><span class="oc-item-name">Aeropuerto de Perpignan</span><a href="#reservar" class="oc-item-cta">Reservar</a></li>
+          <ul class="oc-items oc-items-transfers">
+            <!-- Col 1 — Barcelona -->
+            <li class="oc-item">
+              <span class="oc-item-badge">BCN</span>
+              <div class="oc-item-text"><span class="oc-item-name">Sants</span><span class="oc-item-meta">Estación AVE</span></div>
+              <a href="#reservar" class="oc-item-cta">Reservar</a>
+            </li>
+            <li class="oc-item">
+              <span class="oc-item-badge">BCN</span>
+              <div class="oc-item-text"><span class="oc-item-name">Estació del Nord</span><span class="oc-item-meta">Estación de bus</span></div>
+              <a href="#reservar" class="oc-item-cta">Reservar</a>
+            </li>
+            <li class="oc-item">
+              <span class="oc-item-badge">BCN</span>
+              <div class="oc-item-text"><span class="oc-item-name">Puerto de Barcelona</span><span class="oc-item-meta">Cruceros</span></div>
+              <a href="#reservar" class="oc-item-cta">Reservar</a>
+            </li>
+            <!-- Col 2 — Girona y Reus / Perpinyà -->
+            <li class="oc-item">
+              <span class="oc-item-badge">GIR</span>
+              <div class="oc-item-text"><span class="oc-item-name">Girona AVE</span><span class="oc-item-meta">Estación AVE</span></div>
+              <a href="#reservar" class="oc-item-cta">Reservar</a>
+            </li>
+            <li class="oc-item">
+              <span class="oc-item-badge">REU</span>
+              <div class="oc-item-text"><span class="oc-item-name">Aeropuerto de Reus</span><span class="oc-item-meta">Aeropuerto</span></div>
+              <a href="#reservar" class="oc-item-cta">Reservar</a>
+            </li>
+            <li class="oc-item">
+              <span class="oc-item-badge">PER</span>
+              <div class="oc-item-text"><span class="oc-item-name">Perpinyà</span><span class="oc-item-meta">Aeropuerto · Francia</span></div>
+              <a href="#reservar" class="oc-item-cta">Reservar</a>
+            </li>
           </ul>
         </div>
 
