@@ -6485,9 +6485,11 @@ a.dest-card-premium {
 /* Transportes: cada item lleva su propio botón Reservar */
 .dest-other-cats-corp .oc-block-tren .oc-item {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 14px 16px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px 12px 14px;
   background: linear-gradient(135deg, #ffffff 0%, #f6fbf8 100%);
   border: 2px solid #B2DDC9;
   border-radius: 14px;
@@ -6500,17 +6502,17 @@ a.dest-card-premium {
   box-shadow: 0 10px 24px rgba(0, 143, 76, 0.15);
 }
 .dest-other-cats-corp .oc-block-tren .oc-item-info {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
 }
 .dest-other-cats-corp .oc-block-tren .oc-item-action {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
-  padding-top: 10px;
-  border-top: 0.5px dashed rgba(0, 35, 19, 0.18);
+  flex-shrink: 0;
 }
 .dest-other-cats-corp .oc-block-tren .oc-item-price {
   font-size: 18px;
@@ -6611,6 +6613,18 @@ a.dest-card-premium {
     grid-template-rows: none;
     grid-auto-flow: row;
   }
+  /* En móvil, las tarjetas se reorganizan en 2 filas (info / acción) */
+  .dest-other-cats-corp .oc-block-tren .oc-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .dest-other-cats-corp .oc-block-tren .oc-item-action {
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 0.5px dashed rgba(0, 35, 19, 0.18);
+  }
+  .dest-other-cats-corp .oc-block-tren .oc-item-name { white-space: normal; }
 }
 
 /* ====================================================================
