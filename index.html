@@ -6627,6 +6627,49 @@ a.dest-card-premium {
   .dest-other-cats-corp .oc-block-tren .oc-item-name { white-space: normal; }
 }
 
+/* === Carrusel del banner Transportes === */
+.dest-other-cats-corp .oc-cat-image-carousel {
+  position: relative;
+}
+.dest-other-cats-corp .oc-cat-image-carousel .oc-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 0;
+}
+.dest-other-cats-corp .oc-cat-image-carousel .oc-slide.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+.dest-other-cats-corp .oc-carousel-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  gap: 8px;
+  z-index: 3;
+  padding: 6px 10px;
+  background: rgba(0, 35, 19, 0.35);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+}
+.dest-other-cats-corp .oc-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.dest-other-cats-corp .oc-dot.is-active {
+  background: #F3C800;
+  transform: scale(1.25);
+}
+
 /* ====================================================================
    v7 — Fixes móvil: solape transfer row, overflows, banner Transportes
    ==================================================================== */
@@ -7138,8 +7181,17 @@ a.dest-card-premium {
       <div class="oc-grid">
 
         <div class="oc-block oc-block-tren">
-          <div class="oc-cat-image">
-            <img src="images/cat-transportes.png" alt="Tren AVE y otros transportes — Taxi Santa Susanna" loading="lazy">
+          <div class="oc-cat-image oc-cat-image-carousel" data-carousel>
+            <img src="images/cat-tren.png" alt="Tren AVE — Taxi Santa Susanna" class="oc-slide is-active" loading="lazy">
+            <img src="images/cat-bus.png" alt="Autobús interurbano — Taxi Santa Susanna" class="oc-slide" loading="lazy">
+            <img src="images/cat-avion.png" alt="Avión comercial — Taxi Santa Susanna" class="oc-slide" loading="lazy">
+            <img src="images/cat-puerto.png" alt="Puerto de Barcelona — Taxi Santa Susanna" class="oc-slide" loading="lazy">
+            <div class="oc-carousel-dots" aria-hidden="true">
+              <span class="oc-dot is-active"></span>
+              <span class="oc-dot"></span>
+              <span class="oc-dot"></span>
+              <span class="oc-dot"></span>
+            </div>
           </div>
           <div class="oc-cat-head oc-cat-head-icons">
             <div class="oc-cat-icon-row" aria-label="Avión, tren, autobús, puerto">
@@ -7537,6 +7589,24 @@ document.querySelectorAll('.dest-tab-v3').forEach(tab => {
   };
   update();
   window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
+/* Carrusel del banner Transportes — autoplay cada 4 s */
+(function() {
+  const carousel = document.querySelector('[data-carousel]');
+  if (!carousel) return;
+  const slides = carousel.querySelectorAll('.oc-slide');
+  const dots = carousel.querySelectorAll('.oc-dot');
+  if (slides.length < 2) return;
+  let idx = 0;
+  const next = () => {
+    slides[idx].classList.remove('is-active');
+    dots[idx]?.classList.remove('is-active');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('is-active');
+    dots[idx]?.classList.add('is-active');
+  };
+  setInterval(next, 4000);
 })();
 
 const palabras = ['fiable', 'garantizado', 'puntual', 'honesto', 'profesional', 'rápido', 'flexible'];
