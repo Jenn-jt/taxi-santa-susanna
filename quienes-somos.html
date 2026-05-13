@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiénes somos · Taxi Santa Susanna · Asociación desde 1998</title>
+<meta name="description" content="Asociación de taxistas de Santa Susanna desde 1998. No somos una franquicia ni un intermediario: somos los profesionales del taxi del municipio.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* =====================================================================
+   QUIÉNES SOMOS — Componentes específicos
+   ===================================================================== */
+
+/* Hero con imagen y overlay — efecto sticky parallax (estilo joinup) */
+.qs-hero {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 100vh;
+  min-height: 620px;
+  padding: 130px 24px 80px;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Las siguientes secciones suben por encima del hero sticky */
+.qs-stats,
+.qs-section,
+.qs-zona-section,
+.qs-cta-final,
+.footer {
+  position: relative;
+  z-index: 2;
+}
+.qs-stats {
+  box-shadow: 0 -10px 30px rgba(0, 35, 19, 0.15);
+}
+.qs-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/hero-portada.png');
+  background-size: cover;
+  background-position: center 35%;
+  transform: scale(1.05);
+  z-index: 0;
+}
+.qs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(95deg, rgba(0,20,12,0.92) 0%, rgba(0,20,12,0.65) 45%, rgba(0,20,12,0.25) 80%, rgba(0,20,12,0.05) 100%),
+    linear-gradient(180deg, transparent 60%, rgba(0,20,12,0.4) 100%);
+  z-index: 1;
+}
+.qs-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.qs-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #F3C800;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+}
+.qs-h1 {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px;
+  max-width: 1120px;
+}
+.qs-h1 .accent {
+  color: #FFD940;
+}
+.qs-hero-lead {
+  font-size: 18px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.92);
+  max-width: 680px;
+  margin: 0;
+}
+.qs-hero-lead strong {
+  color: #FFD940;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Stats bar — verde brillante del escudo del logo */
+.qs-stats {
+  background: linear-gradient(180deg, #168D3D 0%, #0F6B2A 100%);
+  padding: 36px 24px;
+  border-top: 1px solid rgba(243,200,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.qs-stats::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #F3C800 50%, transparent 100%);
+}
+.qs-stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+.qs-stat {
+  text-align: center;
+  color: white;
+  position: relative;
+  padding: 4px 0;
+}
+.qs-stat + .qs-stat::before {
+  content: "";
+  position: absolute;
+  left: -12px; top: 50%;
+  transform: translateY(-50%);
+  width: 1px; height: 36px;
+  background: rgba(243,200,0,0.18);
+}
+.qs-stat-num {
+  font-size: 42px;
+  font-weight: 900;
+  color: #FFD940;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  margin-bottom: 6px;
+  font-feature-settings: "tnum";
+}
+.qs-stat-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+}
+
+/* Sección historia (2 cols) */
+.qs-section {
+  padding: 72px 24px;
+  background: #ffffff;
+}
+.qs-section.alt { background: #f8faf6; }
+.qs-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.qs-historia {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.qs-historia-text h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a2620;
+  margin: 0 0 18px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.qs-historia-text p {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: #2d3631;
+  line-height: 1.65;
+  margin: 0 0 14px;
+}
+.qs-historia-text p strong {
+  color: #008F4C;
+  font-weight: 800;
+}
+.qs-historia-img {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: #002313;
+}
+.qs-historia-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.qs-historia-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0,20,12,0.4) 100%);
+}
+.qs-historia-badge {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  z-index: 2;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.qs-historia-badge-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: #008F4C;
+  color: #FFD940;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.qs-historia-badge-icon svg { width: 18px; height: 18px; }
+.qs-historia-badge-text {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #002313;
+  line-height: 1.35;
+}
+.qs-historia-badge-text small {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #008F4C;
+  margin-bottom: 2px;
+}
+
+/* Valores */
+.qs-section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a2620;
+  text-align: center;
+  margin: 0 0 8px;
+  letter-spacing: -0.015em;
+}
+.qs-section-sub {
+  font-size: 15px;
+  font-weight: 500;
+  font-style: italic;
+  color: #5a6660;
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 40px;
+  line-height: 1.55;
+}
+.qs-valores-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.qs-valor {
+  background: white;
+  border-radius: 16px;
+  border: 0.5px solid #e0e6e2;
+  padding: 28px 22px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.qs-valor::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #008F4C 0%, #F3C800 100%);
+  opacity: 0.85;
+}
+.qs-valor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0,143,76,0.12);
+  border-color: #B2DDC9;
+}
+.qs-valor-icon-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin: 6px auto 16px;
+}
+.qs-valor-icon-ring {
+  position: absolute;
+  inset: 0;
+  border: 2px dashed rgba(0,143,76,0.3);
+  border-radius: 50%;
+  animation: qs-ring-rot 22s linear infinite;
+}
+@keyframes qs-ring-rot { to { transform: rotate(360deg); } }
+.qs-valor-icon-circle {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #EAF6F0 0%, #D8EEE4 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #008F4C;
+  box-shadow: 0 4px 12px rgba(0,143,76,0.12);
+}
+.qs-valor-icon-circle svg { width: 24px; height: 24px; }
+.qs-valor h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1a2620;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+.qs-valor p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2d3631;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Servicios pro (2 cards grandes) */
+.qs-servicios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.qs-servicio {
+  background: white;
+  border-radius: 18px;
+  border: 1px solid #e6ece8;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.qs-servicio:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,143,76,0.1);
+}
+.qs-servicio.dark {
+  background: linear-gradient(135deg, #002313 0%, #004726 60%, #006435 100%);
+  color: white;
+  border-color: transparent;
+}
+.qs-servicio.dark::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(243,200,0,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.qs-servicio-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #008F4C;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.qs-servicio.dark .qs-servicio-eyebrow { color: #F3C800; }
+.qs-servicio-eyebrow svg {
+  width: 14px;
+  height: 14px;
+}
+.qs-servicio h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a2620;
+  margin: 0 0 12px;
+  letter-spacing: -0.015em;
+}
+.qs-servicio.dark h3 { color: white; }
+.qs-servicio-desc {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #2d3631;
+  line-height: 1.6;
+  margin: 0 0 18px;
+  position: relative;
+  z-index: 1;
+}
+.qs-servicio.dark .qs-servicio-desc { color: rgba(255,255,255,0.85); }
+.qs-servicio-list {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+.qs-servicio-list li {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #2d3631;
+  padding: 5px 0 5px 26px;
+  position: relative;
+}
+.qs-servicio.dark .qs-servicio-list li { color: rgba(255,255,255,0.92); }
+.qs-servicio-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background-color: #008F4C;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain;
+}
+.qs-servicio.dark .qs-servicio-list li::before { background-color: #FFD940; }
+.qs-servicio-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 18px;
+  background: #008F4C;
+  color: white;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+.qs-servicio-cta:hover { background: #006435; transform: translateY(-1px); }
+.qs-servicio.dark .qs-servicio-cta {
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313;
+}
+.qs-servicio.dark .qs-servicio-cta:hover { box-shadow: 0 8px 20px rgba(243,200,0,0.45); transform: translateY(-1px); }
+
+/* Flota */
+.qs-flota-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.qs-flota-text h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a2620;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.qs-flota-text p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2d3631;
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+.qs-flota-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.qs-flota-features li {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a2620;
+  padding-left: 28px;
+  position: relative;
+  line-height: 1.4;
+}
+.qs-flota-features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 18px;
+  height: 18px;
+  background-color: #008F4C;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain;
+}
+.qs-flota-img {
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: #002313;
+}
+.qs-flota-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Zona de servicio — sección con mapa. Verde brillante del escudo del logo. */
+.qs-zona-section {
+  padding: 72px 24px;
+  background: linear-gradient(180deg, #168D3D 0%, #0F6B2A 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.qs-zona-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(243,200,0,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+.qs-zona-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.45fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.qs-zona-text .qs-eyebrow { color: #F3C800; }
+.qs-zona-text h2 {
+  font-size: 34px;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.qs-zona-text h2 .accent {
+  color: #FFD940;
+  position: relative;
+}
+.qs-zona-text > p {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+.qs-zona-text > p strong {
+  color: #FFD940;
+  font-weight: 800;
+}
+.qs-zona-poblaciones-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+}
+.qs-zona-poblaciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.qs-zona-pob {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(243,200,0,0.25);
+  color: #FFD940;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.qs-zona-pob:hover {
+  background: rgba(243,200,0,0.12);
+  border-color: rgba(243,200,0,0.5);
+}
+.qs-zona-pob svg { width: 11px; height: 11px; opacity: 0.7; }
+.qs-zona-pob.home {
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313;
+  border-color: transparent;
+  font-weight: 800;
+}
+.qs-zona-pob.home svg { color: #002313; opacity: 1; }
+
+.qs-zona-map-wrap {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: white;
+  padding: 10px;
+  width: 100%;
+  box-shadow:
+    0 30px 70px rgba(0, 60, 25, 0.45),
+    0 0 0 1px rgba(243,200,0,0.3);
+}
+.qs-zona-map-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+.qs-zona-map-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(0,35,19,0.92);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  border: 1px solid rgba(243,200,0,0.3);
+}
+.qs-zona-map-badge svg { width: 12px; height: 12px; color: #F3C800; }
+.qs-zona-map-caption {
+  font-size: 13px;
+  font-weight: 600;
+  font-style: italic;
+  color: rgba(255,255,255,0.92);
+  text-align: center;
+  margin-top: 14px;
+  letter-spacing: 0.04em;
+}
+
+/* Partners — solo logo. La tarjeta es solo un contenedor visual; el contenido viene
+   de un loop (CPT 'partner' con featured_image) en el theme de WordPress. */
+.qs-partners-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f8faf6 100%);
+}
+.qs-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.qs-partner {
+  background: white;
+  border: 0.5px solid #e0e6e2;
+  border-radius: 14px;
+  height: 110px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.qs-partner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: #008F4C;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.qs-partner:hover {
+  border-color: #B2DDC9;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,143,76,0.1);
+}
+.qs-partner:hover::before { transform: scaleX(1); }
+.qs-partner img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(20%);
+  opacity: 0.92;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+.qs-partner:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+/* CTA reutilizado — padding completo para que cubra el hero sticky por detrás */
+.qs-cta-final { padding: 64px 24px; background: #ffffff; }
+.qs-cta-final-inner { max-width: 1100px; margin: 0 auto; }
+
+/* ===== Responsive ===== */
+@media (min-width: 481px) and (max-width: 1023px) {
+  .qs-h1 { font-size: 36px; line-height: 1.18; letter-spacing: -0.02em; }
+}
+@media (max-width: 980px) {
+  .qs-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .qs-historia, .qs-flota-grid, .qs-zona-inner { grid-template-columns: 1fr; gap: 36px; }
+  .qs-valores-grid { grid-template-columns: repeat(2, 1fr); }
+  .qs-servicios-grid { grid-template-columns: 1fr; }
+  .qs-partners-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .qs-hero { padding: 90px 20px 50px; height: auto; min-height: 0; justify-content: flex-start; }
+  .qs-h1 { font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; }
+  .qs-hero-lead { font-size: 14.5px; }
+  .qs-stats { padding: 22px 20px; }
+  .qs-stat-num { font-size: 28px; }
+  .qs-stat-label { font-size: 10.5px; }
+  .qs-section { padding: 48px 20px; }
+  .qs-section-title { font-size: 24px; }
+  .qs-section-sub { font-size: 13.5px; margin-bottom: 28px; }
+  .qs-historia-text h2 { font-size: 26px; }
+  .qs-historia-text p { font-size: 14.5px; }
+  .qs-valores-grid { grid-template-columns: 1fr; gap: 12px; }
+  .qs-valor { padding: 22px 18px; }
+  .qs-servicio { padding: 26px 22px; }
+  .qs-servicio h3 { font-size: 20px; }
+  .qs-flota-text h2 { font-size: 26px; }
+  .qs-flota-features { grid-template-columns: 1fr; gap: 10px; }
+  .qs-partners-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .qs-zona-section { padding: 48px 20px; }
+  .qs-zona-text h2 { font-size: 24px; }
+  .qs-zona-text > p { font-size: 14px; }
+  .qs-zona-pob { font-size: 11.5px; padding: 6px 11px; }
+  .qs-zona-map-wrap { padding: 6px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" aria-label="Navegación principal">
+  <div class="logo">
+    <a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Taxi Santa Susanna - Taxi oficial 24/7" class="logo-official">
+    </a>
+  </div>
+  <div class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="tarifas.html">Tarifas</a>
+    <a href="quienes-somos.html" class="active">Quiénes somos</a>
+    <a href="#">Área privada</a>
+  </div>
+  <div class="lang">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-globe" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    ES
+    <svg class="lang-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+  </div>
+</nav>
+
+<main>
+
+<!-- ====== HERO ====== -->
+<section class="qs-hero">
+  <div class="qs-hero-bg"></div>
+  <div class="qs-hero-overlay"></div>
+  <div class="qs-hero-inner">
+    <div class="qs-eyebrow">Quiénes somos</div>
+    <h1 class="qs-h1">Una asociación de taxistas, <span class="accent">no una franquicia</span>.</h1>
+    <p class="qs-hero-lead">Taxi Santa Susanna nace de la unión de los <strong>profesionales del taxi del municipio</strong>. Sin intermediarios, sin algoritmos opacos. Solo nosotros, nuestros vehículos, y las calles que conocemos como nuestra casa.</p>
+  </div>
+</section>
+
+<!-- ====== STATS ====== -->
+<section class="qs-stats" aria-label="Datos clave">
+  <div class="qs-stats-inner">
+    <div class="qs-stat">
+      <div class="qs-stat-num">1998</div>
+      <div class="qs-stat-label">Año de fundación</div>
+    </div>
+    <div class="qs-stat">
+      <div class="qs-stat-num">24/7</div>
+      <div class="qs-stat-label">Atención telefónica</div>
+    </div>
+    <div class="qs-stat">
+      <div class="qs-stat-num">3</div>
+      <div class="qs-stat-label">Idiomas · CAT · ES · EN</div>
+    </div>
+    <div class="qs-stat">
+      <div class="qs-stat-num">100%</div>
+      <div class="qs-stat-label">Propiedad local</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== HISTORIA ====== -->
+<section class="qs-section">
+  <div class="qs-section-inner">
+    <div class="qs-historia">
+      <div class="qs-historia-text">
+        <div class="qs-eyebrow" style="color:#006435;">Nuestra historia</div>
+        <h2>Los taxis oficiales de Santa Susanna, desde 1998.</h2>
+        <p><strong>Taxi Santa Susanna S.L.U.</strong> es una empresa propiedad de la Asociación de Taxistas de Santa Susanna. No somos una plataforma ni una franquicia: somos los profesionales del taxi del propio municipio, organizados desde 1998 para ofrecer un servicio coherente, regulado y cercano.</p>
+        <p>Trabajamos con <strong>mecanismos dinámicos</strong> que adaptan la oferta a la demanda estacional — más flota en verano cuando la costa lo necesita, sin esperas innecesarias el resto del año. Todo gestionado desde nuestra propia plataforma con pago seguro, reservas online y atención telefónica las 24 horas.</p>
+      </div>
+      <div class="qs-historia-img">
+        <img src="images/flota-hero.png" alt="Parada oficial de Taxi Santa Susanna con cartel y vehículos de la flota al atardecer" loading="lazy">
+        <div class="qs-historia-badge">
+          <div class="qs-historia-badge-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div class="qs-historia-badge-text">
+            <small>Taxi oficial</small>
+            Servicio autorizado por el municipio
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== VALORES ====== -->
+<section class="qs-section alt">
+  <div class="qs-section-inner">
+    <h2 class="qs-section-title">En qué creemos</h2>
+    <p class="qs-section-sub">Cuatro principios que llevan 27 años guiando nuestro servicio.</p>
+    <div class="qs-valores-grid">
+      <article class="qs-valor">
+        <div class="qs-valor-icon-wrap">
+          <div class="qs-valor-icon-ring"></div>
+          <div class="qs-valor-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+        </div>
+        <h3>Persona real, no bot</h3>
+        <p>Cuando llamas, te coge una persona. Sin menús, sin esperas, sin chatbots. 24 horas al día.</p>
+      </article>
+      <article class="qs-valor">
+        <div class="qs-valor-icon-wrap">
+          <div class="qs-valor-icon-ring"></div>
+          <div class="qs-valor-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+        </div>
+        <h3>Conocimiento local</h3>
+        <p>Sabemos los atajos, las fiestas que cortan calles, los hoteles, las playas. Vivimos aquí.</p>
+      </article>
+      <article class="qs-valor">
+        <div class="qs-valor-icon-wrap">
+          <div class="qs-valor-icon-ring"></div>
+          <div class="qs-valor-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+        </div>
+        <h3>Precios regulados</h3>
+        <p>Tarifas aprobadas por la administración. Sin sorpresas, sin recargos ocultos.</p>
+      </article>
+      <article class="qs-valor">
+        <div class="qs-valor-icon-wrap">
+          <div class="qs-valor-icon-ring"></div>
+          <div class="qs-valor-icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="6" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          </div>
+        </div>
+        <h3>Pago seguro</h3>
+        <p>Tarjeta, Bizum, PayPal o efectivo. Pasarela cifrada y factura electrónica con IVA desglosado.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICIOS PROFESIONALES ====== -->
+<section class="qs-section">
+  <div class="qs-section-inner">
+    <h2 class="qs-section-title">Servicios para profesionales</h2>
+    <p class="qs-section-sub">Hoteles y empresas tienen un trato y unas herramientas distintas. Te contamos cuál te conviene.</p>
+    <div class="qs-servicios-grid">
+
+      <article class="qs-servicio">
+        <div class="qs-servicio-eyebrow">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14"/><path d="M3 12h18"/><path d="M3 16h18"/><path d="M9 8V4"/><path d="M15 8V4"/></svg>
+          Para hoteles
+        </div>
+        <h3>Hotel Preferent</h3>
+        <p class="qs-servicio-desc">Tu recepción gestiona las reservas desde nuestra plataforma web. Inmediatas o programadas, con seguimiento en tiempo real del vehículo.</p>
+        <ul class="qs-servicio-list">
+          <li>Reservas inmediatas y programadas desde el panel del hotel</li>
+          <li>Localización GPS del taxi en tiempo real</li>
+          <li>Modificaciones online sin llamadas</li>
+          <li>Flota prioritaria · tiempos de espera más cortos</li>
+          <li>Factura mensual con desglose por reserva</li>
+        </ul>
+        <a href="#contacto" class="qs-servicio-cta">Solicitar acceso →</a>
+      </article>
+
+      <article class="qs-servicio dark">
+        <div class="qs-servicio-eyebrow">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+          Para empresas
+        </div>
+        <h3>Empresas abonadas</h3>
+        <p class="qs-servicio-desc">Mutuas, agencias de viajes, asistencias en carretera, transporte de empleados, administraciones. Cuenta abierta, factura mensual.</p>
+        <ul class="qs-servicio-list">
+          <li>Atención telefónica 24/7 con persona real</li>
+          <li>WhatsApp y email habilitados para peticiones</li>
+          <li>Factura electrónica mensual · IVA desglosado por servicio</li>
+          <li>Servicio para todo el municipio y comarca</li>
+          <li>Condiciones específicas según volumen</li>
+        </ul>
+        <a href="#contacto" class="qs-servicio-cta">Hablar con ventas →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== FLOTA ====== -->
+<section class="qs-section alt">
+  <div class="qs-section-inner">
+    <div class="qs-flota-grid">
+      <div class="qs-flota-img">
+        <img src="images/flota-hero.png" alt="Vehículos de la flota Taxi Santa Susanna · Mercedes y Skoda eco" loading="lazy" style="object-position: center 60%;">
+      </div>
+      <div class="qs-flota-text">
+        <div class="qs-eyebrow" style="color:#006435;">Nuestra flota</div>
+        <h2>Vans grandes, accesibles, listas para todo.</h2>
+        <p>Toda nuestra flota es de gran capacidad: pensada para familias, grupos, equipaje voluminoso y necesidades especiales. Sin sobreprecio por viajar todos juntos.</p>
+        <ul class="qs-flota-features">
+          <li>Vans de 6, 7 y 8 PAX</li>
+          <li>Maleteros amplios · equipaje XXL</li>
+          <li>Sillitas y elevadores infantiles</li>
+          <li>Eurotaxi PMR · accesibilidad</li>
+          <li>VISA · Mastercard · AMEX</li>
+          <li>Mascotas bienvenidas</li>
+          <li>Aire acondicionado · WiFi</li>
+          <li>Vehículos ECO</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ZONA DE SERVICIO ====== -->
+<section class="qs-zona-section">
+  <div class="qs-zona-inner">
+    <div class="qs-zona-text">
+      <div class="qs-eyebrow">Zona de servicio</div>
+      <h2>Conocemos cada calle <span class="accent">del Maresme</span>.</h2>
+      <p>Nuestra base está en <strong>Santa Susanna</strong>, pero damos servicio a toda la comarca y conexiones a Barcelona, Girona y Costa Brava. Cobertura completa para hoteles, residencias y empresas del litoral.</p>
+      <div class="qs-zona-poblaciones-label">Poblaciones cubiertas</div>
+      <div class="qs-zona-poblaciones">
+        <span class="qs-zona-pob home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="#FFD940"/></svg> Santa Susanna</span>
+        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Pineda de Mar</span>
+        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Calella</span>
+        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Malgrat de Mar</span>
+        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Palafolls</span>
+        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Tordera</span>
+        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Blanes</span>
+        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Lloret de Mar</span>
+      </div>
+    </div>
+    <div>
+      <div class="qs-zona-map-wrap">
+        <div class="qs-zona-map-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Cobertura Maresme + Costa Brava
+        </div>
+        <img src="images/mapa-zona-servicio.jpg" alt="Mapa del área de servicio de Taxi Santa Susanna en el Maresme — Calella, Pineda de Mar, Santa Susanna, Malgrat de Mar y Palafolls" loading="lazy">
+      </div>
+      <p class="qs-zona-map-caption">Mapa de la zona principal de operación — N-II / Autopista del Maresme</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PARTNERS ====== -->
+<section class="qs-section qs-partners-section">
+  <div class="qs-section-inner">
+    <h2 class="qs-section-title">Confían en nosotros</h2>
+    <p class="qs-section-sub">Instituciones, mutuas y compañías que trabajan con nuestro servicio cada día.</p>
+    <!-- Partners: solo el logo + alt. Estructura preparada para WP loop (CPT 'partner' con featured_image). -->
+    <div class="qs-partners-grid">
+      <div class="qs-partner"><img src="images/partner-santa-susanna.png" alt="Ajuntament de Santa Susanna" loading="lazy"></div>
+      <div class="qs-partner"><img src="images/partner-consell-comarcal.jpg" alt="Consell Comarcal del Maresme" loading="lazy"></div>
+      <div class="qs-partner"><img src="images/partner-egarsat.png" alt="Egarsat — Mutua" loading="lazy"></div>
+      <div class="qs-partner"><img src="images/partner-fremap.jpg" alt="Fremap — Mutua" loading="lazy"></div>
+      <div class="qs-partner"><img src="images/partner-emirates.png" alt="Fly Emirates" loading="lazy"></div>
+      <div class="qs-partner"><img src="images/partner-vueling.png" alt="Vueling" loading="lazy"></div>
+      <div class="qs-partner"><img src="images/partner-gitaxi.png" alt="GitTaxi" loading="lazy"></div>
+      <div class="qs-partner"><img src="images/partner-tabos-grup.png" alt="Tabós Grup" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA FINAL ====== -->
+<section class="qs-cta-final" id="contacto">
+  <div class="qs-cta-final-inner">
+    <div class="cta-extra-v2">
+      <div class="cta-glow"></div>
+      <div class="cta-glow-2"></div>
+      <div class="cta-icon-wrap">
+        <div class="cta-icon-ring"></div>
+        <div class="cta-icon-circle">
+          <svg class="cta-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+        </div>
+      </div>
+      <div class="cta-text-block">
+        <div class="cta-eyebrow cta-eyebrow-nobar">¿Hotel o empresa?</div>
+        <div class="cta-title">Hablemos de tu necesidad <span class="accent">en persona</span></div>
+        <p class="cta-tagline">Puedes <strong>llamar</strong> o <strong>escribirnos</strong> y te explicamos qué condiciones tendrías como cuenta profesional.</p>
+      </div>
+      <div class="cta-contact-icons">
+        <a href="tel:+34937678571" class="cta-icon-btn" aria-label="Llamar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+        <a href="mailto:info@taxisantasusanna.com" class="cta-icon-btn" aria-label="Escribir">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <a href="index.html" class="footer-logo-link">
+          <img src="images/logo.png" alt="Taxi Santa Susanna - Servicio oficial desde 1998" class="footer-logo-img">
+        </a>
+        <p class="footer-tagline">Central de taxis Santa Susanna desde 1998</p>
+      </div>
+      <div class="footer-col">
+        <h5 class="footer-col-title">Páginas</h5>
+        <nav class="footer-nav">
+          <a href="index.html">Inicio</a>
+          <a href="tarifas.html">Tarifas</a>
+          <a href="quienes-somos.html">Quiénes somos</a>
+          <a href="#">Área privada</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5 class="footer-col-title">Avisos</h5>
+        <nav class="footer-nav">
+          <a href="#">Aviso legal</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Cookies</a>
+          <a href="#">Términos</a>
+        </nav>
+      </div>
+      <div class="footer-col footer-col-cta">
+        <a href="tel:+34937678571" class="footer-phone-cta footer-cta-phone">
+          <span class="footer-phone-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span class="footer-phone-cta-text"><span class="footer-phone-cta-label">Atención 24/7</span><span class="footer-phone-cta-num">+34 937 67 85 71</span></span>
+        </a>
+        <a href="mailto:info@taxisantasusanna.com" class="footer-phone-cta footer-cta-email">
+          <span class="footer-phone-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+          <span class="footer-phone-cta-text"><span class="footer-phone-cta-label">Escríbenos</span><span class="footer-phone-cta-num">info@taxisantasusanna.com</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Taxi Santa Susanna · Todos los derechos reservados</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+(function() {
+  const nav = document.querySelector(".nav");
+  if (!nav) return;
+  const update = () => {
+    if (window.scrollY > 40) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+  };
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+})();
+</script>
+
+</body>
+</html>
