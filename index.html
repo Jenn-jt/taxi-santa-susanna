@@ -6485,9 +6485,9 @@ a.dest-card-premium {
 /* Transportes: cada item lleva su propio botón Reservar */
 .dest-other-cats-corp .oc-block-tren .oc-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 12px 12px 14px;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
   background: linear-gradient(135deg, #ffffff 0%, #f6fbf8 100%);
   border: 2px solid #B2DDC9;
   border-radius: 14px;
@@ -6498,6 +6498,25 @@ a.dest-card-premium {
   background: linear-gradient(135deg, #f6fbf8 0%, #eaf6f0 100%);
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(0, 143, 76, 0.15);
+}
+.dest-other-cats-corp .oc-block-tren .oc-item-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dest-other-cats-corp .oc-block-tren .oc-item-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 0.5px dashed rgba(0, 35, 19, 0.18);
+}
+.dest-other-cats-corp .oc-block-tren .oc-item-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #006435;
+  letter-spacing: -0.01em;
 }
 .dest-other-cats-corp .oc-block-tren .oc-item-badge {
   background: #008F4C;
@@ -6516,11 +6535,11 @@ a.dest-card-premium {
   min-width: 0;
 }
 .dest-other-cats-corp .oc-block-tren .oc-item-meta {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 500;
   color: #5a6660;
   letter-spacing: 0.005em;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 .dest-other-cats-corp .oc-block-tren .oc-item-name {
   font-size: 14.5px;
@@ -7119,35 +7138,65 @@ a.dest-card-premium {
           <ul class="oc-items oc-items-transfers">
             <!-- Col 1 — Barcelona -->
             <li class="oc-item">
-              <span class="oc-item-badge">BCN</span>
-              <div class="oc-item-text"><span class="oc-item-name">Sants</span><span class="oc-item-meta">Estación AVE</span></div>
-              <a href="#reservar" class="oc-item-cta">Reservar</a>
+              <div class="oc-item-info">
+                <span class="oc-item-badge">BCN</span>
+                <div class="oc-item-text"><span class="oc-item-name">Sants</span><span class="oc-item-meta">Estación AVE · 60–75 min</span></div>
+              </div>
+              <div class="oc-item-action">
+                <span class="oc-item-price">123€</span>
+                <a href="#reservar" class="oc-item-cta">Reservar →</a>
+              </div>
             </li>
             <li class="oc-item">
-              <span class="oc-item-badge">BCN</span>
-              <div class="oc-item-text"><span class="oc-item-name">Estació del Nord</span><span class="oc-item-meta">Estación de bus</span></div>
-              <a href="#reservar" class="oc-item-cta">Reservar</a>
+              <div class="oc-item-info">
+                <span class="oc-item-badge">BCN</span>
+                <div class="oc-item-text"><span class="oc-item-name">Estació del Nord</span><span class="oc-item-meta">Estación de bus · 50–60 min</span></div>
+              </div>
+              <div class="oc-item-action">
+                <span class="oc-item-price">110€</span>
+                <a href="#reservar" class="oc-item-cta">Reservar →</a>
+              </div>
             </li>
             <li class="oc-item">
-              <span class="oc-item-badge">BCN</span>
-              <div class="oc-item-text"><span class="oc-item-name">Puerto de Barcelona</span><span class="oc-item-meta">Cruceros</span></div>
-              <a href="#reservar" class="oc-item-cta">Reservar</a>
+              <div class="oc-item-info">
+                <span class="oc-item-badge">BCN</span>
+                <div class="oc-item-text"><span class="oc-item-name">Port de Barcelona</span><span class="oc-item-meta">Cruceros · 60–75 min</span></div>
+              </div>
+              <div class="oc-item-action">
+                <span class="oc-item-price">130€</span>
+                <a href="#reservar" class="oc-item-cta">Reservar →</a>
+              </div>
             </li>
-            <!-- Col 2 — Girona y Reus / Perpinyà -->
+            <!-- Col 2 — Girona y resto -->
             <li class="oc-item">
-              <span class="oc-item-badge">GIR</span>
-              <div class="oc-item-text"><span class="oc-item-name">Girona AVE</span><span class="oc-item-meta">Estación AVE</span></div>
-              <a href="#reservar" class="oc-item-cta">Reservar</a>
+              <div class="oc-item-info">
+                <span class="oc-item-badge">GIR</span>
+                <div class="oc-item-text"><span class="oc-item-name">Girona AVE</span><span class="oc-item-meta">Estación AVE · 40–55 min</span></div>
+              </div>
+              <div class="oc-item-action">
+                <span class="oc-item-price">79€</span>
+                <a href="#reservar" class="oc-item-cta">Reservar →</a>
+              </div>
             </li>
             <li class="oc-item">
-              <span class="oc-item-badge">REU</span>
-              <div class="oc-item-text"><span class="oc-item-name">Aeropuerto de Reus</span><span class="oc-item-meta">Aeropuerto</span></div>
-              <a href="#reservar" class="oc-item-cta">Reservar</a>
+              <div class="oc-item-info">
+                <span class="oc-item-badge">REU</span>
+                <div class="oc-item-text"><span class="oc-item-name">Aeropuerto de Reus</span><span class="oc-item-meta">Aeropuerto · 120–140 min</span></div>
+              </div>
+              <div class="oc-item-action">
+                <span class="oc-item-price">290€</span>
+                <a href="#reservar" class="oc-item-cta">Reservar →</a>
+              </div>
             </li>
             <li class="oc-item">
-              <span class="oc-item-badge">PER</span>
-              <div class="oc-item-text"><span class="oc-item-name">Perpinyà</span><span class="oc-item-meta">Aeropuerto · Francia</span></div>
-              <a href="#reservar" class="oc-item-cta">Reservar</a>
+              <div class="oc-item-info">
+                <span class="oc-item-badge">PER</span>
+                <div class="oc-item-text"><span class="oc-item-name">Perpinyà</span><span class="oc-item-meta">Aeropuerto · Francia · 100–120 min</span></div>
+              </div>
+              <div class="oc-item-action">
+                <span class="oc-item-price">243€</span>
+                <a href="#reservar" class="oc-item-cta">Reservar →</a>
+              </div>
             </li>
           </ul>
         </div>
