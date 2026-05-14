@@ -17,12 +17,13 @@
    TARIFAS — Componentes específicos (no presentes en styles.css)
    ===================================================================== */
 
-/* Hero compacto */
+/* Hero — sección normal en flujo (sin parallax) */
 .tarifas-hero {
   position: relative;
-  padding: 110px 24px 56px;
+  padding: 108px 24px 48px;
   background:
-    radial-gradient(ellipse at top right, rgba(243,200,0,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at top right, rgba(243,200,0,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(0,143,76,0.18) 0%, transparent 60%),
     linear-gradient(180deg, #002313 0%, #004726 100%);
   color: #ffffff;
   overflow: hidden;
@@ -33,33 +34,60 @@
   inset: 0;
   background-image: repeating-linear-gradient(45deg, transparent 0, transparent 60px, rgba(243,200,0,0.03) 60px, rgba(243,200,0,0.03) 61px);
   pointer-events: none;
+  z-index: 0;
+}
+/* Blobs decorativos flotantes para reforzar la profundidad del paralax */
+.tarifas-hero::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243,200,0,0.08) 0%, transparent 70%);
+  top: -180px;
+  right: -120px;
+  pointer-events: none;
+  z-index: 0;
+  animation: tarifas-blob-float 14s ease-in-out infinite;
+}
+@keyframes tarifas-blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-20px, 30px) scale(1.05); }
 }
 .tarifas-hero-inner {
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Las secciones después del hero — fondo sólido para evitar cualquier leak */
+.tarifas-filters,
+.tarifas-section,
+.tarifas-oficial,
+.tarifas-includes,
+.tarifas-faq,
+.tarifas-cta-final {
+  position: relative;
+  z-index: 2;
 }
 .tarifas-eyebrow {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   color: #F3C800;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
 }
 .tarifas-eyebrow::before {
-  content: "";
-  width: 28px;
-  height: 2px;
-  background: #F3C800;
-  border-radius: 1px;
+  display: none;
 }
 .tarifas-h1 {
-  font-size: 56px;
+  font-size: 60px;
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -89,11 +117,9 @@
 /* Filtros (chips) */
 .tarifas-filters {
   background: #f8faf6;
-  padding: 18px 24px;
-  position: sticky;
-  top: 72px;
-  z-index: 10;
+  padding: 22px 24px;
   border-bottom: 1px solid #e6ece8;
+  /* sin sticky — para no romper el paralax del hero */
 }
 .tarifas-filters-inner {
   max-width: 1100px;
@@ -131,7 +157,7 @@
 
 /* Grid de tarjetas tarifa */
 .tarifas-section {
-  padding: 56px 24px;
+  padding: 72px 24px;
   background: #ffffff;
 }
 .tarifas-grid {
@@ -160,6 +186,7 @@
   height: 150px;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
 }
 .tarifa-card-image::after {
@@ -167,6 +194,15 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 60%, rgba(0,35,19,0.55) 100%);
+}
+/* Variante: logo/marca centrado (no foto fondo completo) */
+.tarifa-card-image-contain {
+  background-size: contain;
+  background-color: #ffffff;
+  background-position: center;
+}
+.tarifa-card-image-contain::after {
+  display: none;
 }
 .tarifa-card-category {
   position: absolute;
@@ -269,7 +305,7 @@
 
 /* Sección "Tarifa oficial regulada" */
 .tarifas-oficial {
-  padding: 56px 24px;
+  padding: 72px 24px;
   background: linear-gradient(180deg, #ffffff 0%, #f8faf6 100%);
 }
 .tarifas-oficial-inner {
@@ -281,26 +317,29 @@
   align-items: center;
 }
 .tarifas-oficial-text .tarifas-eyebrow {
-  color: #B07F00;
-  margin-bottom: 12px;
+  color: #006435;
+  margin-bottom: 14px;
 }
 .tarifas-oficial-text .tarifas-eyebrow::before {
-  background: #F3C800;
+  display: none;
 }
 .tarifas-oficial-text h2 {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 800;
-  color: #1a2620;
-  margin: 0 0 16px;
+  color: #002313;
+  margin: 0 0 18px;
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
+}
+.tarifas-oficial-text h2 .accent {
+  color: #008F4C;
 }
 .tarifas-oficial-text p {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: #2d3631;
-  line-height: 1.6;
-  margin: 0 0 20px;
+  line-height: 1.65;
+  margin: 0 0 22px;
 }
 .tarifas-oficial-text p strong {
   color: #008F4C;
@@ -396,77 +435,191 @@
   font-style: italic;
 }
 
-/* Sección "Qué incluye tu tarifa" */
+/* ====================================================================
+   Sección "Qué incluye" — mismo estilo que .trust-card-aligned del index
+   (eyebrow + título con acento + cards con hover effects completos)
+   ==================================================================== */
 .tarifas-includes {
-  padding: 56px 24px;
+  padding: 72px 24px;
   background: linear-gradient(180deg, #f8faf6 0%, #ffffff 100%);
 }
 .tarifas-includes-inner {
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
 }
-.tarifas-section-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: #1a2620;
-  margin: 0 0 8px;
+
+/* Cabecera de sección (eyebrow + título + subtítulo) — replica el patrón del index */
+.tarifas-section-header {
   text-align: center;
-  letter-spacing: -0.01em;
+  margin-bottom: 44px;
+}
+.tarifas-section-header-eyebrow {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #006435;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  display: inline-block;
+}
+.tarifas-section-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #002313;
+  margin: 0 0 12px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.tarifas-section-title .accent {
+  color: #008F4C;
+  position: relative;
+  display: inline-block;
 }
 .tarifas-section-subtitle {
-  font-size: 15px;
+  font-size: 16px;
   color: #5a6660;
   font-weight: 500;
-  text-align: center;
-  margin: 0 0 36px;
-  font-style: italic;
+  margin: 0;
+  line-height: 1.5;
 }
+
+/* Grid de cards */
 .includes-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
+
+/* Card individual — clonada de .trust-card-aligned del index */
 .includes-card {
   background: white;
   border-radius: 14px;
-  border: 1px solid #e6ece8;
-  padding: 22px 18px 20px;
-  text-align: center;
+  padding: 28px 18px 24px;
   position: relative;
-  border-top: 3px solid #008F4C;
+  overflow: hidden;
+  border: 0.5px solid #e0e6e2;
+  box-shadow: 0 4px 16px rgba(0,143,76,0.06);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.includes-card.gold { border-top-color: #F3C800; }
-.includes-card .ico {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #EAF6F0;
-  color: #008F4C;
-  margin: 0 auto 14px;
-  display: inline-flex;
+.includes-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #008F4C 0%, #F3C800 100%);
+  transform: scaleX(0.4);
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+.includes-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,143,76,0.18);
+  border-color: #B2DDC9;
+}
+.includes-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Icono con doble anillo */
+.includes-card .icon-wrap {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 8px auto 18px;
+  display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.4s ease;
 }
-.includes-card.gold .ico { background: #FFF6CC; color: #B07F00; }
-.includes-card .ico svg { width: 22px; height: 22px; }
+.includes-card .icon-circle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #D8EEE4;
+  transition: background 0.35s ease, transform 0.35s ease;
+}
+.includes-card .icon-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px dashed #B2DDC9;
+  transition: transform 0.6s ease, border-color 0.35s ease;
+}
+.includes-card:hover .icon-circle {
+  background: #008F4C;
+  transform: scale(1.05);
+}
+.includes-card:hover .icon-ring {
+  transform: rotate(45deg) scale(1.08);
+  border-color: #F3C800;
+}
+.includes-card .icon-svg {
+  position: relative;
+  z-index: 1;
+  fill: #008F4C;
+  width: 24px;
+  height: 24px;
+  transition: fill 0.35s ease, transform 0.4s ease;
+}
+.includes-card:hover .icon-svg {
+  fill: white;
+  transform: scale(1.1);
+}
+
+/* Texto */
 .includes-card h4 {
-  font-size: 14px;
-  font-weight: 800;
-  color: #1a2620;
-  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2a24;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: color 0.3s ease;
   letter-spacing: -0.005em;
 }
+.includes-card:hover h4 {
+  color: #008F4C;
+}
+.includes-card h4 .check {
+  color: #008F4C;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.includes-card:hover h4 .check {
+  transform: scale(1.3);
+}
 .includes-card p {
-  font-size: 12.5px;
-  font-weight: 500;
-  color: #2d3631;
-  line-height: 1.45;
+  font-size: 13px;
+  color: #5a6660;
+  line-height: 1.5;
   margin: 0;
+  font-weight: 500;
+}
+
+/* Glow dorado en hover */
+.includes-card .hover-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center top, rgba(243,200,0,0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.includes-card:hover .hover-glow {
+  opacity: 1;
 }
 
 /* FAQ */
 .tarifas-faq {
-  padding: 56px 24px 64px;
+  padding: 72px 24px 80px;
   background: #ffffff;
 }
 .faq-inner {
@@ -480,12 +633,13 @@
   width: 100%;
   background: none;
   border: none;
-  padding: 20px 0;
+  padding: 22px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: #1a2620;
   text-align: left;
@@ -494,8 +648,8 @@
 }
 .faq-question:hover { color: #008F4C; }
 .faq-toggle {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   color: #008F4C;
   transition: transform 0.25s ease;
@@ -507,11 +661,11 @@
   transition: max-height 0.35s ease, padding 0.35s ease;
 }
 .faq-answer-inner {
-  padding: 0 0 22px;
-  font-size: 14px;
+  padding: 0 0 24px;
+  font-size: 15px;
   font-weight: 500;
   color: #2d3631;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 .faq-answer-inner strong { color: #008F4C; font-weight: 800; }
 .faq-item.open .faq-answer { max-height: 220px; }
@@ -523,6 +677,177 @@
 }
 .tarifas-cta-final-inner { max-width: 1100px; margin: 0 auto; }
 
+/* ===== CTA TAXI YA (mismo botón gold pulsante del index) ===== */
+.tarifas-hero .hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+.tarifas-hero .btn-amber-rich {
+  background: #F3C800;
+  color: #002313;
+  padding: 18px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  border: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0 12px 32px rgba(243,200,0,0.5), 0 0 0 4px rgba(243,200,0,0.15);
+  animation: tarifas-btn-call-pulse 2.5s ease-in-out infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@keyframes tarifas-btn-call-pulse {
+  0%, 100% { box-shadow: 0 12px 32px rgba(243,200,0,0.5), 0 0 0 4px rgba(243,200,0,0.15); }
+  50%      { box-shadow: 0 14px 40px rgba(243,200,0,0.6), 0 0 0 8px rgba(243,200,0,0.05); }
+}
+.tarifas-hero .btn-amber-rich:hover {
+  animation: none;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 48px rgba(243,200,0,0.65), 0 0 0 6px rgba(243,200,0,0.25), 0 0 60px rgba(243,200,0,0.3);
+}
+.tarifas-hero .btn-amber-rich .btn-icon {
+  background: #002313;
+  color: #F3C800;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tarifas-hero .btn-amber-rich .btn-icon svg {
+  fill: #F3C800;
+  width: 20px;
+  height: 20px;
+  display: block;
+  animation: tarifas-phone-shake 3s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes tarifas-phone-shake {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  90% { transform: rotate(-15deg); }
+  92% { transform: rotate(15deg); }
+  94% { transform: rotate(-10deg); }
+  96% { transform: rotate(8deg); }
+  98% { transform: rotate(0deg); }
+}
+.tarifas-hero .btn-amber-rich:hover .btn-icon {
+  transform: rotate(-12deg) scale(1.1);
+}
+.tarifas-hero .btn-amber-rich:hover .btn-icon svg {
+  animation: none;
+}
+.tarifas-hero .btn-amber-rich .btn-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
+.tarifas-hero .btn-amber-rich .btn-line1 {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.tarifas-hero .btn-amber-rich .btn-line2 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 3px;
+  letter-spacing: 0.005em;
+  opacity: 0.85;
+}
+
+/* ===== Frase humana 24/7 en hero (igual que index) ===== */
+.tarifas-hero .humans-phrase {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+.tarifas-hero .hp-dot {
+  width: 12px;
+  height: 12px;
+  background: #00C853;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.25);
+  animation: hp-dot-pulse 1.8s ease-in-out infinite;
+}
+@keyframes hp-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.25); }
+  50%      { box-shadow: 0 0 0 6px rgba(0, 200, 83, 0); }
+}
+.tarifas-hero .hp-text-line {
+  font-size: 21px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+}
+.tarifas-hero .hp-text-line strong {
+  color: #F3C800;
+  font-weight: 800;
+}
+
+/* ===== Mini stats bar (sustituye visualmente la foto del hero del index) ===== */
+.tarifas-hero-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(243, 200, 0, 0.22);
+  flex-wrap: wrap;
+}
+.tarifas-hero-stat {
+  display: flex;
+  flex-direction: column;
+}
+.tarifas-hero-stat-num {
+  color: #FFD940;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.tarifas-hero-stat-lbl {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 8px;
+  letter-spacing: 0.01em;
+}
+
+/* ===== CTA principal estilo gold pill (igual al btn-amber del index) ===== */
+.tarifas-oficial-btn.primary {
+  background: #F3C800;
+  color: #002313;
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  box-shadow: 0 6px 20px rgba(243, 200, 0, 0.4);
+  text-transform: uppercase;
+  border: none;
+}
+.tarifas-oficial-btn.primary:hover {
+  background: #FFD940;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(243, 200, 0, 0.5);
+}
+.tarifas-oficial-btn.secondary {
+  border-radius: 999px;
+  padding: 16px 28px;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 980px) {
   .tarifas-grid { grid-template-columns: repeat(2, 1fr); }
@@ -531,24 +856,48 @@
   .tarifas-oficial-img-wrap { max-width: 320px; }
 }
 @media (max-width: 640px) {
-  .tarifas-hero { padding: 90px 20px 40px; }
-  .tarifas-h1 { font-size: 32px; letter-spacing: -0.025em; }
+  /* Desactivamos sticky parallax en móvil (rendimiento + UX) */
+  .tarifas-hero {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    padding: 130px 20px 36px;
+    display: block;
+  }
+  .tarifas-hero::after { display: none; }
+  .tarifas-h1 { font-size: 34px; letter-spacing: -0.025em; }
   .tarifas-subhead { font-size: 14px; }
-  .tarifas-filters { padding: 14px 20px; top: 60px; }
+  .tarifas-section-title { font-size: 26px; letter-spacing: -0.015em; }
+  .tarifas-section-subtitle { font-size: 14px; margin-bottom: 28px; }
+  .tarifas-eyebrow { font-size: 12px; letter-spacing: 0.16em; }
+  .tarifas-hero .hp-text-line,
+  .tarifas-hero .hp-text-line strong { font-size: 17px; }
+  .tarifas-hero-stats { gap: 24px; margin-top: 28px; padding-top: 22px; }
+  .tarifas-hero-stat-num { font-size: 26px; }
+  .tarifas-hero-stat-lbl { font-size: 11.5px; }
+  .tarifas-hero .hero-cta { margin-top: 22px; width: 100%; }
+  .tarifas-hero .btn-amber-rich { padding: 14px 22px; gap: 12px; width: 100%; justify-content: center; }
+  .tarifas-hero .btn-amber-rich .btn-icon { width: 40px; height: 40px; }
+  .tarifas-hero .btn-amber-rich .btn-line1 { font-size: 15px; }
+  .tarifas-hero .btn-amber-rich .btn-line2 { font-size: 12.5px; }
+  .tarifas-filters { padding: 14px 20px; }
   .tarifas-chip { padding: 6px 12px; font-size: 12px; }
-  .tarifas-section { padding: 36px 20px; }
+  .tarifas-section { padding: 48px 20px; }
   .tarifas-grid { grid-template-columns: 1fr; }
-  .tarifas-includes { padding: 40px 20px; }
-  .tarifas-section-title { font-size: 22px; }
-  .tarifas-section-subtitle { font-size: 13px; margin-bottom: 26px; }
+  .tarifas-includes { padding: 48px 20px; }
+  .tarifas-section-header { margin-bottom: 32px; }
+  .tarifas-section-header-eyebrow { font-size: 12px; letter-spacing: 0.16em; }
   .includes-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .includes-card { padding: 18px 12px 14px; }
-  .includes-card .ico { width: 44px; height: 44px; }
-  .tarifas-faq { padding: 36px 20px 40px; }
-  .faq-question { font-size: 14.5px; padding: 16px 0; }
-  .faq-answer-inner { font-size: 13px; padding-bottom: 18px; }
-  .tarifas-oficial { padding: 40px 20px; }
-  .tarifas-oficial-text h2 { font-size: 24px; }
+  .includes-card { padding: 22px 14px 18px; }
+  .includes-card .icon-wrap { width: 52px; height: 52px; margin-bottom: 14px; }
+  .includes-card .icon-svg { width: 20px; height: 20px; }
+  .includes-card h4 { font-size: 14.5px; }
+  .includes-card p { font-size: 12.5px; }
+  .tarifas-faq { padding: 48px 20px 56px; }
+  .faq-question { font-size: 15px; padding: 18px 0; }
+  .faq-answer-inner { font-size: 13.5px; padding-bottom: 20px; }
+  .tarifas-oficial { padding: 48px 20px; }
+  .tarifas-oficial-text h2 { font-size: 26px; }
   .tarifas-oficial-text p { font-size: 14px; }
   .tarifas-oficial-img-wrap { max-width: 280px; padding: 10px; }
 }
@@ -566,7 +915,7 @@
   <div class="menu">
     <a href="index.html">Inicio</a>
     <a href="tarifas.html" class="active">Tarifas</a>
-    <a href="#">Nosotros</a>
+    <a href="quienes-somos.html">Nosotros</a>
     <a href="#">Preferent</a>
   </div>
   <div class="lang">
@@ -584,6 +933,41 @@
     <div class="tarifas-eyebrow">Tarifas 2026</div>
     <h1 class="tarifas-h1">Precio fijo, sin sorpresas. Desde <span class="price-hl">64 €</span>.</h1>
     <p class="tarifas-subhead">Tarifas <strong>reguladas por la administración</strong>. El mismo precio reservando online, llamando o por email — todo cerrado antes de salir.</p>
+
+    <!-- CTA Llamar (igual que index) -->
+    <div class="hero-cta">
+      <a class="btn-amber-rich" href="tel:+34937678571">
+        <span class="btn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" style="width:18px;height:18px;"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></span>
+        <span class="btn-content">
+          <span class="btn-line1">Taxi ya</span>
+          <span class="btn-line2">+34 937 67 85 71</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Frase humana 24/7 (igual que index) -->
+    <div class="humans-phrase">
+      <span class="hp-dot"></span>
+      <span class="hp-text-line">
+        Tienes <strong>una persona</strong> 24/7 para atenderte, sin robots
+      </span>
+    </div>
+
+    <!-- Mini stats bar -->
+    <div class="tarifas-hero-stats">
+      <div class="tarifas-hero-stat">
+        <span class="tarifas-hero-stat-num">1998</span>
+        <span class="tarifas-hero-stat-lbl">Servicio oficial desde</span>
+      </div>
+      <div class="tarifas-hero-stat">
+        <span class="tarifas-hero-stat-num">100%</span>
+        <span class="tarifas-hero-stat-lbl">Tarifa regulada</span>
+      </div>
+      <div class="tarifas-hero-stat">
+        <span class="tarifas-hero-stat-num">24/7</span>
+        <span class="tarifas-hero-stat-lbl">Atención persona real</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -806,7 +1190,7 @@
 
     <!-- 9. PortAventura -->
     <article class="tarifa-card" data-category="ocio">
-      <div class="tarifa-card-image" style="background-image: url('https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=600&q=80&auto=format&fit=crop');">
+      <div class="tarifa-card-image tarifa-card-image-contain" style="background-image: url('images/logo-portaventura.webp');">
         <span class="tarifa-card-category">Ocio</span>
       </div>
       <div class="tarifa-card-body">
@@ -836,8 +1220,8 @@
 <section class="tarifas-oficial">
   <div class="tarifas-oficial-inner">
     <div class="tarifas-oficial-text">
-      <div class="tarifas-eyebrow">Tarifa oficial 2026</div>
-      <h2>Lista oficial regulada por la administración</h2>
+      <div class="tarifas-section-header-eyebrow">TARIFA OFICIAL 2026</div>
+      <h2>Lista oficial <span class="accent">regulada</span> por la administración</h2>
       <p>Todas nuestras tarifas están <strong>aprobadas y publicadas oficialmente</strong> por la administración competente. El precio que ves en cada destino se corresponde exactamente con el cartel oficial, sin recargos ocultos ni variaciones.</p>
       <div class="tarifas-oficial-badges">
         <span class="tarifas-oficial-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Tarifas aprobadas</span>
@@ -865,29 +1249,59 @@
 <!-- ====== QUÉ INCLUYE TU TARIFA ====== -->
 <section class="tarifas-includes">
   <div class="tarifas-includes-inner">
-    <h2 class="tarifas-section-title">Qué incluye tu tarifa</h2>
-    <p class="tarifas-section-subtitle">Sin extras, sin sorpresas. El precio que ves es el que pagas.</p>
+
+    <div class="tarifas-section-header">
+      <div class="tarifas-section-header-eyebrow">QUÉ INCLUYE TU TARIFA</div>
+      <h2 class="tarifas-section-title">Sin extras, sin sorpresas. <span class="accent">Todo dentro</span>.</h2>
+      <p class="tarifas-section-subtitle">El precio que ves es el precio que pagas.</p>
+    </div>
+
     <div class="includes-grid">
-      <div class="includes-card gold">
-        <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"/><path d="M3 12h18"/><path d="M5 18h14"/><path d="M7 18v3"/><path d="M17 18v3"/></svg></div>
-        <h4>Peajes incluidos</h4>
+
+      <div class="includes-card">
+        <div class="hover-glow"></div>
+        <div class="icon-wrap">
+          <div class="icon-circle"></div>
+          <div class="icon-ring"></div>
+          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M14 2.2C22.5-1.7 32.5-.3 39.6 5.8L80 40.4 120.4 5.8c9-7.7 22.3-7.7 31.2 0L192 40.4 232.4 5.8c9-7.7 22.3-7.7 31.2 0L304 40.4 344.4 5.8c7.1-6.1 17.1-7.5 25.6-3.6S384 14.7 384 24V488c0 9.3-5.4 17.7-13.9 21.6s-18.5 2.4-25.6-3.6L304 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L192 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L80 471.6 39.6 506.2c-7.1 6.1-17.1 7.5-25.6 3.6S0 497.3 0 488V24C0 14.7 5.4 6.3 14 2.2zM96 144c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96zm0 96c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96zm0 96c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z"/></svg>
+        </div>
+        <h4><span class="check">✓</span> Peajes incluidos</h4>
         <p>Sin extras al final. Todo lo que ves está dentro.</p>
       </div>
+
       <div class="includes-card">
-        <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.01h.01"/><path d="M15 12.01h.01"/><path d="M9.5 16a2.5 2.5 0 0 0 5 0"/><path d="M19 18.59A9 9 0 1 0 5 19"/><path d="M12 22v-3"/></svg></div>
-        <h4>Sillitas gratis</h4>
-        <p>Para bebés y niños. Sin coste, solo avísanos al reservar.</p>
+        <div class="hover-glow"></div>
+        <div class="icon-wrap">
+          <div class="icon-circle"></div>
+          <div class="icon-ring"></div>
+          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M152 88a72 72 0 1 1 144 0A72 72 0 1 1 152 88zM39.7 144.5c13-17.9 38-21.8 55.9-8.8L131.8 162c26.8 19.5 59.1 30 92.2 30s65.4-10.5 92.2-30l36.2-26.4c17.9-13 42.9-9 55.9 8.8s9 42.9-8.8 55.9l-36.2 26.4c-13.6 9.9-28.1 18.2-43.3 24.8l79 35.6 24.7-49.4c9.9-19.8 33.9-27.8 53.6-17.9s27.8 33.9 17.9 53.6l-48 96c-9.9 19.8-33.9 27.8-53.6 17.9L297.7 384 256 384l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-128.9-31.9 14.4 25 49.9c9.9 19.8 1.8 43.9-17.9 53.7s-43.9 1.8-53.7-17.9l-48-96c-9.9-19.8-1.8-43.9 17.9-53.7s43.9-1.8 53.7 17.9L150.9 313 230 277.4c-15.3-6.6-29.8-14.9-43.5-24.8l-36.2-26.4c-17.9-13-21.8-38-8.8-55.9z"/></svg>
+        </div>
+        <h4><span class="check">✓</span> Sillitas gratis</h4>
+        <p>Para bebés y niños. Sin coste, avisanos al reservar.</p>
       </div>
+
       <div class="includes-card">
-        <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 11.5C14 10.119 12.881 9 11.5 9S9 10.119 9 11.5 10.119 14 11.5 14"/><path d="M16 9a4 4 0 0 1 0 8"/><path d="m13 8 4-4"/><path d="M21 5h-4"/><circle cx="11.5" cy="11.5" r="6.5"/></svg></div>
-        <h4>Accesible</h4>
+        <div class="hover-glow"></div>
+        <div class="icon-wrap">
+          <div class="icon-circle"></div>
+          <div class="icon-ring"></div>
+          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M160 48A48 48 0 1 1 256 48 48 48 0 1 1 160 48zM124.6 198.7l52.1 25.2 79.7 0c17.7 0 32 14.3 32 32s-14.3 32-32 32H156.5l0 0c-12.2 0-23.4-7-28.7-18l-13.1-26.9-2.6-1.3C77 226.4 64 257.6 64 287.6c0 51 35.7 95.7 86.7 105.3c14 2.6 24.6 14.2 24.6 28.5c0 18.8-16.9 33.4-35.4 30.1C61 437.1 0 365.8 0 287.6C0 219.5 47 156.7 112 130l12.6 68.7zM192 256l0-66.7 88 42.5c14.7 7.1 28.6 15.6 41.7 25.4l63.7-43.6c14.6-10 34.5-6.2 44.5 8.4s6.2 34.5-8.4 44.5L373.4 305c2.1 5.2 4 10.6 5.7 16l54.9 0c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c0 39.4-15.9 75.1-41.7 100.9C322.6 510.9 287 512 256 512c-31.1 0-66.6-1.1-86.3-20.2C144.4 466.6 128 430 128 384V216l64 40z"/></svg>
+        </div>
+        <h4><span class="check">✓</span> Accesible</h4>
         <p>Espacio para silla de ruedas y rampa disponible.</p>
       </div>
+
       <div class="includes-card">
-        <div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></div>
-        <h4>Pet-friendly</h4>
+        <div class="hover-glow"></div>
+        <div class="icon-wrap">
+          <div class="icon-circle"></div>
+          <div class="icon-ring"></div>
+          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.7-15.6-85-58.5s.3-86.2 32.6-96.8s70.7 15.6 85 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.7-69.1 85-58.5s46.9 53.9 32.6 96.8s-52.7 69.1-85 58.5z"/></svg>
+        </div>
+        <h4><span class="check">✓</span> Pet-friendly</h4>
         <p>Tu mascota viaja contigo. Sin recargo extra.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -895,8 +1309,12 @@
 <!-- ====== FAQ ====== -->
 <section class="tarifas-faq" aria-label="Preguntas frecuentes">
   <div class="faq-inner">
-    <h2 class="tarifas-section-title">Preguntas frecuentes</h2>
-    <p class="tarifas-section-subtitle">Todo lo que necesitas saber sobre nuestras tarifas.</p>
+
+    <div class="tarifas-section-header">
+      <div class="tarifas-section-header-eyebrow">PREGUNTAS FRECUENTES</div>
+      <h2 class="tarifas-section-title">Todo lo que <span class="accent">necesitas saber</span></h2>
+      <p class="tarifas-section-subtitle">Las dudas más comunes sobre nuestras tarifas, resueltas.</p>
+    </div>
 
     <div class="faq-item">
       <button class="faq-question" aria-expanded="false">
@@ -1060,6 +1478,9 @@ document.querySelectorAll('.faq-question').forEach(q => {
   update();
   window.addEventListener("scroll", update, { passive: true });
 })();
+
+// Parallax desactivado — el hero scrollea normalmente como cualquier sección.
+// Si más adelante quieres parallax, podemos volver a implementarlo.
 </script>
 
 </body>
