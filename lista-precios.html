@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de precios 2026 · Taxi Santa Susanna · Todas las tarifas</title>
+<meta name="description" content="Lista oficial completa de tarifas 2026 reguladas. Más de 45 destinos: aeropuertos, estaciones AVE, Barcelona, Girona, Lloret, Tossa, Costa del Maresme y Santa Susanna local.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=20260514b">
+
+<style>
+/* =====================================================================
+   LISTA DE PRECIOS — Componentes específicos
+   ===================================================================== */
+
+/* Hero compacto */
+.lp-hero {
+  position: relative;
+  padding: 108px 24px 48px;
+  background:
+    radial-gradient(ellipse at top right, rgba(243,200,0,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(0,143,76,0.18) 0%, transparent 60%),
+    linear-gradient(180deg, #002313 0%, #004726 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+.lp-hero-inner { max-width: 1280px; margin: 0 auto; }
+.lp-eyebrow {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #F3C800;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.lp-h1 {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+  max-width: 820px;
+}
+.lp-h1 .accent { color: #FFD940; }
+.lp-subhead {
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.55;
+  max-width: 720px;
+  margin: 0;
+}
+.lp-subhead strong { color: #FFD940; font-weight: 800; }
+
+/* Quick stats */
+.lp-quickstats {
+  display: flex;
+  gap: 48px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(243,200,0,0.22);
+  flex-wrap: wrap;
+}
+.lp-quickstat-num { color: #FFD940; font-size: 32px; font-weight: 800; line-height: 1; }
+.lp-quickstat-lbl { color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 500; margin-top: 8px; }
+
+/* Search + filters bar */
+.lp-toolbar {
+  background: #f8faf6;
+  padding: 24px;
+  border-bottom: 1px solid #e6ece8;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.lp-toolbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.lp-search {
+  position: relative;
+  flex: 1 1 280px;
+  min-width: 240px;
+}
+.lp-search-input {
+  width: 100%;
+  padding: 13px 16px 13px 46px;
+  border-radius: 999px;
+  border: 1.5px solid #d8e0db;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a2620;
+  background: white;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+.lp-search-input:focus {
+  border-color: #008F4C;
+  box-shadow: 0 0 0 4px rgba(0,143,76,0.12);
+}
+.lp-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #5a6660;
+  pointer-events: none;
+}
+.lp-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.lp-chip {
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: white;
+  border: 1.5px solid #d8e0db;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2d3631;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: inherit;
+}
+.lp-chip:hover { border-color: #008F4C; color: #008F4C; }
+.lp-chip.is-active {
+  background: #008F4C;
+  border-color: #008F4C;
+  color: white;
+}
+.lp-chip-count {
+  display: inline-block;
+  background: rgba(255,255,255,0.22);
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+.lp-chip:not(.is-active) .lp-chip-count {
+  background: #EAF6F0;
+  color: #006435;
+}
+
+/* Featured services */
+.lp-featured {
+  padding: 56px 24px 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8faf6 100%);
+}
+.lp-featured-inner { max-width: 1280px; margin: 0 auto; }
+.lp-featured-eyebrow {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #006435;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  text-align: center;
+  display: block;
+}
+.lp-featured-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #002313;
+  margin: 0 0 8px;
+  text-align: center;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.lp-featured-title .accent { color: #008F4C; }
+.lp-featured-sub {
+  font-size: 15px;
+  font-weight: 500;
+  color: #5a6660;
+  text-align: center;
+  margin: 0 0 32px;
+}
+
+.lp-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.lp-featured-card {
+  background: white;
+  border-radius: 14px;
+  padding: 22px 18px 18px;
+  position: relative;
+  overflow: hidden;
+  border: 0.5px solid #e0e6e2;
+  box-shadow: 0 6px 20px rgba(0,143,76,0.08);
+  cursor: default;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.lp-featured-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #008F4C 0%, #F3C800 100%);
+}
+.lp-featured-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0,143,76,0.16);
+}
+.lp-featured-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lp-featured-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #D8EEE4 0%, #B2DDC9 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #006435;
+}
+.lp-featured-icon svg { width: 22px; height: 22px; }
+.lp-featured-code {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #5a6660;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.lp-featured-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1a2620;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+.lp-featured-time {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5a6660;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 6px;
+}
+.lp-featured-time svg { width: 13px; height: 13px; color: #008F4C; }
+.lp-featured-prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #e0e6e2;
+}
+.lp-price-cell {
+  display: flex;
+  flex-direction: column;
+}
+.lp-price-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+.lp-price-tag.day { color: #B07F00; }
+.lp-price-tag.night { color: #2d3a8f; }
+.lp-price-tag svg { width: 11px; height: 11px; }
+.lp-price-amt {
+  font-size: 22px;
+  font-weight: 800;
+  color: #006435;
+  letter-spacing: -0.02em;
+}
+
+/* Full list — grouped sections */
+.lp-list-section {
+  padding: 32px 24px 16px;
+  background: #ffffff;
+}
+.lp-list-section:nth-of-type(even) {
+  background: #f8faf6;
+}
+.lp-list-inner { max-width: 1280px; margin: 0 auto; }
+
+.lp-group {
+  margin-bottom: 32px;
+}
+.lp-group-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e6ece8;
+}
+.lp-group-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #EAF6F0;
+  color: #006435;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.lp-group-icon svg { width: 18px; height: 18px; }
+.lp-group-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a2620;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.lp-group-count {
+  font-size: 12px;
+  color: #5a6660;
+  margin-left: auto;
+  font-weight: 600;
+}
+
+.lp-rows {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.lp-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  background: white;
+  border: 1px solid #e6ece8;
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.lp-list-section:nth-of-type(even) .lp-row { background: white; }
+.lp-row:hover {
+  border-color: #B2DDC9;
+  box-shadow: 0 6px 16px rgba(0,143,76,0.08);
+  transform: translateY(-1px);
+}
+.lp-row-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a2620;
+  letter-spacing: -0.005em;
+}
+.lp-row-prices {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+.lp-row-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1;
+}
+.lp-row-price-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.lp-row-price-label.day { color: #B07F00; }
+.lp-row-price-label.night { color: #2d3a8f; }
+.lp-row-price-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: #006435;
+  letter-spacing: -0.01em;
+}
+
+/* Hide row when filtered out */
+.lp-row.is-hidden { display: none; }
+.lp-group.is-empty { display: none; }
+
+/* Empty state */
+.lp-empty {
+  text-align: center;
+  padding: 60px 24px;
+  color: #5a6660;
+  font-size: 16px;
+  font-weight: 500;
+  display: none;
+}
+.lp-empty.is-visible { display: block; }
+.lp-empty svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  color: #B2DDC9;
+}
+
+/* Santa Susanna zones (local supplements) */
+.lp-zones {
+  padding: 56px 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8faf6 100%);
+}
+.lp-zones-inner { max-width: 1100px; margin: 0 auto; }
+.lp-zones-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.lp-zone-card {
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #e6ece8;
+  padding: 22px 18px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.lp-zone-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--zone-color, #008F4C);
+}
+.lp-zone-card[data-zone="A"] { --zone-color: #008F4C; }
+.lp-zone-card[data-zone="B"] { --zone-color: #B07F00; }
+.lp-zone-card[data-zone="C"] { --zone-color: #c75300; }
+.lp-zone-card[data-zone="D"] { --zone-color: #c2185b; }
+.lp-zone-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--zone-color);
+  color: white;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.lp-zone-supp {
+  font-size: 28px;
+  font-weight: 800;
+  color: #002313;
+  margin: 0 0 6px;
+}
+.lp-zone-supp .plus { color: #008F4C; }
+.lp-zone-streets {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5a6660;
+  line-height: 1.45;
+}
+.lp-zones-base {
+  background: white;
+  border: 1px solid #e6ece8;
+  border-radius: 14px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.lp-zones-base-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #EAF6F0;
+  color: #006435;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 999px;
+}
+.lp-zones-base-pill strong { font-weight: 800; }
+.lp-zones-note {
+  font-size: 13px;
+  font-weight: 500;
+  color: #5a6660;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Info section (horarios, PAX, pagos) */
+.lp-info {
+  padding: 56px 24px;
+  background: #ffffff;
+}
+.lp-info-inner { max-width: 1280px; margin: 0 auto; }
+.lp-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.lp-info-card {
+  background: white;
+  border-radius: 14px;
+  border: 0.5px solid #e0e6e2;
+  padding: 24px 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,143,76,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.lp-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,143,76,0.12);
+}
+.lp-info-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #008F4C 0%, #F3C800 100%);
+}
+.lp-info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #EAF6F0;
+  color: #008F4C;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.lp-info-icon svg { width: 22px; height: 22px; }
+.lp-info-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1a2620;
+  margin: 0 0 8px;
+  letter-spacing: -0.005em;
+}
+.lp-info-text {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #2d3631;
+  line-height: 1.55;
+  margin: 0;
+}
+.lp-info-text strong { color: #006435; font-weight: 800; }
+.lp-info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2d3631;
+  margin-top: 8px;
+}
+.lp-info-row .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.lp-info-row .dot.day { background: #F3C800; }
+.lp-info-row .dot.night { background: #2d3a8f; }
+.lp-info-row span:last-child { color: #5a6660; font-weight: 500; }
+
+/* Pay cards mini-row */
+.lp-pay-icons {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.lp-pay-pill {
+  padding: 6px 12px;
+  background: #f8faf6;
+  border: 1px solid #e0e6e2;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #2d3631;
+  letter-spacing: 0.02em;
+}
+
+/* CTA Final */
+.lp-cta-final {
+  padding: 16px 24px 64px;
+  background: #ffffff;
+}
+.lp-cta-final-inner { max-width: 1100px; margin: 0 auto; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .lp-featured-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-rows { grid-template-columns: repeat(2, 1fr); }
+  .lp-zones-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-info-grid { grid-template-columns: 1fr; }
+  .lp-h1 { font-size: 42px; }
+}
+@media (max-width: 640px) {
+  .lp-hero { padding: 130px 20px 36px; }
+  .lp-h1 { font-size: 32px; letter-spacing: -0.025em; }
+  .lp-subhead { font-size: 14px; }
+  .lp-quickstats { gap: 24px; margin-top: 22px; padding-top: 18px; }
+  .lp-quickstat-num { font-size: 24px; }
+  .lp-quickstat-lbl { font-size: 11.5px; }
+  .lp-toolbar { padding: 16px 18px; top: 0; }
+  .lp-toolbar-inner { gap: 12px; }
+  .lp-chip { padding: 7px 12px; font-size: 12px; }
+  .lp-featured { padding: 40px 18px 18px; }
+  .lp-featured-title { font-size: 24px; }
+  .lp-featured-sub { font-size: 13px; margin-bottom: 24px; }
+  .lp-featured-grid { grid-template-columns: 1fr; gap: 12px; }
+  .lp-list-section { padding: 24px 18px 8px; }
+  .lp-rows { grid-template-columns: 1fr; gap: 6px; }
+  .lp-row { padding: 14px 14px; }
+  .lp-row-name { font-size: 14.5px; }
+  .lp-row-price-val { font-size: 17px; }
+  .lp-group-title { font-size: 17px; }
+  .lp-zones { padding: 40px 18px; }
+  .lp-zones-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .lp-zone-card { padding: 18px 12px; }
+  .lp-zone-letter { width: 40px; height: 40px; font-size: 19px; }
+  .lp-zone-supp { font-size: 24px; }
+  .lp-zone-streets { font-size: 11.5px; }
+  .lp-info { padding: 40px 18px; }
+  .lp-cta-final { padding: 16px 18px 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" aria-label="Navegación principal">
+  <div class="logo">
+    <a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Taxi Santa Susanna - Taxi oficial 24/7" class="logo-official">
+    </a>
+  </div>
+  <div class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="tarifas.html" class="active">Tarifas</a>
+    <a href="quienes-somos.html">Nosotros</a>
+    <a href="#">Preferent</a>
+  </div>
+  <div class="lang">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-globe" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    ES
+    <svg class="lang-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+  </div>
+</nav>
+
+<main>
+
+<!-- ====== HERO ====== -->
+<section class="lp-hero">
+  <div class="lp-hero-inner">
+    <div class="lp-eyebrow">Lista completa de precios 2026</div>
+    <h1 class="lp-h1">Todas las tarifas, <span class="accent">reguladas</span> y a la vista.</h1>
+    <p class="lp-subhead">Más de <strong>45 destinos</strong> con precio fijo aprobado por la administración. <strong>Sin taxímetro</strong>, sin sorpresas. Busca tu destino, filtra por zona o consulta la lista entera.</p>
+    <div class="lp-quickstats">
+      <div><div class="lp-quickstat-num" id="lp-total-destinos">47</div><div class="lp-quickstat-lbl">Destinos con tarifa fija</div></div>
+      <div><div class="lp-quickstat-num">1-4</div><div class="lp-quickstat-lbl">PAX precio cerrado</div></div>
+      <div><div class="lp-quickstat-num">24/7</div><div class="lp-quickstat-lbl">Servicio todo el año</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TOOLBAR (search + filtros) ====== -->
+<section class="lp-toolbar">
+  <div class="lp-toolbar-inner">
+    <div class="lp-search">
+      <svg class="lp-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input class="lp-search-input" type="search" id="lp-search" placeholder="Busca tu destino: Barcelona, Lloret, Calella…" autocomplete="off">
+    </div>
+    <div class="lp-filters" role="tablist">
+      <button class="lp-chip is-active" data-filter="all">Todos</button>
+      <button class="lp-chip" data-filter="aeropuertos">Aeropuertos</button>
+      <button class="lp-chip" data-filter="estaciones">Estaciones AVE</button>
+      <button class="lp-chip" data-filter="barcelona">Barcelona</button>
+      <button class="lp-chip" data-filter="girona">Girona</button>
+      <button class="lp-chip" data-filter="lloret-tossa">Lloret · Tossa</button>
+      <button class="lp-chip" data-filter="maresme">Maresme</button>
+      <button class="lp-chip" data-filter="local">Santa Susanna</button>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FEATURED (Top 4 transfers) ====== -->
+<section class="lp-featured" data-cat-section="featured">
+  <div class="lp-featured-inner">
+    <span class="lp-featured-eyebrow">Los más importantes</span>
+    <h2 class="lp-featured-title">Servicios <span class="accent">destacados</span></h2>
+    <p class="lp-featured-sub">Aeropuertos y estaciones AVE — nuestros transfers más reservados.</p>
+    <div class="lp-featured-grid" id="lp-featured-grid"></div>
+  </div>
+</section>
+
+<!-- ====== LISTA AGRUPADA POR CATEGORÍAS ====== -->
+<div id="lp-list-host"></div>
+
+<!-- Empty state when search returns nothing -->
+<div class="lp-empty" id="lp-empty">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+  <div>No hemos encontrado destinos con esa búsqueda.</div>
+  <div style="margin-top:6px;font-size:13px;color:#8a9590;">Prueba con otra palabra o cambia el filtro.</div>
+</div>
+
+<!-- ====== ZONAS A/B/C/D (Suplementos Santa Susanna) ====== -->
+<section class="lp-zones">
+  <div class="lp-zones-inner">
+    <div class="tarifas-section-header" style="text-align:center;margin-bottom:34px;">
+      <div class="tarifas-section-header-eyebrow" style="color:#006435;font-size:14px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;">Santa Susanna · Zonas locales</div>
+      <h2 style="font-size:32px;font-weight:800;color:#002313;margin:0 0 10px;letter-spacing:-0.02em;line-height:1.15;">Suplementos por <span style="color:#008F4C;">calle de origen o destino</span></h2>
+      <p style="font-size:15px;color:#5a6660;margin:0;">Si recoges o llegas a una calle específica del pueblo, se aplica un pequeño suplemento sobre la tarifa base.</p>
+    </div>
+
+    <div class="lp-zones-base">
+      <div class="lp-zones-base-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>Base: Centro / Hoteles</span> <strong>8 € día · 9 € noche/festivo</strong>
+      </div>
+      <div class="lp-zones-note">El precio base se aplica al centro y los hoteles principales. Las zonas A, B, C y D suman un suplemento al precio final.</div>
+    </div>
+
+    <div class="lp-zones-grid" style="margin-top:20px;">
+      <div class="lp-zone-card" data-zone="A">
+        <div class="lp-zone-letter">A</div>
+        <div class="lp-zone-supp"><span class="plus">+</span>1 €</div>
+        <div class="lp-zone-streets">Alps, Alzina, Antoni Gaudí, Balança, Bessons, Bruc, Can Font, Cranc Escorpí, Farigola, Font, Formentor, Ginesta, Credos, Himalaia, Josep Antoni, Coderech, Lleó, Lluís Sert, Pedraforca, Placeta, Puig i Cadafalch, Pujada de Can Batlle, Pujada de Gracia, Rabassot, Sagitari, Verge</div>
+      </div>
+      <div class="lp-zone-card" data-zone="B">
+        <div class="lp-zone-letter">B</div>
+        <div class="lp-zone-supp"><span class="plus">+</span>2 €</div>
+        <div class="lp-zone-streets">Aquari, Boga, Cadí, Can Rosich, Capricorn, Falguera, Lligabosc, Mifulles, Mimosa, Peixos, Pirineus, Pulmonària, Saüc, Vistamar</div>
+      </div>
+      <div class="lp-zone-card" data-zone="C">
+        <div class="lp-zone-letter">C</div>
+        <div class="lp-zone-supp"><span class="plus">+</span>4 €</div>
+        <div class="lp-zone-streets">Can Blanco, Can Mestres, De la Rosa, Llirís, Tarongina</div>
+      </div>
+      <div class="lp-zone-card" data-zone="D">
+        <div class="lp-zone-letter">D</div>
+        <div class="lp-zone-supp"><span class="plus">+</span>6 €</div>
+        <div class="lp-zone-streets">Nards, Petúnies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== INFO PRÁCTICA ====== -->
+<section class="lp-info">
+  <div class="lp-info-inner">
+    <div class="tarifas-section-header" style="text-align:center;margin-bottom:34px;">
+      <div class="tarifas-section-header-eyebrow" style="color:#006435;font-size:14px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;">Información práctica</div>
+      <h2 style="font-size:32px;font-weight:800;color:#002313;margin:0 0 10px;letter-spacing:-0.02em;line-height:1.15;">Lo que <span style="color:#008F4C;">tienes que saber</span></h2>
+    </div>
+    <div class="lp-info-grid">
+
+      <div class="lp-info-card">
+        <div class="lp-info-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 class="lp-info-title">Horarios día / noche</h3>
+        <p class="lp-info-text">El precio depende del día y franja horaria.</p>
+        <div class="lp-info-row">
+          <span class="dot day"></span><strong>DÍA</strong>
+          <span>Lunes a viernes · 08:00 – 20:00 h</span>
+        </div>
+        <div class="lp-info-row">
+          <span class="dot night"></span><strong>NOCHE / FESTIVO</strong>
+          <span>20:00 – 08:00 h · Sábados, domingos y festivos</span>
+        </div>
+      </div>
+
+      <div class="lp-info-card">
+        <div class="lp-info-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="lp-info-title">Pasajeros y equipaje</h3>
+        <p class="lp-info-text"><strong>1 a 4 PAX</strong> precio fijo cerrado, sin taxímetro.</p>
+        <p class="lp-info-text" style="margin-top:8px;"><strong>5, 6, 7 u 8 PAX</strong> consulta suplemento — van XL con espacio para 8 maletas grandes.</p>
+      </div>
+
+      <div class="lp-info-card">
+        <div class="lp-info-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+        </div>
+        <h3 class="lp-info-title">Formas de pago</h3>
+        <p class="lp-info-text">Aceptamos todos los métodos habituales. Puedes pagar al reservar o al final del trayecto.</p>
+        <div class="lp-pay-icons">
+          <span class="lp-pay-pill">Efectivo</span>
+          <span class="lp-pay-pill">Visa</span>
+          <span class="lp-pay-pill">MasterCard</span>
+          <span class="lp-pay-pill">AMEX</span>
+          <span class="lp-pay-pill">Bizum</span>
+          <span class="lp-pay-pill">PayPal</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA FINAL ====== -->
+<section class="lp-cta-final">
+  <div class="lp-cta-final-inner">
+    <div class="cta-extra-v2">
+      <div class="cta-glow"></div>
+      <div class="cta-glow-2"></div>
+      <div class="cta-icon-wrap">
+        <div class="cta-icon-ring"></div>
+        <div class="cta-icon-circle">
+          <svg class="cta-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+        </div>
+      </div>
+      <div class="cta-text-block">
+        <div class="cta-eyebrow cta-eyebrow-nobar">¿NO ENCUENTRAS TU DESTINO?</div>
+        <div class="cta-title">Donde llegue la carretera, <span class="cta-title-accent">llegamos nosotros</span></div>
+        <div class="cta-tagline">Puedes <strong>llamar</strong> o <strong>escribirnos</strong> para tarifas personalizadas o destinos no listados.</div>
+      </div>
+      <div class="cta-contact-icons">
+        <a href="tel:+34937678571" class="cta-icon-btn cta-icon-btn-phone" aria-label="Llamar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+        </a>
+        <a href="mailto:info@taxisantasusanna.com" class="cta-icon-btn cta-icon-btn-email" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer" aria-label="Pie de página">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <a href="index.html" class="footer-logo-link">
+          <img src="images/logo.png" alt="Taxi Santa Susanna" class="footer-logo-img">
+        </a>
+        <p class="footer-tagline">Central de taxis Santa Susanna · desde 1998</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Páginas</h4>
+        <nav class="footer-nav">
+          <a href="index.html">Inicio</a>
+          <a href="tarifas.html">Tarifas</a>
+          <a href="lista-precios.html">Lista de precios</a>
+          <a href="quienes-somos.html">Nosotros</a>
+          <a href="#">Preferent</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Avisos</h4>
+        <nav class="footer-nav">
+          <a href="#">Aviso legal</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Cookies</a>
+          <a href="#">Términos</a>
+        </nav>
+      </div>
+      <div class="footer-col footer-col-cta">
+        <a href="tel:+34937678571" class="footer-phone-cta footer-cta-phone">
+          <span class="footer-phone-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></span>
+          <span class="footer-phone-cta-text"><span class="footer-phone-cta-label">Atención 24/7</span><span class="footer-phone-cta-num">+34 937 67 85 71</span></span>
+        </a>
+        <a href="mailto:info@taxisantasusanna.com" class="footer-phone-cta footer-cta-email">
+          <span class="footer-phone-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+          <span class="footer-phone-cta-text"><span class="footer-phone-cta-label">Escríbenos</span><span class="footer-phone-cta-num">info@taxisantasusanna.com</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Taxi Santa Susanna · Todos los derechos reservados</div>
+      <div class="footer-legal">
+        <a href="#">Aviso legal</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// DATA — Tarifas oficiales 2026 extraídas del PDF del cliente
+// ============================================================
+const TARIFFS = [
+  // FEATURED (top transfers) — aeropuertos y estaciones AVE
+  { id: 'bcn-airport',  name: 'Aeropuerto Barcelona',  code: 'BCN', cat: 'aeropuertos', featured: true,  day: 142, night: 153, time: '60-100 min', icon: 'plane' },
+  { id: 'gro-airport',  name: 'Aeropuerto Girona',     code: 'GRO', cat: 'aeropuertos', featured: true,  day: 64,  night: 69,  time: '25-35 min',  icon: 'plane' },
+  { id: 'bcn-sants',    name: 'Barcelona Sants (AVE)', code: 'AVE', cat: 'estaciones',  featured: true,  day: 123, night: 134, time: '60-75 min',  icon: 'train' },
+  { id: 'gro-ave',      name: 'Girona AVE',            code: 'AVE', cat: 'estaciones',  featured: true,  day: 79,  night: 88,  time: '40-55 min',  icon: 'train' },
+
+  // BARCELONA ciudad
+  { id: 'bcn-camp-nou',     name: 'BCN Camp Nou',        cat: 'barcelona', day: 130, night: 140 },
+  { id: 'bcn-pl-espanya',   name: 'BCN Plaça Espanya',   cat: 'barcelona', day: 125, night: 135 },
+  { id: 'bcn-pl-catalunya', name: 'BCN Plaça Catalunya', cat: 'barcelona', day: 120, night: 129 },
+  { id: 'bcn-casino',       name: 'BCN Casino',          cat: 'barcelona', day: 110, night: 119 },
+  { id: 'bcn-sagrada',      name: 'BCN Sagrada Família', cat: 'barcelona', day: 110, night: 119 },
+
+  // GIRONA
+  { id: 'gir-centre',    name: 'Girona Centre',     cat: 'girona', day: 85, night: 92 },
+  { id: 'gir-montilivi', name: 'Girona Montilivi',  cat: 'girona', day: 82, night: 90 },
+
+  // LLORET · TOSSA
+  { id: 'llo-fenals',    name: 'Lloret Fenals',    cat: 'lloret-tossa', day: 30, night: 33 },
+  { id: 'llo-centre',    name: 'Lloret Centre',    cat: 'lloret-tossa', day: 33, night: 36 },
+  { id: 'llo-platja',    name: 'Lloret Platja',    cat: 'lloret-tossa', day: 35, night: 38 },
+  { id: 'llo-casino',    name: 'Lloret Casino',    cat: 'lloret-tossa', day: 35, night: 38 },
+  { id: 'llo-canyelles', name: 'Lloret Canyelles', cat: 'lloret-tossa', day: 40, night: 44 },
+  { id: 'tossa',         name: 'Tossa de Mar',     cat: 'lloret-tossa', day: 53, night: 58 },
+
+  // MARESME (costa)
+  { id: 'mal-ancora',     name: 'Malgrat Àncora',           cat: 'maresme', day: 10, night: 11 },
+  { id: 'mal-creublava',  name: 'Malgrat Creu Blava',       cat: 'maresme', day: 11, night: 12 },
+  { id: 'mal-centre',     name: 'Malgrat Centre',           cat: 'maresme', day: 12, night: 13 },
+  { id: 'mal-poligon',    name: 'Malgrat Polígon',          cat: 'maresme', day: 13, night: 14 },
+  { id: 'mal-nord',       name: 'Malgrat Nord',             cat: 'maresme', day: 14, night: 15 },
+  { id: 'mal-campings',   name: 'Malgrat Càmpings',         cat: 'maresme', day: 18, night: 20 },
+  { id: 'pin-centre',     name: 'Pineda Centre',            cat: 'maresme', day: 12, night: 13 },
+  { id: 'pin-cap',        name: 'Pineda CAP',               cat: 'maresme', day: 14, night: 14 },
+  { id: 'pin-taurus',     name: 'Pineda Taurus / Mossos',   cat: 'maresme', day: 14, night: 15 },
+  { id: 'pin-poblenou',   name: 'Pineda Poblenou',          cat: 'maresme', day: 15, night: 16 },
+  { id: 'cal-balmes',     name: 'Calella Balmes',           cat: 'maresme', day: 17, night: 18 },
+  { id: 'cal-centre',     name: 'Calella Centre / Hospital',cat: 'maresme', day: 18, night: 20 },
+  { id: 'cal-riera',      name: 'Calella Riera',            cat: 'maresme', day: 19, night: 21 },
+  { id: 'cal-hotel',      name: 'Calella Hotel / Creu Groga', cat: 'maresme', day: 20, night: 22 },
+  { id: 'bla-plantera',   name: 'Blanes La Plantera',       cat: 'maresme', day: 18, night: 20 },
+  { id: 'bla-poligon',    name: 'Blanes Polígon',           cat: 'maresme', day: 19, night: 21 },
+  { id: 'bla-centre',     name: 'Blanes Centre',            cat: 'maresme', day: 20, night: 22 },
+  { id: 'bla-port',       name: 'Blanes Port / Hospital',   cat: 'maresme', day: 23, night: 25 },
+  { id: 'bla-stfrancesc', name: 'Blanes Sant Francesc',     cat: 'maresme', day: 28, night: 31 },
+  { id: 'pal-stlluis',    name: 'Palafolls Sant Lluís',     cat: 'maresme', day: 16, night: 17 },
+  { id: 'pal-centre',     name: 'Palafolls Centre',         cat: 'maresme', day: 17, night: 18 },
+  { id: 'pal-jardi',      name: 'Palafolls Jardí',          cat: 'maresme', day: 20, night: 22 },
+  { id: 'pal-poligon',    name: 'Palafolls Polígon',        cat: 'maresme', day: 20, night: 22 },
+  { id: 'stpol',          name: 'Sant Pol de Mar',          cat: 'maresme', day: 25, night: 28 },
+  { id: 'tordera',        name: 'Tordera',                  cat: 'maresme', day: 20, night: 22 },
+  { id: 'tordera-stpere', name: 'Tordera Sant Pere',        cat: 'maresme', day: 22, night: 24 },
+  { id: 'canet',          name: 'Canet de Mar',             cat: 'maresme', day: 36, night: 39 },
+  { id: 'arenys',         name: 'Arenys de Mar',            cat: 'maresme', day: 38, night: 43 },
+  { id: 'hostalric',      name: 'Hostalric',                cat: 'maresme', day: 42, night: 47 },
+
+  // SANTA SUSANNA local
+  { id: 'ss-centre', name: 'Centro / Hoteles', cat: 'local', day: 8, night: 9 },
+];
+
+// Categorías con orden + icono
+const CATS = [
+  { id: 'aeropuertos',  label: 'Aeropuertos',     icon: 'plane' },
+  { id: 'estaciones',   label: 'Estaciones AVE',  icon: 'train' },
+  { id: 'barcelona',    label: 'Barcelona ciudad',icon: 'building' },
+  { id: 'girona',       label: 'Girona',          icon: 'building' },
+  { id: 'lloret-tossa', label: 'Lloret · Tossa',  icon: 'beach' },
+  { id: 'maresme',      label: 'Costa del Maresme', icon: 'beach' },
+  { id: 'local',        label: 'Santa Susanna (centro)', icon: 'home' },
+];
+
+// SVG paths (Font Awesome solid)
+const ICONS = {
+  plane:    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M482.3 192c34.2 0 93.7 29 93.7 64c0 36-59.5 64-93.7 64l-116.6 0L265.2 495.9c-5.7 10-16.3 16.1-27.8 16.1l-56.2 0c-10.6 0-18.3-10.2-15.4-20.4l49-171.6L112 320 68.8 377.6c-3 4-7.8 6.4-12.8 6.4l-42 0c-7.8 0-14-6.3-14-14c0-1.3 .2-2.6 .5-3.9L32 256 .5 145.9c-.4-1.3-.5-2.6-.5-3.9c0-7.8 6.3-14 14-14l42 0c5 0 9.8 2.4 12.8 6.4L112 192l102.9 0-49-171.6C162.9 10.2 170.6 0 181.2 0l56.2 0c11.5 0 22.1 6.2 27.8 16.1L365.7 192l116.6 0z"/></svg>',
+  train:    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M96 0C43 0 0 43 0 96L0 352c0 48 35.2 87.7 81.1 94.9l-46 46C28.1 499.9 33.1 512 43 512l39.7 0c8.5 0 16.6-3.4 22.6-9.4L160 448l128 0 54.6 54.6c6 6 14.1 9.4 22.6 9.4l39.7 0c10 0 15-12.1 7.9-19.1l-46-46c46-7.1 81.1-46.9 81.1-94.9l0-256c0-53-43-96-96-96L96 0zM64 128c0-17.7 14.3-32 32-32l112 0 0 96L64 192l0-64zm176-32l112 0c17.7 0 32 14.3 32 32l0 64-144 0 0-96zM64 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm288-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>',
+  building: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 0-80c0-26.5 21.5-48 48-48s48 21.5 48 48l0 80 96 0c26.5 0 48-21.5 48-48l0-416c0-26.5-21.5-48-48-48L48 0zM64 240c0-8.8 7.2-16 16-16l40 0c8.8 0 16 7.2 16 16l0 40c0 8.8-7.2 16-16 16l-40 0c-8.8 0-16-7.2-16-16l0-40zm112-16l40 0c8.8 0 16 7.2 16 16l0 40c0 8.8-7.2 16-16 16l-40 0c-8.8 0-16-7.2-16-16l0-40c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16l40 0c8.8 0 16 7.2 16 16l0 40c0 8.8-7.2 16-16 16l-40 0c-8.8 0-16-7.2-16-16l0-40zM80 96l40 0c8.8 0 16 7.2 16 16l0 40c0 8.8-7.2 16-16 16l-40 0c-8.8 0-16-7.2-16-16l0-40c0-8.8 7.2-16 16-16zm96 16c0-8.8 7.2-16 16-16l40 0c8.8 0 16 7.2 16 16l0 40c0 8.8-7.2 16-16 16l-40 0c-8.8 0-16-7.2-16-16l0-40zM272 96l40 0c8.8 0 16 7.2 16 16l0 40c0 8.8-7.2 16-16 16l-40 0c-8.8 0-16-7.2-16-16l0-40c0-8.8 7.2-16 16-16z"/></svg>',
+  beach:    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor"><path d="M115.4 3.4C140.3-4.5 167.5 9.6 175.4 34.6L186.7 70.4l-67.1 21.1L108.4 55.6C100.5 30.7 114.6 3.4 115.4 3.4zM230 192L75.6 240.5l-9.7 4.3c-15.2 6.8-26.7 19.7-31.5 35.5L1.3 393.8c-3.4 11.6 .6 24.1 10.1 31.6c9.5 7.5 22.5 8.7 33.3 3l34.2-18 110.5-58.2c4.5-2.4 9.5-3.7 14.5-3.7l78.1 0c5.1 0 10 1.3 14.5 3.7l110.5 58.2 34.2 18c10.8 5.7 23.8 4.4 33.3-3c9.5-7.5 13.5-19.9 10.1-31.6l-33.1-113.4c-4.7-15.8-16.3-28.7-31.5-35.5l-9.7-4.3L410 192c-8.4-21.3-29.1-35.3-52-35.3l-75.9 0c-22.9 0-43.6 14-52 35.3z"/></svg>',
+  home:     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>',
+};
+
+// ============================================================
+// Render
+// ============================================================
+
+const featuredGrid = document.getElementById('lp-featured-grid');
+const listHost = document.getElementById('lp-list-host');
+const emptyState = document.getElementById('lp-empty');
+const searchInput = document.getElementById('lp-search');
+const chipsRoot = document.querySelectorAll('.lp-chip');
+let currentFilter = 'all';
+let currentSearch = '';
+
+function renderFeatured() {
+  const featured = TARIFFS.filter(t => t.featured);
+  featuredGrid.innerHTML = featured.map(t => `
+    <article class="lp-featured-card" data-cat="${t.cat}" data-name="${t.name.toLowerCase()}">
+      <div class="lp-featured-head">
+        <div class="lp-featured-icon">${ICONS[t.icon] || ICONS.building}</div>
+        <div>
+          <div class="lp-featured-code">${t.code || ''}</div>
+          <div class="lp-featured-name">${t.name}</div>
+        </div>
+      </div>
+      ${t.time ? `<div class="lp-featured-time">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ${t.time}
+      </div>` : ''}
+      <div class="lp-featured-prices">
+        <div class="lp-price-cell">
+          <span class="lp-price-tag day">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            Día
+          </span>
+          <span class="lp-price-amt">${t.day} €</span>
+        </div>
+        <div class="lp-price-cell">
+          <span class="lp-price-tag night">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            Noche / Festivo
+          </span>
+          <span class="lp-price-amt">${t.night} €</span>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+function renderList() {
+  const html = CATS.map(cat => {
+    const rows = TARIFFS.filter(t => t.cat === cat.id);
+    if (rows.length === 0) return '';
+    return `
+      <section class="lp-list-section" data-cat-section="${cat.id}">
+        <div class="lp-list-inner">
+          <div class="lp-group" data-cat="${cat.id}">
+            <div class="lp-group-header">
+              <div class="lp-group-icon">${ICONS[cat.icon] || ICONS.building}</div>
+              <h2 class="lp-group-title">${cat.label}</h2>
+              <span class="lp-group-count">${rows.length} destinos</span>
+            </div>
+            <div class="lp-rows">
+              ${rows.map(t => `
+                <div class="lp-row" data-cat="${t.cat}" data-name="${t.name.toLowerCase()}">
+                  <span class="lp-row-name">${t.name}</span>
+                  <div class="lp-row-prices">
+                    <div class="lp-row-price"><span class="lp-row-price-label day">Día</span><span class="lp-row-price-val">${t.day} €</span></div>
+                    <div class="lp-row-price"><span class="lp-row-price-label night">Noche / Fest.</span><span class="lp-row-price-val">${t.night} €</span></div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  }).join('');
+  listHost.innerHTML = html;
+}
+
+function applyFilters() {
+  const q = currentSearch.trim().toLowerCase();
+  const f = currentFilter;
+  let visibleCount = 0;
+
+  // Featured: solo se ven si "all" o el filtro coincide con su categoría
+  document.querySelectorAll('.lp-featured-card').forEach(card => {
+    const matchesCat = (f === 'all' || card.dataset.cat === f);
+    const matchesQ = !q || card.dataset.name.includes(q);
+    const show = matchesCat && matchesQ;
+    card.style.display = show ? '' : 'none';
+    if (show) visibleCount++;
+  });
+
+  // Listas
+  document.querySelectorAll('.lp-list-section').forEach(sec => {
+    const cat = sec.dataset.catSection;
+    const showSection = (f === 'all' || cat === f);
+    sec.style.display = showSection ? '' : 'none';
+    if (!showSection) return;
+
+    let sectionHasVisible = false;
+    sec.querySelectorAll('.lp-row').forEach(row => {
+      const matchesQ = !q || row.dataset.name.includes(q);
+      row.classList.toggle('is-hidden', !matchesQ);
+      if (matchesQ) { sectionHasVisible = true; visibleCount++; }
+    });
+    // Esconde la sección si no hay filas visibles (por búsqueda)
+    sec.style.display = (showSection && sectionHasVisible) ? '' : 'none';
+  });
+
+  // Empty state
+  emptyState.classList.toggle('is-visible', visibleCount === 0);
+
+  // Update total
+  const total = document.getElementById('lp-total-destinos');
+  if (total) total.textContent = visibleCount;
+}
+
+// Bind events
+searchInput.addEventListener('input', (e) => {
+  currentSearch = e.target.value;
+  applyFilters();
+});
+chipsRoot.forEach(chip => {
+  chip.addEventListener('click', () => {
+    chipsRoot.forEach(c => c.classList.remove('is-active'));
+    chip.classList.add('is-active');
+    currentFilter = chip.dataset.filter;
+    applyFilters();
+  });
+});
+
+// Init
+renderFeatured();
+renderList();
+// Reset el contador inicial al total real
+document.getElementById('lp-total-destinos').textContent = TARIFFS.length;
+
+// Nav scroll behavior
+(function() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const update = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
+</script>
+
+</body>
+</html>
