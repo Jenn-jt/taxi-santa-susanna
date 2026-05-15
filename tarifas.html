@@ -440,115 +440,146 @@
   line-height: 1.55;
 }
 
+/* ===========================================================
+   Featured cards — Compactos en la línea del resto
+   =========================================================== */
 .lp-featured-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
+
 .lp-featured-card {
   background: white;
-  border-radius: 14px;
-  position: relative;
-  overflow: hidden;
-  border: 0.5px solid #e0e6e2;
-  box-shadow: 0 6px 20px rgba(0,143,76,0.08);
-  cursor: default;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-.lp-featured-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #008F4C 0%, #F3C800 100%);
-  z-index: 3;
+  border-radius: 12px;
+  border: 1px solid #e6ece8;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
 }
 .lp-featured-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0,143,76,0.18);
+  transform: translateY(-1px);
   border-color: #B2DDC9;
+  box-shadow: 0 6px 16px rgba(0, 143, 76, 0.08);
 }
-/* IMAGE HEADER */
-.lp-featured-image {
-  height: 140px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  background-color: #f0f4f1;
+
+/* Lado izquierdo: badge + nombre + tiempo */
+.lp-featured-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
 }
-.lp-featured-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 45%, rgba(0,35,19,0.62) 100%);
+.lp-featured-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 .lp-featured-code-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(255,255,255,0.96);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: #EAF6F0;
   color: #006435;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 5px 11px;
-  border-radius: 999px;
-  z-index: 2;
+  padding: 3px 7px;
+  border-radius: 5px;
+  white-space: nowrap;
+  line-height: 1;
 }
 .lp-featured-ribbon {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
-  color: #002313;
-  font-size: 9.5px;
-  font-weight: 900;
-  letter-spacing: 0.18em;
+  color: #B07F00;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 4px;
-  z-index: 2;
-  box-shadow: 0 4px 12px rgba(243,200,0,0.4);
 }
-.lp-featured-body {
-  padding: 22px 24px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  flex: 1;
+.lp-featured-ribbon::before {
+  content: "·";
+  margin-right: 6px;
+  color: #c9cdc9;
 }
 .lp-featured-name {
-  font-size: 18px;
+  font-size: 14.5px;
   font-weight: 800;
   color: #1a2620;
   line-height: 1.25;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   margin: 0;
 }
 .lp-featured-time {
-  font-size: 13px;
+  font-size: 11.5px;
   font-weight: 500;
   color: #5a6660;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 5px;
   margin: 0;
 }
-.lp-featured-time svg { width: 14px; height: 14px; color: #008F4C; }
-.lp-featured-prices {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.lp-featured-time svg { width: 11px; height: 11px; color: #008F4C; }
+
+/* Lado derecho: precios + Reservar */
+.lp-featured-end {
+  display: flex;
+  align-items: center;
   gap: 14px;
-  padding-top: 18px;
-  margin-top: auto;
-  border-top: 1px dashed #e0e6e2;
 }
+.lp-featured-prices {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lp-featured-card .lp-price-cell {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+.lp-featured-card .lp-price-tag {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+}
+.lp-featured-card .lp-price-tag svg { width: 13px; height: 13px; }
+.lp-featured-card .lp-price-amt {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #006435;
+  letter-spacing: -0.01em;
+}
+
+/* CTA Reservar — link verde con flecha */
+.lp-featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  background: #EAF6F0;
+  color: #006435;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, color 0.2s ease, gap 0.2s ease;
+  white-space: nowrap;
+}
+.lp-featured-cta:hover {
+  background: #008F4C;
+  color: white;
+  gap: 8px;
+}
+.lp-featured-cta svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.2s ease;
+}
+.lp-featured-cta:hover svg { transform: translateX(2px); }
 .lp-price-cell {
   display: flex;
   flex-direction: column;
@@ -874,8 +905,8 @@
 .lp-zones-inner { max-width: 1100px; margin: 0 auto; }
 .lp-zones-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
   margin-bottom: 20px;
 }
 .lp-zone-card {
@@ -898,6 +929,7 @@
 .lp-zone-card[data-zone="B"] { --zone-color: #B07F00; }
 .lp-zone-card[data-zone="C"] { --zone-color: #c75300; }
 .lp-zone-card[data-zone="D"] { --zone-color: #c2185b; }
+.lp-zone-card[data-zone="E"] { --zone-color: #6a2c9c; }
 .lp-zone-letter {
   display: inline-flex;
   align-items: center;
@@ -1402,9 +1434,8 @@
 
 /* Responsive */
 @media (max-width: 980px) {
-  .lp-featured-grid { grid-template-columns: repeat(2, 1fr); }
   .lp-rows { grid-template-columns: repeat(2, 1fr); }
-  .lp-zones-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-zones-grid { grid-template-columns: repeat(3, 1fr); }
   .lp-info-grid { grid-template-columns: 1fr; }
   .lp-h1 { font-size: 42px; }
 }
@@ -1419,6 +1450,10 @@
   .lp-featured-title { font-size: 24px; }
   .lp-featured-sub { font-size: 13px; margin-bottom: 24px; }
   .lp-featured-grid { grid-template-columns: 1fr; gap: 12px; }
+  .lp-featured-card { padding: 20px 20px 20px; }
+  .lp-featured-name { font-size: 19px; }
+  .lp-featured-card .lp-price-amt { font-size: 19px; }
+  .lp-featured-cta { padding: 12px 18px; font-size: 13px; }
   .lp-list-section { padding: 32px 18px 18px; }
   .lp-rows { grid-template-columns: 1fr; gap: 10px; }
   .lp-row { padding: 16px 16px; }
@@ -1523,8 +1558,8 @@
           <button class="lp-chip" data-filter="estaciones">Estaciones AVE <span class="lp-chip-count" data-count-for="estaciones">2</span></button>
           <button class="lp-chip" data-filter="barcelona">Barcelona <span class="lp-chip-count" data-count-for="barcelona">5</span></button>
           <button class="lp-chip" data-filter="girona">Girona <span class="lp-chip-count" data-count-for="girona">2</span></button>
-          <button class="lp-chip" data-filter="lloret-tossa">Lloret · Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">6</span></button>
-          <button class="lp-chip" data-filter="maresme">Maresme <span class="lp-chip-count" data-count-for="maresme">29</span></button>
+          <button class="lp-chip" data-filter="lloret-tossa">Blanes · Lloret · Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">11</span></button>
+          <button class="lp-chip" data-filter="maresme">Maresme <span class="lp-chip-count" data-count-for="maresme">24</span></button>
         </div>
       </div>
       <button class="lp-clear-all" id="lp-clear-all" type="button">
@@ -1567,7 +1602,7 @@
   </div>
 </section>
 
-<!-- ====== ZONAS A/B/C/D (Suplementos Santa Susanna) ====== -->
+<!-- ====== ZONAS A/B/C/D/E (Suplementos Santa Susanna) ====== -->
 <section class="lp-zones">
   <div class="lp-zones-inner">
     <div class="tarifas-section-header" style="text-align:center;margin-bottom:34px;">
@@ -1581,27 +1616,32 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="m9 12 2 2 4-4"/></svg>
         <span>Base: Centro / Hoteles</span> <strong>8 € día · 9 € noche/festivo</strong>
       </div>
-      <div class="lp-zones-note">El precio base se aplica al centro y los hoteles principales. Las zonas A, B, C y D suman un suplemento al precio final.</div>
+      <div class="lp-zones-note">El precio base se aplica al centro y los hoteles principales. Las zonas A, B, C, D y E suman un suplemento al precio final.</div>
     </div>
 
     <div class="lp-zones-grid" style="margin-top:20px;">
       <div class="lp-zone-card" data-zone="A">
         <div class="lp-zone-letter">A</div>
         <div class="lp-zone-supp"><span class="plus">+</span>1 €</div>
-        <div class="lp-zone-streets">Alps, Alzina, Antoni Gaudí, Balança, Bessons, Bruc, Can Font, Cranc Escorpí, Farigola, Font, Formentor, Ginesta, Credos, Himalaia, Josep Antoni, Coderech, Lleó, Lluís Sert, Pedraforca, Placeta, Puig i Cadafalch, Pujada de Can Batlle, Pujada de Gracia, Rabassot, Sagitari, Verge</div>
+        <div class="lp-zone-streets">Alps, Alzina, Antoni Gaudí, Balança, Bessons, Bruc, Can Font, Cranc, Escorpí, Farigola, Font, Formentor, Ginesta, Credos, Himalaia, Josep Antoni Coderech, Lleó, Lluís Sert, Pedraforca, Placeta, Puig i Cadafalch, Pujada de Gràcia, Rabassot, Sagitari, Verge</div>
       </div>
       <div class="lp-zone-card" data-zone="B">
         <div class="lp-zone-letter">B</div>
         <div class="lp-zone-supp"><span class="plus">+</span>2 €</div>
-        <div class="lp-zone-streets">Aquari, Boga, Cadí, Can Rosich, Capricorn, Falguera, Lligabosc, Mifulles, Mimosa, Peixos, Pirineus, Pulmonària, Saüc, Vistamar</div>
+        <div class="lp-zone-streets">Aquari, Boga, Cadí, Can Rosich, Capricorn, Lligabosc, Milfulles, Peixos, Pirineus, Pulmonària, Vistamar</div>
       </div>
       <div class="lp-zone-card" data-zone="C">
         <div class="lp-zone-letter">C</div>
-        <div class="lp-zone-supp"><span class="plus">+</span>4 €</div>
-        <div class="lp-zone-streets">Can Blanco, Can Mestres, De la Rosa, Llirís, Tarongina</div>
+        <div class="lp-zone-supp"><span class="plus">+</span>3 €</div>
+        <div class="lp-zone-streets">Falguera, Mimosa, Saüc</div>
       </div>
       <div class="lp-zone-card" data-zone="D">
         <div class="lp-zone-letter">D</div>
+        <div class="lp-zone-supp"><span class="plus">+</span>4 €</div>
+        <div class="lp-zone-streets">Can Blanco, Can Mestres, De la Rosa, Llirís, Tarongina</div>
+      </div>
+      <div class="lp-zone-card" data-zone="E">
+        <div class="lp-zone-letter">E</div>
         <div class="lp-zone-supp"><span class="plus">+</span>6 €</div>
         <div class="lp-zone-streets">Nards, Petúnies</div>
       </div>
@@ -1909,7 +1949,7 @@
 // ============================================================
 const TARIFFS = [
   // FEATURED (top transfers) — aeropuertos y estaciones AVE
-  { id: 'bcn-airport',  name: 'Aeropuerto Barcelona',  code: 'BCN', cat: 'aeropuertos', featured: true,  day: 142, night: 153, time: '60-100 min', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=85&auto=format&fit=crop', ribbon: 'Más reservado' },
+  { id: 'bcn-airport',  name: 'Aeropuerto Barcelona',  code: 'BCN', cat: 'aeropuertos', featured: true,  day: 142, night: 153, time: '60-100 min', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=85&auto=format&fit=crop' },
   { id: 'gro-airport',  name: 'Aeropuerto Girona',     code: 'GRO', cat: 'aeropuertos', featured: true,  day: 64,  night: 69,  time: '25-35 min',  img: 'https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=900&q=85&auto=format&fit=crop' },
   { id: 'bcn-sants',    name: 'Barcelona Sants (AVE)', code: 'AVE', cat: 'estaciones',  featured: true,  day: 123, night: 134, time: '60-75 min',  img: 'images/cat-transportes.png' },
   { id: 'gro-ave',      name: 'Girona AVE',            code: 'AVE', cat: 'estaciones',  featured: true,  day: 79,  night: 88,  time: '40-55 min',  img: 'images/cat-tren.png' },
@@ -1948,11 +1988,11 @@ const TARIFFS = [
   { id: 'cal-centre',     name: 'Calella Centre / Hospital',cat: 'maresme', day: 18, night: 20 },
   { id: 'cal-riera',      name: 'Calella Riera',            cat: 'maresme', day: 19, night: 21 },
   { id: 'cal-hotel',      name: 'Calella Hotel / Creu Groga', cat: 'maresme', day: 20, night: 22 },
-  { id: 'bla-plantera',   name: 'Blanes La Plantera',       cat: 'maresme', day: 18, night: 20 },
-  { id: 'bla-poligon',    name: 'Blanes Polígon',           cat: 'maresme', day: 19, night: 21 },
-  { id: 'bla-centre',     name: 'Blanes Centre',            cat: 'maresme', day: 20, night: 22 },
-  { id: 'bla-port',       name: 'Blanes Port / Hospital',   cat: 'maresme', day: 23, night: 25 },
-  { id: 'bla-stfrancesc', name: 'Blanes Sant Francesc',     cat: 'maresme', day: 28, night: 31 },
+  { id: 'bla-plantera',   name: 'Blanes La Plantera',       cat: 'lloret-tossa', day: 18, night: 20 },
+  { id: 'bla-poligon',    name: 'Blanes Polígon',           cat: 'lloret-tossa', day: 19, night: 21 },
+  { id: 'bla-centre',     name: 'Blanes Centre',            cat: 'lloret-tossa', day: 20, night: 22 },
+  { id: 'bla-port',       name: 'Blanes Port / Hospital',   cat: 'lloret-tossa', day: 23, night: 25 },
+  { id: 'bla-stfrancesc', name: 'Blanes Sant Francesc',     cat: 'lloret-tossa', day: 28, night: 31 },
   { id: 'pal-stlluis',    name: 'Palafolls Sant Lluís',     cat: 'maresme', day: 16, night: 17 },
   { id: 'pal-centre',     name: 'Palafolls Centre',         cat: 'maresme', day: 17, night: 18 },
   { id: 'pal-jardi',      name: 'Palafolls Jardí',          cat: 'maresme', day: 20, night: 22 },
@@ -1974,7 +2014,7 @@ const TARIFFS = [
 const CATS = [
   { id: 'barcelona',    label: 'Barcelona ciudad',  icon: 'building' },
   { id: 'girona',       label: 'Girona',            icon: 'building' },
-  { id: 'lloret-tossa', label: 'Lloret · Tossa',    icon: 'beach' },
+  { id: 'lloret-tossa', label: 'Blanes · Lloret · Tossa', icon: 'beach' },
   { id: 'maresme',      label: 'Costa del Maresme', icon: 'beach' },
 ];
 
@@ -2004,16 +2044,18 @@ function renderFeatured() {
   const featured = TARIFFS.filter(t => t.featured);
   featuredGrid.innerHTML = featured.map(t => `
     <article class="lp-featured-card" data-cat="${t.cat}" data-name="${t.name.toLowerCase()}">
-      <div class="lp-featured-image" style="background-image: url('${t.img || ''}');">
-        ${t.code ? `<span class="lp-featured-code-badge">${t.code}</span>` : ''}
-        ${t.ribbon ? `<span class="lp-featured-ribbon">${t.ribbon}</span>` : ''}
-      </div>
-      <div class="lp-featured-body">
+      <div class="lp-featured-info">
+        <div class="lp-featured-meta">
+          ${t.code ? `<span class="lp-featured-code-badge">${t.code}</span>` : ''}
+          ${t.ribbon ? `<span class="lp-featured-ribbon">${t.ribbon}</span>` : ''}
+        </div>
         <h3 class="lp-featured-name">${t.name}</h3>
-        ${t.time ? `<div class="lp-featured-time">
+        ${t.time ? `<span class="lp-featured-time">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           ${t.time}
-        </div>` : ''}
+        </span>` : ''}
+      </div>
+      <div class="lp-featured-end">
         <div class="lp-featured-prices">
           <div class="lp-price-cell">
             <span class="lp-price-tag day" aria-label="Tarifa de día">
@@ -2028,6 +2070,10 @@ function renderFeatured() {
             <span class="lp-price-amt">${t.night} €</span>
           </div>
         </div>
+        <a class="lp-featured-cta" href="#reservar">
+          Reservar
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </div>
     </article>
   `).join('');
