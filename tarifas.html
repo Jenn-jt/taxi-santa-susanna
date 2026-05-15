@@ -555,17 +555,16 @@
   gap: 8px;
 }
 .lp-price-tag {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
 }
-.lp-price-tag.day { color: #B07F00; }
-.lp-price-tag.night { color: #2d3a8f; }
-.lp-price-tag svg { width: 12px; height: 12px; }
+.lp-price-tag.day { background: rgba(243,200,0,0.18); color: #B07F00; }
+.lp-price-tag.night { background: rgba(45,58,143,0.12); color: #2d3a8f; }
+.lp-price-tag svg { width: 16px; height: 16px; }
 .lp-price-amt {
   font-size: 24px;
   font-weight: 800;
@@ -654,20 +653,23 @@
   align-items: baseline;
 }
 .lp-row-price {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   line-height: 1;
 }
 .lp-row-price-label {
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
-.lp-row-price-label.day { color: #B07F00; }
-.lp-row-price-label.night { color: #2d3a8f; }
+.lp-row-price-label.day { background: rgba(243,200,0,0.18); color: #B07F00; }
+.lp-row-price-label.night { background: rgba(45,58,143,0.12); color: #2d3a8f; }
+.lp-row-price-label svg { width: 13px; height: 13px; }
 .lp-row-price-val {
   font-size: 16px;
   font-weight: 800;
@@ -2014,16 +2016,14 @@ function renderFeatured() {
         </div>` : ''}
         <div class="lp-featured-prices">
           <div class="lp-price-cell">
-            <span class="lp-price-tag day">
+            <span class="lp-price-tag day" aria-label="Tarifa de día">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-              Día
             </span>
             <span class="lp-price-amt">${t.day} €</span>
           </div>
           <div class="lp-price-cell">
-            <span class="lp-price-tag night">
+            <span class="lp-price-tag night" aria-label="Tarifa de noche o festivo">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-              Noche / Festivo
             </span>
             <span class="lp-price-amt">${t.night} €</span>
           </div>
@@ -2051,8 +2051,18 @@ function renderList() {
                 <div class="lp-row" data-cat="${t.cat}" data-name="${t.name.toLowerCase()}">
                   <span class="lp-row-name">${t.name}</span>
                   <div class="lp-row-prices">
-                    <div class="lp-row-price"><span class="lp-row-price-label day">Día</span><span class="lp-row-price-val">${t.day} €</span></div>
-                    <div class="lp-row-price"><span class="lp-row-price-label night">Noche / Fest.</span><span class="lp-row-price-val">${t.night} €</span></div>
+                    <div class="lp-row-price">
+                      <span class="lp-row-price-label day" aria-label="Tarifa de día">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                      </span>
+                      <span class="lp-row-price-val">${t.day} €</span>
+                    </div>
+                    <div class="lp-row-price">
+                      <span class="lp-row-price-label night" aria-label="Tarifa de noche o festivo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                      </span>
+                      <span class="lp-row-price-val">${t.night} €</span>
+                    </div>
                   </div>
                 </div>
               `).join('')}
