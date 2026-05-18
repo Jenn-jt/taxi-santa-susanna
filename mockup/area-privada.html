@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área privada · Hoteles colaboradores · Taxi Santa Susanna</title>
+<meta name="description" content="Portal privado para hoteles y establecimientos colaboradores de Taxi Santa Susanna. Acceso directo a la AGENDA TAXI para gestionar las reservas de vuestros clientes.">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=20260518a">
+
+<style>
+/* =====================================================================
+   ÀREA PRIVADA — Estilos específicos
+   ===================================================================== */
+
+/* ===== Nav CTA "Llamar" (compartido con lista-precios) ===== */
+.nav-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 18px 9px 9px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 22px rgba(243,200,0,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-left: 14px;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+.nav-call:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(243,200,0,0.5);
+}
+.nav-call-ico {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #002313;
+  color: #F3C800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-call-ico svg {
+  width: 14px;
+  height: 14px;
+  animation: nav-phone-shake 4s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes nav-phone-shake {
+  0%, 90%, 100% { transform: rotate(0); }
+  92% { transform: rotate(-14deg); }
+  94% { transform: rotate(14deg); }
+  96% { transform: rotate(-8deg); }
+  98% { transform: rotate(6deg); }
+}
+.nav-call:hover .nav-call-ico svg { animation: none; }
+.nav-call-text { display: flex; flex-direction: column; line-height: 1.1; }
+.nav-call-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase; opacity: 0.78;
+}
+.nav-call-num {
+  font-size: 14px; font-weight: 800; letter-spacing: 0.005em; margin-top: 2px;
+}
+@media (max-width: 720px) {
+  .nav-call { padding: 6px; margin-left: 8px; gap: 0; }
+  .nav-call-text { display: none; }
+  .nav-call-ico { width: 36px; height: 36px; }
+  .nav-call-ico svg { width: 16px; height: 16px; }
+}
+
+/* Píldora del idioma — mismo estilo que en lista-precios */
+.nav .lang {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 700;
+  color: #002313;
+  letter-spacing: 0.04em;
+}
+.nav .lang .lang-globe { width: 14px; height: 14px; color: #006435; }
+.nav .lang .lang-chevron { width: 12px; height: 12px; color: #5a6660; }
+@media (max-width: 720px) { .nav .lang { display: none; } }
+
+/* Espaciado del menú principal */
+.nav .menu { display: flex; gap: 32px; font-size: 14px; align-items: center; }
+.nav .menu a {
+  color: rgba(255,255,255,0.92); text-decoration: none;
+  font-weight: 600; letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.nav .menu a:hover, .nav .menu a.active { color: #FFD940; }
+
+/* Quitar línea bajo los títulos del footer (Páginas / Avisos) */
+.footer .footer-col-title {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Selector de vista (mockup) — integrado en el flujo de la página */
+.ap-view-switch {
+  background: linear-gradient(180deg, #004726 0%, #002313 100%);
+  padding: 24px 24px 30px;
+  position: relative;
+}
+.ap-view-switch::before {
+  content: "";
+  position: absolute; left: 0; right: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(243,200,0,0.35), transparent);
+}
+.ap-view-switch-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; flex-wrap: wrap;
+}
+.ap-view-switch-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: rgba(255,255,255,0.86); font-size: 12.5px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
+}
+.ap-view-switch-label svg { width: 16px; height: 16px; color: #F3C800; }
+.ap-view-switch-label .badge {
+  font-size: 9.5px; padding: 3px 8px; background: rgba(243,200,0,0.18);
+  color: #FFD940; border: 1px solid rgba(243,200,0,0.35);
+  border-radius: 999px; letter-spacing: 0.14em;
+}
+.ap-view-switch-tabs {
+  display: inline-flex; padding: 4px;
+  background: rgba(0,35,19,0.65);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+}
+.ap-view-switch-tabs button {
+  border: 0; cursor: pointer;
+  padding: 9px 18px; background: transparent;
+  color: rgba(255,255,255,0.65); font-family: inherit;
+  font-size: 12.5px; font-weight: 700; letter-spacing: 0.02em;
+  border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+  white-space: nowrap;
+}
+.ap-view-switch-tabs button svg { width: 14px; height: 14px; }
+.ap-view-switch-tabs button:hover { color: #ffffff; }
+.ap-view-switch-tabs button.is-on {
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313;
+  box-shadow: 0 6px 16px rgba(243,200,0,0.32);
+}
+@media (max-width: 720px) {
+  .ap-view-switch { padding: 18px 16px 22px; }
+  .ap-view-switch-inner { justify-content: center; }
+  .ap-view-switch-label { font-size: 11px; }
+  .ap-view-switch-tabs button { padding: 8px 14px; font-size: 11.5px; }
+}
+
+/* === Hero === */
+.ap-hero {
+  position: relative;
+  padding: 152px 24px 60px;
+  background:
+    radial-gradient(ellipse at top right, rgba(243,200,0,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(0,143,76,0.18) 0%, transparent 60%),
+    linear-gradient(180deg, #002313 0%, #004726 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+.ap-hero-inner { max-width: 1180px; margin: 0 auto; }
+.ap-hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 800; letter-spacing: 0.18em;
+  color: #F3C800; text-transform: uppercase; margin-bottom: 16px;
+}
+.ap-hero-eyebrow svg { width: 14px; height: 14px; }
+.ap-hero-h1 {
+  font-size: 48px; font-weight: 800; line-height: 1.06;
+  letter-spacing: -0.02em; margin: 0 0 16px; max-width: 760px;
+}
+.ap-hero-h1 .accent { color: #FFD940; }
+.ap-hero-sub {
+  font-size: 17px; font-weight: 500; line-height: 1.55;
+  color: rgba(255,255,255,0.85); max-width: 680px; margin: 0;
+}
+.ap-hero-sub strong { color: #FFD940; font-weight: 800; }
+.ap-hero-badges {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px;
+}
+.ap-hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 13px; background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(243,200,0,0.30); border-radius: 999px;
+  font-size: 12.5px; font-weight: 700; color: rgba(255,255,255,0.94);
+}
+.ap-hero-badge svg { width: 14px; height: 14px; color: #FFD940; }
+
+@media (max-width: 720px) {
+  .ap-hero { padding: 132px 18px 44px; }
+  .ap-hero-h1 { font-size: 32px; }
+  .ap-hero-sub { font-size: 15px; }
+}
+
+/* ===========================================================
+   STATE A — ANTES DE LOGIN
+   =========================================================== */
+.ap-pre {
+  padding: 64px 24px 80px;
+  background:
+    radial-gradient(ellipse at top center, rgba(0,143,76,0.04) 0%, transparent 60%),
+    #fafdfb;
+}
+.ap-pre-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px;
+  align-items: start;
+}
+
+/* Beneficios (col izquierda) */
+.ap-benefits-eyebrow {
+  font-size: 12px; font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #008F4C; margin-bottom: 12px;
+}
+.ap-benefits-title {
+  font-size: 32px; font-weight: 800; line-height: 1.15;
+  letter-spacing: -0.015em; color: #002313; margin: 0 0 14px;
+}
+.ap-benefits-title .accent { color: #008F4C; }
+.ap-benefits-lead {
+  font-size: 16px; line-height: 1.6; color: #5a6660; margin: 0 0 28px;
+}
+
+.ap-benefits-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 14px;
+}
+.ap-benefit {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 18px; background: #ffffff;
+  border: 1px solid #e6ece8; border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,35,19,0.03);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.ap-benefit:hover {
+  border-color: #B2DDC9; transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,35,19,0.06);
+}
+.ap-benefit-icon {
+  flex-shrink: 0; width: 42px; height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #EAF6F0 0%, #D8EEE4 100%);
+  color: #008F4C; display: inline-flex; align-items: center; justify-content: center;
+}
+.ap-benefit-icon svg { width: 20px; height: 20px; }
+.ap-benefit-body h4 {
+  margin: 0 0 4px; font-size: 15.5px; font-weight: 800;
+  color: #002313; letter-spacing: -0.005em;
+}
+.ap-benefit-body p {
+  margin: 0; font-size: 13.5px; line-height: 1.5; color: #5a6660;
+}
+
+.ap-benefits-cta {
+  margin-top: 28px; padding: 18px 22px;
+  background: linear-gradient(135deg, #002313 0%, #004726 100%);
+  border-radius: 14px; color: #ffffff;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.ap-benefits-cta-text { flex: 1 1 220px; }
+.ap-benefits-cta-text strong { color: #FFD940; font-weight: 800; }
+.ap-benefits-cta-text p { margin: 0; font-size: 14px; line-height: 1.5; }
+.ap-benefits-cta-text small { font-size: 11.5px; color: rgba(255,255,255,0.65); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; }
+.ap-benefits-cta-mail {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 18px; background: #F3C800; color: #002313;
+  font-weight: 800; font-size: 13.5px; text-decoration: none;
+  border-radius: 999px; letter-spacing: -0.005em;
+  transition: background 0.2s, transform 0.2s;
+}
+.ap-benefits-cta-mail svg { width: 15px; height: 15px; }
+.ap-benefits-cta-mail:hover { background: #FFD940; transform: translateY(-1px); }
+
+/* Login card (col derecha) */
+.ap-login-card {
+  position: sticky; top: 100px;
+  background: #ffffff;
+  border: 1px solid #e6ece8;
+  border-radius: 22px;
+  padding: 32px 30px 28px;
+  box-shadow: 0 18px 44px rgba(0,35,19,0.08);
+}
+.ap-login-head {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 22px;
+}
+.ap-login-lock {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(135deg, #008F4C 0%, #006435 100%);
+  color: #ffffff; display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 18px rgba(0,143,76,0.30);
+}
+.ap-login-lock svg { width: 20px; height: 20px; }
+.ap-login-head-text h2 {
+  margin: 0 0 2px; font-size: 19px; font-weight: 800;
+  color: #002313; letter-spacing: -0.01em;
+}
+.ap-login-head-text p {
+  margin: 0; font-size: 12.5px; color: #5a6660;
+}
+
+.ap-field { margin-bottom: 14px; position: relative; }
+.ap-field label {
+  display: block; font-size: 11.5px; font-weight: 800;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #5a6660; margin-bottom: 6px;
+}
+.ap-field input[type="text"],
+.ap-field input[type="password"] {
+  width: 100%; padding: 13px 44px 13px 44px; height: 48px;
+  border-radius: 12px; border: 1.5px solid #e0e6e2;
+  font-size: 14.5px; font-family: inherit; color: #1a2620;
+  outline: none; background: #ffffff; box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ap-field input:hover { border-color: #B2DDC9; }
+.ap-field input:focus {
+  border-color: #008F4C;
+  box-shadow: 0 0 0 4px rgba(0,143,76,0.12);
+}
+.ap-field-icon {
+  position: absolute; left: 14px; bottom: 14px;
+  color: #8a9590; width: 18px; height: 18px; pointer-events: none;
+}
+.ap-field-eye {
+  position: absolute; right: 12px; bottom: 9px;
+  width: 30px; height: 30px; border: 0; border-radius: 8px;
+  background: transparent; color: #5a6660; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+.ap-field-eye:hover { background: #EAF6F0; color: #008F4C; }
+.ap-field-eye svg { width: 17px; height: 17px; }
+
+.ap-login-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px; font-size: 12.5px;
+}
+.ap-remember { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; color: #5a6660; font-weight: 600; }
+.ap-remember input { width: 16px; height: 16px; accent-color: #008F4C; cursor: pointer; }
+.ap-forgot { color: #008F4C; text-decoration: none; font-weight: 700; }
+.ap-forgot:hover { text-decoration: underline; }
+
+.ap-login-submit {
+  width: 100%; padding: 14px 18px; border: 0;
+  background: linear-gradient(135deg, #008F4C 0%, #006435 100%);
+  color: #ffffff; font-weight: 800; font-size: 15px;
+  letter-spacing: -0.005em; border-radius: 12px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; font-family: inherit;
+  box-shadow: 0 10px 22px rgba(0,143,76,0.28);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ap-login-submit:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgba(0,143,76,0.36); }
+.ap-login-submit svg { width: 16px; height: 16px; }
+
+.ap-login-foot {
+  margin-top: 18px; padding-top: 16px;
+  border-top: 1px dashed #d8e0db;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: #8a9590;
+}
+.ap-login-foot svg { width: 14px; height: 14px; color: #008F4C; flex-shrink: 0; }
+
+@media (max-width: 880px) {
+  .ap-pre-inner { grid-template-columns: 1fr; gap: 32px; }
+  .ap-login-card { position: static; }
+}
+@media (max-width: 720px) {
+  .ap-pre { padding: 44px 18px 64px; }
+  .ap-benefits-title { font-size: 26px; }
+  .ap-login-card { padding: 24px 22px 22px; border-radius: 18px; }
+}
+
+/* ===========================================================
+   STATE B — DESPUÉS DE LOGIN
+   =========================================================== */
+.ap-post {
+  padding: 56px 24px 80px;
+  background:
+    radial-gradient(ellipse at top center, rgba(0,143,76,0.04) 0%, transparent 60%),
+    #fafdfb;
+  display: none;
+}
+.ap-post.is-visible { display: block; }
+.ap-post-inner { max-width: 1180px; margin: 0 auto; }
+
+/* Welcome bar */
+.ap-welcome {
+  background: linear-gradient(135deg, #002313 0%, #004726 60%, #006435 100%);
+  border-radius: 22px; padding: 28px 30px;
+  display: flex; align-items: center; gap: 22px;
+  color: #ffffff; flex-wrap: wrap;
+  margin-bottom: 32px;
+  box-shadow: 0 18px 44px rgba(0,35,19,0.12);
+  position: relative; overflow: hidden;
+}
+.ap-welcome::after {
+  content: ""; position: absolute; right: -60px; top: -60px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(243,200,0,0.18) 0%, transparent 70%);
+}
+.ap-avatar {
+  width: 68px; height: 68px; border-radius: 50%;
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313; display: inline-flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 800;
+  border: 3px solid rgba(255,255,255,0.25); flex-shrink: 0;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+.ap-welcome-text { flex: 1 1 240px; position: relative; z-index: 1; }
+.ap-welcome-greet {
+  font-size: 11.5px; font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #FFD940; margin: 0 0 4px;
+}
+.ap-welcome-name {
+  font-size: 26px; font-weight: 800; margin: 0 0 4px;
+  letter-spacing: -0.015em;
+}
+.ap-welcome-meta {
+  margin: 0; font-size: 13.5px; color: rgba(255,255,255,0.78);
+}
+.ap-welcome-logout {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20); color: #ffffff;
+  font-size: 13px; font-weight: 700; text-decoration: none;
+  border-radius: 999px; transition: background 0.2s, transform 0.2s;
+  position: relative; z-index: 1;
+}
+.ap-welcome-logout:hover { background: rgba(255,255,255,0.20); transform: translateY(-1px); }
+.ap-welcome-logout svg { width: 14px; height: 14px; }
+
+/* Grid principal */
+.ap-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;
+}
+
+.ap-card {
+  background: #ffffff; border: 1px solid #e6ece8;
+  border-radius: 20px; padding: 26px;
+  box-shadow: 0 2px 10px rgba(0,35,19,0.04);
+}
+.ap-card-head {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+}
+.ap-card-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: linear-gradient(135deg, #EAF6F0 0%, #D8EEE4 100%);
+  color: #008F4C; display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.ap-card-icon svg { width: 18px; height: 18px; }
+.ap-card-title {
+  margin: 0; font-size: 17px; font-weight: 800; color: #002313;
+  letter-spacing: -0.01em;
+}
+.ap-card-sub {
+  margin: 2px 0 0; font-size: 12.5px; color: #8a9590;
+}
+
+/* Credenciales AGENDA */
+.ap-cred-grid { display: grid; gap: 14px; margin-bottom: 22px; }
+.ap-cred-row {
+  background: linear-gradient(135deg, #fafdfb 0%, #f0f6f3 100%);
+  border: 1px solid #e6ece8; border-radius: 14px; padding: 14px 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.ap-cred-key {
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #5a6660;
+  display: flex; align-items: center; gap: 6px;
+}
+.ap-cred-key svg { width: 13px; height: 13px; color: #008F4C; }
+.ap-cred-val {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px; font-weight: 700; color: #002313;
+  background: #ffffff; padding: 6px 12px;
+  border-radius: 8px; border: 1px solid #d8e0db;
+  letter-spacing: 0.02em;
+}
+.ap-cred-mask { letter-spacing: 0.18em; }
+.ap-cred-actions { display: flex; gap: 6px; }
+.ap-cred-btn {
+  width: 32px; height: 32px; border: 0; border-radius: 8px;
+  background: #EAF6F0; color: #006435; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.ap-cred-btn:hover { background: #008F4C; color: white; transform: translateY(-1px); }
+.ap-cred-btn svg { width: 14px; height: 14px; }
+.ap-cred-copied { background: #008F4C !important; color: white !important; }
+
+.ap-agenda-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  width: 100%; padding: 16px 20px; box-sizing: border-box;
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313; font-weight: 800; font-size: 15.5px;
+  text-decoration: none; border-radius: 14px;
+  letter-spacing: -0.005em; justify-content: center;
+  box-shadow: 0 10px 22px rgba(243,200,0,0.30);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ap-agenda-cta:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgba(243,200,0,0.40); }
+.ap-agenda-cta svg.ico { width: 18px; height: 18px; }
+.ap-agenda-cta svg.ext { width: 14px; height: 14px; opacity: 0.7; }
+
+.ap-cred-hint {
+  margin: 14px 0 0; padding: 12px 14px;
+  background: rgba(243,200,0,0.10); border: 1px solid rgba(243,200,0,0.25);
+  border-radius: 10px; font-size: 12.5px; line-height: 1.5; color: #5a4a00;
+  display: flex; gap: 9px; align-items: flex-start;
+}
+.ap-cred-hint svg { width: 16px; height: 16px; flex-shrink: 0; color: #F3C800; margin-top: 1px; }
+
+/* Estado del servicio */
+.ap-status-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+}
+.ap-status-tile {
+  padding: 14px; background: #fafdfb;
+  border: 1px solid #e6ece8; border-radius: 12px;
+}
+.ap-status-tile .lbl {
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #5a6660; margin: 0 0 4px;
+}
+.ap-status-tile .val {
+  font-size: 18px; font-weight: 800; color: #002313;
+  letter-spacing: -0.015em; margin: 0;
+  display: flex; align-items: center; gap: 8px;
+}
+.ap-status-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #008F4C;
+  box-shadow: 0 0 0 4px rgba(0,143,76,0.15);
+  animation: ap-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ap-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(0,143,76,0.15); }
+  50%     { box-shadow: 0 0 0 8px rgba(0,143,76,0.05); }
+}
+
+/* Perfil card */
+.ap-profile {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.ap-profile-pic-wrap { position: relative; margin-bottom: 14px; }
+.ap-profile-pic {
+  width: 110px; height: 110px; border-radius: 50%;
+  background: linear-gradient(135deg, #EAF6F0 0%, #D8EEE4 100%);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #008F4C; font-size: 36px; font-weight: 800;
+  border: 4px solid #ffffff; box-shadow: 0 8px 22px rgba(0,35,19,0.10);
+}
+.ap-profile-edit {
+  position: absolute; bottom: 4px; right: 4px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #008F4C; color: white; border: 2px solid #ffffff;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: transform 0.2s, background 0.2s;
+}
+.ap-profile-edit:hover { background: #006435; transform: scale(1.05); }
+.ap-profile-edit svg { width: 14px; height: 14px; }
+.ap-profile-name { margin: 0; font-size: 17px; font-weight: 800; color: #002313; }
+.ap-profile-role { margin: 4px 0 16px; font-size: 12.5px; color: #5a6660; }
+.ap-profile-actions { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.ap-profile-btn {
+  width: 100%; padding: 11px 14px;
+  background: #ffffff; border: 1.5px solid #e0e6e2;
+  border-radius: 10px; font-size: 13.5px; font-weight: 700;
+  color: #002313; cursor: pointer; font-family: inherit;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.ap-profile-btn:hover { border-color: #008F4C; background: #EAF6F0; color: #006435; }
+.ap-profile-btn svg { width: 14px; height: 14px; }
+.ap-profile-btn.danger { color: #8a3a3a; border-color: #f1d8d8; }
+.ap-profile-btn.danger:hover { background: #fbeded; border-color: #c64a4a; color: #8a3a3a; }
+.ap-profile-tip {
+  margin: 14px 0 0; font-size: 11.5px; color: #8a9590;
+  background: #fafdfb; padding: 10px 12px; border-radius: 10px;
+  border: 1px dashed #d8e0db; line-height: 1.45;
+}
+
+/* Soporte card (full width) */
+.ap-support {
+  margin-top: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #f6fbf8 100%);
+  border: 1px solid #B2DDC9;
+}
+.ap-support-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.ap-support-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px; background: rgba(255,255,255,0.7);
+  border-radius: 12px; border: 1px solid #e6ece8;
+}
+.ap-support-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: linear-gradient(135deg, #002313 0%, #004726 100%);
+  color: #FFD940; display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.ap-support-icon svg { width: 18px; height: 18px; }
+.ap-support-item .k {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #5a6660; margin: 0 0 2px;
+}
+.ap-support-item a, .ap-support-item .v {
+  font-size: 14px; font-weight: 800; color: #002313;
+  text-decoration: none; letter-spacing: -0.005em;
+}
+.ap-support-item a:hover { color: #008F4C; }
+
+@media (max-width: 880px) {
+  .ap-grid { grid-template-columns: 1fr; }
+  .ap-support-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .ap-post { padding: 40px 18px 60px; }
+  .ap-welcome { padding: 22px 20px; }
+  .ap-welcome-name { font-size: 22px; }
+  .ap-card { padding: 22px 20px; border-radius: 16px; }
+  .ap-status-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" aria-label="Navegación principal">
+  <div class="logo">
+    <a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Taxi Santa Susanna - Taxi oficial 24/7" class="logo-official">
+    </a>
+  </div>
+  <div class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="tarifas.html">Tarifas</a>
+    <a href="quienes-somos.html">Nosotros</a>
+    <a href="#" class="active">Área privada</a>
+  </div>
+  <a class="nav-call" href="tel:+34937678571" aria-label="Llamar a Taxi Santa Susanna">
+    <span class="nav-call-ico">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+    </span>
+    <span class="nav-call-text">
+      <span class="nav-call-label">Taxi ya</span>
+      <span class="nav-call-num">+34 937 67 85 71</span>
+    </span>
+  </a>
+  <div class="lang">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-globe" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    ES
+    <svg class="lang-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+  </div>
+</nav>
+
+<main>
+
+<!-- ====== HERO ====== -->
+<section class="ap-hero">
+  <div class="ap-hero-inner">
+    <div class="ap-hero-eyebrow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Portal para establecimientos
+    </div>
+    <h1 class="ap-hero-h1">Área <span class="accent">privada</span> para hoteles<br>y partners colaboradores</h1>
+    <p class="ap-hero-sub">Gestiona desde recepción los <strong>servicios de taxi de tus clientes</strong>. Acceso directo a la AGENDA TAXI con tu usuario y contraseña asignados. <strong>24/7</strong>, sin papeleo.</p>
+    <div class="ap-hero-badges">
+      <span class="ap-hero-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Recogida garantizada</span>
+      <span class="ap-hero-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Atención 24/7</span>
+      <span class="ap-hero-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.4 8 10 4.5-.6 8-5 8-10V6l-8-4z"/></svg>Facturación mensual</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SELECTOR DE VISTA (solo mockup — se elimina al migrar a WP) ====== -->
+<section class="ap-view-switch" aria-label="Selector de vista previa">
+  <div class="ap-view-switch-inner">
+    <span class="ap-view-switch-label">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+      Vista previa
+      <span class="badge">Mockup</span>
+    </span>
+    <div class="ap-view-switch-tabs" role="tablist" aria-label="Estado del usuario">
+      <button type="button" class="is-on" data-state="pre" role="tab">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Visitante (sin login)
+      </button>
+      <button type="button" data-state="post" role="tab">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Logueado
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATE A — ANTES DE LOGIN ====== -->
+<section class="ap-pre" id="ap-state-pre">
+  <div class="ap-pre-inner">
+
+    <!-- Col izquierda: Beneficios -->
+    <div class="ap-benefits">
+      <div class="ap-benefits-eyebrow">Por qué este portal</div>
+      <h2 class="ap-benefits-title">Todo lo que necesitas para <span class="accent">gestionar los traslados</span> de tus clientes.</h2>
+      <p class="ap-benefits-lead">Si tu hotel, restaurante o establecimiento colabora con nosotros, desde aquí puedes reservar, modificar y hacer seguimiento de los servicios. Sin llamadas, sin esperas.</p>
+
+      <ul class="ap-benefits-list">
+        <li class="ap-benefit">
+          <span class="ap-benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="6" rx="2"/><path d="M22 12H2"/></svg>
+          </span>
+          <div class="ap-benefit-body">
+            <h4>Reservas en menos de 1 minuto</h4>
+            <p>Formulario rápido con origen, destino, hora y número de pasajeros. Confirmación inmediata al momento.</p>
+          </div>
+        </li>
+        <li class="ap-benefit">
+          <span class="ap-benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          </span>
+          <div class="ap-benefit-body">
+            <h4>Agenda completa de servicios</h4>
+            <p>Visualiza todas las reservas del día, semana o mes. Filtra por estado, cliente o destino.</p>
+          </div>
+        </li>
+        <li class="ap-benefit">
+          <span class="ap-benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          <div class="ap-benefit-body">
+            <h4>Seguimiento de vuelos y trenes</h4>
+            <p>Si el cliente llega a BCN o Girona, monitorizamos el vuelo/tren y ajustamos la hora del taxi automáticamente.</p>
+          </div>
+        </li>
+        <li class="ap-benefit">
+          <span class="ap-benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </span>
+          <div class="ap-benefit-body">
+            <h4>Facturación mensual unificada</h4>
+            <p>Una sola factura al mes con todos los servicios detallados. Sin pagos individuales ni gestión de caja.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="ap-benefits-cta">
+        <div class="ap-benefits-cta-text">
+          <small>¿Aún no eres partner?</small>
+          <p>Consulta las condiciones para disfrutar de este servicio en tu establecimiento escribiendo a <strong>info@taxisantasusanna.com</strong></p>
+        </div>
+        <a class="ap-benefits-cta-mail" href="mailto:info@taxisantasusanna.com?subject=Solicitud%20de%20alta%20partner%20Taxi%20Santa%20Susanna">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Solicitar alta
+        </a>
+      </div>
+    </div>
+
+    <!-- Col derecha: Login card -->
+    <div>
+      <div class="ap-login-card">
+        <div class="ap-login-head">
+          <span class="ap-login-lock">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
+          <div class="ap-login-head-text">
+            <h2>Acceder al portal</h2>
+            <p>Solo para establecimientos colaboradores</p>
+          </div>
+        </div>
+
+        <form class="ap-login-form" method="post" action="#">
+          <div class="ap-field">
+            <label for="ap-user">Usuario o correo</label>
+            <input type="text" id="ap-user" name="log" autocomplete="username" placeholder="hotel@taxisantasusanna.com" required>
+            <svg class="ap-field-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+
+          <div class="ap-field">
+            <label for="ap-pass">Contraseña</label>
+            <input type="password" id="ap-pass" name="pwd" autocomplete="current-password" placeholder="••••••••" required>
+            <svg class="ap-field-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <button type="button" class="ap-field-eye" id="ap-toggle-pass" aria-label="Mostrar contraseña">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+
+          <div class="ap-login-row">
+            <label class="ap-remember">
+              <input type="checkbox" name="rememberme" value="forever"> Recuérdame
+            </label>
+            <a class="ap-forgot" href="https://taxisantasusanna.com/wp-login.php?action=lostpassword">¿Has olvidado la contraseña?</a>
+          </div>
+
+          <button type="submit" class="ap-login-submit">
+            Acceder
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="ap-login-foot">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.4 8 10 4.5-.6 8-5 8-10V6l-8-4z"/></svg>
+          Conexión segura SSL. Tus credenciales no se comparten nunca.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== STATE B — DESPUÉS DE LOGIN ====== -->
+<section class="ap-post" id="ap-state-post">
+  <div class="ap-post-inner">
+
+    <!-- Welcome bar -->
+    <div class="ap-welcome">
+      <div class="ap-avatar">HA</div>
+      <div class="ap-welcome-text">
+        <p class="ap-welcome-greet">Hola de nuevo</p>
+        <h2 class="ap-welcome-name">Hotel Aigua Blava</h2>
+        <p class="ap-welcome-meta">Establecimiento partner · Santa Susanna · Sesión iniciada · <span style="color:#FFD940;font-weight:700;">Activo</span></p>
+      </div>
+      <a class="ap-welcome-logout" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+        Cerrar sesión
+      </a>
+    </div>
+
+    <!-- Grid principal -->
+    <div class="ap-grid">
+
+      <!-- Col 1: Credenciales AGENDA + estado servicio -->
+      <div>
+        <div class="ap-card">
+          <div class="ap-card-head">
+            <span class="ap-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1"/><rect width="18" height="12" x="3" y="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+            </span>
+            <div>
+              <h3 class="ap-card-title">Tus credenciales AGENDA TAXI</h3>
+              <p class="ap-card-sub">Necesarias para entrar al sistema de gestión</p>
+            </div>
+          </div>
+
+          <div class="ap-cred-grid">
+            <div class="ap-cred-row">
+              <span class="ap-cred-key">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Usuario
+              </span>
+              <code class="ap-cred-val" id="ap-user-val">aiguablava01</code>
+              <div class="ap-cred-actions">
+                <button class="ap-cred-btn" data-copy-target="ap-user-val" aria-label="Copiar usuario">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="ap-cred-row">
+              <span class="ap-cred-key">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1"/><rect width="18" height="12" x="3" y="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+                Contraseña
+              </span>
+              <code class="ap-cred-val ap-cred-mask" id="ap-pass-val" data-real="Aigua2026!" data-mask="••••••••••">••••••••••</code>
+              <div class="ap-cred-actions">
+                <button class="ap-cred-btn" id="ap-pass-toggle" aria-label="Mostrar contraseña">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+                <button class="ap-cred-btn" data-copy-target="ap-pass-val" aria-label="Copiar contraseña">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <a class="ap-agenda-cta" href="#" target="_blank" rel="noopener">
+            <svg class="ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Acceder a la AGENDA TAXI
+            <svg class="ext" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+
+          <p class="ap-cred-hint">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            Estas credenciales son personales e intransferibles. No las compartas con terceros ni las envíes por correo.
+          </p>
+        </div>
+
+        <!-- Estado del servicio -->
+        <div class="ap-card" style="margin-top: 24px;">
+          <div class="ap-card-head">
+            <span class="ap-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </span>
+            <div>
+              <h3 class="ap-card-title">Estado del servicio</h3>
+              <p class="ap-card-sub">Actividad de tu recepción</p>
+            </div>
+          </div>
+
+          <div class="ap-status-grid">
+            <div class="ap-status-tile">
+              <p class="lbl">Sistema</p>
+              <p class="val"><span class="ap-status-dot"></span>Operativo</p>
+            </div>
+            <div class="ap-status-tile">
+              <p class="lbl">Reservas este mes</p>
+              <p class="val">38</p>
+            </div>
+            <div class="ap-status-tile">
+              <p class="lbl">Última reserva</p>
+              <p class="val">Hoy 11:24h</p>
+            </div>
+            <div class="ap-status-tile">
+              <p class="lbl">Próximas 24h</p>
+              <p class="val">4 servicios</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Perfil + ajustes -->
+      <div>
+        <div class="ap-card ap-profile">
+          <div class="ap-profile-pic-wrap">
+            <div class="ap-profile-pic">HA</div>
+            <button class="ap-profile-edit" aria-label="Cambiar foto del perfil">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </button>
+          </div>
+          <h3 class="ap-profile-name">Hotel Aigua Blava</h3>
+          <p class="ap-profile-role">Recepción · Partner desde 2019</p>
+
+          <div class="ap-profile-actions">
+            <a class="ap-profile-btn" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Cambiar contraseña
+            </a>
+            <a class="ap-profile-btn" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+              Ajustes de la cuenta
+            </a>
+            <a class="ap-profile-btn danger" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+              Cerrar sesión
+            </a>
+          </div>
+
+          <p class="ap-profile-tip">Foto cuadrada de mínimo <strong>200 x 200 px</strong>. Recomendado: logo del establecimiento.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Soporte (full width) -->
+    <div class="ap-card ap-support">
+      <div class="ap-card-head">
+        <span class="ap-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+        </span>
+        <div>
+          <h3 class="ap-card-title">¿Necesitas ayuda?</h3>
+          <p class="ap-card-sub">Nuestro equipo está disponible para ti 24/7</p>
+        </div>
+      </div>
+
+      <div class="ap-support-grid">
+        <div class="ap-support-item">
+          <span class="ap-support-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          </span>
+          <div>
+            <p class="k">Llamada directa</p>
+            <a href="tel:+34937678571">+34 937 67 85 71</a>
+          </div>
+        </div>
+        <div class="ap-support-item">
+          <span class="ap-support-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </span>
+          <div>
+            <p class="k">Correo de soporte</p>
+            <a href="mailto:info@taxisantasusanna.com">info@taxisantasusanna.com</a>
+          </div>
+        </div>
+        <div class="ap-support-item">
+          <span class="ap-support-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </span>
+          <div>
+            <p class="k">WhatsApp</p>
+            <a href="https://wa.me/34937678571" target="_blank" rel="noopener">+34 937 67 85 71</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer" aria-label="Pie de página">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <a href="index.html" class="footer-logo-link">
+          <img src="images/logo.png" alt="Taxi Santa Susanna" class="footer-logo-img">
+        </a>
+        <p class="footer-tagline">Central de taxis Santa Susanna · desde 1998</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Páginas</h4>
+        <nav class="footer-nav">
+          <a href="index.html">Inicio</a>
+          <a href="tarifas.html">Tarifas</a>
+          <a href="lista-precios.html">Lista de precios</a>
+          <a href="quienes-somos.html">Nosotros</a>
+          <a href="#">Área privada</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Avisos</h4>
+        <nav class="footer-nav">
+          <a href="#">Aviso legal</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Cookies</a>
+          <a href="#">Términos</a>
+        </nav>
+      </div>
+      <div class="footer-col footer-col-cta">
+        <a href="tel:+34937678571" class="footer-phone-cta footer-cta-phone">
+          <span class="footer-phone-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></span>
+          <span class="footer-phone-cta-text"><span class="footer-phone-cta-label">Atención 24/7</span><span class="footer-phone-cta-num">+34 937 67 85 71</span></span>
+        </a>
+        <a href="mailto:info@taxisantasusanna.com" class="footer-phone-cta footer-cta-email">
+          <span class="footer-phone-cta-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+          <span class="footer-phone-cta-text"><span class="footer-phone-cta-label">Escríbenos</span><span class="footer-phone-cta-num">info@taxisantasusanna.com</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Taxi Santa Susanna · Todos los derechos reservados</div>
+      <div class="footer-legal">
+        <a href="#">Aviso legal</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// MOCKUP TOGGLE — Cambia entre estado pre/post login
+// ============================================================
+(function(){
+  const tabs = document.querySelector('.ap-view-switch-tabs');
+  const pre  = document.getElementById('ap-state-pre');
+  const post = document.getElementById('ap-state-post');
+  if (!tabs) return;
+  tabs.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    tabs.querySelectorAll('button').forEach(b => b.classList.toggle('is-on', b === btn));
+    const state = btn.dataset.state;
+    if (state === 'pre') {
+      pre.style.display = '';
+      post.classList.remove('is-visible');
+    } else {
+      pre.style.display = 'none';
+      post.classList.add('is-visible');
+    }
+    // Scroll suave hasta el contenido (debajo del selector)
+    const target = state === 'pre' ? pre : post;
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+
+// Mostrar/ocultar contraseña en login
+(function(){
+  const btn = document.getElementById('ap-toggle-pass');
+  const inp = document.getElementById('ap-pass');
+  if (!btn || !inp) return;
+  btn.addEventListener('click', () => {
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+  });
+})();
+
+// Mostrar/ocultar contraseña en credenciales AGENDA
+(function(){
+  const btn  = document.getElementById('ap-pass-toggle');
+  const code = document.getElementById('ap-pass-val');
+  if (!btn || !code) return;
+  let shown = false;
+  btn.addEventListener('click', () => {
+    shown = !shown;
+    code.textContent = shown ? code.dataset.real : code.dataset.mask;
+    code.classList.toggle('ap-cred-mask', !shown);
+  });
+})();
+
+// Copiar credenciales
+(function(){
+  document.querySelectorAll('[data-copy-target]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const target = document.getElementById(btn.dataset.copyTarget);
+      if (!target) return;
+      const text = target.dataset.real || target.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.classList.add('ap-cred-copied');
+        setTimeout(() => btn.classList.remove('ap-cred-copied'), 1200);
+      } catch (e) { console.error(e); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -7194,6 +7194,85 @@ a.dest-card-premium {
 
 body.nav-drawer-active { overflow: hidden; }
 
+/* ============================================================
+   WordPress theme override fixes — Woodmart fuerza color en h1/h2/h3
+   ============================================================ */
+.hero h1,
+.hero h1 .rotating-word-inline,
+.hero h1 .accent,
+.hero .strap,
+.hero .hero-badge,
+.hero .humans-line,
+.hero .hero-stats .stat .lbl { color: white !important; }
+.hero h1 .accent,
+.hero-stats .stat .num,
+.hero-stats .stat .num span { color: #F3C800 !important; }
+.hero .rotating-word-inline,
+.hero h1 .rotating-word-inline { color: #F3C800 !important; }
+.hero h1 .rotating-word-inline .caret-inline,
+.hero h1 .caret-inline { color: #F3C800 !important; }
+.hero .strap { color: #B2DDC9 !important; }
+.hero .hero-stats .stat .lbl { color: #B2DDC9 !important; }
+
+/* Premium card del trust strip — texto blanco en fondo verde */
+.trust-card-aligned.premium h4 { color: #ffffff !important; }
+.trust-card-aligned.premium h4 .check { color: #F3C800 !important; }
+.trust-card-aligned.premium p { color: rgba(255,255,255,0.78) !important; }
+.trust-card-aligned.premium p .hl { color: #FFD940 !important; }
+.trust-card-aligned.premium .premium-seal { color: #002313 !important; }
+
+/* Trust cards normales (no premium) — fondo blanco, check verde */
+.trust-card-aligned:not(.premium) h4 { color: #1f2a24 !important; }
+.trust-card-aligned:not(.premium) h4 .check { color: #008F4C !important; }
+.trust-card-aligned:not(.premium) p { color: #5a6660 !important; }
+
+/* Recogida premium card — texto blanco */
+.air-card-recogida .air-card-title,
+.air-card-recogida .air-card-desc { color: #ffffff !important; }
+.air-card-recogida .air-card-desc { color: rgba(255,255,255,0.86) !important; }
+.air-card-recogida .air-card-guarantees li,
+.air-card-recogida .air-card-guarantees li * { color: rgba(255,255,255,0.92) !important; }
+.air-card-recogida .air-card-guarantees li::before,
+.air-card-recogida .recogida-cta { color: #002313 !important; }
+.air-card-recogida .recogida-cta { background: #F3C800 !important; }
+
+/* Events: eventos hero principal — texto sobre verde */
+.ev-hero-name,
+.ev-hero-meta,
+.ev-hero-coupon { color: inherit !important; }
+
+/* Footer — texto sobre verde oscuro */
+.footer h3, .footer h4, .footer .footer-col-title { color: inherit !important; }
+.footer .footer-col-title { color: rgba(255,255,255,0.55) !important; }
+
+/* Anular subrayado/border-bottom del tema Woodmart en los botones de reserva */
+.oc-item-cta,
+.oc-item-cta:hover,
+.oc-item-cta:focus,
+.oc-item-cta:active,
+.oc-item-cta:visited,
+.oc-block-cta,
+.oc-block-cta:hover,
+.oc-block-cta:focus,
+.oc-block-cta:active,
+.oc-block-cta:visited,
+.air-airport-row,
+.air-airport-row:hover,
+.air-airport-row:focus,
+.air-airport-row:active,
+.air-airport-row:visited,
+.air-airport-cta,
+.air-airport-cta:hover,
+.air-airport-cta:focus {
+  text-decoration: none !important;
+  background-image: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+.air-airport-row,
+.air-airport-row:hover { box-shadow: 0 2px 8px rgba(0, 143, 76, 0.06) !important; }
+.air-airport-row:hover { box-shadow: 0 10px 24px rgba(0, 143, 76, 0.18) !important; }
+
 </style>
 </head>
 <body>
@@ -7305,7 +7384,7 @@ body.nav-drawer-active { overflow: hidden; }
           <p class="air-card-desc">Tu transfer desde Santa Susanna al aeropuerto, con total garantía y precio fijo.</p>
 
           <div class="air-airports-list">
-            <a class="air-airport-row" href="https://taxisantasusanna.com/booking/transfer-aeroport-bcn-santa-susanna/">
+            <a class="air-airport-row" href="https://taxisantasusanna.com/booking/transfer-santa-susanna-aeroport-de-barcelona/">
               <div class="air-airport-info">
                 <span class="air-airport-code">BCN</span>
                 <span class="air-airport-name">Barcelona-El Prat</span>
@@ -7316,7 +7395,7 @@ body.nav-drawer-active { overflow: hidden; }
                 <span class="air-airport-cta">Reservar <span class="air-airport-cta-arrow">→</span></span>
               </div>
             </a>
-            <a class="air-airport-row" href="https://taxisantasusanna.com/booking/transfer-aeroport-gro-santa-susanna/">
+            <a class="air-airport-row" href="https://taxisantasusanna.com/booking/transfer-santa-susanna-aeroport-de-girona/">
               <div class="air-airport-info">
                 <span class="air-airport-code">GRO</span>
                 <span class="air-airport-name">Girona-Costa Brava</span>
@@ -7405,7 +7484,7 @@ body.nav-drawer-active { overflow: hidden; }
               </div>
               <div class="oc-item-action">
                 <span class="oc-item-price">123€</span>
-                <a href="#reservar" class="oc-item-cta">Reservar →</a>
+                <a href="https://taxisantasusanna.com/booking/transfer-santa-susanna-barcelona-sants/" class="oc-item-cta">Reservar →</a>
               </div>
             </li>
             <li class="oc-item">
@@ -7436,7 +7515,7 @@ body.nav-drawer-active { overflow: hidden; }
               </div>
               <div class="oc-item-action">
                 <span class="oc-item-price">79€</span>
-                <a href="#reservar" class="oc-item-cta">Reservar →</a>
+                <a href="https://taxisantasusanna.com/booking/transfer-santa-susanna-girona-ave/" class="oc-item-cta">Reservar →</a>
               </div>
             </li>
             <li class="oc-item">
@@ -7480,7 +7559,7 @@ body.nav-drawer-active { overflow: hidden; }
             <li class="oc-item">Casino Port Olímpic</li>
             <li class="oc-item">Plaça Catalunya</li>
           </ul>
-          <a href="#reservar" class="oc-block-cta">Ver más →</a>
+          <a href="https://taxisantasusanna.com/booking/transfer-santa-susanna-barcelona-centro/" class="oc-block-cta">Ver más →</a>
         </div>
 
         <div class="oc-block oc-block-girona">
@@ -7496,7 +7575,7 @@ body.nav-drawer-active { overflow: hidden; }
             <li class="oc-item">Girona FC — Montilivi</li>
             <li class="oc-item">Museu Dalí — Figueres</li>
           </ul>
-          <a href="#reservar" class="oc-block-cta">Ver más →</a>
+          <a href="https://taxisantasusanna.com/booking/transfer-santa-susanna-girona/" class="oc-block-cta">Ver más →</a>
         </div>
 
         <div class="oc-block oc-block-shopping">
@@ -7512,7 +7591,7 @@ body.nav-drawer-active { overflow: hidden; }
             <li class="oc-item">Mataró Park</li>
             <li class="oc-item">Espai Gironès</li>
           </ul>
-          <a href="#reservar" class="oc-block-cta">Ver más →</a>
+          <a href="https://taxisantasusanna.com/booking/transfer-santa-susanna-la-roca-village/" class="oc-block-cta">Ver más →</a>
         </div>
 
       </div>
