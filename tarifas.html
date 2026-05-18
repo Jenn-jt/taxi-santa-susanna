@@ -1517,7 +1517,39 @@
     ES
     <svg class="lang-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
   </div>
+  <button class="nav-hamburger" id="nav-hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-drawer">
+    <svg class="icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+    <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
 </nav>
+
+<!-- Drawer móvil -->
+<div class="nav-drawer-overlay" id="nav-drawer-overlay" aria-hidden="true"></div>
+<aside class="nav-drawer" id="nav-drawer" aria-hidden="true" aria-label="Menú móvil">
+  <button class="nav-drawer-close" type="button" aria-label="Cerrar menú">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <nav class="nav-drawer-menu" aria-label="Navegación móvil">
+    <a href="index.html">Inicio</a>
+    <a href="tarifas.html" class="active">Tarifas</a>
+    <a href="quienes-somos.html">Nosotros</a>
+    <a href="#">Preferent</a>
+  </nav>
+  <div class="nav-drawer-divider"></div>
+  <a class="nav-drawer-cta" href="tel:+34937678571">
+    <span class="nav-drawer-cta-ico">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+    </span>
+    <span class="nav-drawer-cta-text">
+      <span class="nav-drawer-cta-label">Taxi ya · 24/7</span>
+      <span class="nav-drawer-cta-num">+34 937 67 85 71</span>
+    </span>
+  </a>
+  <span class="nav-drawer-lang">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    Español
+  </span>
+</aside>
 
 <main>
 
@@ -2313,6 +2345,41 @@ document.getElementById('lp-total-destinos').textContent = TARIFFS.length;
   };
   update();
   window.addEventListener('scroll', update, { passive: true });
+})();
+
+// ===== MOBILE NAV DRAWER =====
+(function() {
+  const hamburger = document.getElementById('nav-hamburger');
+  const drawer = document.getElementById('nav-drawer');
+  const overlay = document.getElementById('nav-drawer-overlay');
+  if (!hamburger || !drawer || !overlay) return;
+  const closeBtn = drawer.querySelector('.nav-drawer-close');
+  const links = drawer.querySelectorAll('.nav-drawer-menu a, .nav-drawer-cta');
+  function open() {
+    drawer.classList.add('is-open');
+    overlay.classList.add('is-open');
+    hamburger.classList.add('is-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('nav-drawer-active');
+  }
+  function close() {
+    drawer.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    hamburger.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('nav-drawer-active');
+  }
+  hamburger.addEventListener('click', () => {
+    if (drawer.classList.contains('is-open')) close(); else open();
+  });
+  closeBtn?.addEventListener('click', close);
+  overlay.addEventListener('click', close);
+  links.forEach(l => l.addEventListener('click', close));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
+  });
 })();
 </script>
 
