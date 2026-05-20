@@ -7004,4 +7004,6 @@ body.nav-drawer-active { overflow: hidden; }
   .nav-call-text { display: none; }
   .nav-call-ico { width: 36px; height: 36px; }
   .nav-call-ico svg { width: 16px; height: 16px; }
+  .nav .menu { display: none; }
+  .nav-hamburger { display: inline-flex; }
 }
