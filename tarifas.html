@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lista de precios 2026 · Taxi Santa Susanna · Todas las tarifas</title>
+<title>Tarifas 2026 Taxi Santa Susanna</title>
 <meta name="description" content="Lista oficial completa de tarifas 2026 reguladas. Más de 45 destinos: aeropuertos, estaciones AVE, Barcelona, Girona, Lloret, Tossa, Costa del Maresme y Santa Susanna local.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -163,11 +163,12 @@
   gap: 14px;
 }
 
-/* === Row 1: Search === */
+/* === Row 1: Search — título y barra en una fila === */
 .lp-toolbar-row1 {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 22px;
 }
 
 /* Titular del buscador — protagonismo */
@@ -181,8 +182,9 @@
   letter-spacing: -0.018em;
   line-height: 1.2;
   margin: 0;
-  transition: opacity 0.25s ease, max-height 0.3s ease, margin 0.25s ease;
-  max-height: 60px;
+  flex-shrink: 0;
+  min-width: 220px;
+  transition: opacity 0.25s ease, max-width 0.3s ease, margin 0.25s ease;
   overflow: hidden;
 }
 .lp-search-title-ico {
@@ -204,7 +206,16 @@
   font-size: 21px; font-weight: 800; color: #002313;
 }
 .lp-toolbar.is-stuck .lp-search-title {
-  opacity: 0; max-height: 0; margin-bottom: -10px;
+  opacity: 0;
+  max-width: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+.lp-toolbar.is-stuck .lp-toolbar-row1 {
+  grid-template-columns: 1fr;
+  gap: 0;
 }
 
 .lp-search {
@@ -2030,6 +2041,8 @@
   .lp-zones-grid { grid-template-columns: repeat(3, 1fr); }
   .lp-info-grid { grid-template-columns: 1fr; }
   .lp-h1 { font-size: 44px; }
+  .lp-toolbar-row1 { grid-template-columns: 1fr; gap: 10px; }
+  .lp-search-title { min-width: 0; }
   .lp-featured-title { font-size: 32px; }
   .lp-section-title { font-size: 32px; }
   .lp-download-title { font-size: 32px; }
@@ -2058,19 +2071,35 @@
   .lp-subhead { font-size: 14.5px; }
   .lp-toolbar { padding: 16px 18px; top: 0; }
   .lp-toolbar-inner { gap: 12px; }
+  .lp-toolbar-row1 { grid-template-columns: 1fr; gap: 10px; }
+  .lp-search-title { min-width: 0; }
+  .lp-search-title-text strong { font-size: 18px; }
   .lp-chip { padding: 7px 12px; font-size: 12.5px; }
   .lp-featured { padding: 40px 18px 18px; }
   .lp-featured-title { font-size: 26px; }
   .lp-featured-sub { font-size: 14.5px; margin-bottom: 24px; }
   .lp-featured-grid { grid-template-columns: 1fr; gap: 12px; }
-  .lp-featured-card { padding: 18px 18px; gap: 12px; }
-  .lp-featured-name { font-size: 17px; }
+  .lp-featured-card {
+    grid-template-columns: 1fr;
+    padding: 16px 16px;
+    gap: 14px;
+  }
+  .lp-featured-name { font-size: 17px; line-height: 1.25; }
   .lp-featured-time { font-size: 12.5px; }
   .lp-featured-code-badge { font-size: 11px; padding: 3px 7px; }
-  .lp-featured-card .lp-price-amt { font-size: 18px; }
-  .lp-featured-card .lp-price-tag { width: 22px; height: 22px; }
-  .lp-featured-card .lp-price-tag svg { width: 13px; height: 13px; }
-  .lp-featured-cta { padding: 10px 14px; font-size: 12.5px; }
+  .lp-featured-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed #e6ece8;
+  }
+  .lp-featured-prices { gap: 14px; }
+  .lp-featured-card .lp-price-amt { font-size: 19px; }
+  .lp-featured-card .lp-price-tag { width: 24px; height: 24px; }
+  .lp-featured-card .lp-price-tag svg { width: 14px; height: 14px; }
+  .lp-featured-cta { padding: 10px 16px; font-size: 13px; flex-shrink: 0; }
   .lp-list-section { padding: 32px 18px 18px; }
   .lp-rows { grid-template-columns: 1fr; gap: 10px; }
   .lp-row { padding: 16px 16px; }
@@ -2094,6 +2123,28 @@
   .lp-zone-streets { font-size: 12.5px; }
   .lp-info { padding: 40px 18px; }
   .lp-cta-final { padding: 16px 18px 48px; }
+  /* CTA "¿No encuentras tu destino?" — alineado en móvil */
+  .lp-cta-final .cta-extra-v2 {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 28px 22px;
+    gap: 18px;
+    justify-items: center;
+  }
+  .lp-cta-final .cta-icon-wrap { margin: 0 auto; }
+  .lp-cta-final .cta-text-block { align-items: center; text-align: center; }
+  .lp-cta-final .cta-eyebrow,
+  .lp-cta-final .cta-title,
+  .lp-cta-final .cta-tagline { text-align: center; width: 100%; }
+  .lp-cta-final .cta-title { font-size: 22px; line-height: 1.2; }
+  .lp-cta-final .cta-tagline { font-size: 14px; }
+  .lp-cta-final .cta-contact-icons {
+    width: 100%;
+    justify-content: center;
+    gap: 14px;
+  }
+  .lp-cta-final .cta-icon-btn { width: 56px; height: 56px; }
+  .lp-cta-final .cta-icon-btn svg { width: 22px; height: 22px; }
   .lp-includes { padding: 48px 18px; }
   .lp-section-title { font-size: 26px; line-height: 1.15; }
   .lp-section-subtitle { font-size: 14.5px; }
@@ -2168,7 +2219,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
     </span>
     <span class="nav-drawer-cta-text">
-      <span class="nav-drawer-cta-label">Taxi ya · 24/7</span>
+      <span class="nav-drawer-cta-label">Taxi ya 24/7</span>
       <span class="nav-drawer-cta-num">+34 937 67 85 71</span>
     </span>
   </a>
@@ -2204,7 +2255,7 @@
         </div>
       </div>
       <div class="lp-search" id="lp-search-wrap">
-        <input class="lp-search-input" type="search" id="lp-search" placeholder="Escribe tu destino — Barcelona, Lloret, Aeropuerto, Mataró…" autocomplete="off">
+        <input class="lp-search-input" type="search" id="lp-search" placeholder="Escribe tu destino: Barcelona, Lloret, Aeropuerto, Mataró…" autocomplete="off">
         <svg class="lp-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         <kbd class="lp-search-kbd" aria-hidden="true">/</kbd>
         <button class="lp-search-clear" id="lp-search-clear" type="button" aria-label="Limpiar búsqueda">
@@ -2224,8 +2275,8 @@
           <button class="lp-chip is-active" data-filter="all">Todos <span class="lp-chip-count" data-count-for="all">0</span></button>
           <button class="lp-chip" data-filter="barcelona">Barcelona <span class="lp-chip-count" data-count-for="barcelona">0</span></button>
           <button class="lp-chip" data-filter="girona">Girona <span class="lp-chip-count" data-count-for="girona">0</span></button>
-          <button class="lp-chip" data-filter="malgrat-palafolls">Malgrat · Palafolls <span class="lp-chip-count" data-count-for="malgrat-palafolls">0</span></button>
-          <button class="lp-chip" data-filter="lloret-tossa">Blanes · Lloret · Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">0</span></button>
+          <button class="lp-chip" data-filter="malgrat-palafolls">Malgrat y Palafolls <span class="lp-chip-count" data-count-for="malgrat-palafolls">0</span></button>
+          <button class="lp-chip" data-filter="lloret-tossa">Blanes, Lloret y Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">0</span></button>
           <button class="lp-chip" data-filter="maresme">Costa del Maresme <span class="lp-chip-count" data-count-for="maresme">0</span></button>
         </div>
       </div>
@@ -2275,7 +2326,7 @@
 
     <!-- Header simplificado -->
     <div class="lp-zones-header">
-      <span class="lp-zones-header-eyebrow">Servicios urbanos · Santa Susanna</span>
+      <span class="lp-zones-header-eyebrow">Servicios urbanos</span>
       <h2>Trayectos por el pueblo, <span class="accent">a precio fijo</span></h2>
       <p>Una <strong>tarifa base</strong> para todo el centro y los hoteles. Un pequeño suplemento si tu viaje empieza o termina en una de las zonas más alejadas del pueblo.</p>
     </div>
@@ -2303,7 +2354,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
           </span>
           <span class="lp-base-hero-price-amt">9€</span>
-          <span class="lp-base-hero-price-lbl">Noche · festivo</span>
+          <span class="lp-base-hero-price-lbl">Noche o festivo</span>
         </div>
       </div>
     </div>
@@ -2414,7 +2465,7 @@
             </div>
             <div class="lp-schedule-body">
               <p class="lp-schedule-hours">20:00 – 08:00</p>
-              <p class="lp-schedule-days">Sáb · Dom · Festivos</p>
+              <p class="lp-schedule-days">Sáb, Dom y festivos</p>
             </div>
           </div>
         </div>
@@ -2453,7 +2504,7 @@
           </div>
           <h3 class="lp-info-title">Paga como prefieras</h3>
         </div>
-        <p class="lp-info-text">Efectivo, tarjeta, Bizum o transferencia. <strong>Al reservar o al terminar</strong> — tú eliges.</p>
+        <p class="lp-info-text">Efectivo, tarjeta, Bizum o transferencia. <strong>Al reservar o al terminar</strong>, tú eliges.</p>
         <div class="lp-pay-logos">
           <img src="images/metodos-pago.svg" alt="Métodos de pago aceptados: Visa, MasterCard, American Express, Bizum, PayPal y efectivo" loading="lazy">
         </div>
@@ -2706,7 +2757,7 @@
         <a href="index.html" class="footer-logo-link">
           <img src="images/logo.png" alt="Taxi Santa Susanna" class="footer-logo-img">
         </a>
-        <p class="footer-tagline">Central de taxis Santa Susanna · desde 1998</p>
+        <p class="footer-tagline">Central de taxis Santa Susanna desde 1998</p>
       </div>
       <div class="footer-col">
         <h4 class="footer-col-title">Páginas</h4>
@@ -2740,7 +2791,7 @@
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Taxi Santa Susanna · Todos los derechos reservados</div>
+      <div class="footer-copy">© 2026 Taxi Santa Susanna. Todos los derechos reservados</div>
       <div class="footer-legal">
         <a href="#">Aviso legal</a>
         <a href="#">Privacidad</a>
@@ -2758,14 +2809,14 @@ const TARIFFS = [
   // ===========================================================
   // FEATURED (servicios interurbanos — los más reservados)
   // ===========================================================
-  { id: 'bcn-airport',   name: 'Barcelona-El Prat',  code: 'BCN', cat: 'barcelona', featured: true, day: 142, night: 153, time: 'Aeropuerto · 70-100 min' },
-  { id: 'gro-airport',   name: 'Girona-Costa Brava', code: 'GRO', cat: 'girona',    featured: true, day: 64,  night: 69,  time: 'Aeropuerto · 25-35 min' },
-  { id: 'bcn-sants',     name: 'Sants',              code: 'BCN', cat: 'barcelona', featured: true, day: 123, night: 134, time: 'Estación AVE · 60-75 min' },
-  { id: 'gro-ave',       name: 'Girona AVE',         code: 'GIR', cat: 'girona',    featured: true, day: 79,  night: 88,  time: 'Estación AVE · 40-55 min' },
-  { id: 'bcn-nord',      name: 'Estació del Nord',   code: 'BCN', cat: 'barcelona', featured: true, day: 110, night: 119, time: 'Estación de bus · 50-60 min' },
-  { id: 'reus-airport',  name: 'Aeropuerto de Reus', code: 'REU', cat: 'barcelona', featured: true, day: 290, night: 315, time: 'Aeropuerto · 120-140 min' },
-  { id: 'bcn-port',      name: 'Port de Barcelona',  code: 'BCN', cat: 'barcelona', featured: true, day: 130, night: 140, time: 'Cruceros · 60-75 min' },
-  { id: 'perpinya',      name: 'Perpinyà',           code: 'PER', cat: 'girona',    featured: true, day: 243, night: 268, time: 'Aeropuerto · Francia · 100-120 min' },
+  { id: 'bcn-airport',   name: 'Barcelona-El Prat',  code: 'BCN', cat: 'barcelona', featured: true, day: 142, night: 153, time: 'Aeropuerto, 70-100 min' },
+  { id: 'gro-airport',   name: 'Girona-Costa Brava', code: 'GRO', cat: 'girona',    featured: true, day: 64,  night: 69,  time: 'Aeropuerto, 25-35 min' },
+  { id: 'bcn-sants',     name: 'Estació de Sants',   code: 'BCN', cat: 'barcelona', featured: true, day: 123, night: 134, time: 'Estación AVE, 60-75 min' },
+  { id: 'gro-ave',       name: 'Girona AVE',         code: 'GIR', cat: 'girona',    featured: true, day: 79,  night: 88,  time: 'Estación AVE, 40-55 min' },
+  { id: 'bcn-nord',      name: 'Estació del Nord',   code: 'BCN', cat: 'barcelona', featured: true, day: 110, night: 119, time: 'Estación de bus, 50-60 min' },
+  { id: 'reus-airport',  name: 'Aeropuerto de Reus', code: 'REU', cat: 'barcelona', featured: true, day: 290, night: 315, time: 'Aeropuerto, 120-140 min' },
+  { id: 'bcn-port',      name: 'Port de Barcelona',  code: 'BCN', cat: 'barcelona', featured: true, day: 130, night: 140, time: 'Cruceros, 60-75 min' },
+  { id: 'perpinya',      name: 'Aeropuerto de Perpinyà', code: 'PER', cat: 'girona', featured: true, day: 243, night: 268, time: 'Aeropuerto Francia, 100-120 min' },
 
   // ===========================================================
   // BARCELONA — ciudad, área metropolitana, conexiones sur
@@ -2872,8 +2923,8 @@ const TARIFFS = [
 const CATS = [
   { id: 'barcelona',        label: 'Barcelona',               icon: 'building' },
   { id: 'girona',           label: 'Girona',                  icon: 'building' },
-  { id: 'malgrat-palafolls',label: 'Malgrat · Palafolls',     icon: 'beach' },
-  { id: 'lloret-tossa',     label: 'Blanes · Lloret · Tossa', icon: 'beach' },
+  { id: 'malgrat-palafolls',label: 'Malgrat y Palafolls',     icon: 'beach' },
+  { id: 'lloret-tossa',     label: 'Blanes, Lloret y Tossa',  icon: 'beach' },
   { id: 'maresme',          label: 'Costa del Maresme',       icon: 'beach' },
 ];
 
@@ -3212,7 +3263,7 @@ document.querySelectorAll('.faq-question').forEach(q => {
           <span class="lp-street-result-zone">${match.zone}</span>
           <div class="lp-street-result-info">
             <p class="lp-street-result-name">${match.street}</p>
-            <p class="lp-street-result-meta">Tramo ${match.zone} · suplemento <strong>+${match.supp}€</strong> sobre la tarifa base</p>
+            <p class="lp-street-result-meta">Tramo ${match.zone}, suplemento <strong>+${match.supp}€</strong> sobre la tarifa base</p>
           </div>
           <div class="lp-street-result-totals">
             <div class="lp-street-result-total">
