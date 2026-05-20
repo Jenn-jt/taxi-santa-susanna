@@ -98,14 +98,14 @@
 .lp-hero {
   position: relative;
   padding: 152px 24px 56px;
-  background:
-    radial-gradient(ellipse at top right, rgba(243,200,0,0.12) 0%, transparent 55%),
-    radial-gradient(ellipse at bottom left, rgba(0,143,76,0.18) 0%, transparent 60%),
-    linear-gradient(180deg, #002313 0%, #004726 100%);
+  min-height: 420px;
+  background: linear-gradient(180deg, #002313 0%, #004726 100%);
   color: #ffffff;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
-.lp-hero-inner { max-width: 1280px; margin: 0 auto; }
+.lp-hero-inner { max-width: 1280px; margin: 0 auto; width: 100%; }
 .lp-eyebrow {
   font-size: 13px;
   font-weight: 800;
@@ -2085,7 +2085,7 @@
   .lp-row-price-label svg { width: 13px; height: 13px; }
 }
 @media (max-width: 640px) {
-  .lp-hero { padding: 160px 20px 44px; }
+  .lp-hero { padding: 160px 20px 44px; min-height: 320px; }
   .lp-h1 { font-size: 36px; letter-spacing: -0.025em; }
   .lp-subhead { font-size: 14.5px; }
   .lp-toolbar { padding: 16px 18px; top: 0; }
@@ -2195,8 +2195,10 @@
     </a>
   </div>
   <div class="menu">
+    
     <a href="index.html">Inicio</a>
     <a href="tarifas.html" class="active">Tarifas</a>
+    <a href="preguntas-frecuentes.html">Ayuda</a>
     <a href="quienes-somos.html">Nosotros</a>
     <a href="area-privada.html">Preferent</a>
   </div>
@@ -2227,8 +2229,10 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
   </button>
   <nav class="nav-drawer-menu" aria-label="Navegación móvil">
+    
     <a href="index.html">Inicio</a>
     <a href="tarifas.html" class="active">Tarifas</a>
+    <a href="preguntas-frecuentes.html">Ayuda</a>
     <a href="quienes-somos.html">Nosotros</a>
     <a href="area-privada.html">Preferent</a>
   </nav>
@@ -2253,8 +2257,7 @@
 <!-- ====== HERO ====== -->
 <section class="lp-hero">
   <div class="lp-hero-inner">
-    <div class="lp-eyebrow">Tarifa 2026</div>
-    <h1 class="lp-h1">Tu destino, <span class="accent">a precio fijo</span>.</h1>
+    <h1 class="lp-h1">Tarifas <span class="accent">2026</span>.</h1>
     <p class="lp-subhead">No nos gustan los <strong>algoritmos</strong> que adaptan la oferta y la demanda de las grandes plataformas. Aquí tienes el <strong>precio cerrado</strong> a los destinos más habituales, así de transparente.</p>
   </div>
 </section>
@@ -2693,6 +2696,7 @@
       <div class="footer-col">
         <h4 class="footer-col-title">Páginas</h4>
         <nav class="footer-nav">
+          
           <a href="index.html">Inicio</a>
           <a href="tarifas.html">Tarifas</a>
           <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>

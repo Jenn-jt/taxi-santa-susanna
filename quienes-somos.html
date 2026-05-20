@@ -21,12 +21,12 @@
 .qs-hero {
   position: relative;
   padding: 152px 24px 56px;
-  background:
-    radial-gradient(ellipse at top right, rgba(243,200,0,0.12) 0%, transparent 55%),
-    radial-gradient(ellipse at bottom left, rgba(0,143,76,0.18) 0%, transparent 60%),
-    linear-gradient(180deg, #002313 0%, #004726 100%);
+  min-height: 420px;
+  background: linear-gradient(180deg, #002313 0%, #004726 100%);
   color: #ffffff;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 .qs-hero-inner {
   max-width: 1280px;
@@ -138,19 +138,20 @@
   align-items: center;
 }
 .qs-historia-text h2 {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 800;
-  color: #1a2620;
+  color: #002313;
   margin: 0 0 18px;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.02em;
 }
 .qs-historia-text p {
-  font-size: 15.5px;
+  font-size: 16.5px;
   font-weight: 500;
   color: #2d3631;
   line-height: 1.65;
   margin: 0 0 14px;
+  letter-spacing: -0.005em;
 }
 .qs-historia-text p strong {
   color: #008F4C;
@@ -219,22 +220,23 @@
 
 /* Valores */
 .qs-section-title {
-  font-size: 32px;
+  font-size: 38px;
   font-weight: 800;
-  color: #1a2620;
+  color: #002313;
   text-align: center;
-  margin: 0 0 8px;
-  letter-spacing: -0.015em;
+  margin: 0 0 12px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
 }
 .qs-section-sub {
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 500;
-  font-style: italic;
   color: #5a6660;
   text-align: center;
-  max-width: 540px;
+  max-width: 720px;
   margin: 0 auto 40px;
   line-height: 1.55;
+  letter-spacing: -0.005em;
 }
 .qs-valores-grid {
   display: grid;
@@ -432,15 +434,15 @@
   align-items: center;
 }
 .qs-flota-text h2 {
-  font-size: 32px;
+  font-size: 38px;
   font-weight: 800;
-  color: #1a2620;
+  color: #002313;
   margin: 0 0 16px;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
 }
 .qs-flota-text p {
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 500;
   color: #2d3631;
   line-height: 1.6;
@@ -693,15 +695,15 @@
   .qs-partners-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 640px) {
-  .qs-hero { padding: 160px 20px 44px; }
+  .qs-hero { padding: 160px 20px 44px; min-height: 320px; }
   .qs-h1 { font-size: 36px; line-height: 1.1; letter-spacing: -0.025em; }
   .qs-hero-lead { font-size: 14.5px; }
   .qs-stats { padding: 22px 20px; }
   .qs-stat-num { font-size: 28px; }
   .qs-stat-label { font-size: 10.5px; }
   .qs-section { padding: 48px 20px; }
-  .qs-section-title { font-size: 24px; }
-  .qs-section-sub { font-size: 13.5px; margin-bottom: 28px; }
+  .qs-section-title { font-size: 26px; }
+  .qs-section-sub { font-size: 14.5px; margin-bottom: 28px; }
   .qs-historia-text h2 { font-size: 26px; }
   .qs-historia-text p { font-size: 14.5px; }
   .qs-valores-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -729,8 +731,10 @@
     </a>
   </div>
   <div class="menu">
+    
     <a href="index.html">Inicio</a>
     <a href="tarifas.html">Tarifas</a>
+    <a href="preguntas-frecuentes.html">Ayuda</a>
     <a href="quienes-somos.html" class="active">Nosotros</a>
     <a href="area-privada.html">Preferent</a>
   </div>
@@ -752,8 +756,10 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
   </button>
   <nav class="nav-drawer-menu" aria-label="Navegación móvil">
+    
     <a href="index.html">Inicio</a>
     <a href="tarifas.html">Tarifas</a>
+    <a href="preguntas-frecuentes.html">Ayuda</a>
     <a href="quienes-somos.html" class="active">Nosotros</a>
     <a href="area-privada.html">Preferent</a>
   </nav>
@@ -778,7 +784,6 @@
 <!-- ====== HERO ====== -->
 <section class="qs-hero">
   <div class="qs-hero-inner">
-    <div class="qs-eyebrow">Nosotros</div>
     <h1 class="qs-h1">Una asociación de taxistas, <span class="accent">no una franquicia</span>.</h1>
     <p class="qs-hero-lead">Taxi Santa Susanna nace de la unión de los <strong>profesionales del taxi del municipio</strong>. Sin intermediarios, sin algoritmos opacos. Solo nosotros, nuestros vehículos, y las calles que conocemos como nuestra casa.</p>
   </div>
@@ -1048,6 +1053,7 @@
       <div class="footer-col">
         <h5 class="footer-col-title">Páginas</h5>
         <nav class="footer-nav">
+          
           <a href="index.html">Inicio</a>
           <a href="tarifas.html">Tarifas</a>
           <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>

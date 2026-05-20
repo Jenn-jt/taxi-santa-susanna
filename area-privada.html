@@ -170,29 +170,30 @@
 /* === Hero === */
 .ap-hero {
   position: relative;
-  padding: 152px 24px 60px;
-  background:
-    radial-gradient(ellipse at top right, rgba(243,200,0,0.10) 0%, transparent 55%),
-    radial-gradient(ellipse at bottom left, rgba(0,143,76,0.18) 0%, transparent 60%),
-    linear-gradient(180deg, #002313 0%, #004726 100%);
+  padding: 152px 24px 56px;
+  min-height: 420px;
+  background: linear-gradient(180deg, #002313 0%, #004726 100%);
   color: #ffffff;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
-.ap-hero-inner { max-width: 1180px; margin: 0 auto; }
+.ap-hero-inner { max-width: 1280px; margin: 0 auto; width: 100%; }
 .ap-hero-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 13px; font-weight: 800; letter-spacing: 0.18em;
-  color: #F3C800; text-transform: uppercase; margin-bottom: 16px;
+  color: #F3C800; text-transform: uppercase; margin-bottom: 14px;
 }
 .ap-hero-eyebrow svg { width: 14px; height: 14px; }
 .ap-hero-h1 {
-  font-size: 48px; font-weight: 800; line-height: 1.06;
-  letter-spacing: -0.02em; margin: 0 0 16px; max-width: 760px;
+  font-size: 56px; font-weight: 800; line-height: 1.05;
+  letter-spacing: -0.022em; margin: 0 0 18px; max-width: 880px;
 }
 .ap-hero-h1 .accent { color: #FFD940; }
 .ap-hero-sub {
-  font-size: 17px; font-weight: 500; line-height: 1.55;
-  color: rgba(255,255,255,0.85); max-width: 680px; margin: 0;
+  font-size: 16.5px; font-weight: 500; line-height: 1.55;
+  letter-spacing: -0.005em;
+  color: rgba(255,255,255,0.85); max-width: 720px; margin: 0;
 }
 .ap-hero-sub strong { color: #FFD940; font-weight: 800; }
 .ap-hero-badges {
@@ -207,9 +208,9 @@
 .ap-hero-badge svg { width: 14px; height: 14px; color: #FFD940; }
 
 @media (max-width: 720px) {
-  .ap-hero { padding: 132px 18px 44px; }
-  .ap-hero-h1 { font-size: 32px; }
-  .ap-hero-sub { font-size: 15px; }
+  .ap-hero { padding: 160px 20px 44px; min-height: 320px; }
+  .ap-hero-h1 { font-size: 36px; letter-spacing: -0.025em; }
+  .ap-hero-sub { font-size: 14.5px; }
 }
 
 /* ===========================================================
@@ -656,8 +657,10 @@
     </a>
   </div>
   <div class="menu">
+    
     <a href="index.html">Inicio</a>
     <a href="tarifas.html">Tarifas</a>
+    <a href="preguntas-frecuentes.html">Ayuda</a>
     <a href="quienes-somos.html">Nosotros</a>
     <a href="area-privada.html" class="active">Preferent</a>
   </div>
@@ -682,17 +685,8 @@
 <!-- ====== HERO ====== -->
 <section class="ap-hero">
   <div class="ap-hero-inner">
-    <div class="ap-hero-eyebrow">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      Portal para establecimientos
-    </div>
-    <h1 class="ap-hero-h1">Programa <span class="accent">Preferent</span><br>para hoteles y partners colaboradores</h1>
-    <p class="ap-hero-sub">Gestiona desde recepción los <strong>servicios de taxi de tus clientes</strong>. Acceso directo a la AGENDA TAXI con tu usuario y contraseña asignados. <strong>24/7</strong>, sin papeleo.</p>
-    <div class="ap-hero-badges">
-      <span class="ap-hero-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Recogida garantizada</span>
-      <span class="ap-hero-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Atención 24/7</span>
-      <span class="ap-hero-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.4 8 10 4.5-.6 8-5 8-10V6l-8-4z"/></svg>Facturación mensual</span>
-    </div>
+    <h1 class="ap-hero-h1">Programa <span class="accent">Preferent</span>.</h1>
+    <p class="ap-hero-sub">Para hoteles y partners colaboradores. Gestiona desde recepción los <strong>servicios de taxi de tus clientes</strong> con acceso directo a la AGENDA TAXI, <strong>24/7</strong> y sin papeleo.</p>
   </div>
 </section>
 
@@ -1033,6 +1027,7 @@
       <div class="footer-col">
         <h4 class="footer-col-title">Páginas</h4>
         <nav class="footer-nav">
+          
           <a href="index.html">Inicio</a>
           <a href="tarifas.html">Tarifas</a>
           <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
