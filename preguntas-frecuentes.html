@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarifas 2026 Taxi Santa Susanna</title>
-<meta name="description" content="Lista oficial completa de tarifas 2026 reguladas. Más de 45 destinos: aeropuertos, estaciones AVE, Barcelona, Girona, Lloret, Tossa, Costa del Maresme y Santa Susanna local.">
+<title>Preguntas frecuentes Taxi Santa Susanna</title>
+<meta name="description" content="Resuelve tus dudas sobre tarifas, pagos, reservas, vuelos, horarios y equipaje. Todo lo que necesitas saber antes de reservar tu taxi en Santa Susanna.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,30 +107,30 @@
 }
 .lp-hero-inner { max-width: 1280px; margin: 0 auto; }
 .lp-eyebrow {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.20em;
   color: #F3C800;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   display: inline-block;
 }
 .lp-h1 {
-  font-size: 56px;
+  font-size: 64px;
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.022em;
-  margin: 0 0 18px;
-  max-width: 820px;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 22px;
+  max-width: 880px;
 }
 .lp-h1 .accent { color: #FFD940; }
 .lp-subhead {
-  font-size: 16.5px;
+  font-size: 19px;
   font-weight: 500;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.88);
   line-height: 1.55;
   letter-spacing: -0.005em;
-  max-width: 720px;
+  max-width: 760px;
   margin: 0;
 }
 .lp-subhead strong { color: #FFD940; font-weight: 800; }
@@ -1899,16 +1899,45 @@
 .lp-faq-inner { max-width: 1280px; margin: 0 auto; }
 
 /* === Chips de filtro de preguntas === */
+/* Breadcrumb */
+.lp-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 20px;
+}
+.lp-breadcrumb a {
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.lp-breadcrumb a:hover { color: #FFD940; }
+.lp-breadcrumb span[aria-hidden] { color: rgba(255,255,255,0.35); font-size: 14px; }
+.lp-breadcrumb-current { color: #FFD940; font-weight: 700; }
+
 .faq-filters-wrap {
   display: flex;
   align-items: center;
   gap: 12px;
   margin: 0 0 32px;
   padding: 14px 18px;
-  background: linear-gradient(135deg, #fafdfb 0%, #f0f6f3 100%);
+  background: rgba(255,255,255,0.96);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
   border: 1px solid #e6ece8;
   border-radius: 16px;
   flex-wrap: wrap;
+  position: sticky;
+  top: calc(var(--nav-h, 76px) + 12px);
+  z-index: 30;
+  transition: box-shadow 0.3s ease;
+}
+.faq-filters-wrap.is-stuck {
+  box-shadow: 0 8px 28px rgba(0, 35, 19, 0.12);
 }
 .faq-filters-label {
   display: inline-flex;
@@ -1945,6 +1974,13 @@
   transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
   white-space: nowrap;
 }
+.faq-chip svg.faq-chip-ico {
+  width: 14px;
+  height: 14px;
+  color: #008F4C;
+  transition: color 0.2s;
+}
+.faq-chip.is-active svg.faq-chip-ico { color: #FFD940; }
 .faq-chip:hover {
   border-color: #008F4C;
   color: #006435;
@@ -1984,56 +2020,30 @@
 .faq-empty.is-visible { display: block; }
 .faq-item.is-hidden { display: none; }
 
-/* CTA "Ver todas las preguntas" */
-.faq-see-all {
-  text-align: center;
-  margin-top: 28px;
-}
-.faq-see-all-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 24px;
-  background: linear-gradient(135deg, #008F4C 0%, #006435 100%);
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 14.5px;
-  text-decoration: none;
-  border-radius: 999px;
-  letter-spacing: -0.005em;
-  box-shadow: 0 8px 22px rgba(0, 143, 76, 0.22);
-  transition: transform 0.2s, box-shadow 0.2s, gap 0.2s;
-}
-.faq-see-all-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 28px rgba(0, 143, 76, 0.32);
-  gap: 12px;
-}
-.faq-see-all-btn svg { width: 16px; height: 16px; }
-
 .faq-item { border-bottom: 1px solid #e6ece8; }
 .faq-question {
   width: 100%;
   background: none;
   border: none;
-  padding: 22px 0;
+  padding: 26px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 18px;
   cursor: pointer;
-  font-size: 17px;
-  font-weight: 700;
-  color: #1a2620;
+  font-size: 21px;
+  font-weight: 800;
+  color: #002313;
   text-align: left;
   font-family: inherit;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.012em;
+  line-height: 1.3;
   transition: color 0.2s ease;
 }
 .faq-question:hover { color: #008F4C; }
 .faq-toggle {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   flex-shrink: 0;
   color: #008F4C;
   transition: transform 0.25s ease;
@@ -2045,11 +2055,12 @@
   transition: max-height 0.4s ease;
 }
 .faq-answer-inner {
-  padding: 0 0 24px;
-  font-size: 15px;
+  padding: 0 0 28px;
+  font-size: 16.5px;
   font-weight: 500;
   color: #2d3631;
   line-height: 1.65;
+  letter-spacing: -0.005em;
 }
 .faq-answer-inner strong { color: #008F4C; font-weight: 800; }
 .faq-item.open .faq-answer { max-height: 400px; }
@@ -2059,7 +2070,8 @@
   .lp-rows { grid-template-columns: repeat(2, 1fr); }
   .lp-zones-grid { grid-template-columns: repeat(3, 1fr); }
   .lp-info-grid { grid-template-columns: 1fr; }
-  .lp-h1 { font-size: 44px; }
+  .lp-h1 { font-size: 50px; }
+  .lp-subhead { font-size: 17px; }
   .lp-toolbar-row1 { grid-template-columns: 1fr; gap: 10px; }
   .lp-search-title { min-width: 0; }
   .lp-featured-title { font-size: 32px; }
@@ -2086,8 +2098,9 @@
 }
 @media (max-width: 640px) {
   .lp-hero { padding: 160px 20px 44px; }
-  .lp-h1 { font-size: 36px; letter-spacing: -0.025em; }
-  .lp-subhead { font-size: 14.5px; }
+  .lp-h1 { font-size: 38px; letter-spacing: -0.028em; }
+  .lp-subhead { font-size: 15.5px; }
+  .lp-eyebrow { font-size: 13px; }
   .lp-toolbar { padding: 16px 18px; top: 0; }
   .lp-toolbar-inner { gap: 12px; }
   .lp-toolbar-row1 { grid-template-columns: 1fr; gap: 10px; }
@@ -2180,8 +2193,9 @@
   .includes-card h4 { font-size: 14.5px; }
   .includes-card p { font-size: 12.5px; }
   .lp-faq { padding: 48px 18px 56px; }
-  .faq-question { font-size: 15px; padding: 18px 0; }
-  .faq-answer-inner { font-size: 13.5px; padding-bottom: 20px; }
+  .faq-question { font-size: 17px; padding: 20px 0; gap: 14px; }
+  .faq-toggle { width: 26px; height: 26px; }
+  .faq-answer-inner { font-size: 15px; padding-bottom: 22px; }
 }
 </style>
 </head>
@@ -2196,7 +2210,7 @@
   </div>
   <div class="menu">
     <a href="index.html">Inicio</a>
-    <a href="tarifas.html" class="active">Tarifas</a>
+    <a href="tarifas.html">Tarifas</a>
     <a href="quienes-somos.html">Nosotros</a>
     <a href="area-privada.html">Preferent</a>
   </div>
@@ -2228,7 +2242,7 @@
   </button>
   <nav class="nav-drawer-menu" aria-label="Navegación móvil">
     <a href="index.html">Inicio</a>
-    <a href="tarifas.html" class="active">Tarifas</a>
+    <a href="tarifas.html">Tarifas</a>
     <a href="quienes-somos.html">Nosotros</a>
     <a href="area-privada.html">Preferent</a>
   </nav>
@@ -2253,344 +2267,8 @@
 <!-- ====== HERO ====== -->
 <section class="lp-hero">
   <div class="lp-hero-inner">
-    <div class="lp-eyebrow">Tarifa 2026</div>
-    <h1 class="lp-h1">Tu destino, <span class="accent">a precio fijo</span>.</h1>
-    <p class="lp-subhead">No nos gustan los <strong>algoritmos</strong> que adaptan la oferta y la demanda de las grandes plataformas. Aquí tienes el <strong>precio cerrado</strong> a los destinos más habituales, así de transparente.</p>
-  </div>
-</section>
-
-<!-- ====== TOOLBAR (search + filtros) ====== -->
-<section class="lp-toolbar" id="lp-toolbar">
-  <div class="lp-toolbar-inner">
-    <!-- Row 1: Search -->
-    <div class="lp-toolbar-row1">
-      <div class="lp-search-title">
-        <span class="lp-search-title-ico">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        </span>
-        <div class="lp-search-title-text">
-          <small>Encuentra tu destino</small>
-          <strong>¿A dónde quieres ir?</strong>
-        </div>
-      </div>
-      <div class="lp-search" id="lp-search-wrap">
-        <input class="lp-search-input" type="search" id="lp-search" placeholder="Escribe tu destino: Barcelona, Lloret, Aeropuerto, Mataró…" autocomplete="off">
-        <svg class="lp-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <kbd class="lp-search-kbd" aria-hidden="true">/</kbd>
-        <button class="lp-search-clear" id="lp-search-clear" type="button" aria-label="Limpiar búsqueda">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Row 2: Filtros -->
-    <div class="lp-toolbar-row2">
-      <span class="lp-filters-label">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M7 12h10M11 18h2"/></svg>
-        Filtrar
-      </span>
-      <div class="lp-filters-scroll is-end" id="lp-filters-scroll">
-        <div class="lp-filters" role="tablist">
-          <button class="lp-chip is-active" data-filter="all">Todos <span class="lp-chip-count" data-count-for="all">0</span></button>
-          <button class="lp-chip" data-filter="barcelona">Barcelona <span class="lp-chip-count" data-count-for="barcelona">0</span></button>
-          <button class="lp-chip" data-filter="girona">Girona <span class="lp-chip-count" data-count-for="girona">0</span></button>
-          <button class="lp-chip" data-filter="malgrat-palafolls">Malgrat y Palafolls <span class="lp-chip-count" data-count-for="malgrat-palafolls">0</span></button>
-          <button class="lp-chip" data-filter="lloret-tossa">Blanes, Lloret y Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">0</span></button>
-          <button class="lp-chip" data-filter="maresme">Costa del Maresme <span class="lp-chip-count" data-count-for="maresme">0</span></button>
-        </div>
-      </div>
-      <button class="lp-clear-all" id="lp-clear-all" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        Limpiar filtros
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ====== FEATURED (Top 4 transfers) ====== -->
-<section class="lp-featured" data-cat-section="featured">
-  <div class="lp-featured-inner">
-    <span class="lp-featured-eyebrow">Servicios interurbanos</span>
-    <h2 class="lp-featured-title">Servicio de taxi, <span class="accent">puerta a puerta</span></h2>
-    <p class="lp-featured-sub">Reserva web con garantía tus trayectos prioritarios, o <strong>llámanos 24/7</strong>.</p>
-    <div class="lp-featured-grid" id="lp-featured-grid"></div>
-  </div>
-</section>
-
-<!-- ====== LISTA AGRUPADA POR CATEGORÍAS ====== -->
-<div id="lp-list-host"></div>
-
-<!-- Empty state when search returns nothing -->
-<div class="lp-empty" id="lp-empty">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-  <div>No hemos encontrado destinos con esa búsqueda.</div>
-  <div style="margin-top:6px;font-size:13px;color:#8a9590;">Prueba con otra palabra o cambia el filtro.</div>
-</div>
-
-<!-- ====== DESCARGA TARIFA OFICIAL ====== -->
-<section class="lp-download">
-  <div class="lp-download-inner">
-    <div class="lp-download-actions">
-      <a class="lp-download-btn primary" href="images/lista-precios-2026.svg" download="tarifas-taxi-santa-susanna-2026.svg">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-        Descargar tarifa
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ====== SERVICIOS URBANOS — Santa Susanna ====== -->
-<section class="lp-zones">
-  <div class="lp-zones-inner">
-
-    <!-- Header simplificado -->
-    <div class="lp-zones-header">
-      <span class="lp-zones-header-eyebrow">Servicios urbanos</span>
-      <h2>Trayectos por el pueblo, <span class="accent">a precio fijo</span></h2>
-      <p>Una <strong>tarifa base</strong> para todo el centro y los hoteles. Un pequeño suplemento si tu viaje empieza o termina en una de las zonas más alejadas del pueblo.</p>
-    </div>
-
-    <!-- HERO: Tarifa base (la que paga la mayoría) -->
-    <div class="lp-base-hero">
-      <div class="lp-base-hero-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <div class="lp-base-hero-info">
-        <span class="lp-base-hero-eyebrow">Tarifa base</span>
-        <h3 class="lp-base-hero-title">Centro del pueblo y hoteles</h3>
-        <p class="lp-base-hero-desc">Cubre todo el casco urbano y los principales hoteles. El precio que ves es el que pagas, sin taxímetro y sin sorpresas.</p>
-      </div>
-      <div class="lp-base-hero-prices">
-        <div class="lp-base-hero-price">
-          <span class="lp-base-hero-price-ico day" aria-label="Día">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-          </span>
-          <span class="lp-base-hero-price-amt">8€</span>
-          <span class="lp-base-hero-price-lbl">Día</span>
-        </div>
-        <div class="lp-base-hero-price">
-          <span class="lp-base-hero-price-ico night" aria-label="Noche o festivo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-          </span>
-          <span class="lp-base-hero-price-amt">9€</span>
-          <span class="lp-base-hero-price-lbl">Noche o festivo</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- BUSCADOR DE ZONA -->
-    <div class="lp-street-finder">
-      <div class="lp-street-finder-head">
-        <h3>¿Empiezas o terminas en <span class="accent">la urbanización</span>?</h3>
-        <p>Algunas zonas concretas suman un pequeño extra. Escribe el nombre de tu zona y te decimos al instante cuánto pagarás.</p>
-      </div>
-      <div class="lp-street-search" id="lp-street-search-wrap">
-        <svg class="lp-street-search-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input class="lp-street-search-input" type="search" id="lp-street-input" placeholder="Escribe tu zona (ej: Pulmonària, Nards, Lleó…)" autocomplete="off">
-        <button class="lp-street-search-clear" id="lp-street-clear" type="button" aria-label="Limpiar">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-      <div class="lp-street-result" id="lp-street-result"></div>
-    </div>
-
-    <!-- Divider antes del listado completo -->
-    <div class="lp-zones-divider">o consulta el listado completo por tramos</div>
-
-    <!-- Cards de zonas (referencia compacta) -->
-    <div class="lp-zones-grid">
-      <div class="lp-zone-card" data-zone="A">
-        <div class="lp-zone-letter">A</div>
-        <div class="lp-zone-supp"><span class="plus">+</span>1 €</div>
-        <div class="lp-zone-streets">Alps, Alzina, Antoni Gaudí, Balança, Bessons, Bruc, Can Font, Cranc, Escorpí, Farigola, Font, Formentor, Ginesta, Gredos, Himalaia, Josep Antoni Coderech, Lleó, Lluís Sert, Pedraforca, Placeta, Puig i Cadafalch, Pujada de Gràcia, Rabassot, Sagitari, Verge</div>
-      </div>
-      <div class="lp-zone-card" data-zone="B">
-        <div class="lp-zone-letter">B</div>
-        <div class="lp-zone-supp"><span class="plus">+</span>2 €</div>
-        <div class="lp-zone-streets">Aquari, Boga, Cadí, Can Rosich, Capricorn, Lligabosc, Milfulles, Peixos, Pirineus, Pulmonària, Vistamar</div>
-      </div>
-      <div class="lp-zone-card" data-zone="C">
-        <div class="lp-zone-letter">C</div>
-        <div class="lp-zone-supp"><span class="plus">+</span>3 €</div>
-        <div class="lp-zone-streets">Falguera, Mimosa, Saüc</div>
-      </div>
-      <div class="lp-zone-card" data-zone="D">
-        <div class="lp-zone-letter">D</div>
-        <div class="lp-zone-supp"><span class="plus">+</span>4 €</div>
-        <div class="lp-zone-streets">Can Blanco, Can Mestres, De la Rosa, Lliris, Tarongina</div>
-      </div>
-      <div class="lp-zone-card" data-zone="E">
-        <div class="lp-zone-letter">E</div>
-        <div class="lp-zone-supp"><span class="plus">+</span>6 €</div>
-        <div class="lp-zone-streets">Nards, Petúnies</div>
-      </div>
-    </div>
-
-    <!-- CTA final: llámanos -->
-    <div class="lp-zones-help">
-      <span class="lp-zones-help-ico">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-      </span>
-      <div class="lp-zones-help-text">
-        <strong>¿Sigues con dudas o tu zona no aparece?</strong>
-        <p>Llámanos y te confirmamos el precio exacto antes de subir al coche.</p>
-      </div>
-      <a class="lp-zones-help-cta" href="tel:+34937678571">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-        +34 937 67 85 71
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ====== INFO PRÁCTICA ====== -->
-<section class="lp-info">
-  <div class="lp-info-inner">
-    <div class="tarifas-section-header" style="text-align:center;margin-bottom:34px;">
-      <div class="tarifas-section-header-eyebrow" style="color:#006435;font-size:13px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;">Antes de reservar</div>
-      <h2 style="font-size:38px;font-weight:800;color:#002313;margin:0 0 12px;letter-spacing:-0.02em;line-height:1.12;">Tres cosas que <span style="color:#008F4C;">conviene saber</span></h2>
-    </div>
-    <div class="lp-info-grid">
-
-      <!-- Horarios -->
-      <div class="lp-info-card">
-        <div class="lp-info-head">
-          <div class="lp-info-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3 class="lp-info-title">Día o noche, según la hora</h3>
-        </div>
-        <p class="lp-info-text">La tarifa cambia en función del día y la franja horaria. Así de simple:</p>
-        <div class="lp-schedule">
-          <div class="lp-schedule-block day">
-            <div class="lp-schedule-head">
-              <span class="lp-schedule-ico">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-              </span>
-              <span class="lp-schedule-tag">Día</span>
-            </div>
-            <div class="lp-schedule-body">
-              <p class="lp-schedule-hours">08:00 – 20:00</p>
-              <p class="lp-schedule-days">Lunes a viernes</p>
-            </div>
-          </div>
-          <div class="lp-schedule-block night">
-            <div class="lp-schedule-head">
-              <span class="lp-schedule-ico">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-              </span>
-              <span class="lp-schedule-tag">Noche / Festivo</span>
-            </div>
-            <div class="lp-schedule-body">
-              <p class="lp-schedule-hours">20:00 – 08:00</p>
-              <p class="lp-schedule-days">Sáb, Dom y festivos</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pasajeros -->
-      <div class="lp-info-card">
-        <div class="lp-info-head">
-          <div class="lp-info-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3 class="lp-info-title">Cuántos cabéis</h3>
-        </div>
-        <p class="lp-info-text">El precio <strong>no depende del tráfico ni de la ruta</strong>. Solo del número de pasajeros.</p>
-        <div class="lp-pax-stats">
-          <div class="lp-pax-block featured">
-            <div class="lp-pax-num">1-4</div>
-            <div class="lp-pax-label">Pasajeros</div>
-            <div class="lp-pax-desc">Tarifa de la lista</div>
-            <span class="lp-pax-tag">Sin recargo</span>
-          </div>
-          <div class="lp-pax-block">
-            <div class="lp-pax-num">5-8</div>
-            <div class="lp-pax-label">Pasajeros</div>
-            <div class="lp-pax-desc">Van XL y maletas grandes</div>
-            <span class="lp-pax-tag" style="background:rgba(0,143,76,0.15);color:#006435;">Consúltanos</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Formas de pago -->
-      <div class="lp-info-card">
-        <div class="lp-info-head">
-          <div class="lp-info-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
-          </div>
-          <h3 class="lp-info-title">Paga como prefieras</h3>
-        </div>
-        <p class="lp-info-text">Efectivo, tarjeta, Bizum o transferencia. <strong>Al reservar o al terminar</strong>, tú eliges.</p>
-        <div class="lp-pay-logos">
-          <img src="images/metodos-pago.svg" alt="Métodos de pago aceptados: Visa, MasterCard, American Express, Bizum, PayPal y efectivo" loading="lazy">
-        </div>
-        <p class="lp-pay-note">En reservas especiales podemos pedir el pago por adelantado.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ====== QUÉ INCLUYE TU TARIFA ====== -->
-<section class="lp-includes">
-  <div class="lp-includes-inner">
-
-    <div class="lp-section-header">
-      <div class="lp-section-header-eyebrow">Qué incluye tu tarifa</div>
-      <h2 class="lp-section-title">Sin extras, sin sorpresas. <span class="accent">Todo dentro</span>.</h2>
-      <p class="lp-section-subtitle">El precio que ves es el precio que pagas.</p>
-    </div>
-
-    <div class="includes-grid">
-
-      <div class="includes-card">
-        <div class="hover-glow"></div>
-        <div class="icon-wrap">
-          <div class="icon-circle"></div>
-          <div class="icon-ring"></div>
-          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M14 2.2C22.5-1.7 32.5-.3 39.6 5.8L80 40.4 120.4 5.8c9-7.7 22.3-7.7 31.2 0L192 40.4 232.4 5.8c9-7.7 22.3-7.7 31.2 0L304 40.4 344.4 5.8c7.1-6.1 17.1-7.5 25.6-3.6S384 14.7 384 24V488c0 9.3-5.4 17.7-13.9 21.6s-18.5 2.4-25.6-3.6L304 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L192 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L80 471.6 39.6 506.2c-7.1 6.1-17.1 7.5-25.6 3.6S0 497.3 0 488V24C0 14.7 5.4 6.3 14 2.2zM96 144c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96zm0 96c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96zm0 96c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z"/></svg>
-        </div>
-        <h4><span class="check">✓</span> Peajes incluidos</h4>
-        <p>Sin extras al final. Todo lo que ves está dentro.</p>
-      </div>
-
-      <div class="includes-card">
-        <div class="hover-glow"></div>
-        <div class="icon-wrap">
-          <div class="icon-circle"></div>
-          <div class="icon-ring"></div>
-          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M152 88a72 72 0 1 1 144 0A72 72 0 1 1 152 88zM39.7 144.5c13-17.9 38-21.8 55.9-8.8L131.8 162c26.8 19.5 59.1 30 92.2 30s65.4-10.5 92.2-30l36.2-26.4c17.9-13 42.9-9 55.9 8.8s9 42.9-8.8 55.9l-36.2 26.4c-13.6 9.9-28.1 18.2-43.3 24.8l79 35.6 24.7-49.4c9.9-19.8 33.9-27.8 53.6-17.9s27.8 33.9 17.9 53.6l-48 96c-9.9 19.8-33.9 27.8-53.6 17.9L297.7 384 256 384l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-128.9-31.9 14.4 25 49.9c9.9 19.8 1.8 43.9-17.9 53.7s-43.9 1.8-53.7-17.9l-48-96c-9.9-19.8-1.8-43.9 17.9-53.7s43.9-1.8 53.7 17.9L150.9 313 230 277.4c-15.3-6.6-29.8-14.9-43.5-24.8l-36.2-26.4c-17.9-13-21.8-38-8.8-55.9z"/></svg>
-        </div>
-        <h4><span class="check">✓</span> Sillitas gratis</h4>
-        <p>Para bebés y niños. Sin coste, avísanos al reservar.</p>
-      </div>
-
-      <div class="includes-card">
-        <div class="hover-glow"></div>
-        <div class="icon-wrap">
-          <div class="icon-circle"></div>
-          <div class="icon-ring"></div>
-          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M160 48A48 48 0 1 1 256 48 48 48 0 1 1 160 48zM124.6 198.7l52.1 25.2 79.7 0c17.7 0 32 14.3 32 32s-14.3 32-32 32H156.5l0 0c-12.2 0-23.4-7-28.7-18l-13.1-26.9-2.6-1.3C77 226.4 64 257.6 64 287.6c0 51 35.7 95.7 86.7 105.3c14 2.6 24.6 14.2 24.6 28.5c0 18.8-16.9 33.4-35.4 30.1C61 437.1 0 365.8 0 287.6C0 219.5 47 156.7 112 130l12.6 68.7zM192 256l0-66.7 88 42.5c14.7 7.1 28.6 15.6 41.7 25.4l63.7-43.6c14.6-10 34.5-6.2 44.5 8.4s6.2 34.5-8.4 44.5L373.4 305c2.1 5.2 4 10.6 5.7 16l54.9 0c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c0 39.4-15.9 75.1-41.7 100.9C322.6 510.9 287 512 256 512c-31.1 0-66.6-1.1-86.3-20.2C144.4 466.6 128 430 128 384V216l64 40z"/></svg>
-        </div>
-        <h4><span class="check">✓</span> Accesible</h4>
-        <p>Espacio para silla de ruedas y rampa disponible.</p>
-      </div>
-
-      <div class="includes-card">
-        <div class="hover-glow"></div>
-        <div class="icon-wrap">
-          <div class="icon-circle"></div>
-          <div class="icon-ring"></div>
-          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.7-15.6-85-58.5s.3-86.2 32.6-96.8s70.7 15.6 85 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.7-69.1 85-58.5s46.9 53.9 32.6 96.8s-52.7 69.1-85 58.5z"/></svg>
-        </div>
-        <h4><span class="check">✓</span> Pet-friendly</h4>
-        <p>Tu mascota viaja contigo. Sin recargo extra.</p>
-      </div>
-
-    </div>
+    <h1 class="lp-h1">Preguntas <span class="accent">frecuentes</span>.</h1>
+    <p class="lp-subhead">Tarifas, pagos, reservas, vuelos, horarios y equipaje. Si no encuentras lo que buscas, llámanos al <strong>+34 937 67 85 71</strong>.</p>
   </div>
 </section>
 
@@ -2598,10 +2276,42 @@
 <section class="lp-faq" aria-label="Preguntas frecuentes">
   <div class="lp-faq-inner">
 
-    <div class="lp-section-header">
-      <div class="lp-section-header-eyebrow">Preguntas frecuentes sobre tarifas</div>
-      <h2 class="lp-section-title">Antes de <span class="accent">reservar</span></h2>
-      <p class="lp-section-subtitle">Las dudas más habituales sobre precios y pagos. Si tu pregunta es de reservas, vuelos, horarios o equipaje, mira la página completa de preguntas frecuentes.</p>
+    <!-- Chips de filtro (sticky al hacer scroll) -->
+    <div class="faq-filters-wrap" id="faq-filters-wrap">
+      <span class="faq-filters-label">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M7 12h10M11 18h2"/></svg>
+        Tema
+      </span>
+      <div class="faq-filters" role="tablist">
+        <button class="faq-chip is-active" data-faq-filter="all" type="button">
+          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+          Todas <span class="faq-chip-count" data-faq-count-for="all">0</span>
+        </button>
+        <button class="faq-chip" data-faq-filter="precio" type="button">
+          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg>
+          Precio <span class="faq-chip-count" data-faq-count-for="precio">0</span>
+        </button>
+        <button class="faq-chip" data-faq-filter="pagos" type="button">
+          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          Pagos <span class="faq-chip-count" data-faq-count-for="pagos">0</span>
+        </button>
+        <button class="faq-chip" data-faq-filter="reservas" type="button">
+          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          Reservas <span class="faq-chip-count" data-faq-count-for="reservas">0</span>
+        </button>
+        <button class="faq-chip" data-faq-filter="vuelos" type="button">
+          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          Vuelos y tren <span class="faq-chip-count" data-faq-count-for="vuelos">0</span>
+        </button>
+        <button class="faq-chip" data-faq-filter="horarios" type="button">
+          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Horarios <span class="faq-chip-count" data-faq-count-for="horarios">0</span>
+        </button>
+        <button class="faq-chip" data-faq-filter="equipaje" type="button">
+          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="13" x="5" y="7" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="9" x2="9" y1="13" y2="18"/><line x1="15" x2="15" y1="13" y2="18"/></svg>
+          Equipaje <span class="faq-chip-count" data-faq-count-for="equipaje">0</span>
+        </button>
+      </div>
     </div>
 
     <!-- ====== PRECIO ====== -->
@@ -2638,13 +2348,84 @@
       <div class="faq-answer"><div class="faq-answer-inner">Por supuesto. Indícanos al reservar los datos fiscales (nombre o razón social, NIF y dirección) y te enviamos la <strong>factura electrónica</strong> al correo.</div></div>
     </div>
 
-    <!-- CTA "ver todas" -->
-    <div class="faq-see-all">
-      <a class="faq-see-all-btn" href="preguntas-frecuentes.html">
-        Ver todas las preguntas
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
+    <!-- ====== RESERVAS ====== -->
+    <div class="faq-item" data-faq-cat="reservas">
+      <button class="faq-question" aria-expanded="false">
+        ¿Puedo cancelar mi reserva sin coste?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí. Hasta <strong>12 horas antes</strong> del servicio puedes cancelar o modificar sin penalización. Si cancelas más tarde, se aplica un 50 % del importe.</div></div>
     </div>
+
+    <div class="faq-item" data-faq-cat="reservas">
+      <button class="faq-question" aria-expanded="false">
+        ¿Con cuánta antelación tengo que reservar?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Lo ideal es <strong>al menos 12 horas antes</strong>, pero también atendemos servicios urgentes según disponibilidad. Para aeropuertos y AVE, mejor con 24 h de margen.</div></div>
+    </div>
+
+    <!-- ====== VUELOS Y TREN ====== -->
+    <div class="faq-item" data-faq-cat="vuelos">
+      <button class="faq-question" aria-expanded="false">
+        ¿Qué pasa si mi vuelo se retrasa?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Seguimos tu vuelo en directo. Si llega tarde, <strong>ajustamos la hora sin coste extra</strong> (hasta 75 min de espera incluidos en recogidas).</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="vuelos">
+      <button class="faq-question" aria-expanded="false">
+        ¿Recoges en la puerta del aeropuerto o estación AVE?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí, <strong>recogida puerta a puerta</strong>. En aeropuertos te esperamos en la zona de llegadas con cartel con tu nombre. En estaciones AVE, en el andén o vestíbulo de salida.</div></div>
+    </div>
+
+    <!-- ====== HORARIOS ====== -->
+    <div class="faq-item" data-faq-cat="horarios">
+      <button class="faq-question" aria-expanded="false">
+        ¿La tarifa nocturna se aplica en fin de semana?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">La tarifa nocturna aplica de <strong>20:00 a 08:00</strong> los días laborables, y <strong>todo el día en sábados, domingos y festivos</strong>. No hay recargo extra de festivo.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="horarios">
+      <button class="faq-question" aria-expanded="false">
+        ¿Trabajáis de madrugada y festivos?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí, somos <strong>servicio 24/7 todo el año</strong>: Navidad, Año Nuevo, agosto, madrugadas… cualquier hora, cualquier día.</div></div>
+    </div>
+
+    <!-- ====== EQUIPAJE ====== -->
+    <div class="faq-item" data-faq-cat="equipaje">
+      <button class="faq-question" aria-expanded="false">
+        ¿Cuántas personas y maletas caben?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Trabajamos con vans de <strong>6, 7 y 8 plazas</strong>. Capacidad estándar: 6 maletas grandes + 6 cabina. Si necesitas más espacio (bicicletas, esquís, golf), avísanos al reservar.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="equipaje">
+      <button class="faq-question" aria-expanded="false">
+        ¿Lleváis sillitas de bebé o trona?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí, sin coste. Tenemos <strong>sillitas y alzadores homologados</strong> para bebés y niños. Indícanos al reservar el peso/edad del niño y preparamos la silla adecuada.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="equipaje">
+      <button class="faq-question" aria-expanded="false">
+        ¿Y si llevo bicicleta, equipo de esquí o golf?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sin problema. Tenemos vans con maletero amplio. Avísanos al reservar el número y tipo de equipo (bici, ski, tabla, palos…) para asignar el vehículo correcto.</div></div>
+    </div>
+
+    <!-- Estado vacío cuando ningún filtro coincide -->
+    <div class="faq-empty" id="faq-empty">No hay preguntas en esta categoría.</div>
 
   </div>
 </section>
@@ -2662,9 +2443,9 @@
         </div>
       </div>
       <div class="cta-text-block">
-        <div class="cta-eyebrow cta-eyebrow-nobar">¿NO ENCUENTRAS TU DESTINO?</div>
-        <div class="cta-title">Donde llegue la carretera, <span class="cta-title-accent">llegamos nosotros</span></div>
-        <div class="cta-tagline">Puedes <strong>llamar</strong> o <strong>escribirnos</strong> para tarifas personalizadas o destinos no listados.</div>
+        <div class="cta-eyebrow cta-eyebrow-nobar">¿NO HEMOS RESUELTO TU DUDA?</div>
+        <div class="cta-title">Estamos <span class="cta-title-accent">aquí para ayudarte</span></div>
+        <div class="cta-tagline">Cuéntanos qué necesitas y te respondemos en minutos. <strong>Llámanos</strong> o <strong>escríbenos</strong>, lo que prefieras.</div>
       </div>
       <div class="cta-contact-icons">
         <a href="tel:+34937678571" class="cta-icon-btn cta-icon-btn-phone" aria-label="Llamar">
@@ -2733,400 +2514,6 @@
 </footer>
 
 <script>
-// ============================================================
-// DATA — Tarifas oficiales 2026 extraídas del PDF del cliente
-// ============================================================
-const TARIFFS = [
-  // ===========================================================
-  // FEATURED (servicios interurbanos — los más reservados)
-  // ===========================================================
-  { id: 'bcn-airport',   name: 'Barcelona-El Prat',  code: 'BCN', cat: 'barcelona', featured: true, day: 142, night: 153, time: 'Aeropuerto, 70-100 min' },
-  { id: 'gro-airport',   name: 'Girona-Costa Brava', code: 'GRO', cat: 'girona',    featured: true, day: 64,  night: 69,  time: 'Aeropuerto, 25-35 min' },
-  { id: 'bcn-sants',     name: 'Estació de Sants',   code: 'BCN', cat: 'barcelona', featured: true, day: 123, night: 134, time: 'Estación AVE, 60-75 min' },
-  { id: 'gro-ave',       name: 'Girona AVE',         code: 'GIR', cat: 'girona',    featured: true, day: 79,  night: 88,  time: 'Estación AVE, 40-55 min' },
-  { id: 'bcn-nord',      name: 'Estació del Nord',   code: 'BCN', cat: 'barcelona', featured: true, day: 110, night: 119, time: 'Estación de bus, 50-60 min' },
-  { id: 'reus-airport',  name: 'Aeropuerto de Reus', code: 'REU', cat: 'barcelona', featured: true, day: 290, night: 315, time: 'Aeropuerto, 120-140 min' },
-  { id: 'bcn-port',      name: 'Port de Barcelona',  code: 'BCN', cat: 'barcelona', featured: true, day: 130, night: 140, time: 'Cruceros, 60-75 min' },
-  { id: 'perpinya',      name: 'Aeropuerto de Perpinyà', code: 'PER', cat: 'girona', featured: true, day: 243, night: 268, time: 'Aeropuerto Francia, 100-120 min' },
-
-  // ===========================================================
-  // BARCELONA — ciudad, área metropolitana, conexiones sur
-  // ===========================================================
-  { id: 'bcn-pl-catalunya', name: 'Barcelona Plaça Catalunya', cat: 'barcelona', day: 120, night: 129 },
-  { id: 'bcn-parc-guell',   name: 'Barcelona Parc Güell',      cat: 'barcelona', day: 120, night: 129 },
-  { id: 'bcn-pl-espanya',   name: 'Barcelona Plaça Espanya',   cat: 'barcelona', day: 125, night: 135 },
-  { id: 'badalona-centre',  name: 'Badalona Centre',           cat: 'barcelona', day: 90,  night: 99  },
-  { id: 'badalona-can-ruti',name: 'Badalona Can Ruti',         cat: 'barcelona', day: 91,  night: 100 },
-  { id: 'bcn-sagrada',      name: 'Sagrada Família',           cat: 'barcelona', day: 110, night: 119 },
-  { id: 'bcn-camp-nou',     name: 'Camp Nou (Spotify)',        cat: 'barcelona', day: 130, night: 140 },
-  { id: 'bcn-casino',       name: 'Casino Barcelona',          cat: 'barcelona', day: 110, night: 119 },
-  { id: 'la-roca-village',  name: 'La Roca Village',           cat: 'barcelona', day: 79,  night: 85  },
-
-  // ===========================================================
-  // GIRONA — ciudad, interior, conexión norte
-  // (Aeropuerto Girona y Perpinyà aparecen como featured arriba)
-  // ===========================================================
-  { id: 'gir-sud',          name: 'Girona Sud / Clínica',      cat: 'girona', day: 72, night: 79 },
-  { id: 'gir-catalunya',    name: 'Girona Plaça Catalunya',    cat: 'girona', day: 81, night: 89 },
-  { id: 'gir-montilivi',    name: 'Girona Montilivi',          cat: 'girona', day: 82, night: 90 },
-  { id: 'gir-trueta',       name: 'Girona Trueta',             cat: 'girona', day: 83, night: 91 },
-  { id: 'gir-catedral',     name: 'Catedral de Girona',        cat: 'girona', day: 85, night: 91 },
-  { id: 'fornells',         name: 'Fornells de la Selva',      cat: 'girona', day: 68, night: 75 },
-  { id: 'caldes-malavella', name: 'Caldes de Malavella',       cat: 'girona', day: 57, night: 64 },
-  { id: 'espai-girones',    name: 'Espai Gironès',             cat: 'girona', day: 74, night: 80 },
-  { id: 'activa-natura',    name: 'Activa Natura',             cat: 'girona', day: 12, night: 13 },
-
-  // ===========================================================
-  // BLANES · LLORET · TOSSA
-  // ===========================================================
-  { id: 'bla-plantera',  name: 'Blanes Plantera / Karts',     cat: 'lloret-tossa', day: 18, night: 20 },
-  { id: 'bla-poligon',   name: 'Blanes Polígon',              cat: 'lloret-tossa', day: 19, night: 21 },
-  { id: 'bla-centre',    name: 'Blanes Centre',               cat: 'lloret-tossa', day: 20, night: 22 },
-  { id: 'bla-port',      name: 'Blanes Port / Hospital',      cat: 'lloret-tossa', day: 23, night: 25 },
-  { id: 'bla-stfrancesc',name: 'Blanes Sant Francesc',        cat: 'lloret-tossa', day: 28, night: 31 },
-  { id: 'marimurtra',    name: 'Marimurtra (jardín botánico)',cat: 'lloret-tossa', day: 26, night: 29 },
-  { id: 'llo-fenals',    name: 'Lloret Fenals / Sta Cristina',cat: 'lloret-tossa', day: 30, night: 33 },
-  { id: 'llo-centre',    name: 'Lloret Centre / Bus',         cat: 'lloret-tossa', day: 33, night: 36 },
-  { id: 'llo-platja',    name: 'Lloret Platja / Catamarà',    cat: 'lloret-tossa', day: 35, night: 38 },
-  { id: 'llo-casino',    name: 'Lloret Casino',               cat: 'lloret-tossa', day: 35, night: 38 },
-  { id: 'llo-canyelles', name: 'Lloret Canyelles',            cat: 'lloret-tossa', day: 40, night: 44 },
-  { id: 'waterworld',    name: 'Waterworld (Lloret)',         cat: 'lloret-tossa', day: 35, night: 38 },
-  { id: 'gran-casino',   name: 'Gran Casino Costa Brava',     cat: 'lloret-tossa', day: 35, night: 38 },
-  { id: 'tossa',         name: 'Tossa de Mar',                cat: 'lloret-tossa', day: 53, night: 58 },
-
-  // ===========================================================
-  // MALGRAT · PALAFOLLS (nueva categoría)
-  // ===========================================================
-  { id: 'mal-ancora',     name: 'Malgrat Àncora',           cat: 'malgrat-palafolls', day: 10, night: 11 },
-  { id: 'mal-creublava',  name: 'Malgrat Creu Blava',       cat: 'malgrat-palafolls', day: 11, night: 12 },
-  { id: 'mal-centre',     name: 'Malgrat Centre',           cat: 'malgrat-palafolls', day: 12, night: 13 },
-  { id: 'mal-poligon',    name: 'Malgrat Polígon',          cat: 'malgrat-palafolls', day: 13, night: 14 },
-  { id: 'mal-nord',       name: 'Malgrat Nord',             cat: 'malgrat-palafolls', day: 14, night: 15 },
-  { id: 'mal-campings',   name: 'Malgrat Càmpings',         cat: 'malgrat-palafolls', day: 18, night: 20 },
-  { id: 'pal-stlluis',    name: 'Palafolls Sant Lluís',     cat: 'malgrat-palafolls', day: 16, night: 17 },
-  { id: 'pal-centre',     name: 'Palafolls Centre / Outlet',cat: 'malgrat-palafolls', day: 17, night: 18 },
-  { id: 'pal-caravaning', name: 'Palafolls Caravaning',     cat: 'malgrat-palafolls', day: 18, night: 19 },
-  { id: 'pal-jardi',      name: 'Palafolls Ciutat Jardí',   cat: 'malgrat-palafolls', day: 20, night: 22 },
-  { id: 'pal-poligon',    name: 'Palafolls Polígon / Inditex',cat: 'malgrat-palafolls', day: 20, night: 22 },
-  { id: 'marineland',     name: 'Marineland',               cat: 'malgrat-palafolls', day: 17, night: 18 },
-
-  // ===========================================================
-  // COSTA DEL MARESME
-  // ===========================================================
-  { id: 'est-pineda',     name: 'Pineda Estació',            cat: 'maresme', day: 11, night: 12 },
-  { id: 'est-calella',    name: 'Calella Estació',           cat: 'maresme', day: 18, night: 20 },
-  { id: 'pin-centre',     name: 'Pineda Centre / Melies',    cat: 'maresme', day: 12, night: 13 },
-  { id: 'pin-cap',        name: 'Pineda CAP',                cat: 'maresme', day: 13, night: 14 },
-  { id: 'pin-taurus',     name: 'Pineda Taurus / Mossos',    cat: 'maresme', day: 14, night: 15 },
-  { id: 'pin-poblenou',   name: 'Pineda Poblenou',           cat: 'maresme', day: 15, night: 16 },
-  { id: 'cal-balmes',     name: 'Calella Balmes',            cat: 'maresme', day: 17, night: 18 },
-  { id: 'cal-centre',     name: 'Calella Centre / Hospital', cat: 'maresme', day: 18, night: 20 },
-  { id: 'cal-riera',      name: 'Calella Riera',             cat: 'maresme', day: 19, night: 21 },
-  { id: 'cal-hotel',      name: 'Calella Hotels / Creu Groga', cat: 'maresme', day: 20, night: 22 },
-  { id: 'cal-rocagrossa', name: 'Calella Roca Grossa',       cat: 'maresme', day: 24, night: 27 },
-  { id: 'cal-carreras',   name: 'Calella Can Carreras',      cat: 'maresme', day: 33, night: 36 },
-  { id: 'sant-pol',       name: 'Sant Pol de Mar',           cat: 'maresme', day: 25, night: 27 },
-  { id: 'sant-cebria',    name: 'Sant Cebrià de Vallalta',   cat: 'maresme', day: 31, night: 33 },
-  { id: 'sant-iscle',     name: 'Sant Iscle de Vallalta',    cat: 'maresme', day: 37, night: 40 },
-  { id: 'canet',          name: 'Canet de Mar',              cat: 'maresme', day: 36, night: 39 },
-  { id: 'arenys',         name: 'Arenys de Mar / Munt',      cat: 'maresme', day: 38, night: 42 },
-  { id: 'sant-andreu',    name: 'Sant Andreu de Llavaneres', cat: 'maresme', day: 50, night: 55 },
-  { id: 'argentona',      name: 'Argentona',                 cat: 'maresme', day: 60, night: 67 },
-  { id: 'mataro-centre',  name: 'Mataró Centre / Estació',   cat: 'maresme', day: 59, night: 67 },
-  { id: 'mataro-plaboet', name: "Mataró Pla d'en Boet",      cat: 'maresme', day: 62, night: 70 },
-  { id: 'mataro-parc',    name: 'Mataró Parc Shopping',      cat: 'maresme', day: 55, night: 60 },
-  { id: 'tordera',        name: 'Tordera',                   cat: 'maresme', day: 20, night: 22 },
-  { id: 'tordera-stpere', name: 'Tordera Sant Pere / Hotel', cat: 'maresme', day: 22, night: 24 },
-  { id: 'tordera-topten', name: 'Tordera Top Ten',           cat: 'maresme', day: 26, night: 28 },
-  { id: 'fogars',         name: 'Fogars de la Selva',        cat: 'maresme', day: 30, night: 33 },
-  { id: 'hostalric',      name: 'Hostalric',                 cat: 'maresme', day: 42, night: 47 },
-
-  // ===========================================================
-  // SANTA SUSANNA local
-  // ===========================================================
-  { id: 'ss-centre', name: 'Centro / Hoteles', cat: 'local', day: 8, night: 9 },
-];
-
-// Categorías que se muestran en el listado agrupado.
-// Los destinos `featured: true` se muestran ARRIBA en la sección destacada
-// y se excluyen del listado de abajo para no duplicar.
-// Santa Susanna local → en el bloque "Zonas A/B/C/D" más abajo (no se repite aquí)
-const CATS = [
-  { id: 'barcelona',        label: 'Barcelona',               icon: 'building' },
-  { id: 'girona',           label: 'Girona',                  icon: 'building' },
-  { id: 'malgrat-palafolls',label: 'Malgrat y Palafolls',     icon: 'beach' },
-  { id: 'lloret-tossa',     label: 'Blanes, Lloret y Tossa',  icon: 'beach' },
-  { id: 'maresme',          label: 'Costa del Maresme',       icon: 'beach' },
-];
-
-// SVG paths (Font Awesome solid)
-// Iconos Lucide (stroke-based, viewBox 0 0 24 24)
-const ICONS = {
-  plane:    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>',
-  train:    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></svg>',
-  building: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>',
-  beach:    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4"/><path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3"/><path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35z"/><path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14"/></svg>',
-  home:     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
-};
-
-// ============================================================
-// Render
-// ============================================================
-
-const featuredGrid = document.getElementById('lp-featured-grid');
-const listHost = document.getElementById('lp-list-host');
-const emptyState = document.getElementById('lp-empty');
-const searchInput = document.getElementById('lp-search');
-const chipsRoot = document.querySelectorAll('.lp-chip');
-let currentFilter = 'all';
-let currentSearch = '';
-
-function renderFeatured() {
-  const featured = TARIFFS.filter(t => t.featured);
-  featuredGrid.innerHTML = featured.map(t => `
-    <article class="lp-featured-card" data-cat="${t.cat}" data-name="${t.name.toLowerCase()}">
-      <div class="lp-featured-info">
-        <div class="lp-featured-meta">
-          ${t.code ? `<span class="lp-featured-code-badge">${t.code}</span>` : ''}
-          ${t.ribbon ? `<span class="lp-featured-ribbon">${t.ribbon}</span>` : ''}
-        </div>
-        <h3 class="lp-featured-name">${t.name}</h3>
-        ${t.time ? `<span class="lp-featured-time">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          ${t.time}
-        </span>` : ''}
-      </div>
-      <div class="lp-featured-end">
-        <div class="lp-featured-prices">
-          <div class="lp-price-cell">
-            <span class="lp-price-tag day" aria-label="Tarifa de día">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-            </span>
-            <span class="lp-price-amt">${t.day} €</span>
-          </div>
-          <div class="lp-price-cell">
-            <span class="lp-price-tag night" aria-label="Tarifa de noche o festivo">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-            </span>
-            <span class="lp-price-amt">${t.night} €</span>
-          </div>
-        </div>
-        <a class="lp-featured-cta" href="#reservar">
-          Reservar
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-      </div>
-    </article>
-  `).join('');
-}
-
-function renderList() {
-  const html = CATS.map(cat => {
-    // Excluir los featured: ya se muestran arriba en la sección destacada
-    const rows = TARIFFS.filter(t => t.cat === cat.id && !t.featured);
-    if (rows.length === 0) return '';
-    return `
-      <section class="lp-list-section" data-cat-section="${cat.id}">
-        <div class="lp-list-inner">
-          <div class="lp-group" data-cat="${cat.id}">
-            <div class="lp-group-header">
-              <div class="lp-group-icon">${ICONS[cat.icon] || ICONS.building}</div>
-              <h2 class="lp-group-title">${cat.label}</h2>
-              <span class="lp-group-count">${rows.length} destinos</span>
-            </div>
-            <div class="lp-rows">
-              ${rows.map(t => `
-                <div class="lp-row" data-cat="${t.cat}" data-name="${t.name.toLowerCase()}">
-                  <span class="lp-row-name">${t.name}</span>
-                  <div class="lp-row-prices">
-                    <div class="lp-row-price">
-                      <span class="lp-row-price-label day" aria-label="Tarifa de día">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-                      </span>
-                      <span class="lp-row-price-val">${t.day} €</span>
-                    </div>
-                    <div class="lp-row-price">
-                      <span class="lp-row-price-label night" aria-label="Tarifa de noche o festivo">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-                      </span>
-                      <span class="lp-row-price-val">${t.night} €</span>
-                    </div>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </div>
-      </section>
-    `;
-  }).join('');
-  listHost.innerHTML = html;
-}
-
-function applyFilters() {
-  const q = currentSearch.trim().toLowerCase();
-  const f = currentFilter;
-  let visibleCount = 0;
-  let featuredVisible = 0;
-
-  // Featured: solo se ven si "all" o el filtro coincide con su categoría
-  document.querySelectorAll('.lp-featured-card').forEach(card => {
-    const matchesCat = (f === 'all' || card.dataset.cat === f);
-    const matchesQ = !q || card.dataset.name.includes(q);
-    const show = matchesCat && matchesQ;
-    card.style.display = show ? '' : 'none';
-    if (show) { visibleCount++; featuredVisible++; }
-  });
-
-  // Ocultar toda la sección destacados (con su cabecera) si no hay cards visibles
-  const featuredSection = document.querySelector('.lp-featured');
-  if (featuredSection) {
-    featuredSection.style.display = featuredVisible > 0 ? '' : 'none';
-  }
-
-  // Listas
-  document.querySelectorAll('.lp-list-section').forEach(sec => {
-    const cat = sec.dataset.catSection;
-    const showSection = (f === 'all' || cat === f);
-    sec.style.display = showSection ? '' : 'none';
-    if (!showSection) return;
-
-    let sectionHasVisible = false;
-    sec.querySelectorAll('.lp-row').forEach(row => {
-      const matchesQ = !q || row.dataset.name.includes(q);
-      row.classList.toggle('is-hidden', !matchesQ);
-      if (matchesQ) { sectionHasVisible = true; visibleCount++; }
-    });
-    // Esconde la sección si no hay filas visibles (por búsqueda)
-    sec.style.display = (showSection && sectionHasVisible) ? '' : 'none';
-  });
-
-  // Empty state
-  emptyState.classList.toggle('is-visible', visibleCount === 0);
-}
-
-// === Conteos dinámicos por categoría ===
-function refreshChipCounts() {
-  const counts = { all: TARIFFS.length };
-  TARIFFS.forEach(t => { counts[t.cat] = (counts[t.cat] || 0) + 1; });
-  document.querySelectorAll('[data-count-for]').forEach(el => {
-    const key = el.dataset.countFor;
-    el.textContent = counts[key] ?? 0;
-  });
-}
-
-// === Estado del toolbar (search + filtros) ===
-const searchWrap = document.getElementById('lp-search-wrap');
-const searchClear = document.getElementById('lp-search-clear');
-const clearAllBtn = document.getElementById('lp-clear-all');
-const toolbar = document.getElementById('lp-toolbar');
-const filtersScroll = document.getElementById('lp-filters-scroll');
-const filtersTrack = filtersScroll?.querySelector('.lp-filters');
-
-function updateSearchUI() {
-  searchWrap.classList.toggle('has-value', searchInput.value.length > 0);
-}
-function updateToolbarState() {
-  const hasFilter = currentFilter !== 'all' || searchInput.value.length > 0;
-  toolbar.classList.toggle('has-active-filter', hasFilter);
-}
-
-searchInput.addEventListener('input', (e) => {
-  currentSearch = e.target.value;
-  updateSearchUI();
-  updateToolbarState();
-  applyFilters();
-});
-searchClear.addEventListener('click', () => {
-  searchInput.value = '';
-  currentSearch = '';
-  updateSearchUI();
-  updateToolbarState();
-  applyFilters();
-  searchInput.focus();
-});
-
-chipsRoot.forEach(chip => {
-  chip.addEventListener('click', () => {
-    chipsRoot.forEach(c => c.classList.remove('is-active'));
-    chip.classList.add('is-active');
-    currentFilter = chip.dataset.filter;
-    updateToolbarState();
-    applyFilters();
-    // Asegura visibilidad del chip activo (scroll-into-view horizontal)
-    chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  });
-});
-
-// Botón "Limpiar filtros" — resetea chip activo y búsqueda
-clearAllBtn?.addEventListener('click', () => {
-  searchInput.value = '';
-  currentSearch = '';
-  chipsRoot.forEach(c => c.classList.remove('is-active'));
-  const allChip = document.querySelector('.lp-chip[data-filter="all"]');
-  if (allChip) allChip.classList.add('is-active');
-  currentFilter = 'all';
-  updateSearchUI();
-  updateToolbarState();
-  applyFilters();
-  filtersTrack?.scrollTo({ left: 0, behavior: 'smooth' });
-});
-
-// === Atajo de teclado "/" para enfocar el buscador ===
-document.addEventListener('keydown', (e) => {
-  if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-    e.preventDefault();
-    searchInput.focus();
-    searchInput.select();
-  }
-  if (e.key === 'Escape' && document.activeElement === searchInput) {
-    searchClear.click();
-    searchInput.blur();
-  }
-});
-
-// === Indicador de scroll en los chips (fade izquierdo/derecho) ===
-if (filtersTrack && filtersScroll) {
-  function updateScrollFades() {
-    const { scrollLeft, scrollWidth, clientWidth } = filtersTrack;
-    const atStart = scrollLeft <= 4;
-    const atEnd = scrollLeft >= scrollWidth - clientWidth - 4;
-    filtersScroll.classList.toggle('is-start', !atStart);
-    filtersScroll.classList.toggle('is-end', atEnd);
-  }
-  filtersTrack.addEventListener('scroll', updateScrollFades, { passive: true });
-  window.addEventListener('resize', updateScrollFades);
-  setTimeout(updateScrollFades, 50);
-}
-
-// === Toolbar: medir altura del nav para que la toolbar quede debajo (no detrás) ===
-(function() {
-  if (!toolbar) return;
-  const navEl = document.querySelector('.nav');
-
-  function syncNavHeight() {
-    if (!navEl) return;
-    const h = navEl.offsetHeight;
-    document.documentElement.style.setProperty('--nav-h', h + 'px');
-  }
-  syncNavHeight();
-  window.addEventListener('resize', syncNavHeight);
-  window.addEventListener('load', syncNavHeight);
-
-  // Sombra + compactación cuando la toolbar se queda pegada al nav
-  let prevStuck = false;
-  function check() {
-    const rect = toolbar.getBoundingClientRect();
-    const navH = navEl?.offsetHeight || 0;
-    const isStuck = rect.top <= navH + 1;
-    if (isStuck !== prevStuck) {
-      toolbar.classList.toggle('is-stuck', isStuck);
-      prevStuck = isStuck;
-    }
-  }
-  check();
-  window.addEventListener('scroll', check, { passive: true });
-})();
 
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(q => {
@@ -3139,111 +2526,6 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 
-// === Buscador inteligente de zona (Santa Susanna) ===
-(function(){
-  const input  = document.getElementById('lp-street-input');
-  const wrap   = document.getElementById('lp-street-search-wrap');
-  const clear  = document.getElementById('lp-street-clear');
-  const result = document.getElementById('lp-street-result');
-  if (!input || !result) return;
-
-  // Dataset: cada calle con su zona y suplemento
-  const ZONES = {
-    A: { supp: 1, streets: ['Alps','Alzina','Antoni Gaudí','Balança','Bessons','Bruc','Can Font','Cranc','Escorpí','Farigola','Font','Formentor','Ginesta','Gredos','Himalaia','Josep Antoni Coderech','Lleó','Lluís Sert','Pedraforca','Placeta','Puig i Cadafalch','Pujada de Gràcia','Rabassot','Sagitari','Verge'] },
-    B: { supp: 2, streets: ['Aquari','Boga','Cadí','Can Rosich','Capricorn','Lligabosc','Milfulles','Peixos','Pirineus','Pulmonària','Vistamar'] },
-    C: { supp: 3, streets: ['Falguera','Mimosa','Saüc'] },
-    D: { supp: 4, streets: ['Can Blanco','Can Mestres','De la Rosa','Lliris','Tarongina'] },
-    E: { supp: 6, streets: ['Nards','Petúnies'] },
-  };
-
-  // Normaliza para búsqueda fuzzy (sin acentos, minúsculas)
-  function norm(s) {
-    return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
-  }
-
-  // Busca la zona: si match exacto o substring, devuelve {zone, supp, area}
-  function findStreet(query) {
-    const q = norm(query);
-    if (!q) return null;
-    for (const [zone, data] of Object.entries(ZONES)) {
-      // Match exacto primero
-      const exact = data.streets.find(s => norm(s) === q);
-      if (exact) return { zone, supp: data.supp, street: exact, exact: true };
-    }
-    for (const [zone, data] of Object.entries(ZONES)) {
-      // Match parcial (substring)
-      const partial = data.streets.find(s => norm(s).includes(q) || q.includes(norm(s)));
-      if (partial) return { zone, supp: data.supp, street: partial, exact: false };
-    }
-    return null;
-  }
-
-  function render(query) {
-    if (!query.trim()) {
-      result.innerHTML = '';
-      return;
-    }
-    const match = findStreet(query);
-
-    if (match) {
-      // Zona encontrada dentro de los tramos A-E
-      const dayTotal   = 8 + match.supp;
-      const nightTotal = 9 + match.supp;
-      result.innerHTML = `
-        <div class="lp-street-result-card is-match">
-          <span class="lp-street-result-zone">${match.zone}</span>
-          <div class="lp-street-result-info">
-            <p class="lp-street-result-name">${match.street}</p>
-            <p class="lp-street-result-meta">Tramo ${match.zone}, suplemento <strong>+${match.supp}€</strong> sobre la tarifa base</p>
-          </div>
-          <div class="lp-street-result-totals">
-            <div class="lp-street-result-total">
-              <span class="lp-street-result-total-amt">${dayTotal}€</span>
-              <span class="lp-street-result-total-lbl">Día</span>
-            </div>
-            <div class="lp-street-result-total">
-              <span class="lp-street-result-total-amt">${nightTotal}€</span>
-              <span class="lp-street-result-total-lbl">Noche</span>
-            </div>
-          </div>
-        </div>`;
-    } else if (query.length >= 3) {
-      // No hay match → asumimos tarifa base
-      result.innerHTML = `
-        <div class="lp-street-result-card is-base">
-          <span class="lp-street-result-zone" style="background:linear-gradient(135deg,#008F4C,#006435);">✓</span>
-          <div class="lp-street-result-info">
-            <p class="lp-street-result-name">No está en los tramos A–E</p>
-            <p class="lp-street-result-meta">Si tu zona está en el <strong>centro o un hotel</strong>, pagas la tarifa base. Si no la encuentras, <a href="tel:+34937678571" style="color:#FFD940;text-decoration:underline;">llámanos</a>.</p>
-          </div>
-          <div class="lp-street-result-totals">
-            <div class="lp-street-result-total">
-              <span class="lp-street-result-total-amt">8€</span>
-              <span class="lp-street-result-total-lbl">Día</span>
-            </div>
-            <div class="lp-street-result-total">
-              <span class="lp-street-result-total-amt">9€</span>
-              <span class="lp-street-result-total-lbl">Noche</span>
-            </div>
-          </div>
-        </div>`;
-    } else {
-      result.innerHTML = `<p class="lp-street-result-empty">Escribe al menos 3 letras…</p>`;
-    }
-  }
-
-  input.addEventListener('input', () => {
-    const v = input.value;
-    wrap.classList.toggle('has-value', v.length > 0);
-    render(v);
-  });
-  clear.addEventListener('click', () => {
-    input.value = '';
-    wrap.classList.remove('has-value');
-    result.innerHTML = '';
-    input.focus();
-  });
-})();
 
 // FAQ filter chips
 (function(){
@@ -3286,12 +2568,18 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 })();
 
-// Init
-renderFeatured();
-renderList();
-refreshChipCounts();
-const totalDest = document.getElementById('lp-total-destinos');
-if (totalDest) totalDest.textContent = TARIFFS.length;
+// FAQ filters sticky shadow on scroll
+(function(){
+  const wrap = document.getElementById('faq-filters-wrap');
+  if (!wrap) return;
+  const stickyTop = parseFloat(getComputedStyle(wrap).top) || 88;
+  function check() {
+    const rect = wrap.getBoundingClientRect();
+    wrap.classList.toggle('is-stuck', rect.top <= stickyTop + 1);
+  }
+  check();
+  window.addEventListener('scroll', check, { passive: true });
+})();
 
 // Nav scroll behavior
 (function() {
