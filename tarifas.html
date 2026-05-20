@@ -2183,7 +2183,7 @@
 <!-- ====== HERO ====== -->
 <section class="lp-hero">
   <div class="lp-hero-inner">
-    <div class="lp-eyebrow">Tarifa 2026 · Oficial fuera</div>
+    <div class="lp-eyebrow">Tarifa 2026</div>
     <h1 class="lp-h1">Tu destino, <span class="accent">a precio fijo</span>.</h1>
     <p class="lp-subhead">No nos gustan los <strong>algoritmos</strong> que adaptan la oferta y la demanda de las grandes plataformas. Aquí tienes el <strong>precio cerrado</strong> a los destinos más habituales, así de transparente.</p>
   </div>
@@ -2240,7 +2240,7 @@
 <!-- ====== FEATURED (Top 4 transfers) ====== -->
 <section class="lp-featured" data-cat-section="featured">
   <div class="lp-featured-inner">
-    <span class="lp-featured-eyebrow">Servicios interurbanos · los más reservados</span>
+    <span class="lp-featured-eyebrow">Servicios interurbanos</span>
     <h2 class="lp-featured-title">Servicio de taxi, <span class="accent">puerta a puerta</span></h2>
     <p class="lp-featured-sub">Reserva web con garantía tus trayectos prioritarios, o <strong>llámanos 24/7</strong>.</p>
     <div class="lp-featured-grid" id="lp-featured-grid"></div>
@@ -2286,7 +2286,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
       <div class="lp-base-hero-info">
-        <span class="lp-base-hero-eyebrow">Tarifa base · la que paga la mayoría</span>
+        <span class="lp-base-hero-eyebrow">Tarifa base</span>
         <h3 class="lp-base-hero-title">Centro del pueblo y hoteles</h3>
         <p class="lp-base-hero-desc">Cubre todo el casco urbano y los principales hoteles. El precio que ves es el que pagas, sin taxímetro y sin sorpresas.</p>
       </div>
@@ -2311,7 +2311,7 @@
     <!-- BUSCADOR DE ZONA -->
     <div class="lp-street-finder">
       <div class="lp-street-finder-head">
-        <h3>¿Empiezas o terminas en una <span class="accent">zona del extrarradio</span>?</h3>
+        <h3>¿Empiezas o terminas en <span class="accent">la urbanización</span>?</h3>
         <p>Algunas zonas concretas suman un pequeño extra. Escribe el nombre de tu zona y te decimos al instante cuánto pagarás.</p>
       </div>
       <div class="lp-street-search" id="lp-street-search-wrap">
@@ -2756,8 +2756,10 @@
 // ============================================================
 const TARIFFS = [
   // ===========================================================
-  // FEATURED (servicios interurbanos — los 6 más reservados)
+  // FEATURED (servicios interurbanos — los más reservados)
   // ===========================================================
+  { id: 'bcn-airport',   name: 'Barcelona-El Prat',  code: 'BCN', cat: 'barcelona', featured: true, day: 142, night: 153, time: 'Aeropuerto · 70-100 min' },
+  { id: 'gro-airport',   name: 'Girona-Costa Brava', code: 'GRO', cat: 'girona',    featured: true, day: 64,  night: 69,  time: 'Aeropuerto · 25-35 min' },
   { id: 'bcn-sants',     name: 'Sants',              code: 'BCN', cat: 'barcelona', featured: true, day: 123, night: 134, time: 'Estación AVE · 60-75 min' },
   { id: 'gro-ave',       name: 'Girona AVE',         code: 'GIR', cat: 'girona',    featured: true, day: 79,  night: 88,  time: 'Estación AVE · 40-55 min' },
   { id: 'bcn-nord',      name: 'Estació del Nord',   code: 'BCN', cat: 'barcelona', featured: true, day: 110, night: 119, time: 'Estación de bus · 50-60 min' },
@@ -2768,7 +2770,6 @@ const TARIFFS = [
   // ===========================================================
   // BARCELONA — ciudad, área metropolitana, conexiones sur
   // ===========================================================
-  { id: 'bcn-airport',      name: 'Aeropuerto Barcelona',      cat: 'barcelona', day: 142, night: 153 },
   { id: 'bcn-pl-catalunya', name: 'Barcelona Plaça Catalunya', cat: 'barcelona', day: 120, night: 129 },
   { id: 'bcn-parc-guell',   name: 'Barcelona Parc Güell',      cat: 'barcelona', day: 120, night: 129 },
   { id: 'bcn-pl-espanya',   name: 'Barcelona Plaça Espanya',   cat: 'barcelona', day: 125, night: 135 },
@@ -2780,9 +2781,9 @@ const TARIFFS = [
   { id: 'la-roca-village',  name: 'La Roca Village',           cat: 'barcelona', day: 79,  night: 85  },
 
   // ===========================================================
-  // GIRONA — ciudad, aeropuerto, interior, conexión norte
+  // GIRONA — ciudad, interior, conexión norte
+  // (Aeropuerto Girona y Perpinyà aparecen como featured arriba)
   // ===========================================================
-  { id: 'gro-airport',      name: 'Aeropuerto Girona',         cat: 'girona', day: 64, night: 69 },
   { id: 'gir-sud',          name: 'Girona Sud / Clínica',      cat: 'girona', day: 72, night: 79 },
   { id: 'gir-catalunya',    name: 'Girona Plaça Catalunya',    cat: 'girona', day: 81, night: 89 },
   { id: 'gir-montilivi',    name: 'Girona Montilivi',          cat: 'girona', day: 82, night: 90 },
