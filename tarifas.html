@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=20260514b">
+<link rel="stylesheet" href="styles.css?v=20260520a">
 
 <style>
 /* =====================================================================
@@ -107,28 +107,29 @@
 }
 .lp-hero-inner { max-width: 1280px; margin: 0 auto; }
 .lp-eyebrow {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.18em;
   color: #F3C800;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   display: inline-block;
 }
 .lp-h1 {
-  font-size: 54px;
+  font-size: 56px;
   font-weight: 800;
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.022em;
   margin: 0 0 18px;
   max-width: 820px;
 }
 .lp-h1 .accent { color: #FFD940; }
 .lp-subhead {
-  font-size: 17px;
+  font-size: 16.5px;
   font-weight: 500;
   color: rgba(255,255,255,0.85);
   line-height: 1.55;
+  letter-spacing: -0.005em;
   max-width: 720px;
   margin: 0;
 }
@@ -165,50 +166,102 @@
 /* === Row 1: Search === */
 .lp-toolbar-row1 {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  gap: 10px;
 }
+
+/* Titular del buscador — protagonismo */
+.lp-search-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #002313;
+  letter-spacing: -0.018em;
+  line-height: 1.2;
+  margin: 0;
+  transition: opacity 0.25s ease, max-height 0.3s ease, margin 0.25s ease;
+  max-height: 60px;
+  overflow: hidden;
+}
+.lp-search-title-ico {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #008F4C 0%, #006435 100%);
+  color: #ffffff;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 143, 76, 0.25);
+}
+.lp-search-title-ico svg { width: 18px; height: 18px; }
+.lp-search-title-text { display: flex; flex-direction: column; line-height: 1.1; }
+.lp-search-title-text small {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #008F4C; margin-bottom: 4px;
+}
+.lp-search-title-text strong {
+  font-size: 21px; font-weight: 800; color: #002313;
+}
+.lp-toolbar.is-stuck .lp-search-title {
+  opacity: 0; max-height: 0; margin-bottom: -10px;
+}
+
 .lp-search {
   position: relative;
-  flex: 1 1 auto;
+  flex: none;
 }
 .lp-search-input {
   width: 100%;
-  padding: 16px 110px 16px 54px;
-  height: 56px;
-  border-radius: 16px;
-  border: 1.5px solid #e0e6e2;
-  font-size: 15.5px;
+  padding: 18px 120px 18px 64px;
+  height: 68px;
+  border-radius: 18px;
+  border: 2px solid #B2DDC9;
+  font-size: 17px;
   font-weight: 500;
   color: #1a2620;
   background: #ffffff;
   font-family: inherit;
   outline: none;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, height 0.25s ease, padding 0.25s ease, font-size 0.25s ease;
   box-sizing: border-box;
-  box-shadow: 0 2px 8px rgba(0, 35, 19, 0.05);
+  box-shadow: 0 8px 22px rgba(0, 143, 76, 0.12), 0 2px 6px rgba(0, 35, 19, 0.06);
   letter-spacing: -0.005em;
 }
 .lp-search-input::placeholder {
-  color: #8a9590;
+  color: #6a7572;
+  font-weight: 500;
 }
-.lp-search-input:hover { border-color: #B2DDC9; }
+.lp-search-input:hover { border-color: #008F4C; }
 .lp-search-input:focus {
   border-color: #008F4C;
-  box-shadow: 0 0 0 4px rgba(0, 143, 76, 0.14), 0 6px 18px rgba(0, 143, 76, 0.1);
+  box-shadow: 0 0 0 5px rgba(0, 143, 76, 0.16), 0 12px 28px rgba(0, 143, 76, 0.14);
+  transform: translateY(-1px);
 }
 .lp-search-icon {
   position: absolute;
-  left: 20px;
+  left: 22px;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  color: #5a6660;
+  width: 24px;
+  height: 24px;
+  color: #008F4C;
   pointer-events: none;
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease, width 0.25s ease, height 0.25s ease, left 0.25s ease;
 }
-.lp-search-input:focus ~ .lp-search-icon { color: #008F4C; transform: translateY(-50%) scale(1.05); }
+.lp-search-input:focus ~ .lp-search-icon { color: #006435; transform: translateY(-50%) scale(1.1); }
+
+/* Cuando está pegado arriba (scroll), reduce el buscador para no comerse pantalla */
+.lp-toolbar.is-stuck .lp-search-input {
+  height: 52px;
+  padding: 14px 110px 14px 52px;
+  font-size: 15px;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0, 35, 19, 0.08);
+}
+.lp-toolbar.is-stuck .lp-search-icon {
+  width: 18px; height: 18px; left: 18px;
+}
 
 /* Atajo de teclado "/" visible cuando no hay valor */
 .lp-search-kbd {
@@ -411,34 +464,36 @@
 }
 .lp-featured-inner { max-width: 1280px; margin: 0 auto; }
 .lp-featured-eyebrow {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.18em;
   color: #006435;
   text-transform: uppercase;
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   text-align: center;
   display: block;
 }
 .lp-featured-title {
-  font-size: 32px;
+  font-size: 38px;
   font-weight: 800;
   color: #002313;
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   text-align: center;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.02em;
 }
 .lp-featured-title .accent { color: #008F4C; }
 .lp-featured-sub {
-  font-size: 15.5px;
+  font-size: 16.5px;
   font-weight: 500;
   color: #5a6660;
   text-align: center;
   margin: 0 auto 40px;
   max-width: 720px;
   line-height: 1.55;
+  letter-spacing: -0.005em;
 }
+.lp-featured-sub strong { color: #008F4C; font-weight: 800; }
 
 /* ===========================================================
    Featured cards — Compactos en la línea del resto
@@ -484,12 +539,12 @@
 .lp-featured-code-badge {
   background: #EAF6F0;
   color: #006435;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 3px 7px;
-  border-radius: 5px;
+  padding: 4px 9px;
+  border-radius: 6px;
   white-space: nowrap;
   line-height: 1;
 }
@@ -506,23 +561,23 @@
   color: #c9cdc9;
 }
 .lp-featured-name {
-  font-size: 14.5px;
+  font-size: 18px;
   font-weight: 800;
   color: #1a2620;
   line-height: 1.25;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 .lp-featured-time {
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 500;
   color: #5a6660;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   margin: 0;
 }
-.lp-featured-time svg { width: 11px; height: 11px; color: #008F4C; }
+.lp-featured-time svg { width: 13px; height: 13px; color: #008F4C; }
 
 /* Lado derecho: precios + Reservar */
 .lp-featured-end {
@@ -538,16 +593,16 @@
 .lp-featured-card .lp-price-cell {
   flex-direction: row;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 .lp-featured-card .lp-price-tag {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
 }
-.lp-featured-card .lp-price-tag svg { width: 13px; height: 13px; }
+.lp-featured-card .lp-price-tag svg { width: 15px; height: 15px; }
 .lp-featured-card .lp-price-amt {
-  font-size: 15.5px;
+  font-size: 20px;
   font-weight: 800;
   color: #006435;
   letter-spacing: -0.01em;
@@ -557,12 +612,12 @@
 .lp-featured-cta {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 7px 12px;
+  gap: 6px;
+  padding: 9px 16px;
   background: #EAF6F0;
   color: #006435;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -572,11 +627,11 @@
 .lp-featured-cta:hover {
   background: #008F4C;
   color: white;
-  gap: 8px;
+  gap: 9px;
 }
 .lp-featured-cta svg {
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   transition: transform 0.2s ease;
 }
 .lp-featured-cta:hover svg { transform: translateX(2px); }
@@ -597,7 +652,7 @@
 .lp-price-tag.night { background: rgba(45,58,143,0.12); color: #2d3a8f; }
 .lp-price-tag svg { width: 16px; height: 16px; }
 .lp-price-amt {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 800;
   color: #006435;
   letter-spacing: -0.02em;
@@ -619,35 +674,40 @@
 .lp-group-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 22px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #e6ece8;
+  gap: 14px;
+  margin-bottom: 26px;
+  padding-bottom: 16px;
+  border-bottom: 1.5px solid #e6ece8;
 }
 .lp-group-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: #EAF6F0;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #EAF6F0 0%, #D8EEE4 100%);
   color: #006435;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.lp-group-icon svg { width: 18px; height: 18px; }
+.lp-group-icon svg { width: 22px; height: 22px; }
 .lp-group-title {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 800;
-  color: #1a2620;
-  letter-spacing: -0.01em;
+  color: #002313;
+  letter-spacing: -0.015em;
   margin: 0;
+  line-height: 1.1;
 }
 .lp-group-count {
-  font-size: 12px;
+  font-size: 13px;
   color: #5a6660;
   margin-left: auto;
-  font-weight: 600;
+  font-weight: 700;
+  padding: 6px 12px;
+  background: #f0f4f1;
+  border-radius: 999px;
+  letter-spacing: -0.005em;
 }
 
 .lp-rows {
@@ -658,12 +718,12 @@
 .lp-row {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 14px;
+  gap: 16px;
   align-items: center;
-  padding: 16px 18px;
+  padding: 18px 20px;
   background: white;
   border: 1px solid #e6ece8;
-  border-radius: 12px;
+  border-radius: 14px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 .lp-list-section:nth-of-type(even) .lp-row { background: white; }
@@ -673,36 +733,37 @@
   transform: translateY(-1px);
 }
 .lp-row-name {
-  font-size: 14px;
+  font-size: 16.5px;
   font-weight: 700;
   color: #1a2620;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 .lp-row-prices {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   align-items: baseline;
 }
 .lp-row-price {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   line-height: 1;
 }
 .lp-row-price-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
   flex-shrink: 0;
 }
 .lp-row-price-label.day { background: rgba(243,200,0,0.18); color: #B07F00; }
 .lp-row-price-label.night { background: rgba(45,58,143,0.12); color: #2d3a8f; }
-.lp-row-price-label svg { width: 13px; height: 13px; }
+.lp-row-price-label svg { width: 15px; height: 15px; }
 .lp-row-price-val {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 800;
   color: #006435;
   letter-spacing: -0.01em;
@@ -798,12 +859,12 @@
   border-radius: 2px;
 }
 .lp-download-title {
-  font-size: 34px;
+  font-size: 38px;
   font-weight: 800;
   color: #002313;
   margin: 0;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.12;
 }
 .lp-download-title .accent { color: #008F4C; }
 .lp-download-desc {
@@ -902,7 +963,7 @@
   height: 4px;
   background: linear-gradient(90deg, #008F4C 0%, #F3C800 100%);
 }
-.lp-zones-inner { max-width: 1100px; margin: 0 auto; }
+.lp-zones-inner { max-width: 1280px; margin: 0 auto; }
 .lp-zones-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -925,67 +986,510 @@
   height: 4px;
   background: var(--zone-color, #008F4C);
 }
-.lp-zone-card[data-zone="A"] { --zone-color: #008F4C; }
-.lp-zone-card[data-zone="B"] { --zone-color: #B07F00; }
-.lp-zone-card[data-zone="C"] { --zone-color: #c75300; }
-.lp-zone-card[data-zone="D"] { --zone-color: #c2185b; }
-.lp-zone-card[data-zone="E"] { --zone-color: #6a2c9c; }
+.lp-zone-card { --zone-color: #008F4C; }
 .lp-zone-letter {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
   background: var(--zone-color);
   color: white;
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 900;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .lp-zone-supp {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 800;
   color: #002313;
-  margin: 0 0 6px;
+  margin: 0 0 8px;
 }
 .lp-zone-supp .plus { color: #008F4C; }
 .lp-zone-streets {
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 500;
   color: #5a6660;
   line-height: 1.45;
 }
-.lp-zones-base {
+/* ================================================================
+   SERVICIOS URBANOS — REDISEÑO UX/UI
+   ================================================================ */
+
+/* Header simplificado de la sección */
+.lp-zones-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 44px;
+}
+.lp-zones-header-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #F3C800; margin-bottom: 16px;
+}
+.lp-zones-header-eyebrow::before,
+.lp-zones-header-eyebrow::after {
+  content: ""; width: 26px; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(243,200,0,0.7));
+  border-radius: 2px;
+}
+.lp-zones-header-eyebrow::after { background: linear-gradient(90deg, rgba(243,200,0,0.7), transparent); }
+.lp-zones-header h2 {
+  font-size: 38px; font-weight: 800;
+  letter-spacing: -0.022em; line-height: 1.1;
+  color: #ffffff; margin: 0 0 14px;
+}
+.lp-zones-header h2 .accent { color: #FFD940; }
+.lp-zones-header p {
+  font-size: 16.5px; font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.55; margin: 0;
+}
+.lp-zones-header p strong { color: #FFD940; font-weight: 700; }
+
+/* Hero principal — la tarifa base (PROTAGONISTA) */
+.lp-base-hero {
+  max-width: 920px;
+  margin: 0 auto 48px;
+  background:
+    linear-gradient(135deg, rgba(243,200,0,0.10) 0%, rgba(255,255,255,0.04) 60%),
+    rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(243,200,0,0.40);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-radius: 26px;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: center;
+  box-shadow: 0 24px 56px rgba(0,35,19,0.32);
+  position: relative;
+  overflow: hidden;
+}
+.lp-base-hero::before {
+  content: ""; position: absolute;
+  top: -40px; right: -40px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(243,200,0,0.15), transparent 70%);
+  pointer-events: none;
+}
+.lp-base-hero-icon {
+  width: 72px; height: 72px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 10px 24px rgba(243,200,0,0.36);
+}
+.lp-base-hero-icon svg { width: 34px; height: 34px; }
+.lp-base-hero-info { min-width: 0; }
+.lp-base-hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #FFD940;
+  padding: 4px 10px;
+  background: rgba(243,200,0,0.16);
+  border: 1px solid rgba(243,200,0,0.3);
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+.lp-base-hero-title {
+  font-size: 24px; font-weight: 800;
+  color: #ffffff; letter-spacing: -0.015em;
+  line-height: 1.15; margin: 0 0 6px;
+}
+.lp-base-hero-desc {
+  font-size: 14.5px; font-weight: 500;
+  color: rgba(255,255,255,0.74);
+  line-height: 1.5; margin: 0;
+}
+.lp-base-hero-prices {
+  display: flex; gap: 18px; align-items: center;
+  flex-shrink: 0;
+}
+.lp-base-hero-price {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+  padding: 14px 18px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  min-width: 96px;
+}
+.lp-base-hero-price-ico {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.lp-base-hero-price-ico.day {
+  background: linear-gradient(135deg, #F3C800, #FFD940);
+  color: #002313;
+}
+.lp-base-hero-price-ico.night {
+  background: linear-gradient(135deg, #1b2e3a, #2c4456);
+  color: #FFD940;
+  border: 1px solid rgba(255,217,64,0.30);
+}
+.lp-base-hero-price-ico svg { width: 18px; height: 18px; }
+.lp-base-hero-price-amt {
+  font-size: 28px; font-weight: 800;
+  color: #ffffff; letter-spacing: -0.02em;
+  line-height: 1;
+}
+.lp-base-hero-price-lbl {
+  font-size: 10.5px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ====== BUSCADOR DE CALLE (componente UX) ====== */
+.lp-street-finder {
+  max-width: 920px; margin: 0 auto 48px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 22px;
+  padding: 32px 36px;
+}
+.lp-street-finder-head {
+  text-align: center; margin-bottom: 22px;
+}
+.lp-street-finder-head h3 {
+  font-size: 24px; font-weight: 800;
+  color: #ffffff; margin: 0 0 10px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+.lp-street-finder-head h3 .accent { color: #FFD940; }
+.lp-street-finder-head p {
+  font-size: 14.5px; font-weight: 500;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.5; margin: 0 auto;
+  max-width: 560px;
+}
+.lp-street-search {
+  position: relative; margin-bottom: 18px;
+}
+.lp-street-search-input {
+  width: 100%;
+  padding: 16px 50px 16px 56px;
+  height: 60px;
+  font-size: 16px; font-weight: 500;
+  color: #002313;
+  background: #ffffff;
+  border: 2px solid rgba(243,200,0,0.30);
+  border-radius: 16px;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  letter-spacing: -0.005em;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 24px rgba(0,35,19,0.20);
+}
+.lp-street-search-input:focus {
+  border-color: #F3C800;
+  box-shadow: 0 0 0 5px rgba(243,200,0,0.20), 0 12px 28px rgba(0,35,19,0.30);
+}
+.lp-street-search-ico {
+  position: absolute;
+  left: 22px; top: 50%; transform: translateY(-50%);
+  width: 22px; height: 22px;
+  color: #008F4C; pointer-events: none;
+}
+.lp-street-search-clear {
+  position: absolute;
+  right: 14px; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px;
+  border: 0; border-radius: 50%;
+  background: #EAF6F0; color: #006435;
+  cursor: pointer;
+  display: none;
+  align-items: center; justify-content: center;
+}
+.lp-street-search-clear svg { width: 14px; height: 14px; }
+.lp-street-search.has-value .lp-street-search-clear { display: inline-flex; }
+
+/* Resultado del buscador */
+.lp-street-result {
+  min-height: 16px;
+  transition: opacity 0.25s ease;
+}
+.lp-street-result-card {
   background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(243,200,0,0.25);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 14px;
   padding: 18px 22px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+}
+.lp-street-result-card.is-match {
+  border-color: rgba(243,200,0,0.40);
+  background: linear-gradient(135deg, rgba(243,200,0,0.10), rgba(0,143,76,0.08));
+}
+.lp-street-result-card.is-base {
+  border-color: rgba(0,143,76,0.40);
+  background: linear-gradient(135deg, rgba(0,143,76,0.10), rgba(255,255,255,0.04));
+}
+.lp-street-result-zone {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 900; color: #ffffff;
+  background: linear-gradient(135deg, #008F4C, #006435);
+  box-shadow: 0 6px 16px rgba(0,143,76,0.30);
+  flex-shrink: 0;
+}
+.lp-street-result-card.is-match .lp-street-result-zone {
+  background: linear-gradient(135deg, #F3C800, #FFD940);
+  color: #002313;
+  box-shadow: 0 6px 16px rgba(243,200,0,0.30);
+}
+.lp-street-result-info { min-width: 0; }
+.lp-street-result-name {
+  font-size: 17px; font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+.lp-street-result-meta {
+  font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.72);
+  margin: 0;
+}
+.lp-street-result-meta strong { color: #FFD940; font-weight: 800; }
+.lp-street-result-totals {
+  display: flex; gap: 12px;
+  flex-shrink: 0;
+}
+.lp-street-result-total {
+  text-align: center;
+  padding: 8px 14px;
+  background: rgba(0,0,0,0.20);
+  border-radius: 10px;
+  min-width: 72px;
+}
+.lp-street-result-total-amt {
+  display: block;
+  font-size: 18px; font-weight: 800;
+  color: #ffffff; letter-spacing: -0.015em;
+}
+.lp-street-result-total-lbl {
+  display: block;
+  font-size: 9.5px; font-weight: 800;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.10em; text-transform: uppercase;
+  margin-top: 2px;
+}
+.lp-street-result-empty {
+  text-align: center;
+  padding: 16px;
+  color: rgba(255,255,255,0.55);
+  font-size: 13.5px;
+  font-style: italic;
+}
+
+/* Divider entre buscador y listado */
+.lp-zones-divider {
+  display: flex; align-items: center; gap: 18px;
+  max-width: 920px;
+  margin: 0 auto 28px;
+  color: rgba(255,255,255,0.5);
+  font-size: 12.5px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
+}
+.lp-zones-divider::before,
+.lp-zones-divider::after {
+  content: "";
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+}
+
+/* CTA final de llamada */
+.lp-zones-help {
+  max-width: 920px;
+  margin: 36px auto 0;
+  padding: 22px 28px;
+  background: linear-gradient(135deg, rgba(0,143,76,0.12), rgba(243,200,0,0.06));
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  display: flex; align-items: center; gap: 18px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+.lp-zones-help-ico {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #F3C800, #FFD940);
+  color: #002313;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.lp-zones-help-ico svg { width: 22px; height: 22px; }
+.lp-zones-help-text { flex: 1 1 220px; }
+.lp-zones-help-text strong {
+  display: block;
+  font-size: 16px; font-weight: 800;
+  color: #ffffff; margin-bottom: 4px;
+}
+.lp-zones-help-text p {
+  margin: 0;
+  font-size: 13.5px; color: rgba(255,255,255,0.72);
+}
+.lp-zones-help-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  background: #F3C800;
+  color: #002313;
+  font-weight: 800; font-size: 14px;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.lp-zones-help-cta:hover {
+  background: #FFD940;
+  transform: translateY(-1px);
+}
+.lp-zones-help-cta svg { width: 14px; height: 14px; }
+
+/* Card destacada del trayecto base (Centre / Hotels) — DEPRECADA, mantengo por si acaso */
+.lp-base-card {
+  max-width: 680px;
+  margin: 0 auto 32px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(243,200,0,0.05) 100%);
+  border: 1.5px solid rgba(243,200,0,0.35);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 22px;
+  padding: 26px 32px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 24px;
   flex-wrap: wrap;
+  box-shadow: 0 18px 44px rgba(0,35,19,0.28);
 }
-.lp-zones-base-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: rgba(243,200,0,0.18);
+.lp-base-card-info { flex: 1 1 240px; min-width: 220px; }
+.lp-base-card-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #F3C800; margin-bottom: 8px;
+}
+.lp-base-card-eyebrow svg { width: 13px; height: 13px; }
+.lp-base-card-title {
+  font-size: 22px; font-weight: 800; color: #ffffff;
+  letter-spacing: -0.015em; margin: 0;
+  line-height: 1.2;
+}
+.lp-base-card-time {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12.5px; font-weight: 600;
+  color: rgba(255,255,255,0.72);
+  margin-top: 6px;
+}
+.lp-base-card-time svg { width: 13px; height: 13px; }
+.lp-base-card-prices {
+  display: flex; gap: 14px; align-items: center;
+  flex-shrink: 0;
+}
+.lp-base-card-price {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+}
+.lp-base-card-price-ico {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.lp-base-card-price-ico.day {
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313;
+  box-shadow: 0 4px 12px rgba(243,200,0,0.40);
+}
+.lp-base-card-price-ico.night {
+  background: linear-gradient(135deg, #1b2e3a 0%, #2c4456 100%);
   color: #FFD940;
-  font-size: 13px;
-  font-weight: 700;
-  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.30);
+  border: 1px solid rgba(255,217,64,0.30);
 }
-.lp-zones-base-pill strong { font-weight: 800; color: #ffffff; }
-.lp-zones-note {
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.7);
-  flex: 1;
-  min-width: 200px;
+.lp-base-card-price-ico svg { width: 18px; height: 18px; }
+.lp-base-card-price-amt {
+  font-size: 22px; font-weight: 800; color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* Sub-header de la sección zonas (suplemento) */
+.lp-zones-subheader {
+  text-align: center;
+  margin: 50px auto 24px;
+  max-width: 720px;
+}
+.lp-zones-subheader-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11.5px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #F3C800; margin-bottom: 12px;
+}
+.lp-zones-subheader-eyebrow svg { width: 14px; height: 14px; }
+.lp-zones-subheader-text {
+  font-size: 15.5px; font-weight: 500;
+  color: rgba(255,255,255,0.84);
+  line-height: 1.55; margin: 0;
+}
+.lp-zones-subheader-text strong { color: #FFD940; font-weight: 800; }
+
+@media (max-width: 640px) {
+  .lp-base-card { padding: 22px 22px; border-radius: 18px; }
+  .lp-base-card-title { font-size: 19px; }
+  .lp-base-card-prices { gap: 10px; }
+  .lp-base-card-price-amt { font-size: 19px; }
+  .lp-zones-subheader { margin-top: 36px; padding: 0 16px; }
+  .lp-zones-subheader-text { font-size: 14px; }
+
+  /* Responsive nuevo módulo Servicios Urbanos */
+  .lp-zones-header { margin-bottom: 32px; }
+  .lp-zones-header h2 { font-size: 28px; }
+  .lp-zones-header p { font-size: 14.5px; }
+
+  .lp-base-hero {
+    grid-template-columns: 1fr;
+    padding: 26px 22px;
+    gap: 18px;
+    text-align: center;
+    border-radius: 20px;
+  }
+  .lp-base-hero-icon { margin: 0 auto; width: 60px; height: 60px; }
+  .lp-base-hero-icon svg { width: 28px; height: 28px; }
+  .lp-base-hero-title { font-size: 20px; }
+  .lp-base-hero-prices { justify-content: center; gap: 12px; }
+  .lp-base-hero-price { min-width: 84px; padding: 12px 14px; }
+  .lp-base-hero-price-amt { font-size: 24px; }
+
+  .lp-street-finder { padding: 24px 20px; border-radius: 18px; }
+  .lp-street-finder-head h3 { font-size: 19px; }
+  .lp-street-finder-head p { font-size: 13.5px; }
+  .lp-street-search-input { height: 54px; font-size: 15px; padding: 14px 46px 14px 50px; }
+  .lp-street-result-card {
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+  .lp-street-result-totals {
+    grid-column: 1 / -1;
+    justify-content: stretch;
+  }
+  .lp-street-result-total { flex: 1; }
+
+  .lp-zones-help { flex-direction: column; text-align: center; padding: 22px 20px; }
+  .lp-zones-help-text { flex-basis: auto; }
+  .lp-zones-help-cta { width: 100%; justify-content: center; }
 }
 
 /* Info section (horarios, PAX, pagos) */
@@ -1055,7 +1559,7 @@
 }
 .lp-info-icon svg { width: 26px; height: 26px; }
 .lp-info-title {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 800;
   color: #1a2620;
   margin: 0;
@@ -1248,7 +1752,7 @@
 
 .lp-section-header { text-align: center; margin-bottom: 44px; }
 .lp-section-header-eyebrow {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.18em;
   color: #006435;
@@ -1257,20 +1761,21 @@
   display: inline-block;
 }
 .lp-section-title {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 800;
   color: #002313;
   margin: 0 0 12px;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.02em;
 }
 .lp-section-title .accent { color: #008F4C; display: inline-block; }
 .lp-section-subtitle {
-  font-size: 16px;
+  font-size: 16.5px;
   color: #5a6660;
   font-weight: 500;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
 }
 
 .includes-grid {
@@ -1388,7 +1893,94 @@
   padding: 72px 24px 80px;
   background: #ffffff;
 }
-.lp-faq-inner { max-width: 760px; margin: 0 auto; }
+.lp-faq-inner { max-width: 1280px; margin: 0 auto; }
+
+/* === Chips de filtro de preguntas === */
+.faq-filters-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 32px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #fafdfb 0%, #f0f6f3 100%);
+  border: 1px solid #e6ece8;
+  border-radius: 16px;
+  flex-wrap: wrap;
+}
+.faq-filters-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5a6660;
+  flex-shrink: 0;
+}
+.faq-filters-label svg { width: 14px; height: 14px; color: #008F4C; }
+.faq-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+.faq-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  background: #ffffff;
+  border: 1.5px solid #e0e6e2;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a2620;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: -0.005em;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.faq-chip:hover {
+  border-color: #008F4C;
+  color: #006435;
+  transform: translateY(-1px);
+}
+.faq-chip.is-active {
+  background: linear-gradient(135deg, #008F4C 0%, #006435 100%);
+  border-color: #008F4C;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0,143,76,0.25);
+}
+.faq-chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  padding: 2px 6px;
+  background: rgba(0,143,76,0.10);
+  color: #006435;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.faq-chip.is-active .faq-chip-count {
+  background: rgba(255,217,64,0.30);
+  color: #FFD940;
+}
+
+.faq-empty {
+  text-align: center;
+  padding: 32px 0;
+  color: #8a9590;
+  font-size: 14px;
+  display: none;
+}
+.faq-empty.is-visible { display: block; }
+.faq-item.is-hidden { display: none; }
+
 .faq-item { border-bottom: 1px solid #e6ece8; }
 .faq-question {
   width: 100%;
@@ -1430,52 +2022,87 @@
   line-height: 1.65;
 }
 .faq-answer-inner strong { color: #008F4C; font-weight: 800; }
-.faq-item.open .faq-answer { max-height: 280px; }
+.faq-item.open .faq-answer { max-height: 400px; }
 
 /* Responsive */
 @media (max-width: 980px) {
   .lp-rows { grid-template-columns: repeat(2, 1fr); }
   .lp-zones-grid { grid-template-columns: repeat(3, 1fr); }
   .lp-info-grid { grid-template-columns: 1fr; }
-  .lp-h1 { font-size: 42px; }
+  .lp-h1 { font-size: 44px; }
+  .lp-featured-title { font-size: 32px; }
+  .lp-section-title { font-size: 32px; }
+  .lp-download-title { font-size: 32px; }
+  .lp-featured-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .lp-featured-name { font-size: 17px; }
+  .lp-featured-time { font-size: 12.5px; }
+  .lp-featured-card .lp-price-amt { font-size: 18px; }
+  .lp-featured-cta { padding: 8px 14px; font-size: 12.5px; }
+  .lp-row { padding: 16px 16px; }
+  .lp-row-name { font-size: 15.5px; }
+  .lp-row-price-val { font-size: 18px; }
+  .lp-row-prices { gap: 12px; }
+  .lp-group-title { font-size: 23px; }
+  .lp-group-icon { width: 42px; height: 42px; }
+  .lp-group-icon svg { width: 20px; height: 20px; }
+}
+@media (max-width: 820px) {
+  .lp-row-name { font-size: 14.5px; }
+  .lp-row-price-val { font-size: 17px; }
+  .lp-row-price-label { width: 22px; height: 22px; }
+  .lp-row-price-label svg { width: 13px; height: 13px; }
 }
 @media (max-width: 640px) {
   .lp-hero { padding: 160px 20px 44px; }
-  .lp-h1 { font-size: 32px; letter-spacing: -0.025em; }
-  .lp-subhead { font-size: 14px; }
+  .lp-h1 { font-size: 36px; letter-spacing: -0.025em; }
+  .lp-subhead { font-size: 14.5px; }
   .lp-toolbar { padding: 16px 18px; top: 0; }
   .lp-toolbar-inner { gap: 12px; }
-  .lp-chip { padding: 7px 12px; font-size: 12px; }
+  .lp-chip { padding: 7px 12px; font-size: 12.5px; }
   .lp-featured { padding: 40px 18px 18px; }
-  .lp-featured-title { font-size: 24px; }
-  .lp-featured-sub { font-size: 13px; margin-bottom: 24px; }
+  .lp-featured-title { font-size: 26px; }
+  .lp-featured-sub { font-size: 14.5px; margin-bottom: 24px; }
   .lp-featured-grid { grid-template-columns: 1fr; gap: 12px; }
-  .lp-featured-card { padding: 20px 20px 20px; }
-  .lp-featured-name { font-size: 19px; }
-  .lp-featured-card .lp-price-amt { font-size: 19px; }
-  .lp-featured-cta { padding: 12px 18px; font-size: 13px; }
+  .lp-featured-card { padding: 18px 18px; gap: 12px; }
+  .lp-featured-name { font-size: 17px; }
+  .lp-featured-time { font-size: 12.5px; }
+  .lp-featured-code-badge { font-size: 11px; padding: 3px 7px; }
+  .lp-featured-card .lp-price-amt { font-size: 18px; }
+  .lp-featured-card .lp-price-tag { width: 22px; height: 22px; }
+  .lp-featured-card .lp-price-tag svg { width: 13px; height: 13px; }
+  .lp-featured-cta { padding: 10px 14px; font-size: 12.5px; }
   .lp-list-section { padding: 32px 18px 18px; }
   .lp-rows { grid-template-columns: 1fr; gap: 10px; }
   .lp-row { padding: 16px 16px; }
-  .lp-row-name { font-size: 14.5px; }
-  .lp-row-price-val { font-size: 17px; }
-  .lp-group-title { font-size: 17px; }
+  .lp-row-name { font-size: 15.5px; }
+  .lp-row-price-val { font-size: 18px; }
+  .lp-row-price-label { width: 24px; height: 24px; }
+  .lp-row-price-label svg { width: 14px; height: 14px; }
+  .lp-group-title { font-size: 20px; }
+  .lp-group-icon { width: 38px; height: 38px; }
+  .lp-group-icon svg { width: 18px; height: 18px; }
+  .lp-group-header { gap: 12px; margin-bottom: 20px; padding-bottom: 12px; }
+  .lp-group-count { font-size: 12px; padding: 5px 10px; }
   .lp-zones { padding: 40px 18px; }
   .lp-download { padding: 36px 18px 40px; }
   .lp-download-actions { flex-direction: column; width: 100%; gap: 10px; }
   .lp-download-btn { padding: 12px 20px; font-size: 13px; width: 100%; justify-content: center; }
   .lp-zones-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .lp-zone-card { padding: 18px 12px; }
-  .lp-zone-letter { width: 40px; height: 40px; font-size: 19px; }
-  .lp-zone-supp { font-size: 24px; }
-  .lp-zone-streets { font-size: 11.5px; }
+  .lp-zone-letter { width: 50px; height: 50px; font-size: 24px; border-radius: 12px; }
+  .lp-zone-supp { font-size: 26px; }
+  .lp-zone-streets { font-size: 12.5px; }
   .lp-info { padding: 40px 18px; }
   .lp-cta-final { padding: 16px 18px 48px; }
   .lp-includes { padding: 48px 18px; }
-  .lp-section-title { font-size: 26px; }
-  .lp-section-subtitle { font-size: 14px; }
+  .lp-section-title { font-size: 26px; line-height: 1.15; }
+  .lp-section-subtitle { font-size: 14.5px; }
   .lp-section-header { margin-bottom: 32px; }
   .lp-section-header-eyebrow { font-size: 12px; letter-spacing: 0.16em; }
+  .lp-download-title { font-size: 26px; }
+  .lp-zones-header h2 { font-size: 28px; }
+  .lp-zones-header p { font-size: 14.5px; }
+  .lp-street-finder-head h3 { font-size: 19px; }
   .includes-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .includes-card { padding: 22px 14px 18px; }
   .includes-card .icon-wrap { width: 52px; height: 52px; margin-bottom: 14px; }
@@ -1556,9 +2183,9 @@
 <!-- ====== HERO ====== -->
 <section class="lp-hero">
   <div class="lp-hero-inner">
-    <div class="lp-eyebrow">Tarifas oficiales 2026</div>
-    <h1 class="lp-h1"><span id="lp-total-destinos">47</span> destinos, <span class="accent">precio cerrado</span>.</h1>
-    <p class="lp-subhead">Tarifas <strong>reguladas por la administración</strong>, las mismas que ves en el cartel oficial. <strong>De 1 a 4 PAX</strong> sin recargos, <strong>24/7</strong> todo el año. Busca tu destino o filtra por zona — lo que ves aquí es lo que pagas.</p>
+    <div class="lp-eyebrow">Tarifa 2026 · Oficial fuera</div>
+    <h1 class="lp-h1">Tu destino, <span class="accent">a precio fijo</span>.</h1>
+    <p class="lp-subhead">No nos gustan los <strong>algoritmos</strong> que adaptan la oferta y la demanda de las grandes plataformas. Aquí tienes el <strong>precio cerrado</strong> a los destinos más habituales, así de transparente.</p>
   </div>
 </section>
 
@@ -1567,8 +2194,17 @@
   <div class="lp-toolbar-inner">
     <!-- Row 1: Search -->
     <div class="lp-toolbar-row1">
+      <div class="lp-search-title">
+        <span class="lp-search-title-ico">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </span>
+        <div class="lp-search-title-text">
+          <small>Encuentra tu destino</small>
+          <strong>¿A dónde quieres ir?</strong>
+        </div>
+      </div>
       <div class="lp-search" id="lp-search-wrap">
-        <input class="lp-search-input" type="search" id="lp-search" placeholder="Busca tu destino: Barcelona, Lloret, Calella…" autocomplete="off">
+        <input class="lp-search-input" type="search" id="lp-search" placeholder="Escribe tu destino — Barcelona, Lloret, Aeropuerto, Mataró…" autocomplete="off">
         <svg class="lp-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         <kbd class="lp-search-kbd" aria-hidden="true">/</kbd>
         <button class="lp-search-clear" id="lp-search-clear" type="button" aria-label="Limpiar búsqueda">
@@ -1586,14 +2222,11 @@
       <div class="lp-filters-scroll is-end" id="lp-filters-scroll">
         <div class="lp-filters" role="tablist">
           <button class="lp-chip is-active" data-filter="all">Todos <span class="lp-chip-count" data-count-for="all">0</span></button>
-          <button class="lp-chip" data-filter="aeropuertos">Aeropuertos <span class="lp-chip-count" data-count-for="aeropuertos">0</span></button>
-          <button class="lp-chip" data-filter="estaciones">Estaciones AVE <span class="lp-chip-count" data-count-for="estaciones">0</span></button>
-          <button class="lp-chip" data-filter="estacion-bus">Estación de Bus <span class="lp-chip-count" data-count-for="estacion-bus">0</span></button>
           <button class="lp-chip" data-filter="barcelona">Barcelona <span class="lp-chip-count" data-count-for="barcelona">0</span></button>
           <button class="lp-chip" data-filter="girona">Girona <span class="lp-chip-count" data-count-for="girona">0</span></button>
-          <button class="lp-chip" data-filter="lloret-tossa">Blanes · Lloret · Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">0</span></button>
           <button class="lp-chip" data-filter="malgrat-palafolls">Malgrat · Palafolls <span class="lp-chip-count" data-count-for="malgrat-palafolls">0</span></button>
-          <button class="lp-chip" data-filter="maresme">Maresme <span class="lp-chip-count" data-count-for="maresme">0</span></button>
+          <button class="lp-chip" data-filter="lloret-tossa">Blanes · Lloret · Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">0</span></button>
+          <button class="lp-chip" data-filter="maresme">Costa del Maresme <span class="lp-chip-count" data-count-for="maresme">0</span></button>
         </div>
       </div>
       <button class="lp-clear-all" id="lp-clear-all" type="button">
@@ -1607,9 +2240,9 @@
 <!-- ====== FEATURED (Top 4 transfers) ====== -->
 <section class="lp-featured" data-cat-section="featured">
   <div class="lp-featured-inner">
-    <span class="lp-featured-eyebrow">Los más reservados</span>
-    <h2 class="lp-featured-title">Aeropuertos y AVE, <span class="accent">puerta a puerta</span></h2>
-    <p class="lp-featured-sub">Los trayectos estrella de nuestros clientes. Hora pactada, seguimiento de tu vuelo o tren y precio cerrado desde el primer minuto.</p>
+    <span class="lp-featured-eyebrow">Servicios interurbanos · los más reservados</span>
+    <h2 class="lp-featured-title">Servicio de taxi, <span class="accent">puerta a puerta</span></h2>
+    <p class="lp-featured-sub">Reserva web con garantía tus trayectos prioritarios, o <strong>llámanos 24/7</strong>.</p>
     <div class="lp-featured-grid" id="lp-featured-grid"></div>
   </div>
 </section>
@@ -1636,28 +2269,70 @@
   </div>
 </section>
 
-<!-- ====== ZONAS A/B/C/D/E (Suplementos Santa Susanna) ====== -->
+<!-- ====== SERVICIOS URBANOS — Santa Susanna ====== -->
 <section class="lp-zones">
   <div class="lp-zones-inner">
-    <div class="tarifas-section-header" style="text-align:center;margin-bottom:34px;">
-      <div style="color:#F3C800;font-size:14px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;">Trayectos locales</div>
-      <h2 style="font-size:34px;font-weight:800;color:#ffffff;margin:0 0 14px;letter-spacing:-0.02em;line-height:1.15;">Moverte por Santa Susanna, <span style="color:#FFD940;">a precio cerrado</span></h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.84);margin:0 auto;max-width:700px;line-height:1.6;">Carrera base <strong style="color:#FFD940;">8 €</strong> de día y <strong style="color:#FFD940;">9 €</strong> de noche o festivo. Algunas calles del pueblo se agrupan en zonas con un pequeño suplemento — de <strong style="color:#FFD940;">+1 €</strong> a <strong style="color:#FFD940;">+6 €</strong>. Sin taxímetro, sin sorpresas: localiza tu calle aquí abajo.</p>
+
+    <!-- Header simplificado -->
+    <div class="lp-zones-header">
+      <span class="lp-zones-header-eyebrow">Servicios urbanos · Santa Susanna</span>
+      <h2>Trayectos por el pueblo, <span class="accent">a precio fijo</span></h2>
+      <p>Una <strong>tarifa base</strong> para todo el centro y los hoteles. Un pequeño suplemento si tu viaje empieza o termina en una de las zonas más alejadas del pueblo.</p>
     </div>
 
-    <div class="lp-zones-base">
-      <div class="lp-zones-base-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="m9 12 2 2 4-4"/></svg>
-        <span>Base: Centro / Hoteles</span> <strong>8 € día · 9 € noche/festivo</strong>
+    <!-- HERO: Tarifa base (la que paga la mayoría) -->
+    <div class="lp-base-hero">
+      <div class="lp-base-hero-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-      <div class="lp-zones-note">El precio base se aplica al centro y los hoteles principales. Las zonas A, B, C, D y E suman un suplemento al precio final.</div>
+      <div class="lp-base-hero-info">
+        <span class="lp-base-hero-eyebrow">Tarifa base · la que paga la mayoría</span>
+        <h3 class="lp-base-hero-title">Centro del pueblo y hoteles</h3>
+        <p class="lp-base-hero-desc">Cubre todo el casco urbano y los principales hoteles. El precio que ves es el que pagas, sin taxímetro y sin sorpresas.</p>
+      </div>
+      <div class="lp-base-hero-prices">
+        <div class="lp-base-hero-price">
+          <span class="lp-base-hero-price-ico day" aria-label="Día">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </span>
+          <span class="lp-base-hero-price-amt">8€</span>
+          <span class="lp-base-hero-price-lbl">Día</span>
+        </div>
+        <div class="lp-base-hero-price">
+          <span class="lp-base-hero-price-ico night" aria-label="Noche o festivo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </span>
+          <span class="lp-base-hero-price-amt">9€</span>
+          <span class="lp-base-hero-price-lbl">Noche · festivo</span>
+        </div>
+      </div>
     </div>
 
-    <div class="lp-zones-grid" style="margin-top:20px;">
+    <!-- BUSCADOR DE ZONA -->
+    <div class="lp-street-finder">
+      <div class="lp-street-finder-head">
+        <h3>¿Empiezas o terminas en una <span class="accent">zona del extrarradio</span>?</h3>
+        <p>Algunas zonas concretas suman un pequeño extra. Escribe el nombre de tu zona y te decimos al instante cuánto pagarás.</p>
+      </div>
+      <div class="lp-street-search" id="lp-street-search-wrap">
+        <svg class="lp-street-search-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input class="lp-street-search-input" type="search" id="lp-street-input" placeholder="Escribe tu zona (ej: Pulmonària, Nards, Lleó…)" autocomplete="off">
+        <button class="lp-street-search-clear" id="lp-street-clear" type="button" aria-label="Limpiar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="lp-street-result" id="lp-street-result"></div>
+    </div>
+
+    <!-- Divider antes del listado completo -->
+    <div class="lp-zones-divider">o consulta el listado completo por tramos</div>
+
+    <!-- Cards de zonas (referencia compacta) -->
+    <div class="lp-zones-grid">
       <div class="lp-zone-card" data-zone="A">
         <div class="lp-zone-letter">A</div>
         <div class="lp-zone-supp"><span class="plus">+</span>1 €</div>
-        <div class="lp-zone-streets">Alps, Alzina, Antoni Gaudí, Balança, Bessons, Bruc, Can Font, Cranc, Escorpí, Farigola, Font, Formentor, Ginesta, Credos, Himalaia, Josep Antoni Coderech, Lleó, Lluís Sert, Pedraforca, Placeta, Puig i Cadafalch, Pujada de Gràcia, Rabassot, Sagitari, Verge</div>
+        <div class="lp-zone-streets">Alps, Alzina, Antoni Gaudí, Balança, Bessons, Bruc, Can Font, Cranc, Escorpí, Farigola, Font, Formentor, Ginesta, Gredos, Himalaia, Josep Antoni Coderech, Lleó, Lluís Sert, Pedraforca, Placeta, Puig i Cadafalch, Pujada de Gràcia, Rabassot, Sagitari, Verge</div>
       </div>
       <div class="lp-zone-card" data-zone="B">
         <div class="lp-zone-letter">B</div>
@@ -1672,7 +2347,7 @@
       <div class="lp-zone-card" data-zone="D">
         <div class="lp-zone-letter">D</div>
         <div class="lp-zone-supp"><span class="plus">+</span>4 €</div>
-        <div class="lp-zone-streets">Can Blanco, Can Mestres, De la Rosa, Llirís, Tarongina</div>
+        <div class="lp-zone-streets">Can Blanco, Can Mestres, De la Rosa, Lliris, Tarongina</div>
       </div>
       <div class="lp-zone-card" data-zone="E">
         <div class="lp-zone-letter">E</div>
@@ -1680,6 +2355,22 @@
         <div class="lp-zone-streets">Nards, Petúnies</div>
       </div>
     </div>
+
+    <!-- CTA final: llámanos -->
+    <div class="lp-zones-help">
+      <span class="lp-zones-help-ico">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+      </span>
+      <div class="lp-zones-help-text">
+        <strong>¿Sigues con dudas o tu zona no aparece?</strong>
+        <p>Llámanos y te confirmamos el precio exacto antes de subir al coche.</p>
+      </div>
+      <a class="lp-zones-help-cta" href="tel:+34937678571">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+        +34 937 67 85 71
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -1687,8 +2378,8 @@
 <section class="lp-info">
   <div class="lp-info-inner">
     <div class="tarifas-section-header" style="text-align:center;margin-bottom:34px;">
-      <div class="tarifas-section-header-eyebrow" style="color:#006435;font-size:14px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;">Antes de reservar</div>
-      <h2 style="font-size:32px;font-weight:800;color:#002313;margin:0 0 10px;letter-spacing:-0.02em;line-height:1.15;">Tres cosas que <span style="color:#008F4C;">conviene saber</span></h2>
+      <div class="tarifas-section-header-eyebrow" style="color:#006435;font-size:13px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;">Antes de reservar</div>
+      <h2 style="font-size:38px;font-weight:800;color:#002313;margin:0 0 12px;letter-spacing:-0.02em;line-height:1.12;">Tres cosas que <span style="color:#008F4C;">conviene saber</span></h2>
     </div>
     <div class="lp-info-grid">
 
@@ -1840,10 +2531,28 @@
     <div class="lp-section-header">
       <div class="lp-section-header-eyebrow">Preguntas frecuentes</div>
       <h2 class="lp-section-title">Todo lo que <span class="accent">necesitas saber</span></h2>
-      <p class="lp-section-subtitle">Las dudas más comunes sobre nuestras tarifas, resueltas.</p>
+      <p class="lp-section-subtitle">Filtra por tema para encontrar tu duda más rápido.</p>
     </div>
 
-    <div class="faq-item">
+    <!-- Chips de filtro -->
+    <div class="faq-filters-wrap">
+      <span class="faq-filters-label">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M7 12h10M11 18h2"/></svg>
+        Tema
+      </span>
+      <div class="faq-filters" role="tablist">
+        <button class="faq-chip is-active" data-faq-filter="all" type="button">Todas <span class="faq-chip-count" data-faq-count-for="all">0</span></button>
+        <button class="faq-chip" data-faq-filter="precio"    type="button">Precio       <span class="faq-chip-count" data-faq-count-for="precio">0</span></button>
+        <button class="faq-chip" data-faq-filter="pagos"     type="button">Pagos        <span class="faq-chip-count" data-faq-count-for="pagos">0</span></button>
+        <button class="faq-chip" data-faq-filter="reservas"  type="button">Reservas     <span class="faq-chip-count" data-faq-count-for="reservas">0</span></button>
+        <button class="faq-chip" data-faq-filter="vuelos"    type="button">Vuelos y tren<span class="faq-chip-count" data-faq-count-for="vuelos">0</span></button>
+        <button class="faq-chip" data-faq-filter="horarios"  type="button">Horarios     <span class="faq-chip-count" data-faq-count-for="horarios">0</span></button>
+        <button class="faq-chip" data-faq-filter="equipaje"  type="button">Equipaje     <span class="faq-chip-count" data-faq-count-for="equipaje">0</span></button>
+      </div>
+    </div>
+
+    <!-- ====== PRECIO ====== -->
+    <div class="faq-item" data-faq-cat="precio">
       <button class="faq-question" aria-expanded="false">
         ¿El precio incluye peajes y propina?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
@@ -1851,15 +2560,16 @@
       <div class="faq-answer"><div class="faq-answer-inner">Sí. <strong>Todo está incluido</strong>: peajes, IVA y propinas. El precio que ves al reservar es el precio final que pagas.</div></div>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item" data-faq-cat="precio">
       <button class="faq-question" aria-expanded="false">
-        ¿Qué pasa si mi vuelo se retrasa?
+        ¿Hay algún suplemento que no aparezca en la tarifa?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Seguimos tu vuelo en directo. Si llega tarde, <strong>ajustamos la hora sin coste extra</strong> (hasta 75 min de espera incluidos en recogidas).</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Solo los suplementos de <strong>zona</strong> (A/B/C/D/E del listado de calles de Santa Susanna, de +1€ a +6€). Para destinos fuera del pueblo no hay extras: la tarifa publicada es el total.</div></div>
     </div>
 
-    <div class="faq-item">
+    <!-- ====== PAGOS ====== -->
+    <div class="faq-item" data-faq-cat="pagos">
       <button class="faq-question" aria-expanded="false">
         ¿Puedo pagar con tarjeta o Bizum?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
@@ -1867,15 +2577,16 @@
       <div class="faq-answer"><div class="faq-answer-inner">Sí. Aceptamos <strong>tarjeta, Bizum, PayPal, transferencia y efectivo</strong>. Puedes pagar al reservar online o al final del trayecto, como prefieras.</div></div>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item" data-faq-cat="pagos">
       <button class="faq-question" aria-expanded="false">
-        ¿La tarifa nocturna se aplica en fin de semana?
+        ¿Me dais factura para gastos o empresa?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">La tarifa nocturna aplica de <strong>20:00 a 08:00</strong> los días laborables, y <strong>todo el día en sábados, domingos y festivos</strong>. No hay recargo extra de festivo.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Por supuesto. Indícanos al reservar los datos fiscales (nombre o razón social, NIF y dirección) y te enviamos la <strong>factura electrónica</strong> al correo.</div></div>
     </div>
 
-    <div class="faq-item">
+    <!-- ====== RESERVAS ====== -->
+    <div class="faq-item" data-faq-cat="reservas">
       <button class="faq-question" aria-expanded="false">
         ¿Puedo cancelar mi reserva sin coste?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
@@ -1883,13 +2594,75 @@
       <div class="faq-answer"><div class="faq-answer-inner">Sí. Hasta <strong>12 horas antes</strong> del servicio puedes cancelar o modificar sin penalización. Si cancelas más tarde, se aplica un 50 % del importe.</div></div>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item" data-faq-cat="reservas">
+      <button class="faq-question" aria-expanded="false">
+        ¿Con cuánta antelación tengo que reservar?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Lo ideal es <strong>al menos 12 horas antes</strong>, pero también atendemos servicios urgentes según disponibilidad. Para aeropuertos y AVE, mejor con 24 h de margen.</div></div>
+    </div>
+
+    <!-- ====== VUELOS Y TREN ====== -->
+    <div class="faq-item" data-faq-cat="vuelos">
+      <button class="faq-question" aria-expanded="false">
+        ¿Qué pasa si mi vuelo se retrasa?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Seguimos tu vuelo en directo. Si llega tarde, <strong>ajustamos la hora sin coste extra</strong> (hasta 75 min de espera incluidos en recogidas).</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="vuelos">
+      <button class="faq-question" aria-expanded="false">
+        ¿Recoges en la puerta del aeropuerto o estación AVE?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí, <strong>recogida puerta a puerta</strong>. En aeropuertos te esperamos en la zona de llegadas con cartel con tu nombre. En estaciones AVE, en el andén o vestíbulo de salida.</div></div>
+    </div>
+
+    <!-- ====== HORARIOS ====== -->
+    <div class="faq-item" data-faq-cat="horarios">
+      <button class="faq-question" aria-expanded="false">
+        ¿La tarifa nocturna se aplica en fin de semana?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">La tarifa nocturna aplica de <strong>20:00 a 08:00</strong> los días laborables, y <strong>todo el día en sábados, domingos y festivos</strong>. No hay recargo extra de festivo.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="horarios">
+      <button class="faq-question" aria-expanded="false">
+        ¿Trabajáis de madrugada y festivos?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí, somos <strong>servicio 24/7 todo el año</strong>: Navidad, Año Nuevo, agosto, madrugadas… cualquier hora, cualquier día.</div></div>
+    </div>
+
+    <!-- ====== EQUIPAJE ====== -->
+    <div class="faq-item" data-faq-cat="equipaje">
       <button class="faq-question" aria-expanded="false">
         ¿Cuántas personas y maletas caben?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
       <div class="faq-answer"><div class="faq-answer-inner">Trabajamos con vans de <strong>6, 7 y 8 plazas</strong>. Capacidad estándar: 6 maletas grandes + 6 cabina. Si necesitas más espacio (bicicletas, esquís, golf), avísanos al reservar.</div></div>
     </div>
+
+    <div class="faq-item" data-faq-cat="equipaje">
+      <button class="faq-question" aria-expanded="false">
+        ¿Lleváis sillitas de bebé o trona?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí, sin coste. Tenemos <strong>sillitas y alzadores homologados</strong> para bebés y niños. Indícanos al reservar el peso/edad del niño y preparamos la silla adecuada.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="equipaje">
+      <button class="faq-question" aria-expanded="false">
+        ¿Y si llevo bicicleta, equipo de esquí o golf?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sin problema. Tenemos vans con maletero amplio. Avísanos al reservar el número y tipo de equipo (bici, ski, tabla, palos…) para asignar el vehículo correcto.</div></div>
+    </div>
+
+    <!-- Estado vacío cuando ningún filtro coincide -->
+    <div class="faq-empty" id="faq-empty">No hay preguntas en esta categoría.</div>
 
   </div>
 </section>
@@ -1983,30 +2756,22 @@
 // ============================================================
 const TARIFFS = [
   // ===========================================================
-  // FEATURED (top transfers) — los 4 más reservados
+  // FEATURED (servicios interurbanos — los 6 más reservados)
   // ===========================================================
-  { id: 'bcn-airport',  name: 'Aeropuerto Barcelona',  code: 'BCN', cat: 'aeropuertos', featured: true,  day: 142, night: 153, time: '60-100 min', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=85&auto=format&fit=crop' },
-  { id: 'gro-airport',  name: 'Aeropuerto Girona',     code: 'GRO', cat: 'aeropuertos', featured: true,  day: 64,  night: 69,  time: '25-35 min',  img: 'https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=900&q=85&auto=format&fit=crop' },
-  { id: 'bcn-sants',    name: 'Barcelona Sants (AVE)', code: 'AVE', cat: 'estaciones',  featured: true,  day: 123, night: 134, time: '60-75 min',  img: 'images/cat-transportes.png' },
-  { id: 'gro-ave',      name: 'Girona AVE',            code: 'AVE', cat: 'estaciones',  featured: true,  day: 79,  night: 88,  time: '40-55 min',  img: 'images/cat-tren.png' },
+  { id: 'bcn-sants',     name: 'Sants',              code: 'BCN', cat: 'barcelona', featured: true, day: 123, night: 134, time: 'Estación AVE · 60-75 min' },
+  { id: 'gro-ave',       name: 'Girona AVE',         code: 'GIR', cat: 'girona',    featured: true, day: 79,  night: 88,  time: 'Estación AVE · 40-55 min' },
+  { id: 'bcn-nord',      name: 'Estació del Nord',   code: 'BCN', cat: 'barcelona', featured: true, day: 110, night: 119, time: 'Estación de bus · 50-60 min' },
+  { id: 'reus-airport',  name: 'Aeropuerto de Reus', code: 'REU', cat: 'barcelona', featured: true, day: 290, night: 315, time: 'Aeropuerto · 120-140 min' },
+  { id: 'bcn-port',      name: 'Port de Barcelona',  code: 'BCN', cat: 'barcelona', featured: true, day: 130, night: 140, time: 'Cruceros · 60-75 min' },
+  { id: 'perpinya',      name: 'Perpinyà',           code: 'PER', cat: 'girona',    featured: true, day: 243, night: 268, time: 'Aeropuerto · Francia · 100-120 min' },
 
   // ===========================================================
-  // AEROPUERTOS (Reus no featured)
+  // BARCELONA — ciudad, área metropolitana, conexiones sur
   // ===========================================================
-  { id: 'reus-airport', name: 'Aeropuerto Reus', cat: 'aeropuertos', day: 290, night: 315 },
-
-  // ===========================================================
-  // ESTACIÓN DE BUS
-  // ===========================================================
-  { id: 'bcn-nord',     name: 'Barcelona Estació del Nord', cat: 'estacion-bus', day: 110, night: 119 },
-
-  // ===========================================================
-  // BARCELONA ciudad + área metropolitana
-  // ===========================================================
+  { id: 'bcn-airport',      name: 'Aeropuerto Barcelona',      cat: 'barcelona', day: 142, night: 153 },
   { id: 'bcn-pl-catalunya', name: 'Barcelona Plaça Catalunya', cat: 'barcelona', day: 120, night: 129 },
   { id: 'bcn-parc-guell',   name: 'Barcelona Parc Güell',      cat: 'barcelona', day: 120, night: 129 },
   { id: 'bcn-pl-espanya',   name: 'Barcelona Plaça Espanya',   cat: 'barcelona', day: 125, night: 135 },
-  { id: 'bcn-port-fira',    name: 'Barcelona Port / Fira',     cat: 'barcelona', day: 130, night: 140 },
   { id: 'badalona-centre',  name: 'Badalona Centre',           cat: 'barcelona', day: 90,  night: 99  },
   { id: 'badalona-can-ruti',name: 'Badalona Can Ruti',         cat: 'barcelona', day: 91,  night: 100 },
   { id: 'bcn-sagrada',      name: 'Sagrada Família',           cat: 'barcelona', day: 110, night: 119 },
@@ -2015,8 +2780,9 @@ const TARIFFS = [
   { id: 'la-roca-village',  name: 'La Roca Village',           cat: 'barcelona', day: 79,  night: 85  },
 
   // ===========================================================
-  // GIRONA ciudad + interior cercano
+  // GIRONA — ciudad, aeropuerto, interior, conexión norte
   // ===========================================================
+  { id: 'gro-airport',      name: 'Aeropuerto Girona',         cat: 'girona', day: 64, night: 69 },
   { id: 'gir-sud',          name: 'Girona Sud / Clínica',      cat: 'girona', day: 72, night: 79 },
   { id: 'gir-catalunya',    name: 'Girona Plaça Catalunya',    cat: 'girona', day: 81, night: 89 },
   { id: 'gir-montilivi',    name: 'Girona Montilivi',          cat: 'girona', day: 82, night: 90 },
@@ -2025,7 +2791,7 @@ const TARIFFS = [
   { id: 'fornells',         name: 'Fornells de la Selva',      cat: 'girona', day: 68, night: 75 },
   { id: 'caldes-malavella', name: 'Caldes de Malavella',       cat: 'girona', day: 57, night: 64 },
   { id: 'espai-girones',    name: 'Espai Gironès',             cat: 'girona', day: 74, night: 80 },
-  { id: 'asterix-natura',   name: 'Asterix Natura',            cat: 'girona', day: 12, night: 13 },
+  { id: 'activa-natura',    name: 'Activa Natura',             cat: 'girona', day: 12, night: 13 },
 
   // ===========================================================
   // BLANES · LLORET · TOSSA
@@ -2099,17 +2865,14 @@ const TARIFFS = [
 ];
 
 // Categorías que se muestran en el listado agrupado.
-// Los destinos `featured: true` (BCN airport, GRO airport, BCN Sants AVE, Girona AVE)
-// se muestran ARRIBA en la sección destacada y se excluyen aquí para no duplicar.
+// Los destinos `featured: true` se muestran ARRIBA en la sección destacada
+// y se excluyen del listado de abajo para no duplicar.
 // Santa Susanna local → en el bloque "Zonas A/B/C/D" más abajo (no se repite aquí)
 const CATS = [
-  { id: 'aeropuertos',      label: 'Aeropuertos',             icon: 'plane' },
-  { id: 'estaciones',       label: 'Estaciones AVE',          icon: 'train' },
-  { id: 'estacion-bus',     label: 'Estación de Bus',         icon: 'train' },
-  { id: 'barcelona',        label: 'Barcelona ciudad',        icon: 'building' },
+  { id: 'barcelona',        label: 'Barcelona',               icon: 'building' },
   { id: 'girona',           label: 'Girona',                  icon: 'building' },
-  { id: 'lloret-tossa',     label: 'Blanes · Lloret · Tossa', icon: 'beach' },
   { id: 'malgrat-palafolls',label: 'Malgrat · Palafolls',     icon: 'beach' },
+  { id: 'lloret-tossa',     label: 'Blanes · Lloret · Tossa', icon: 'beach' },
   { id: 'maresme',          label: 'Costa del Maresme',       icon: 'beach' },
 ];
 
@@ -2393,11 +3156,159 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 
+// === Buscador inteligente de zona (Santa Susanna) ===
+(function(){
+  const input  = document.getElementById('lp-street-input');
+  const wrap   = document.getElementById('lp-street-search-wrap');
+  const clear  = document.getElementById('lp-street-clear');
+  const result = document.getElementById('lp-street-result');
+  if (!input || !result) return;
+
+  // Dataset: cada calle con su zona y suplemento
+  const ZONES = {
+    A: { supp: 1, streets: ['Alps','Alzina','Antoni Gaudí','Balança','Bessons','Bruc','Can Font','Cranc','Escorpí','Farigola','Font','Formentor','Ginesta','Gredos','Himalaia','Josep Antoni Coderech','Lleó','Lluís Sert','Pedraforca','Placeta','Puig i Cadafalch','Pujada de Gràcia','Rabassot','Sagitari','Verge'] },
+    B: { supp: 2, streets: ['Aquari','Boga','Cadí','Can Rosich','Capricorn','Lligabosc','Milfulles','Peixos','Pirineus','Pulmonària','Vistamar'] },
+    C: { supp: 3, streets: ['Falguera','Mimosa','Saüc'] },
+    D: { supp: 4, streets: ['Can Blanco','Can Mestres','De la Rosa','Lliris','Tarongina'] },
+    E: { supp: 6, streets: ['Nards','Petúnies'] },
+  };
+
+  // Normaliza para búsqueda fuzzy (sin acentos, minúsculas)
+  function norm(s) {
+    return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+  }
+
+  // Busca la zona: si match exacto o substring, devuelve {zone, supp, area}
+  function findStreet(query) {
+    const q = norm(query);
+    if (!q) return null;
+    for (const [zone, data] of Object.entries(ZONES)) {
+      // Match exacto primero
+      const exact = data.streets.find(s => norm(s) === q);
+      if (exact) return { zone, supp: data.supp, street: exact, exact: true };
+    }
+    for (const [zone, data] of Object.entries(ZONES)) {
+      // Match parcial (substring)
+      const partial = data.streets.find(s => norm(s).includes(q) || q.includes(norm(s)));
+      if (partial) return { zone, supp: data.supp, street: partial, exact: false };
+    }
+    return null;
+  }
+
+  function render(query) {
+    if (!query.trim()) {
+      result.innerHTML = '';
+      return;
+    }
+    const match = findStreet(query);
+
+    if (match) {
+      // Zona encontrada dentro de los tramos A-E
+      const dayTotal   = 8 + match.supp;
+      const nightTotal = 9 + match.supp;
+      result.innerHTML = `
+        <div class="lp-street-result-card is-match">
+          <span class="lp-street-result-zone">${match.zone}</span>
+          <div class="lp-street-result-info">
+            <p class="lp-street-result-name">${match.street}</p>
+            <p class="lp-street-result-meta">Tramo ${match.zone} · suplemento <strong>+${match.supp}€</strong> sobre la tarifa base</p>
+          </div>
+          <div class="lp-street-result-totals">
+            <div class="lp-street-result-total">
+              <span class="lp-street-result-total-amt">${dayTotal}€</span>
+              <span class="lp-street-result-total-lbl">Día</span>
+            </div>
+            <div class="lp-street-result-total">
+              <span class="lp-street-result-total-amt">${nightTotal}€</span>
+              <span class="lp-street-result-total-lbl">Noche</span>
+            </div>
+          </div>
+        </div>`;
+    } else if (query.length >= 3) {
+      // No hay match → asumimos tarifa base
+      result.innerHTML = `
+        <div class="lp-street-result-card is-base">
+          <span class="lp-street-result-zone" style="background:linear-gradient(135deg,#008F4C,#006435);">✓</span>
+          <div class="lp-street-result-info">
+            <p class="lp-street-result-name">No está en los tramos A–E</p>
+            <p class="lp-street-result-meta">Si tu zona está en el <strong>centro o un hotel</strong>, pagas la tarifa base. Si no la encuentras, <a href="tel:+34937678571" style="color:#FFD940;text-decoration:underline;">llámanos</a>.</p>
+          </div>
+          <div class="lp-street-result-totals">
+            <div class="lp-street-result-total">
+              <span class="lp-street-result-total-amt">8€</span>
+              <span class="lp-street-result-total-lbl">Día</span>
+            </div>
+            <div class="lp-street-result-total">
+              <span class="lp-street-result-total-amt">9€</span>
+              <span class="lp-street-result-total-lbl">Noche</span>
+            </div>
+          </div>
+        </div>`;
+    } else {
+      result.innerHTML = `<p class="lp-street-result-empty">Escribe al menos 3 letras…</p>`;
+    }
+  }
+
+  input.addEventListener('input', () => {
+    const v = input.value;
+    wrap.classList.toggle('has-value', v.length > 0);
+    render(v);
+  });
+  clear.addEventListener('click', () => {
+    input.value = '';
+    wrap.classList.remove('has-value');
+    result.innerHTML = '';
+    input.focus();
+  });
+})();
+
+// FAQ filter chips
+(function(){
+  const chips = document.querySelectorAll('.faq-chip');
+  const items = document.querySelectorAll('.faq-item[data-faq-cat]');
+  const empty = document.getElementById('faq-empty');
+  if (!chips.length || !items.length) return;
+
+  // Counts dinámicos por categoría
+  const counts = { all: items.length };
+  items.forEach(i => {
+    const c = i.dataset.faqCat;
+    counts[c] = (counts[c] || 0) + 1;
+  });
+  document.querySelectorAll('[data-faq-count-for]').forEach(el => {
+    el.textContent = counts[el.dataset.faqCountFor] ?? 0;
+  });
+
+  function apply(filter) {
+    let visible = 0;
+    items.forEach(item => {
+      const show = (filter === 'all' || item.dataset.faqCat === filter);
+      item.classList.toggle('is-hidden', !show);
+      if (show) visible++;
+      // Cerrar respuestas al cambiar de filtro
+      if (!show) {
+        item.classList.remove('open');
+        item.querySelector('.faq-question')?.setAttribute('aria-expanded','false');
+      }
+    });
+    if (empty) empty.classList.toggle('is-visible', visible === 0);
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      apply(chip.dataset.faqFilter);
+    });
+  });
+})();
+
 // Init
 renderFeatured();
 renderList();
 refreshChipCounts();
-document.getElementById('lp-total-destinos').textContent = TARIFFS.length;
+const totalDest = document.getElementById('lp-total-destinos');
+if (totalDest) totalDest.textContent = TARIFFS.length;
 
 // Nav scroll behavior
 (function() {
