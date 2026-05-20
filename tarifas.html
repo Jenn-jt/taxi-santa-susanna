@@ -1585,13 +1585,15 @@
       </span>
       <div class="lp-filters-scroll is-end" id="lp-filters-scroll">
         <div class="lp-filters" role="tablist">
-          <button class="lp-chip is-active" data-filter="all">Todos <span class="lp-chip-count" data-count-for="all">47</span></button>
-          <button class="lp-chip" data-filter="aeropuertos">Aeropuertos <span class="lp-chip-count" data-count-for="aeropuertos">2</span></button>
-          <button class="lp-chip" data-filter="estaciones">Estaciones AVE <span class="lp-chip-count" data-count-for="estaciones">2</span></button>
-          <button class="lp-chip" data-filter="barcelona">Barcelona <span class="lp-chip-count" data-count-for="barcelona">5</span></button>
-          <button class="lp-chip" data-filter="girona">Girona <span class="lp-chip-count" data-count-for="girona">2</span></button>
-          <button class="lp-chip" data-filter="lloret-tossa">Blanes · Lloret · Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">11</span></button>
-          <button class="lp-chip" data-filter="maresme">Maresme <span class="lp-chip-count" data-count-for="maresme">24</span></button>
+          <button class="lp-chip is-active" data-filter="all">Todos <span class="lp-chip-count" data-count-for="all">0</span></button>
+          <button class="lp-chip" data-filter="aeropuertos">Aeropuertos <span class="lp-chip-count" data-count-for="aeropuertos">0</span></button>
+          <button class="lp-chip" data-filter="estaciones">Estaciones AVE <span class="lp-chip-count" data-count-for="estaciones">0</span></button>
+          <button class="lp-chip" data-filter="estacion-bus">Estación de Bus <span class="lp-chip-count" data-count-for="estacion-bus">0</span></button>
+          <button class="lp-chip" data-filter="barcelona">Barcelona <span class="lp-chip-count" data-count-for="barcelona">0</span></button>
+          <button class="lp-chip" data-filter="girona">Girona <span class="lp-chip-count" data-count-for="girona">0</span></button>
+          <button class="lp-chip" data-filter="lloret-tossa">Blanes · Lloret · Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">0</span></button>
+          <button class="lp-chip" data-filter="malgrat-palafolls">Malgrat · Palafolls <span class="lp-chip-count" data-count-for="malgrat-palafolls">0</span></button>
+          <button class="lp-chip" data-filter="maresme">Maresme <span class="lp-chip-count" data-count-for="maresme">0</span></button>
         </div>
       </div>
       <button class="lp-clear-all" id="lp-clear-all" type="button">
@@ -1980,74 +1982,135 @@
 // DATA — Tarifas oficiales 2026 extraídas del PDF del cliente
 // ============================================================
 const TARIFFS = [
-  // FEATURED (top transfers) — aeropuertos y estaciones AVE
+  // ===========================================================
+  // FEATURED (top transfers) — los 4 más reservados
+  // ===========================================================
   { id: 'bcn-airport',  name: 'Aeropuerto Barcelona',  code: 'BCN', cat: 'aeropuertos', featured: true,  day: 142, night: 153, time: '60-100 min', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=85&auto=format&fit=crop' },
   { id: 'gro-airport',  name: 'Aeropuerto Girona',     code: 'GRO', cat: 'aeropuertos', featured: true,  day: 64,  night: 69,  time: '25-35 min',  img: 'https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=900&q=85&auto=format&fit=crop' },
   { id: 'bcn-sants',    name: 'Barcelona Sants (AVE)', code: 'AVE', cat: 'estaciones',  featured: true,  day: 123, night: 134, time: '60-75 min',  img: 'images/cat-transportes.png' },
   { id: 'gro-ave',      name: 'Girona AVE',            code: 'AVE', cat: 'estaciones',  featured: true,  day: 79,  night: 88,  time: '40-55 min',  img: 'images/cat-tren.png' },
 
-  // BARCELONA ciudad
-  { id: 'bcn-camp-nou',     name: 'BCN Camp Nou',        cat: 'barcelona', day: 130, night: 140 },
-  { id: 'bcn-pl-espanya',   name: 'BCN Plaça Espanya',   cat: 'barcelona', day: 125, night: 135 },
-  { id: 'bcn-pl-catalunya', name: 'BCN Plaça Catalunya', cat: 'barcelona', day: 120, night: 129 },
-  { id: 'bcn-casino',       name: 'BCN Casino',          cat: 'barcelona', day: 110, night: 119 },
-  { id: 'bcn-sagrada',      name: 'BCN Sagrada Família', cat: 'barcelona', day: 110, night: 119 },
+  // ===========================================================
+  // AEROPUERTOS (Reus no featured)
+  // ===========================================================
+  { id: 'reus-airport', name: 'Aeropuerto Reus', cat: 'aeropuertos', day: 290, night: 315 },
 
-  // GIRONA
-  { id: 'gir-centre',    name: 'Girona Centre',     cat: 'girona', day: 85, night: 92 },
-  { id: 'gir-montilivi', name: 'Girona Montilivi',  cat: 'girona', day: 82, night: 90 },
+  // ===========================================================
+  // ESTACIÓN DE BUS
+  // ===========================================================
+  { id: 'bcn-nord',     name: 'Barcelona Estació del Nord', cat: 'estacion-bus', day: 110, night: 119 },
 
-  // LLORET · TOSSA
-  { id: 'llo-fenals',    name: 'Lloret Fenals',    cat: 'lloret-tossa', day: 30, night: 33 },
-  { id: 'llo-centre',    name: 'Lloret Centre',    cat: 'lloret-tossa', day: 33, night: 36 },
-  { id: 'llo-platja',    name: 'Lloret Platja',    cat: 'lloret-tossa', day: 35, night: 38 },
-  { id: 'llo-casino',    name: 'Lloret Casino',    cat: 'lloret-tossa', day: 35, night: 38 },
-  { id: 'llo-canyelles', name: 'Lloret Canyelles', cat: 'lloret-tossa', day: 40, night: 44 },
-  { id: 'tossa',         name: 'Tossa de Mar',     cat: 'lloret-tossa', day: 53, night: 58 },
+  // ===========================================================
+  // BARCELONA ciudad + área metropolitana
+  // ===========================================================
+  { id: 'bcn-pl-catalunya', name: 'Barcelona Plaça Catalunya', cat: 'barcelona', day: 120, night: 129 },
+  { id: 'bcn-parc-guell',   name: 'Barcelona Parc Güell',      cat: 'barcelona', day: 120, night: 129 },
+  { id: 'bcn-pl-espanya',   name: 'Barcelona Plaça Espanya',   cat: 'barcelona', day: 125, night: 135 },
+  { id: 'bcn-port-fira',    name: 'Barcelona Port / Fira',     cat: 'barcelona', day: 130, night: 140 },
+  { id: 'badalona-centre',  name: 'Badalona Centre',           cat: 'barcelona', day: 90,  night: 99  },
+  { id: 'badalona-can-ruti',name: 'Badalona Can Ruti',         cat: 'barcelona', day: 91,  night: 100 },
+  { id: 'bcn-sagrada',      name: 'Sagrada Família',           cat: 'barcelona', day: 110, night: 119 },
+  { id: 'bcn-camp-nou',     name: 'Camp Nou (Spotify)',        cat: 'barcelona', day: 130, night: 140 },
+  { id: 'bcn-casino',       name: 'Casino Barcelona',          cat: 'barcelona', day: 110, night: 119 },
+  { id: 'la-roca-village',  name: 'La Roca Village',           cat: 'barcelona', day: 79,  night: 85  },
 
-  // MARESME (costa)
-  { id: 'mal-ancora',     name: 'Malgrat Àncora',           cat: 'maresme', day: 10, night: 11 },
-  { id: 'mal-creublava',  name: 'Malgrat Creu Blava',       cat: 'maresme', day: 11, night: 12 },
-  { id: 'mal-centre',     name: 'Malgrat Centre',           cat: 'maresme', day: 12, night: 13 },
-  { id: 'mal-poligon',    name: 'Malgrat Polígon',          cat: 'maresme', day: 13, night: 14 },
-  { id: 'mal-nord',       name: 'Malgrat Nord',             cat: 'maresme', day: 14, night: 15 },
-  { id: 'mal-campings',   name: 'Malgrat Càmpings',         cat: 'maresme', day: 18, night: 20 },
-  { id: 'pin-centre',     name: 'Pineda Centre',            cat: 'maresme', day: 12, night: 13 },
-  { id: 'pin-cap',        name: 'Pineda CAP',               cat: 'maresme', day: 14, night: 14 },
-  { id: 'pin-taurus',     name: 'Pineda Taurus / Mossos',   cat: 'maresme', day: 14, night: 15 },
-  { id: 'pin-poblenou',   name: 'Pineda Poblenou',          cat: 'maresme', day: 15, night: 16 },
-  { id: 'cal-balmes',     name: 'Calella Balmes',           cat: 'maresme', day: 17, night: 18 },
-  { id: 'cal-centre',     name: 'Calella Centre / Hospital',cat: 'maresme', day: 18, night: 20 },
-  { id: 'cal-riera',      name: 'Calella Riera',            cat: 'maresme', day: 19, night: 21 },
-  { id: 'cal-hotel',      name: 'Calella Hotel / Creu Groga', cat: 'maresme', day: 20, night: 22 },
-  { id: 'bla-plantera',   name: 'Blanes La Plantera',       cat: 'lloret-tossa', day: 18, night: 20 },
-  { id: 'bla-poligon',    name: 'Blanes Polígon',           cat: 'lloret-tossa', day: 19, night: 21 },
-  { id: 'bla-centre',     name: 'Blanes Centre',            cat: 'lloret-tossa', day: 20, night: 22 },
-  { id: 'bla-port',       name: 'Blanes Port / Hospital',   cat: 'lloret-tossa', day: 23, night: 25 },
-  { id: 'bla-stfrancesc', name: 'Blanes Sant Francesc',     cat: 'lloret-tossa', day: 28, night: 31 },
-  { id: 'pal-stlluis',    name: 'Palafolls Sant Lluís',     cat: 'maresme', day: 16, night: 17 },
-  { id: 'pal-centre',     name: 'Palafolls Centre',         cat: 'maresme', day: 17, night: 18 },
-  { id: 'pal-jardi',      name: 'Palafolls Jardí',          cat: 'maresme', day: 20, night: 22 },
-  { id: 'pal-poligon',    name: 'Palafolls Polígon',        cat: 'maresme', day: 20, night: 22 },
-  { id: 'stpol',          name: 'Sant Pol de Mar',          cat: 'maresme', day: 25, night: 28 },
-  { id: 'tordera',        name: 'Tordera',                  cat: 'maresme', day: 20, night: 22 },
-  { id: 'tordera-stpere', name: 'Tordera Sant Pere',        cat: 'maresme', day: 22, night: 24 },
-  { id: 'canet',          name: 'Canet de Mar',             cat: 'maresme', day: 36, night: 39 },
-  { id: 'arenys',         name: 'Arenys de Mar',            cat: 'maresme', day: 38, night: 43 },
-  { id: 'hostalric',      name: 'Hostalric',                cat: 'maresme', day: 42, night: 47 },
+  // ===========================================================
+  // GIRONA ciudad + interior cercano
+  // ===========================================================
+  { id: 'gir-sud',          name: 'Girona Sud / Clínica',      cat: 'girona', day: 72, night: 79 },
+  { id: 'gir-catalunya',    name: 'Girona Plaça Catalunya',    cat: 'girona', day: 81, night: 89 },
+  { id: 'gir-montilivi',    name: 'Girona Montilivi',          cat: 'girona', day: 82, night: 90 },
+  { id: 'gir-trueta',       name: 'Girona Trueta',             cat: 'girona', day: 83, night: 91 },
+  { id: 'gir-catedral',     name: 'Catedral de Girona',        cat: 'girona', day: 85, night: 91 },
+  { id: 'fornells',         name: 'Fornells de la Selva',      cat: 'girona', day: 68, night: 75 },
+  { id: 'caldes-malavella', name: 'Caldes de Malavella',       cat: 'girona', day: 57, night: 64 },
+  { id: 'espai-girones',    name: 'Espai Gironès',             cat: 'girona', day: 74, night: 80 },
+  { id: 'asterix-natura',   name: 'Asterix Natura',            cat: 'girona', day: 12, night: 13 },
 
+  // ===========================================================
+  // BLANES · LLORET · TOSSA
+  // ===========================================================
+  { id: 'bla-plantera',  name: 'Blanes Plantera / Karts',     cat: 'lloret-tossa', day: 18, night: 20 },
+  { id: 'bla-poligon',   name: 'Blanes Polígon',              cat: 'lloret-tossa', day: 19, night: 21 },
+  { id: 'bla-centre',    name: 'Blanes Centre',               cat: 'lloret-tossa', day: 20, night: 22 },
+  { id: 'bla-port',      name: 'Blanes Port / Hospital',      cat: 'lloret-tossa', day: 23, night: 25 },
+  { id: 'bla-stfrancesc',name: 'Blanes Sant Francesc',        cat: 'lloret-tossa', day: 28, night: 31 },
+  { id: 'marimurtra',    name: 'Marimurtra (jardín botánico)',cat: 'lloret-tossa', day: 26, night: 29 },
+  { id: 'llo-fenals',    name: 'Lloret Fenals / Sta Cristina',cat: 'lloret-tossa', day: 30, night: 33 },
+  { id: 'llo-centre',    name: 'Lloret Centre / Bus',         cat: 'lloret-tossa', day: 33, night: 36 },
+  { id: 'llo-platja',    name: 'Lloret Platja / Catamarà',    cat: 'lloret-tossa', day: 35, night: 38 },
+  { id: 'llo-casino',    name: 'Lloret Casino',               cat: 'lloret-tossa', day: 35, night: 38 },
+  { id: 'llo-canyelles', name: 'Lloret Canyelles',            cat: 'lloret-tossa', day: 40, night: 44 },
+  { id: 'waterworld',    name: 'Waterworld (Lloret)',         cat: 'lloret-tossa', day: 35, night: 38 },
+  { id: 'gran-casino',   name: 'Gran Casino Costa Brava',     cat: 'lloret-tossa', day: 35, night: 38 },
+  { id: 'tossa',         name: 'Tossa de Mar',                cat: 'lloret-tossa', day: 53, night: 58 },
+
+  // ===========================================================
+  // MALGRAT · PALAFOLLS (nueva categoría)
+  // ===========================================================
+  { id: 'mal-ancora',     name: 'Malgrat Àncora',           cat: 'malgrat-palafolls', day: 10, night: 11 },
+  { id: 'mal-creublava',  name: 'Malgrat Creu Blava',       cat: 'malgrat-palafolls', day: 11, night: 12 },
+  { id: 'mal-centre',     name: 'Malgrat Centre',           cat: 'malgrat-palafolls', day: 12, night: 13 },
+  { id: 'mal-poligon',    name: 'Malgrat Polígon',          cat: 'malgrat-palafolls', day: 13, night: 14 },
+  { id: 'mal-nord',       name: 'Malgrat Nord',             cat: 'malgrat-palafolls', day: 14, night: 15 },
+  { id: 'mal-campings',   name: 'Malgrat Càmpings',         cat: 'malgrat-palafolls', day: 18, night: 20 },
+  { id: 'pal-stlluis',    name: 'Palafolls Sant Lluís',     cat: 'malgrat-palafolls', day: 16, night: 17 },
+  { id: 'pal-centre',     name: 'Palafolls Centre / Outlet',cat: 'malgrat-palafolls', day: 17, night: 18 },
+  { id: 'pal-caravaning', name: 'Palafolls Caravaning',     cat: 'malgrat-palafolls', day: 18, night: 19 },
+  { id: 'pal-jardi',      name: 'Palafolls Ciutat Jardí',   cat: 'malgrat-palafolls', day: 20, night: 22 },
+  { id: 'pal-poligon',    name: 'Palafolls Polígon / Inditex',cat: 'malgrat-palafolls', day: 20, night: 22 },
+  { id: 'marineland',     name: 'Marineland',               cat: 'malgrat-palafolls', day: 17, night: 18 },
+
+  // ===========================================================
+  // COSTA DEL MARESME
+  // ===========================================================
+  { id: 'est-pineda',     name: 'Estació Pineda de Mar',     cat: 'maresme', day: 11, night: 12 },
+  { id: 'est-calella',    name: 'Estació Calella',           cat: 'maresme', day: 18, night: 20 },
+  { id: 'pin-centre',     name: 'Pineda Centre / Melies',    cat: 'maresme', day: 12, night: 13 },
+  { id: 'pin-cap',        name: 'Pineda CAP',                cat: 'maresme', day: 13, night: 14 },
+  { id: 'pin-taurus',     name: 'Pineda Taurus / Mossos',    cat: 'maresme', day: 14, night: 15 },
+  { id: 'pin-poblenou',   name: 'Pineda Poblenou',           cat: 'maresme', day: 15, night: 16 },
+  { id: 'cal-balmes',     name: 'Calella Balmes',            cat: 'maresme', day: 17, night: 18 },
+  { id: 'cal-centre',     name: 'Calella Centre / Hospital', cat: 'maresme', day: 18, night: 20 },
+  { id: 'cal-riera',      name: 'Calella Riera',             cat: 'maresme', day: 19, night: 21 },
+  { id: 'cal-hotel',      name: 'Calella Hotels / Creu Groga', cat: 'maresme', day: 20, night: 22 },
+  { id: 'cal-rocagrossa', name: 'Calella Roca Grossa',       cat: 'maresme', day: 24, night: 27 },
+  { id: 'cal-carreras',   name: 'Calella Can Carreras',      cat: 'maresme', day: 33, night: 36 },
+  { id: 'sant-pol',       name: 'Sant Pol de Mar',           cat: 'maresme', day: 25, night: 27 },
+  { id: 'sant-cebria',    name: 'Sant Cebrià de Vallalta',   cat: 'maresme', day: 31, night: 33 },
+  { id: 'sant-iscle',     name: 'Sant Iscle de Vallalta',    cat: 'maresme', day: 37, night: 40 },
+  { id: 'canet',          name: 'Canet de Mar',              cat: 'maresme', day: 36, night: 39 },
+  { id: 'arenys',         name: 'Arenys de Mar / Munt',      cat: 'maresme', day: 38, night: 42 },
+  { id: 'sant-andreu',    name: 'Sant Andreu de Llavaneres', cat: 'maresme', day: 50, night: 55 },
+  { id: 'argentona',      name: 'Argentona',                 cat: 'maresme', day: 60, night: 67 },
+  { id: 'mataro-centre',  name: 'Mataró Centre / Estació',   cat: 'maresme', day: 59, night: 67 },
+  { id: 'mataro-plaboet', name: "Mataró Pla d'en Boet",      cat: 'maresme', day: 62, night: 70 },
+  { id: 'mataro-parc',    name: 'Mataró Parc Shopping',      cat: 'maresme', day: 55, night: 60 },
+  { id: 'tordera',        name: 'Tordera',                   cat: 'maresme', day: 20, night: 22 },
+  { id: 'tordera-stpere', name: 'Tordera Sant Pere / Hotel', cat: 'maresme', day: 22, night: 24 },
+  { id: 'tordera-topten', name: 'Tordera Top Ten',           cat: 'maresme', day: 26, night: 28 },
+  { id: 'fogars',         name: 'Fogars de la Selva',        cat: 'maresme', day: 30, night: 33 },
+  { id: 'hostalric',      name: 'Hostalric',                 cat: 'maresme', day: 42, night: 47 },
+
+  // ===========================================================
   // SANTA SUSANNA local
+  // ===========================================================
   { id: 'ss-centre', name: 'Centro / Hoteles', cat: 'local', day: 8, night: 9 },
 ];
 
 // Categorías que se muestran en el listado agrupado.
-// Aeropuertos + AVE → en la sección destacada de arriba (no se repiten aquí)
+// Los destinos `featured: true` (BCN airport, GRO airport, BCN Sants AVE, Girona AVE)
+// se muestran ARRIBA en la sección destacada y se excluyen aquí para no duplicar.
 // Santa Susanna local → en el bloque "Zonas A/B/C/D" más abajo (no se repite aquí)
 const CATS = [
-  { id: 'barcelona',    label: 'Barcelona ciudad',  icon: 'building' },
-  { id: 'girona',       label: 'Girona',            icon: 'building' },
-  { id: 'lloret-tossa', label: 'Blanes · Lloret · Tossa', icon: 'beach' },
-  { id: 'maresme',      label: 'Costa del Maresme', icon: 'beach' },
+  { id: 'aeropuertos',      label: 'Aeropuertos',             icon: 'plane' },
+  { id: 'estaciones',       label: 'Estaciones AVE',          icon: 'train' },
+  { id: 'estacion-bus',     label: 'Estación de Bus',         icon: 'train' },
+  { id: 'barcelona',        label: 'Barcelona ciudad',        icon: 'building' },
+  { id: 'girona',           label: 'Girona',                  icon: 'building' },
+  { id: 'lloret-tossa',     label: 'Blanes · Lloret · Tossa', icon: 'beach' },
+  { id: 'malgrat-palafolls',label: 'Malgrat · Palafolls',     icon: 'beach' },
+  { id: 'maresme',          label: 'Costa del Maresme',       icon: 'beach' },
 ];
 
 // SVG paths (Font Awesome solid)
@@ -2113,7 +2176,8 @@ function renderFeatured() {
 
 function renderList() {
   const html = CATS.map(cat => {
-    const rows = TARIFFS.filter(t => t.cat === cat.id);
+    // Excluir los featured: ya se muestran arriba en la sección destacada
+    const rows = TARIFFS.filter(t => t.cat === cat.id && !t.featured);
     if (rows.length === 0) return '';
     return `
       <section class="lp-list-section" data-cat-section="${cat.id}">
