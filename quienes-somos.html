@@ -17,98 +17,52 @@
    QUIÉNES SOMOS — Componentes específicos
    ===================================================================== */
 
-/* Hero con imagen y overlay — efecto sticky parallax (estilo joinup) */
+/* Hero unificado con el de Tarifas: gradiente verde sin imagen */
 .qs-hero {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  height: 100vh;
-  min-height: 620px;
-  padding: 130px 24px 80px;
-  color: white;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-/* Las siguientes secciones suben por encima del hero sticky */
-.qs-stats,
-.qs-section,
-.qs-zona-section,
-.qs-cta-final,
-.footer {
   position: relative;
-  z-index: 2;
-}
-.qs-stats {
-  box-shadow: 0 -10px 30px rgba(0, 35, 19, 0.15);
-}
-.qs-hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('images/hero-portada.png');
-  background-size: cover;
-  background-position: center center;
-  transform: scale(1.12);
-  transform-origin: center center;
-  filter: saturate(0.95);
-  z-index: 0;
-}
-.qs-hero-overlay {
-  position: absolute;
-  inset: 0;
+  padding: 152px 24px 56px;
   background:
-    linear-gradient(95deg,
-      rgba(0,20,12,0.62) 0%,
-      rgba(0,20,12,0.32) 40%,
-      rgba(0,20,12,0.08) 75%,
-      rgba(0,20,12,0) 100%),
-    linear-gradient(180deg,
-      transparent 65%,
-      rgba(0,20,12,0.25) 100%);
-  z-index: 1;
+    radial-gradient(ellipse at top right, rgba(243,200,0,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(0,143,76,0.18) 0%, transparent 60%),
+    linear-gradient(180deg, #002313 0%, #004726 100%);
+  color: #ffffff;
+  overflow: hidden;
 }
 .qs-hero-inner {
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
   width: 100%;
-  position: relative;
-  z-index: 2;
 }
 .qs-eyebrow {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   color: #F3C800;
   text-transform: uppercase;
-  margin-bottom: 16px;
-  display: inline-flex;
-  align-items: center;
+  margin-bottom: 14px;
+  display: inline-block;
 }
 .qs-h1 {
-  font-size: 72px;
+  font-size: 56px;
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-  margin: 0 0 20px;
-  max-width: 1120px;
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  margin: 0 0 18px;
+  max-width: 880px;
 }
-.qs-h1 .accent {
-  color: #FFD940;
-}
+.qs-h1 .accent { color: #FFD940; }
 .qs-hero-lead {
-  font-size: 18px;
+  font-size: 16.5px;
   font-weight: 500;
-  font-style: italic;
   line-height: 1.55;
-  color: rgba(255,255,255,0.92);
-  max-width: 680px;
+  letter-spacing: -0.005em;
+  color: rgba(255,255,255,0.85);
+  max-width: 720px;
   margin: 0;
 }
 .qs-hero-lead strong {
   color: #FFD940;
   font-weight: 800;
-  font-style: normal;
 }
 
 /* Stats bar — verde corporativo del index (#002313 → #004726) */
@@ -729,7 +683,7 @@
 
 /* ===== Responsive ===== */
 @media (min-width: 481px) and (max-width: 1023px) {
-  .qs-h1 { font-size: 36px; line-height: 1.18; letter-spacing: -0.02em; }
+  .qs-h1 { font-size: 44px; line-height: 1.08; letter-spacing: -0.022em; }
 }
 @media (max-width: 980px) {
   .qs-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -739,8 +693,8 @@
   .qs-partners-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 640px) {
-  .qs-hero { padding: 90px 20px 50px; height: auto; min-height: 0; justify-content: flex-start; }
-  .qs-h1 { font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; }
+  .qs-hero { padding: 160px 20px 44px; }
+  .qs-h1 { font-size: 36px; line-height: 1.1; letter-spacing: -0.025em; }
   .qs-hero-lead { font-size: 14.5px; }
   .qs-stats { padding: 22px 20px; }
   .qs-stat-num { font-size: 28px; }
@@ -823,8 +777,6 @@
 
 <!-- ====== HERO ====== -->
 <section class="qs-hero">
-  <div class="qs-hero-bg"></div>
-  <div class="qs-hero-overlay"></div>
   <div class="qs-hero-inner">
     <div class="qs-eyebrow">Nosotros</div>
     <h1 class="qs-h1">Una asociación de taxistas, <span class="accent">no una franquicia</span>.</h1>
