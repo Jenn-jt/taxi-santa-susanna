@@ -153,7 +153,10 @@
 }
 .lp-toolbar.is-stuck {
   box-shadow: 0 8px 28px rgba(0, 35, 19, 0.1);
-  padding: 14px 24px 12px;
+  padding: 18px 24px 12px;
+}
+.lp-toolbar.is-stuck .lp-toolbar-inner {
+  gap: 10px;
 }
 .lp-toolbar-inner {
   max-width: 1280px;
@@ -206,16 +209,10 @@
   font-size: 21px; font-weight: 800; color: #002313;
 }
 .lp-toolbar.is-stuck .lp-search-title {
-  opacity: 0;
-  max-width: 0;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  pointer-events: none;
+  display: none;
 }
 .lp-toolbar.is-stuck .lp-toolbar-row1 {
-  grid-template-columns: 1fr;
-  gap: 0;
+  display: block;
 }
 
 .lp-search {
@@ -264,15 +261,17 @@
 
 /* Cuando está pegado arriba (scroll), reduce el buscador para no comerse pantalla */
 .lp-toolbar.is-stuck .lp-search-input {
-  height: 52px;
-  padding: 14px 110px 14px 52px;
-  font-size: 15px;
-  border-radius: 14px;
-  box-shadow: 0 3px 10px rgba(0, 35, 19, 0.08);
+  height: 46px;
+  padding: 12px 100px 12px 48px;
+  font-size: 14.5px;
+  border-radius: 12px;
+  border-width: 1.5px;
+  box-shadow: 0 2px 8px rgba(0, 35, 19, 0.06);
 }
 .lp-toolbar.is-stuck .lp-search-icon {
-  width: 18px; height: 18px; left: 18px;
+  width: 17px; height: 17px; left: 16px;
 }
+.lp-toolbar.is-stuck .lp-search-kbd { display: none; }
 
 /* Atajo de teclado "/" visible cuando no hay valor */
 .lp-search-kbd {
@@ -1035,18 +1034,11 @@
   margin: 0 auto 44px;
 }
 .lp-zones-header-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-block;
   font-size: 13px; font-weight: 800;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: #F3C800; margin-bottom: 16px;
 }
-.lp-zones-header-eyebrow::before,
-.lp-zones-header-eyebrow::after {
-  content: ""; width: 26px; height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(243,200,0,0.7));
-  border-radius: 2px;
-}
-.lp-zones-header-eyebrow::after { background: linear-gradient(90deg, rgba(243,200,0,0.7), transparent); }
 .lp-zones-header h2 {
   font-size: 38px; font-weight: 800;
   letter-spacing: -0.022em; line-height: 1.1;
