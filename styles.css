@@ -6901,3 +6901,107 @@ a.dest-card-premium {
 
 /* Bloquear scroll del body cuando el drawer está abierto */
 body.nav-drawer-active { overflow: hidden; }
+
+/* ============================================================
+   NAV CALL (botón "Taxi ya" amarillo) — compartido en todas las páginas
+   ============================================================ */
+.nav-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 18px 9px 9px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #F3C800 0%, #FFD940 100%);
+  color: #002313;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 22px rgba(243,200,0,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-left: 14px;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+.nav-call:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(243,200,0,0.5);
+}
+.nav-call-ico {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #002313;
+  color: #F3C800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-call-ico svg {
+  width: 14px;
+  height: 14px;
+  animation: nav-phone-shake 4s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes nav-phone-shake {
+  0%, 90%, 100% { transform: rotate(0); }
+  92% { transform: rotate(-14deg); }
+  94% { transform: rotate(14deg); }
+  96% { transform: rotate(-8deg); }
+  98% { transform: rotate(6deg); }
+}
+.nav-call:hover .nav-call-ico svg { animation: none; }
+.nav-call-text { display: flex; flex-direction: column; line-height: 1.1; }
+.nav-call-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+.nav-call-num {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.005em;
+  margin-top: 2px;
+}
+
+/* Píldora de idioma moderna (sobrescribe la versión rectangular vieja) */
+.nav .lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #002313;
+  letter-spacing: 0.04em;
+}
+.nav .lang .lang-globe { width: 14px; height: 14px; color: #006435; }
+.nav .lang .lang-chevron { width: 12px; height: 12px; color: #5a6660; }
+
+/* Espaciado del menú principal — texto blanco con hover amarillo */
+.nav .menu {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  align-items: center;
+}
+.nav .menu a {
+  color: rgba(255,255,255,0.92);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.nav .menu a:hover,
+.nav .menu a.active { color: #FFD940; }
+
+@media (max-width: 720px) {
+  .nav-call { padding: 6px; margin-left: 8px; gap: 0; }
+  .nav-call-text { display: none; }
+  .nav-call-ico { width: 36px; height: 36px; }
+  .nav-call-ico svg { width: 16px; height: 16px; }
+}
