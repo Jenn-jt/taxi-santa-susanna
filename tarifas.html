@@ -98,7 +98,7 @@
 .lp-hero {
   position: relative;
   padding: 152px 24px 56px;
-  min-height: 420px;
+  min-height: 340px;
   background: linear-gradient(180deg, #002313 0%, #004726 100%);
   color: #ffffff;
   overflow: hidden;
@@ -166,12 +166,9 @@
   gap: 14px;
 }
 
-/* === Row 1: Search — título y barra en una fila === */
+/* === Row 1: Search === */
 .lp-toolbar-row1 {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 22px;
+  display: block;
 }
 
 /* Titular del buscador — protagonismo */
@@ -956,13 +953,11 @@
   color: #B2DDC9;
 }
 
-/* Santa Susanna zones (local supplements) */
+/* Santa Susanna zones — Apartado 1: tarifa base (fondo claro) */
 .lp-zones {
   padding: 80px 24px 72px;
-  background:
-    radial-gradient(ellipse at top left, rgba(0,143,76,0.06) 0%, transparent 60%),
-    linear-gradient(180deg, #002313 0%, #004726 100%);
-  color: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #f8faf6 100%);
+  color: #002313;
   position: relative;
   overflow: hidden;
 }
@@ -1037,38 +1032,34 @@
   display: inline-block;
   font-size: 13px; font-weight: 800;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: #F3C800; margin-bottom: 16px;
+  color: #006435; margin-bottom: 16px;
 }
 .lp-zones-header h2 {
   font-size: 38px; font-weight: 800;
   letter-spacing: -0.022em; line-height: 1.1;
-  color: #ffffff; margin: 0 0 14px;
+  color: #002313; margin: 0 0 14px;
 }
-.lp-zones-header h2 .accent { color: #FFD940; }
+.lp-zones-header h2 .accent { color: #008F4C; }
 .lp-zones-header p {
   font-size: 16.5px; font-weight: 500;
-  color: rgba(255,255,255,0.78);
+  color: #5a6660;
   line-height: 1.55; margin: 0;
 }
-.lp-zones-header p strong { color: #FFD940; font-weight: 700; }
+.lp-zones-header p strong { color: #006435; font-weight: 700; }
 
 /* Hero principal — la tarifa base (PROTAGONISTA) */
 .lp-base-hero {
   max-width: 920px;
   margin: 0 auto 48px;
-  background:
-    linear-gradient(135deg, rgba(243,200,0,0.10) 0%, rgba(255,255,255,0.04) 60%),
-    rgba(255,255,255,0.04);
-  border: 1.5px solid rgba(243,200,0,0.40);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: #ffffff;
+  border: 1.5px solid #e6ece8;
   border-radius: 26px;
   padding: 36px 40px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 28px;
   align-items: center;
-  box-shadow: 0 24px 56px rgba(0,35,19,0.32);
+  box-shadow: 0 18px 44px rgba(0,143,76,0.10), 0 2px 8px rgba(0,35,19,0.04);
   position: relative;
   overflow: hidden;
 }
@@ -1076,7 +1067,7 @@
   content: ""; position: absolute;
   top: -40px; right: -40px;
   width: 180px; height: 180px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(243,200,0,0.15), transparent 70%);
+  background: radial-gradient(circle, rgba(243,200,0,0.12), transparent 70%);
   pointer-events: none;
 }
 .lp-base-hero-icon {
@@ -1094,21 +1085,21 @@
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 11px; font-weight: 800;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: #FFD940;
+  color: #006435;
   padding: 4px 10px;
-  background: rgba(243,200,0,0.16);
-  border: 1px solid rgba(243,200,0,0.3);
+  background: #EAF6F0;
+  border: 1px solid #B2DDC9;
   border-radius: 999px;
   margin-bottom: 10px;
 }
 .lp-base-hero-title {
   font-size: 24px; font-weight: 800;
-  color: #ffffff; letter-spacing: -0.015em;
+  color: #002313; letter-spacing: -0.015em;
   line-height: 1.15; margin: 0 0 6px;
 }
 .lp-base-hero-desc {
   font-size: 14.5px; font-weight: 500;
-  color: rgba(255,255,255,0.74);
+  color: #5a6660;
   line-height: 1.5; margin: 0;
 }
 .lp-base-hero-prices {
@@ -1119,8 +1110,8 @@
   display: flex; flex-direction: column;
   align-items: center; gap: 8px;
   padding: 14px 18px;
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: #fafdfb;
+  border: 1px solid #e6ece8;
   border-radius: 16px;
   min-width: 96px;
 }
@@ -1141,13 +1132,13 @@
 .lp-base-hero-price-ico svg { width: 18px; height: 18px; }
 .lp-base-hero-price-amt {
   font-size: 28px; font-weight: 800;
-  color: #ffffff; letter-spacing: -0.02em;
+  color: #006435; letter-spacing: -0.02em;
   line-height: 1;
 }
 .lp-base-hero-price-lbl {
   font-size: 10.5px; font-weight: 800;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
+  color: #5a6660;
 }
 
 /* ====== BUSCADOR DE CALLE (componente UX) ====== */
@@ -1313,6 +1304,43 @@
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
 }
 
+/* Sección propia: Suplementos por zona (fondo verde) */
+.lp-zones-suplemento {
+  padding: 72px 24px;
+  background: linear-gradient(180deg, #002313 0%, #004726 100%);
+  color: #ffffff;
+}
+.lp-zones-suplemento-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Sub-header del apartado 2 (suplementos por zona) */
+.lp-zones-subsection-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 32px;
+}
+.lp-zones-subsection-eyebrow {
+  display: inline-block;
+  font-size: 13px; font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #F3C800;
+  margin-bottom: 14px;
+}
+.lp-zones-subsection-title {
+  font-size: 32px; font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em; line-height: 1.15;
+  margin: 0 0 12px;
+}
+.lp-zones-subsection-title .accent { color: #FFD940; }
+.lp-zones-subsection-sub {
+  font-size: 15.5px; font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.55; margin: 0;
+}
+
 /* CTA final de llamada */
 .lp-zones-help {
   max-width: 920px;
@@ -1360,6 +1388,20 @@
   transform: translateY(-1px);
 }
 .lp-zones-help-cta svg { width: 14px; height: 14px; }
+.lp-zones-help-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.lp-zones-help-cta-email {
+  background: rgba(255,255,255,0.10);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.20);
+}
+.lp-zones-help-cta-email:hover {
+  background: rgba(255,255,255,0.18);
+}
 
 /* Card destacada del trayecto base (Centre / Hotels) — DEPRECADA, mantengo por si acaso */
 .lp-base-card {
@@ -1492,7 +1534,12 @@
 
   .lp-zones-help { flex-direction: column; text-align: center; padding: 22px 20px; }
   .lp-zones-help-text { flex-basis: auto; }
+  .lp-zones-help-actions { width: 100%; flex-direction: column; gap: 8px; }
   .lp-zones-help-cta { width: 100%; justify-content: center; }
+
+  .lp-zones-suplemento-box { margin: 40px auto 0; padding: 32px 20px; border-radius: 18px; }
+  .lp-zones-subsection-title { font-size: 24px; }
+  .lp-zones-subsection-sub { font-size: 14px; }
 }
 
 /* Info section (horarios, PAX, pagos) */
@@ -2256,8 +2303,7 @@
 <!-- ====== HERO ====== -->
 <section class="lp-hero">
   <div class="lp-hero-inner">
-    <h1 class="lp-h1">Tarifas <span class="accent">2026</span>.</h1>
-    <p class="lp-subhead">No nos gustan los <strong>algoritmos</strong> que adaptan la oferta y la demanda de las grandes plataformas. Aquí tienes el <strong>precio cerrado</strong> a los destinos más habituales, así de transparente.</p>
+    <h1 class="lp-h1">Busca tu destino <span class="accent">a precio fijo</span>.</h1>
   </div>
 </section>
 
@@ -2266,15 +2312,6 @@
   <div class="lp-toolbar-inner">
     <!-- Row 1: Search -->
     <div class="lp-toolbar-row1">
-      <div class="lp-search-title">
-        <span class="lp-search-title-ico">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        </span>
-        <div class="lp-search-title-text">
-          <small>Encuentra tu destino</small>
-          <strong>¿A dónde quieres ir?</strong>
-        </div>
-      </div>
       <div class="lp-search" id="lp-search-wrap">
         <input class="lp-search-input" type="search" id="lp-search" placeholder="Escribe tu destino: Barcelona, Lloret, Aeropuerto, Mataró…" autocomplete="off">
         <svg class="lp-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -2297,6 +2334,7 @@
           <button class="lp-chip" data-filter="barcelona">Barcelona <span class="lp-chip-count" data-count-for="barcelona">0</span></button>
           <button class="lp-chip" data-filter="girona">Girona <span class="lp-chip-count" data-count-for="girona">0</span></button>
           <button class="lp-chip" data-filter="malgrat-palafolls">Malgrat y Palafolls <span class="lp-chip-count" data-count-for="malgrat-palafolls">0</span></button>
+          <button class="lp-chip" data-filter="pineda-calella">Pineda y Calella <span class="lp-chip-count" data-count-for="pineda-calella">0</span></button>
           <button class="lp-chip" data-filter="lloret-tossa">Blanes, Lloret y Tossa <span class="lp-chip-count" data-count-for="lloret-tossa">0</span></button>
           <button class="lp-chip" data-filter="maresme">Costa del Maresme <span class="lp-chip-count" data-count-for="maresme">0</span></button>
         </div>
@@ -2314,7 +2352,6 @@
   <div class="lp-featured-inner">
     <span class="lp-featured-eyebrow">Servicios interurbanos</span>
     <h2 class="lp-featured-title">Servicio de taxi, <span class="accent">puerta a puerta</span></h2>
-    <p class="lp-featured-sub">Reserva web con garantía tus trayectos prioritarios, o <strong>llámanos 24/7</strong>.</p>
     <div class="lp-featured-grid" id="lp-featured-grid"></div>
   </div>
 </section>
@@ -2352,6 +2389,7 @@
       <p>Una <strong>tarifa base</strong> para todo el centro y los hoteles. Un pequeño suplemento si tu viaje empieza o termina en una de las zonas más alejadas del pueblo.</p>
     </div>
 
+    <!-- ====== APARTADO 1: TARIFA BASE ====== -->
     <!-- HERO: Tarifa base (la que paga la mayoría) -->
     <div class="lp-base-hero">
       <div class="lp-base-hero-icon">
@@ -2380,12 +2418,21 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ====== SUPLEMENTOS POR ZONA (sección propia, fondo claro) ====== -->
+<section class="lp-zones-suplemento">
+  <div class="lp-zones-suplemento-inner">
+
+    <div class="lp-zones-subsection-header">
+      <span class="lp-zones-subsection-eyebrow">Suplementos por zona</span>
+      <h2 class="lp-zones-subsection-title">Si tu viaje sale o termina en <span class="accent">una zona alejada</span></h2>
+      <p class="lp-zones-subsection-sub">Estas zonas suman un pequeño extra sobre la tarifa base por la distancia con el centro. Búscala o consulta la tabla.</p>
+    </div>
+
     <!-- BUSCADOR DE ZONA -->
     <div class="lp-street-finder">
-      <div class="lp-street-finder-head">
-        <h3>¿Empiezas o terminas en <span class="accent">la urbanización</span>?</h3>
-        <p>Algunas zonas concretas suman un pequeño extra. Escribe el nombre de tu zona y te decimos al instante cuánto pagarás.</p>
-      </div>
       <div class="lp-street-search" id="lp-street-search-wrap">
         <svg class="lp-street-search-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         <input class="lp-street-search-input" type="search" id="lp-street-input" placeholder="Escribe tu zona (ej: Pulmonària, Nards, Lleó…)" autocomplete="off">
@@ -2434,13 +2481,19 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
       </span>
       <div class="lp-zones-help-text">
-        <strong>¿Sigues con dudas o tu zona no aparece?</strong>
-        <p>Llámanos y te confirmamos el precio exacto antes de subir al coche.</p>
+        <strong>¿Sigues con dudas?</strong>
+        <p>Escríbenos o llámanos y las resolvemos.</p>
       </div>
-      <a class="lp-zones-help-cta" href="tel:+34937678571">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-        +34 937 67 85 71
-      </a>
+      <div class="lp-zones-help-actions">
+        <a class="lp-zones-help-cta" href="tel:+34937678571" aria-label="Llamar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          +34 937 67 85 71
+        </a>
+        <a class="lp-zones-help-cta lp-zones-help-cta-email" href="mailto:info@taxisantasusanna.com" aria-label="Escribir">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Escríbenos
+        </a>
+      </div>
     </div>
 
   </div>
@@ -2814,20 +2867,24 @@ const TARIFFS = [
   { id: 'marineland',     name: 'Marineland',               cat: 'malgrat-palafolls', day: 17, night: 18 },
 
   // ===========================================================
-  // COSTA DEL MARESME
+  // PINEDA Y CALELLA (nueva categoría)
   // ===========================================================
-  { id: 'est-pineda',     name: 'Pineda Estació',            cat: 'maresme', day: 11, night: 12 },
-  { id: 'est-calella',    name: 'Calella Estació',           cat: 'maresme', day: 18, night: 20 },
-  { id: 'pin-centre',     name: 'Pineda Centre / Melies',    cat: 'maresme', day: 12, night: 13 },
-  { id: 'pin-cap',        name: 'Pineda CAP',                cat: 'maresme', day: 13, night: 14 },
-  { id: 'pin-taurus',     name: 'Pineda Taurus / Mossos',    cat: 'maresme', day: 14, night: 15 },
-  { id: 'pin-poblenou',   name: 'Pineda Poblenou',           cat: 'maresme', day: 15, night: 16 },
-  { id: 'cal-balmes',     name: 'Calella Balmes',            cat: 'maresme', day: 17, night: 18 },
-  { id: 'cal-centre',     name: 'Calella Centre / Hospital', cat: 'maresme', day: 18, night: 20 },
-  { id: 'cal-riera',      name: 'Calella Riera',             cat: 'maresme', day: 19, night: 21 },
-  { id: 'cal-hotel',      name: 'Calella Hotels / Creu Groga', cat: 'maresme', day: 20, night: 22 },
-  { id: 'cal-rocagrossa', name: 'Calella Roca Grossa',       cat: 'maresme', day: 24, night: 27 },
-  { id: 'cal-carreras',   name: 'Calella Can Carreras',      cat: 'maresme', day: 33, night: 36 },
+  { id: 'est-pineda',     name: 'Pineda Estació',            cat: 'pineda-calella', day: 11, night: 12 },
+  { id: 'est-calella',    name: 'Calella Estació',           cat: 'pineda-calella', day: 18, night: 20 },
+  { id: 'pin-centre',     name: 'Pineda Centre / Melies',    cat: 'pineda-calella', day: 12, night: 13 },
+  { id: 'pin-cap',        name: 'Pineda CAP',                cat: 'pineda-calella', day: 13, night: 14 },
+  { id: 'pin-taurus',     name: 'Pineda Taurus / Mossos',    cat: 'pineda-calella', day: 14, night: 15 },
+  { id: 'pin-poblenou',   name: 'Pineda Poblenou',           cat: 'pineda-calella', day: 15, night: 16 },
+  { id: 'cal-balmes',     name: 'Calella Balmes',            cat: 'pineda-calella', day: 17, night: 18 },
+  { id: 'cal-centre',     name: 'Calella Centre / Hospital', cat: 'pineda-calella', day: 18, night: 20 },
+  { id: 'cal-riera',      name: 'Calella Riera',             cat: 'pineda-calella', day: 19, night: 21 },
+  { id: 'cal-hotel',      name: 'Calella Hotels / Creu Groga', cat: 'pineda-calella', day: 20, night: 22 },
+  { id: 'cal-rocagrossa', name: 'Calella Roca Grossa',       cat: 'pineda-calella', day: 24, night: 27 },
+  { id: 'cal-carreras',   name: 'Calella Can Carreras',      cat: 'pineda-calella', day: 33, night: 36 },
+
+  // ===========================================================
+  // COSTA DEL MARESME (resto: Mataró, Tordera, Arenys, Canet…)
+  // ===========================================================
   { id: 'sant-pol',       name: 'Sant Pol de Mar',           cat: 'maresme', day: 25, night: 27 },
   { id: 'sant-cebria',    name: 'Sant Cebrià de Vallalta',   cat: 'maresme', day: 31, night: 33 },
   { id: 'sant-iscle',     name: 'Sant Iscle de Vallalta',    cat: 'maresme', day: 37, night: 40 },
@@ -2858,6 +2915,7 @@ const CATS = [
   { id: 'barcelona',        label: 'Barcelona',               icon: 'building' },
   { id: 'girona',           label: 'Girona',                  icon: 'building' },
   { id: 'malgrat-palafolls',label: 'Malgrat y Palafolls',     icon: 'beach' },
+  { id: 'pineda-calella',   label: 'Pineda y Calella',        icon: 'beach' },
   { id: 'lloret-tossa',     label: 'Blanes, Lloret y Tossa',  icon: 'beach' },
   { id: 'maresme',          label: 'Costa del Maresme',       icon: 'beach' },
 ];
