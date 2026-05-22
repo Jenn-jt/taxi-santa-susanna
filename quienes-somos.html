@@ -52,7 +52,7 @@
 }
 .qs-h1 .accent { color: #FFD940; }
 .qs-hero-lead {
-  font-size: 16.5px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.55;
   letter-spacing: -0.005em;
@@ -137,7 +137,7 @@
   letter-spacing: -0.02em;
 }
 .qs-historia-text p {
-  font-size: 16.5px;
+  font-size: 17.5px;
   font-weight: 500;
   color: #2d3631;
   line-height: 1.65;
@@ -294,13 +294,13 @@
 .qs-stat-label {
   position: relative;
   z-index: 1;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: #2d3631;
-  line-height: 1.4;
+  line-height: 1.45;
   margin: 0;
 }
-.qs-stat-card.primary .qs-stat-label { color: rgba(255,255,255,0.88); font-size: 14.5px; }
+.qs-stat-card.primary .qs-stat-label { color: rgba(255,255,255,0.92); font-size: 15.5px; }
 .qs-stat-icon {
   position: absolute;
   top: 22px; right: 22px;
@@ -343,7 +343,7 @@
   letter-spacing: -0.02em;
 }
 .qs-section-sub {
-  font-size: 16.5px;
+  font-size: 17.5px;
   font-weight: 500;
   color: #5a6660;
   text-align: center;
@@ -497,11 +497,12 @@
   z-index: 1;
 }
 .qs-servicio-list li {
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 500;
   color: #2d3631;
-  padding: 5px 0 5px 26px;
+  padding: 7px 0 7px 26px;
   position: relative;
+  line-height: 1.5;
 }
 .qs-servicio.dark .qs-servicio-list li { color: rgba(255,255,255,0.92); }
 .qs-servicio-list li::before {
@@ -556,7 +557,7 @@
   letter-spacing: -0.02em;
 }
 .qs-flota-text p {
-  font-size: 16.5px;
+  font-size: 17.5px;
   font-weight: 500;
   color: #2d3631;
   line-height: 1.6;
@@ -571,7 +572,7 @@
   gap: 12px;
 }
 .qs-flota-features li {
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 600;
   color: #1a2620;
   padding-left: 28px;
@@ -811,15 +812,15 @@
 @media (max-width: 640px) {
   .qs-hero { padding: 160px 20px 44px; min-height: 320px; }
   .qs-h1 { font-size: 36px; line-height: 1.1; letter-spacing: -0.025em; }
-  .qs-hero-lead { font-size: 14.5px; }
+  .qs-hero-lead { font-size: 15.5px; }
   .qs-stats { padding: 22px 20px; }
   .qs-stat-num { font-size: 28px; }
   .qs-stat-label { font-size: 10.5px; }
   .qs-section { padding: 48px 20px; }
   .qs-section-title { font-size: 26px; }
-  .qs-section-sub { font-size: 14.5px; margin-bottom: 28px; }
+  .qs-section-sub { font-size: 15.5px; margin-bottom: 28px; }
   .qs-historia-text h2 { font-size: 26px; }
-  .qs-historia-text p { font-size: 14.5px; }
+  .qs-historia-text p { font-size: 15.5px; }
   .qs-valores-grid { grid-template-columns: 1fr; gap: 12px; }
   .qs-valor { padding: 22px 18px; }
   .qs-servicio { padding: 26px 22px; }
@@ -939,7 +940,7 @@
 </section>
 
 <!-- ====== STATS 2025 ====== -->
-<section class="qs-section">
+<section class="qs-section alt">
   <div class="qs-section-inner">
 
     <div class="qs-stats-header">
@@ -1007,8 +1008,32 @@
   </div>
 </section>
 
-<!-- ====== SERVICIOS PROFESIONALES ====== -->
+<!-- ====== FLOTA ====== -->
 <section class="qs-section">
+  <div class="qs-section-inner">
+    <div class="qs-flota-grid">
+      <div class="qs-flota-img">
+        <img src="images/flota-hero.png" alt="Vehículos de la flota Taxi Santa Susanna · Mercedes y Skoda eco" loading="lazy" style="object-position: center 60%;">
+      </div>
+      <div class="qs-flota-text">
+        <div class="qs-eyebrow" style="color:#006435;">Nuestra flota</div>
+        <h2>Nuestras VANS, siempre preparadas.</h2>
+        <p>No tienes que pedir un taxi grande porque todos son grandes.</p>
+        <ul class="qs-flota-features">
+          <li>Vans de 6, 7 y 8 PAX</li>
+          <li>Maleteros amplios · equipaje XXL</li>
+          <li>Sillitas y elevadores infantiles</li>
+          <li>Eurotaxi PMR · accesibilidad</li>
+          <li>VISA · Mastercard · AMEX</li>
+          <li>Mascotas bienvenidas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICIOS PROFESIONALES ====== -->
+<section class="qs-section alt">
   <div class="qs-section-inner">
     <h2 class="qs-section-title">Servicios para profesionales</h2>
     <p class="qs-section-sub">Operativa y soluciones a todos los niveles.</p>
@@ -1046,30 +1071,6 @@
         <a href="#contacto" class="qs-servicio-cta">Abrir cuenta →</a>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<!-- ====== FLOTA ====== -->
-<section class="qs-section alt">
-  <div class="qs-section-inner">
-    <div class="qs-flota-grid">
-      <div class="qs-flota-img">
-        <img src="images/flota-hero.png" alt="Vehículos de la flota Taxi Santa Susanna · Mercedes y Skoda eco" loading="lazy" style="object-position: center 60%;">
-      </div>
-      <div class="qs-flota-text">
-        <div class="qs-eyebrow" style="color:#006435;">Nuestra flota</div>
-        <h2>Nuestras VANS, siempre preparadas.</h2>
-        <p>No tienes que pedir un taxi grande porque todos son grandes.</p>
-        <ul class="qs-flota-features">
-          <li>Vans de 6, 7 y 8 PAX</li>
-          <li>Maleteros amplios · equipaje XXL</li>
-          <li>Sillitas y elevadores infantiles</li>
-          <li>Eurotaxi PMR · accesibilidad</li>
-          <li>VISA · Mastercard · AMEX</li>
-          <li>Mascotas bienvenidas</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
