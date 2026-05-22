@@ -209,6 +209,129 @@
   margin-bottom: 2px;
 }
 
+/* ============================================================
+   STATS 2025 — bloque entre Historia y Valores
+   ============================================================ */
+.qs-stats-header {
+  text-align: center;
+  margin-bottom: 38px;
+}
+.qs-stats-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #006435;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.qs-stats-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #002313;
+  margin: 0;
+  letter-spacing: -0.018em;
+  line-height: 1.15;
+}
+.qs-stats-title .accent { color: #008F4C; }
+
+.qs-stats-hero {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.qs-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.qs-stat-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e6ece8;
+  border-radius: 18px;
+  padding: 28px 26px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+.qs-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0,143,76,0.08);
+  border-color: #B2DDC9;
+}
+.qs-stat-card.primary {
+  background: linear-gradient(135deg, #002313 0%, #004726 60%, #006435 100%);
+  border-color: transparent;
+  color: #ffffff;
+}
+.qs-stat-card.primary::before {
+  content: "";
+  position: absolute;
+  top: -70px; right: -70px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(243,200,0,0.20) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.qs-stat-card.highlight {
+  background: linear-gradient(135deg, #EAF6F0 0%, #ffffff 100%);
+  border-color: #B2DDC9;
+}
+.qs-stat-num {
+  position: relative;
+  z-index: 1;
+  font-size: 44px;
+  font-weight: 900;
+  color: #008F4C;
+  letter-spacing: -0.028em;
+  line-height: 1;
+  margin-bottom: 10px;
+  display: block;
+}
+.qs-stat-card.primary .qs-stat-num { color: #FFD940; font-size: 52px; }
+.qs-stat-card.highlight .qs-stat-num { color: #006435; }
+.qs-stat-label {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3631;
+  line-height: 1.4;
+  margin: 0;
+}
+.qs-stat-card.primary .qs-stat-label { color: rgba(255,255,255,0.88); font-size: 14.5px; }
+.qs-stat-icon {
+  position: absolute;
+  top: 22px; right: 22px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(0,143,76,0.10);
+  color: #008F4C;
+  display: inline-flex; align-items: center; justify-content: center;
+  z-index: 1;
+}
+.qs-stat-icon svg { width: 16px; height: 16px; }
+.qs-stat-card.primary .qs-stat-icon {
+  background: rgba(255,217,64,0.20); color: #FFD940;
+}
+
+@media (max-width: 980px) {
+  .qs-stats-hero { grid-template-columns: repeat(3, 1fr); }
+  .qs-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .qs-stat-num { font-size: 36px; }
+  .qs-stat-card.primary .qs-stat-num { font-size: 42px; }
+}
+@media (max-width: 640px) {
+  .qs-stats-hero { grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; }
+  .qs-stats-grid { grid-template-columns: 1fr; gap: 14px; }
+  .qs-stats-title { font-size: 26px; }
+  .qs-stat-card { padding: 22px 20px; }
+  .qs-stat-num { font-size: 34px; }
+  .qs-stat-card.primary .qs-stat-num { font-size: 40px; }
+  .qs-stat-label { font-size: 13.5px; }
+}
+
 /* Valores */
 .qs-section-title {
   font-size: 38px;
@@ -794,9 +917,10 @@
     <div class="qs-historia">
       <div class="qs-historia-text">
         <div class="qs-eyebrow" style="color:#006435;">Nuestra historia</div>
-        <h2>Los taxis oficiales de Santa Susanna, desde 1998.</h2>
-        <p><strong>Taxi Santa Susanna S.L.U.</strong> es una empresa propiedad de la Asociación de Taxistas de Santa Susanna. No somos una plataforma ni una franquicia: somos los profesionales del taxi del propio municipio, organizados desde 1998 para ofrecer un servicio coherente, regulado y cercano.</p>
-        <p>Trabajamos con <strong>mecanismos dinámicos</strong> que adaptan la oferta a la demanda estacional — más flota en verano cuando la costa lo necesita, sin esperas innecesarias el resto del año. Todo gestionado desde nuestra propia plataforma con pago seguro, reservas online y atención telefónica las 24 horas.</p>
+        <h2>Santa Susanna, referente del taxi desde 1998.</h2>
+        <p>La Asociación de Taxistas de Santa Susanna nace a finales de los 90 convirtiéndose en <strong>uno de los primeros servicios de radioemisora de taxi de Cataluña</strong> y en el municipio más pequeño en disponer de servicio las 24 h.</p>
+        <p>Casi 30 años después, un servicio <strong>completamente digitalizado</strong> mediante gestor de flotas, junto a la recepción de servicios 24/7, la diversidad de plataformas y canales para el usuario y una coordinación responsable y profesional, continúan posicionando al taxi de Santa Susanna a la altura de las grandes capitales.</p>
+        <p>Sin intermediarios, sin algoritmos en los precios ni la frialdad de las grandes plataformas o vendedores de transfers… somos los profesionales del taxi del municipio, con pasión por lo que hacemos. Somos <strong>el aliado más fiable</strong> para un viaje desde Santa Susanna, y así lo demostramos año tras año.</p>
       </div>
       <div class="qs-historia-img">
         <img src="images/flota-hero.png" alt="Parada oficial de Taxi Santa Susanna con cartel y vehículos de la flota al atardecer" loading="lazy">
@@ -814,53 +938,72 @@
   </div>
 </section>
 
-<!-- ====== VALORES ====== -->
-<section class="qs-section alt">
+<!-- ====== STATS 2025 ====== -->
+<section class="qs-section">
   <div class="qs-section-inner">
-    <h2 class="qs-section-title">En qué creemos</h2>
-    <p class="qs-section-sub">Cuatro principios que llevan 27 años guiando nuestro servicio.</p>
-    <div class="qs-valores-grid">
-      <article class="qs-valor">
-        <div class="qs-valor-icon-wrap">
-          <div class="qs-valor-icon-ring"></div>
-          <div class="qs-valor-icon-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-        </div>
-        <h3>Persona real, no bot</h3>
-        <p>Cuando llamas, te coge una persona. Sin menús, sin esperas, sin chatbots. 24 horas al día.</p>
+
+    <div class="qs-stats-header">
+      <span class="qs-stats-eyebrow">Datos de servicio 2025</span>
+      <h2 class="qs-stats-title">Los <span class="accent">números</span> que respaldan el servicio</h2>
+    </div>
+
+    <!-- Hero stats: cifras absolutas -->
+    <div class="qs-stats-hero">
+      <article class="qs-stat-card primary">
+        <span class="qs-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </span>
+        <span class="qs-stat-num">20.000</span>
+        <p class="qs-stat-label">Servicios gestionados</p>
       </article>
-      <article class="qs-valor">
-        <div class="qs-valor-icon-wrap">
-          <div class="qs-valor-icon-ring"></div>
-          <div class="qs-valor-icon-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-        </div>
-        <h3>Conocimiento local</h3>
-        <p>Sabemos los atajos, las fiestas que cortan calles, los hoteles, las playas. Vivimos aquí.</p>
+      <article class="qs-stat-card primary">
+        <span class="qs-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+        </span>
+        <span class="qs-stat-num">1.300</span>
+        <p class="qs-stat-label">Servicios cooperativos / empresas</p>
       </article>
-      <article class="qs-valor">
-        <div class="qs-valor-icon-wrap">
-          <div class="qs-valor-icon-ring"></div>
-          <div class="qs-valor-icon-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          </div>
-        </div>
-        <h3>Precios regulados</h3>
-        <p>Tarifas aprobadas por la administración. Sin sorpresas, sin recargos ocultos.</p>
-      </article>
-      <article class="qs-valor">
-        <div class="qs-valor-icon-wrap">
-          <div class="qs-valor-icon-ring"></div>
-          <div class="qs-valor-icon-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="6" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
-          </div>
-        </div>
-        <h3>Pago seguro</h3>
-        <p>Tarjeta, Bizum, PayPal o efectivo. Pasarela cifrada y factura electrónica con IVA desglosado.</p>
+      <article class="qs-stat-card primary">
+        <span class="qs-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        <span class="qs-stat-num">0%</span>
+        <p class="qs-stat-label">Reservas sin atender</p>
       </article>
     </div>
+
+    <!-- Grid stats: porcentajes -->
+    <div class="qs-stats-grid">
+      <article class="qs-stat-card">
+        <span class="qs-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </span>
+        <span class="qs-stat-num">94,8%</span>
+        <p class="qs-stat-label">Servicios de día atendidos en menos de 15 min</p>
+      </article>
+      <article class="qs-stat-card">
+        <span class="qs-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </span>
+        <span class="qs-stat-num">86,4%</span>
+        <p class="qs-stat-label">Servicios de noche atendidos en menos de 20 min</p>
+      </article>
+      <article class="qs-stat-card">
+        <span class="qs-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+        </span>
+        <span class="qs-stat-num">98,4%</span>
+        <p class="qs-stat-label">Servicios reservados atendidos sin retraso</p>
+      </article>
+      <article class="qs-stat-card">
+        <span class="qs-stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+        <span class="qs-stat-num">99,1%</span>
+        <p class="qs-stat-label">Reservas con garantía web sin retraso</p>
+      </article>
+    </div>
+
   </div>
 </section>
 
@@ -868,7 +1011,7 @@
 <section class="qs-section">
   <div class="qs-section-inner">
     <h2 class="qs-section-title">Servicios para profesionales</h2>
-    <p class="qs-section-sub">Hoteles y empresas tienen un trato y unas herramientas distintas. Te contamos cuál te conviene.</p>
+    <p class="qs-section-sub">Operativa y soluciones a todos los niveles.</p>
     <div class="qs-servicios-grid">
 
       <article class="qs-servicio">
@@ -877,13 +1020,12 @@
           Para hoteles
         </div>
         <h3>Hotel Preferent</h3>
-        <p class="qs-servicio-desc">Tu recepción gestiona las reservas desde nuestra plataforma web. Inmediatas o programadas, con seguimiento en tiempo real del vehículo.</p>
         <ul class="qs-servicio-list">
-          <li>Reservas inmediatas y programadas desde el panel del hotel</li>
-          <li>Localización GPS del taxi en tiempo real</li>
-          <li>Modificaciones online sin llamadas</li>
-          <li>Flota prioritaria · tiempos de espera más cortos</li>
-          <li>Factura mensual con desglose por reserva</li>
+          <li>Solicitud de servicios inmediatos</li>
+          <li>Gestión de reservas, sin límites de destinos</li>
+          <li>Herramienta web para recepción</li>
+          <li>Información de tiempo de espera por GPS</li>
+          <li>Prioridad, tiempos de espera más cortos</li>
         </ul>
         <a href="#contacto" class="qs-servicio-cta">Solicitar acceso →</a>
       </article>
@@ -894,15 +1036,14 @@
           Para empresas
         </div>
         <h3>Empresas abonadas</h3>
-        <p class="qs-servicio-desc">Mutuas, agencias de viajes, asistencias en carretera, transporte de empleados, administraciones. Cuenta abierta, factura mensual.</p>
         <ul class="qs-servicio-list">
-          <li>Atención telefónica 24/7 con persona real</li>
-          <li>WhatsApp y email habilitados para peticiones</li>
-          <li>Factura electrónica mensual · IVA desglosado por servicio</li>
-          <li>Servicio para todo el municipio y comarca</li>
-          <li>Condiciones específicas según volumen</li>
+          <li>Mutuas, agencias, asistencia, eventos, administraciones…</li>
+          <li>Atención telefónica 24/7</li>
+          <li>Gestión y atención por WhatsApp y email</li>
+          <li>Servicios detallados, factura mensual</li>
+          <li>Gestión y soluciones a medida</li>
         </ul>
-        <a href="#contacto" class="qs-servicio-cta">Hablar con ventas →</a>
+        <a href="#contacto" class="qs-servicio-cta">Abrir cuenta →</a>
       </article>
 
     </div>
@@ -918,8 +1059,8 @@
       </div>
       <div class="qs-flota-text">
         <div class="qs-eyebrow" style="color:#006435;">Nuestra flota</div>
-        <h2>Vans grandes, accesibles, listas para todo.</h2>
-        <p>Toda nuestra flota es de gran capacidad: pensada para familias, grupos, equipaje voluminoso y necesidades especiales. Sin sobreprecio por viajar todos juntos.</p>
+        <h2>Nuestras VANS, siempre preparadas.</h2>
+        <p>No tienes que pedir un taxi grande porque todos son grandes.</p>
         <ul class="qs-flota-features">
           <li>Vans de 6, 7 y 8 PAX</li>
           <li>Maleteros amplios · equipaje XXL</li>
@@ -927,42 +1068,8 @@
           <li>Eurotaxi PMR · accesibilidad</li>
           <li>VISA · Mastercard · AMEX</li>
           <li>Mascotas bienvenidas</li>
-          <li>Aire acondicionado · WiFi</li>
-          <li>Vehículos ECO</li>
         </ul>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== ZONA DE SERVICIO ====== -->
-<section class="qs-zona-section">
-  <div class="qs-zona-inner">
-    <div class="qs-zona-text">
-      <div class="qs-eyebrow">Zona de servicio</div>
-      <h2>Conocemos cada calle <span class="accent">del Maresme</span>.</h2>
-      <p>Nuestra base está en <strong>Santa Susanna</strong>, pero damos servicio a toda la comarca y conexiones a Barcelona, Girona y Costa Brava. Cobertura completa para hoteles, residencias y empresas del litoral.</p>
-      <div class="qs-zona-poblaciones-label">Poblaciones cubiertas</div>
-      <div class="qs-zona-poblaciones">
-        <span class="qs-zona-pob home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="#FFD940"/></svg> Santa Susanna</span>
-        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Pineda de Mar</span>
-        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Calella</span>
-        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Malgrat de Mar</span>
-        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Palafolls</span>
-        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Tordera</span>
-        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Blanes</span>
-        <span class="qs-zona-pob"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Lloret de Mar</span>
-      </div>
-    </div>
-    <div>
-      <div class="qs-zona-map-wrap">
-        <div class="qs-zona-map-badge">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          Cobertura Maresme + Costa Brava
-        </div>
-        <img src="images/mapa-zona-servicio.jpg" alt="Mapa del área de servicio de Taxi Santa Susanna en el Maresme — Calella, Pineda de Mar, Santa Susanna, Malgrat de Mar y Palafolls" loading="lazy">
-      </div>
-      <p class="qs-zona-map-caption">Mapa de la zona principal de operación — N-II / Autopista del Maresme</p>
     </div>
   </div>
 </section>
