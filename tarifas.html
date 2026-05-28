@@ -1898,6 +1898,14 @@
   transition: fill 0.35s ease, transform 0.4s ease;
 }
 .includes-card:hover .icon-svg { fill: white; transform: scale(1.1); }
+/* Icono accesibilidad — stroke en vez de fill, un poco mas grande para mejor legibilidad */
+.includes-card .icon-svg-accesible {
+  fill: none;
+  stroke: #008F4C;
+  width: 30px;
+  height: 30px;
+}
+.includes-card:hover .icon-svg-accesible { fill: none; stroke: white; }
 .includes-card h4 {
   font-size: 16px;
   font-weight: 700;
@@ -2349,7 +2357,8 @@
     <a href="tarifas.html" class="active">Tarifas</a>
     <a href="quienes-somos.html">Nosotros</a>
     <a href="preguntas-frecuentes.html">Ayuda</a>
-    <a href="area-privada.html">Preferent</a>
+    <a href="hoteles.html">Hoteles</a>
+    <a href="empresa.html">Empresa</a>
   </div>
   <a class="nav-call" href="tel:+34937678571" aria-label="Llamar a Taxi Santa Susanna">
     <span class="nav-call-ico">
@@ -2383,7 +2392,8 @@
     <a href="tarifas.html" class="active">Tarifas</a>
     <a href="quienes-somos.html">Nosotros</a>
     <a href="preguntas-frecuentes.html">Ayuda</a>
-    <a href="area-privada.html">Preferent</a>
+    <a href="hoteles.html">Hoteles</a>
+    <a href="empresa.html">Empresa</a>
   </nav>
   <div class="nav-drawer-divider"></div>
   <a class="nav-drawer-cta" href="tel:+34937678571">
@@ -2756,7 +2766,7 @@
         <div class="icon-wrap">
           <div class="icon-circle"></div>
           <div class="icon-ring"></div>
-          <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M96 64a64 64 0 1 1 128 0A64 64 0 1 1 96 64zM39.8 187.1C53.9 169.6 79.5 166.7 97.1 180.9L146 220l66 0c33.1 0 60 26.9 60 60c0 1.4 0 2.8-.1 4.2l60.5-7.6c19.2-2.4 36.7 11.2 39.1 30.4s-11.2 36.7-30.4 39.1l-119.9 14.9c-20-3.4-39.4-12-56.9-25.9l-37-29.6L72 388.6 196.1 480.2c14.2 10.5 17.2 30.5 6.7 44.8s-30.5 17.2-44.8 6.7L20.5 432.5c-25.6-18.9-34.5-53.3-21.4-82.4L48 240l-30-24c-17.5-14-20.3-39.6-6.2-57.1zM360 320a112 112 0 1 1 0 224 112 112 0 1 1 0-224zm0 64a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+          <svg class="icon-svg icon-svg-accesible" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg>
         </div>
         <h4><span class="check">✓</span> Accesible</h4>
         <p>Taxi para personas de movilidad reducida sin suplementos, bajo reserva.</p>
@@ -2798,10 +2808,10 @@
 
     <div class="faq-item" data-faq-cat="precio">
       <button class="faq-question" aria-expanded="false">
-        ¿Hay algún suplemento que no aparezca en la tarifa?
+        ¿Qué coste añadido puede tener el precio fijo?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Solo los suplementos de <strong>zona</strong> (A/B/C/D/E del listado de calles de Santa Susanna, de +1€ a +6€). Para destinos fuera del pueblo no hay extras: la tarifa publicada es el total.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Solo en casos puntuales: el pequeño <strong>suplemento de zona</strong> por recogida o destino en algunas urbanizaciones, los servicios de <strong>más de 4 pasajeros</strong>, el <strong>transporte de bicicletas</strong> y los <strong>días especiales</strong>. Excepcionalmente, en trayectos de larga distancia pueden añadirse <strong>dietas y noche de hotel</strong>.</div></div>
     </div>
 
     <!-- ====== PAGOS ====== -->
@@ -2881,7 +2891,8 @@
           <a href="tarifas.html">Tarifas</a>
           <a href="quienes-somos.html">Nosotros</a>
           <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
-          <a href="area-privada.html">Preferent</a>
+          <a href="hoteles.html">Hoteles</a>
+    <a href="empresa.html">Empresa</a>
         </nav>
       </div>
       <div class="footer-col">
