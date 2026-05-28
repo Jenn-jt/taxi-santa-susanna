@@ -1919,6 +1919,10 @@
 .lp-breadcrumb span[aria-hidden] { color: rgba(255,255,255,0.35); font-size: 14px; }
 .lp-breadcrumb-current { color: #FFD940; font-weight: 700; }
 
+.faq-search-wrap {
+  margin: 0 0 18px;
+}
+.faq-search-wrap .lp-search { display: block; }
 .faq-filters-wrap {
   display: flex;
   align-items: center;
@@ -2202,7 +2206,8 @@
     <a href="tarifas.html">Tarifas</a>
     <a href="quienes-somos.html">Nosotros</a>
     <a href="preguntas-frecuentes.html" class="active">Ayuda</a>
-    <a href="area-privada.html">Preferent</a>
+    <a href="hoteles.html">Hoteles</a>
+    <a href="empresa.html">Empresa</a>
   </div>
   <a class="nav-call" href="tel:+34937678571" aria-label="Llamar a Taxi Santa Susanna">
     <span class="nav-call-ico">
@@ -2236,7 +2241,8 @@
     <a href="tarifas.html">Tarifas</a>
     <a href="quienes-somos.html">Nosotros</a>
     <a href="preguntas-frecuentes.html" class="active">Ayuda</a>
-    <a href="area-privada.html">Preferent</a>
+    <a href="hoteles.html">Hoteles</a>
+    <a href="empresa.html">Empresa</a>
   </nav>
   <div class="nav-drawer-divider"></div>
   <a class="nav-drawer-cta" href="tel:+34937678571">
@@ -2268,6 +2274,18 @@
 <section class="lp-faq" aria-label="Preguntas frecuentes">
   <div class="lp-faq-inner">
 
+    <!-- Buscador de preguntas -->
+    <div class="faq-search-wrap">
+      <div class="lp-search has-no-value" id="faq-search-box">
+        <input class="lp-search-input" type="search" id="faq-search" placeholder="Busca tu duda: precio, bizum, vuelo, sillita, factura…" autocomplete="off" aria-label="Buscar en preguntas frecuentes">
+        <svg class="lp-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <kbd class="lp-search-kbd" aria-hidden="true">/</kbd>
+        <button class="lp-search-clear" id="faq-search-clear" type="button" aria-label="Limpiar búsqueda">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
     <!-- Chips de filtro (sticky al hacer scroll) -->
     <div class="faq-filters-wrap" id="faq-filters-wrap">
       <span class="faq-filters-label">
@@ -2281,27 +2299,15 @@
         </button>
         <button class="faq-chip" data-faq-filter="precio" type="button">
           <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg>
-          Precio <span class="faq-chip-count" data-faq-count-for="precio">0</span>
+          Tarifas y precios <span class="faq-chip-count" data-faq-count-for="precio">0</span>
         </button>
         <button class="faq-chip" data-faq-filter="pagos" type="button">
           <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
-          Pagos <span class="faq-chip-count" data-faq-count-for="pagos">0</span>
+          Formas de pago <span class="faq-chip-count" data-faq-count-for="pagos">0</span>
         </button>
-        <button class="faq-chip" data-faq-filter="reservas" type="button">
-          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-          Reservas <span class="faq-chip-count" data-faq-count-for="reservas">0</span>
-        </button>
-        <button class="faq-chip" data-faq-filter="vuelos" type="button">
-          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-          Vuelos y tren <span class="faq-chip-count" data-faq-count-for="vuelos">0</span>
-        </button>
-        <button class="faq-chip" data-faq-filter="horarios" type="button">
-          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Horarios <span class="faq-chip-count" data-faq-count-for="horarios">0</span>
-        </button>
-        <button class="faq-chip" data-faq-filter="equipaje" type="button">
-          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="13" x="5" y="7" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="9" x2="9" y1="13" y2="18"/><line x1="15" x2="15" y1="13" y2="18"/></svg>
-          Equipaje <span class="faq-chip-count" data-faq-count-for="equipaje">0</span>
+        <button class="faq-chip" data-faq-filter="sillitas" type="button">
+          <svg class="faq-chip-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg>
+          Sillitas infantiles <span class="faq-chip-count" data-faq-count-for="sillitas">0</span>
         </button>
       </div>
     </div>
@@ -2309,111 +2315,156 @@
     <!-- ====== PRECIO ====== -->
     <div class="faq-item" data-faq-cat="precio">
       <button class="faq-question" aria-expanded="false">
-        ¿El precio incluye peajes y propina?
+        ¿Los precios son fijos?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Sí. <strong>Todo está incluido</strong>: peajes, IVA y propinas. El precio que ves al reservar es el precio final que pagas.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí. Todos nuestros precios son <strong>cerrados</strong>: lo que ves al reservar es lo que pagas. Incluyen la recogida donde nos indiques en Santa Susanna para un viaje de hasta 4 personas.</div></div>
     </div>
 
     <div class="faq-item" data-faq-cat="precio">
       <button class="faq-question" aria-expanded="false">
-        ¿Hay algún suplemento que no aparezca en la tarifa?
+        ¿Qué coste añadido puede tener el precio fijo?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Solo los suplementos de <strong>zona</strong> (A/B/C/D/E del listado de calles de Santa Susanna, de +1€ a +6€). Para destinos fuera del pueblo no hay extras: la tarifa publicada es el total.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Solo en casos puntuales: el pequeño <strong>suplemento de zona</strong> por recogida o destino en algunas urbanizaciones, los servicios de <strong>más de 4 pasajeros</strong>, el <strong>transporte de bicicletas</strong> y los <strong>días especiales</strong>. Excepcionalmente, en trayectos de larga distancia pueden añadirse <strong>dietas y noche de hotel</strong>.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="precio">
+      <button class="faq-question" aria-expanded="false">
+        ¿Voy a un destino que no aparece en las tarifas, cómo sé el precio?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Pregúntanos por cualquier destino y te daremos un <strong>precio cerrado</strong> al momento.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="precio">
+      <button class="faq-question" aria-expanded="false">
+        ¿Dónde puedo consultar las tarifas?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Tienes los destinos más habituales <strong>aquí, en la web</strong>. También están publicadas en las paradas y en el interior de los taxis de Santa Susanna.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="precio">
+      <button class="faq-question" aria-expanded="false">
+        ¿Los precios varían según el horario?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí. La <strong>tarifa de día</strong> aplica de lunes a viernes laborables, de 08:00 a 20:00. La <strong>tarifa de noche y festivos</strong> cubre el resto de horas y días.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="precio">
+      <button class="faq-question" aria-expanded="false">
+        ¿Hay suplemento en los días especiales?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí. Se consideran días especiales el <strong>25 de diciembre y el 1 de enero</strong>.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="precio">
+      <button class="faq-question" aria-expanded="false">
+        ¿Cuánto cuesta ir a un sitio y que me traigáis de vuelta a Santa Susanna?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">La vuelta a Santa Susanna es <strong>gratis</strong>. Solo se añade el coste de la espera hasta que decidas volver. Si vas a tardar bastante, suele salirte mejor hacer tu gestión y llamar a un taxi local para el regreso.</div></div>
+    </div>
+
+    <div class="faq-item" data-faq-cat="precio">
+      <button class="faq-question" aria-expanded="false">
+        ¿Los peajes están incluidos?
+        <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí. El precio incluye el uso de autopistas y vías rápidas, <strong>sin extras</strong>.</div></div>
     </div>
 
     <!-- ====== PAGOS ====== -->
     <div class="faq-item" data-faq-cat="pagos">
       <button class="faq-question" aria-expanded="false">
-        ¿Puedo pagar con tarjeta o Bizum?
+        ¿Cómo puedo pagar en el taxi?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Sí. Aceptamos <strong>tarjeta, Bizum, PayPal, transferencia y efectivo</strong>. Puedes pagar al reservar online o al final del trayecto, como prefieras.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">En todos los taxis puedes pagar en <strong>efectivo</strong> (solo euros) o con las <strong>tarjetas más habituales</strong>: Visa, Mastercard, Maestro y American Express. Si reservas por la web, no tendrás que abonar nada al conductor.</div></div>
     </div>
 
     <div class="faq-item" data-faq-cat="pagos">
       <button class="faq-question" aria-expanded="false">
-        ¿Me dais factura para gastos o empresa?
+        ¿Puedo pagar con transferencia bancaria?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Por supuesto. Indícanos al reservar los datos fiscales (nombre o razón social, NIF y dirección) y te enviamos la <strong>factura electrónica</strong> al correo.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí, <strong>solo con reserva web</strong>. También si dispones de una cuenta de empresa con nosotros.</div></div>
     </div>
 
-    <!-- ====== RESERVAS ====== -->
-    <div class="faq-item" data-faq-cat="reservas">
+    <div class="faq-item" data-faq-cat="pagos">
       <button class="faq-question" aria-expanded="false">
-        ¿Puedo cancelar mi reserva sin coste?
+        ¿Puedo pagar con Bizum o PayPal?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Sí. Hasta <strong>12 horas antes</strong> del servicio puedes cancelar o modificar sin penalización. Si cancelas más tarde, se aplica un 50 % del importe.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí, ambos <strong>solo con reserva web</strong>.</div></div>
     </div>
 
-    <div class="faq-item" data-faq-cat="reservas">
+    <div class="faq-item" data-faq-cat="pagos">
       <button class="faq-question" aria-expanded="false">
-        ¿Con cuánta antelación tengo que reservar?
+        ¿Puedo pagar con Paygold (pago con enlace)?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Lo ideal es <strong>al menos 12 horas antes</strong>, pero también atendemos servicios urgentes según disponibilidad. Para aeropuertos y AVE, mejor con 24 h de margen.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí, <strong>solo con reserva web</strong> para peticiones especiales. <a href="mailto:info@taxisantasusanna.com">Escríbenos</a> y te enviamos el enlace de pago.</div></div>
     </div>
 
-    <!-- ====== VUELOS Y TREN ====== -->
-    <div class="faq-item" data-faq-cat="vuelos">
+    <div class="faq-item" data-faq-cat="pagos">
       <button class="faq-question" aria-expanded="false">
-        ¿Qué pasa si mi vuelo se retrasa?
+        ¿Cómo consigo un recibo o factura de mi pago?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Seguimos tu vuelo en directo. Si llega tarde, <strong>ajustamos la hora sin coste extra</strong> (hasta 75 min de espera incluidos en recogidas).</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">El conductor puede emitirte un <strong>recibo</strong> al final del trayecto con origen, destino, método de pago e importe. Si necesitas una <strong>factura con tus datos fiscales</strong>, pídenosla y te la enviamos.</div></div>
     </div>
 
-    <div class="faq-item" data-faq-cat="vuelos">
+    <div class="faq-item" data-faq-cat="pagos">
       <button class="faq-question" aria-expanded="false">
-        ¿Recoges en la puerta del aeropuerto o estación AVE?
+        ¿Está garantizado el pago de mi transfer?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Sí, <strong>recogida puerta a puerta</strong>. En aeropuertos te esperamos en la zona de llegadas con cartel con tu nombre. En estaciones AVE, en el andén o vestíbulo de salida.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Totalmente. Usamos <strong>pasarela de pago segura</strong> y te garantizamos el servicio: si no, te devolvemos el <strong>150% del importe</strong> de tu reserva web.</div></div>
     </div>
 
-    <!-- ====== HORARIOS ====== -->
-    <div class="faq-item" data-faq-cat="horarios">
+    <!-- ====== SILLITAS NIÑOS ====== -->
+    <div class="faq-item" data-faq-cat="sillitas">
       <button class="faq-question" aria-expanded="false">
-        ¿La tarifa nocturna se aplica en fin de semana?
+        ¿Lleváis sillitas y elevadores para niños?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">La tarifa nocturna aplica de <strong>20:00 a 08:00</strong> los días laborables, y <strong>todo el día en sábados, domingos y festivos</strong>. No hay recargo extra de festivo.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Sí. Disponemos de <strong>sillitas infantiles y elevadores</strong> para los trayectos de larga distancia. Pídelo al reservar y lo dejamos listo en el vehículo.</div></div>
     </div>
 
-    <div class="faq-item" data-faq-cat="horarios">
+    <div class="faq-item" data-faq-cat="sillitas">
       <button class="faq-question" aria-expanded="false">
-        ¿Trabajáis de madrugada y festivos?
+        ¿Cuánto cuesta la sillita o el elevador?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Sí, somos <strong>servicio 24/7 todo el año</strong>: Navidad, Año Nuevo, agosto, madrugadas… cualquier hora, cualquier día.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner"><strong>Es gratis.</strong> No cobramos nada por usarlas: solo indícanoslo al hacer la reserva.</div></div>
     </div>
 
-    <!-- ====== EQUIPAJE ====== -->
-    <div class="faq-item" data-faq-cat="equipaje">
+    <div class="faq-item" data-faq-cat="sillitas">
       <button class="faq-question" aria-expanded="false">
-        ¿Cuántas personas y maletas caben?
+        ¿Puedo tener sillita en un taxi para ahora mismo, sin reserva?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Trabajamos con vans de <strong>6, 7 y 8 plazas</strong>. Capacidad estándar: 6 maletas grandes + 6 cabina. Si necesitas más espacio (bicicletas, esquís, golf), avísanos al reservar.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Las sillitas y elevadores van <strong>solo bajo reserva</strong>. Si en ese momento hay un vehículo que ya lleva una, intentaremos asignártelo, pero no podemos garantizarlo. Para asegurarte, resérvalo con antelación.</div></div>
     </div>
 
-    <div class="faq-item" data-faq-cat="equipaje">
+    <div class="faq-item" data-faq-cat="sillitas">
       <button class="faq-question" aria-expanded="false">
-        ¿Lleváis sillitas de bebé o trona?
+        ¿Tenéis sillitas para bebés?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Sí, sin coste. Tenemos <strong>sillitas y alzadores homologados</strong> para bebés y niños. Indícanos al reservar el peso/edad del niño y preparamos la silla adecuada.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">No. Contamos con <strong>sillitas infantiles y elevadores</strong>, pero no con sillitas para bebés.</div></div>
     </div>
 
-    <div class="faq-item" data-faq-cat="equipaje">
+    <div class="faq-item" data-faq-cat="sillitas">
       <button class="faq-question" aria-expanded="false">
-        ¿Y si llevo bicicleta, equipo de esquí o golf?
+        ¿Es obligatorio usar sillita en el taxi?
         <svg class="faq-toggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </button>
-      <div class="faq-answer"><div class="faq-answer-inner">Sin problema. Tenemos vans con maletero amplio. Avísanos al reservar el número y tipo de equipo (bici, ski, tabla, palos…) para asignar el vehículo correcto.</div></div>
+      <div class="faq-answer"><div class="faq-answer-inner">No. El taxi está <strong>exento</strong> de la obligación de sistema de retención que sí aplica a los coches particulares. Aun así, si prefieres viajar con sillita o elevador, los tenemos disponibles: solo pídelo al reservar.</div></div>
     </div>
 
     <!-- Estado vacío cuando ningún filtro coincide -->
@@ -2471,7 +2522,8 @@
           <a href="tarifas.html">Tarifas</a>
           <a href="quienes-somos.html">Nosotros</a>
           <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
-          <a href="area-privada.html">Preferent</a>
+          <a href="hoteles.html">Hoteles</a>
+    <a href="empresa.html">Empresa</a>
         </nav>
       </div>
       <div class="footer-col">
@@ -2520,12 +2572,27 @@ document.querySelectorAll('.faq-question').forEach(q => {
 });
 
 
-// FAQ filter chips
+// FAQ filter chips + buscador (busca en pregunta + respuesta)
 (function(){
   const chips = document.querySelectorAll('.faq-chip');
   const items = document.querySelectorAll('.faq-item[data-faq-cat]');
   const empty = document.getElementById('faq-empty');
+  const searchBox = document.getElementById('faq-search-box');
+  const searchInput = document.getElementById('faq-search');
+  const searchClear = document.getElementById('faq-search-clear');
   if (!chips.length || !items.length) return;
+
+  // Normaliza texto: minúsculas y sin acentos para buscar igual con/sin tildes
+  const norm = (str) => (str || '')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  // Pre-cachear el texto buscable (pregunta + respuesta) de cada item
+  items.forEach(item => {
+    const q = item.querySelector('.faq-question')?.textContent || '';
+    const a = item.querySelector('.faq-answer-inner')?.textContent || '';
+    item.dataset.faqText = norm(q + ' ' + a);
+  });
 
   // Counts dinámicos por categoría
   const counts = { all: items.length };
@@ -2537,27 +2604,60 @@ document.querySelectorAll('.faq-question').forEach(q => {
     el.textContent = counts[el.dataset.faqCountFor] ?? 0;
   });
 
-  function apply(filter) {
+  let currentFilter = 'all';
+
+  function apply() {
+    const query = norm(searchInput ? searchInput.value.trim() : '');
     let visible = 0;
     items.forEach(item => {
-      const show = (filter === 'all' || item.dataset.faqCat === filter);
+      const matchCat = (currentFilter === 'all' || item.dataset.faqCat === currentFilter);
+      const matchText = (query === '' || item.dataset.faqText.includes(query));
+      const show = matchCat && matchText;
       item.classList.toggle('is-hidden', !show);
       if (show) visible++;
-      // Cerrar respuestas al cambiar de filtro
       if (!show) {
         item.classList.remove('open');
         item.querySelector('.faq-question')?.setAttribute('aria-expanded','false');
       }
     });
-    if (empty) empty.classList.toggle('is-visible', visible === 0);
+    if (empty) {
+      empty.classList.toggle('is-visible', visible === 0);
+      empty.textContent = query
+        ? 'No hemos encontrado preguntas para tu búsqueda.'
+        : 'No hay preguntas en esta categoría.';
+    }
   }
 
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
       chips.forEach(c => c.classList.remove('is-active'));
       chip.classList.add('is-active');
-      apply(chip.dataset.faqFilter);
+      currentFilter = chip.dataset.faqFilter;
+      apply();
     });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      if (searchBox) searchBox.classList.toggle('has-value', searchInput.value.trim() !== '');
+      apply();
+    });
+  }
+  if (searchClear) {
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      if (searchBox) searchBox.classList.remove('has-value');
+      searchInput.focus();
+      apply();
+    });
+  }
+
+  // Atajo de teclado "/" para enfocar el buscador
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== searchInput) {
+      e.preventDefault();
+      searchInput?.focus();
+    }
   });
 })();
 
