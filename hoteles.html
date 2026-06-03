@@ -762,79 +762,16 @@
 </head>
 <body>
 
-<!-- ====== NAV ====== -->
-<nav class="nav" aria-label="Navegación principal">
-  <div class="logo">
-    <a href="index.html" class="logo-link">
-      <img src="images/logo.png" alt="Taxi Santa Susanna - Taxi oficial 24/7" class="logo-official">
-    </a>
-  </div>
-  <div class="menu">
-    <a href="index.html">Inicio</a>
-    <a href="quienes-somos.html">Nosotros</a>
-    <a href="tarifas.html">Tarifas</a>
-    <a href="hoteles.html" class="active">Hoteles</a>
-    <a href="empresa.html">Empresas</a>
-    <a href="preguntas-frecuentes.html">Ayuda</a>
-  </div>
-  <a class="nav-call" href="tel:+34937678571" aria-label="Llamar a Taxi Santa Susanna">
-    <span class="nav-call-ico">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-    </span>
-    <span class="nav-call-text">
-      <span class="nav-call-label">Taxi ya</span>
-      <span class="nav-call-num">+34 937 67 85 71</span>
-    </span>
-  </a>
-  <div class="lang">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-globe" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-    ES
-    <svg class="lang-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-  </div>
-  <button class="nav-hamburger" id="nav-hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-drawer">
-    <svg class="icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
-    <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-  </button>
-</nav>
-
-
-<!-- Drawer móvil -->
-<div class="nav-drawer-overlay" id="nav-drawer-overlay" aria-hidden="true"></div>
-<aside class="nav-drawer" id="nav-drawer" aria-hidden="true" aria-label="Menú móvil">
-  <button class="nav-drawer-close" type="button" aria-label="Cerrar menú">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-  </button>
-  <nav class="nav-drawer-menu" aria-label="Navegación móvil">
-    <a href="index.html">Inicio</a>
-    <a href="quienes-somos.html">Nosotros</a>
-    <a href="tarifas.html">Tarifas</a>
-    <a href="hoteles.html" class="active">Hoteles</a>
-    <a href="empresa.html">Empresas</a>
-    <a href="preguntas-frecuentes.html">Ayuda</a>
-  </nav>
-  <div class="nav-drawer-divider"></div>
-  <a class="nav-drawer-cta" href="tel:+34937678571">
-    <span class="nav-drawer-cta-ico">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-    </span>
-    <span class="nav-drawer-cta-text">
-      <span class="nav-drawer-cta-label">Taxi ya 24/7</span>
-      <span class="nav-drawer-cta-num">+34 937 67 85 71</span>
-    </span>
-  </a>
-  <span class="nav-drawer-lang">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-    Español
-  </span>
-</aside>
+<!-- ====== HEADER (inyectado por nav.js) ====== -->
+<div id="site-header"></div>
 
 <main>
 
 <!-- ====== HERO ====== -->
 <section class="ap-hero">
   <div class="ap-hero-inner">
-    <h1 class="ap-hero-h1">Programa <span class="accent">Preferent</span>.</h1>
-    <p class="ap-hero-sub">Para hoteles y partners colaboradores. Gestiona desde recepción los <strong>servicios de taxi de tus clientes</strong> con acceso directo a la AGENDA TAXI, <strong>24/7</strong> y sin papeleo.</p>
+    <h1 class="ap-hero-h1">Hotel <span class="accent">Preferent</span>.</h1>
+    <p class="ap-hero-sub">Reinventamos el taxi. No importa el destino, importa el origen.</p>
   </div>
 </section>
 
@@ -866,9 +803,9 @@
 
     <!-- Col izquierda: Beneficios -->
     <div class="ap-benefits">
-      <div class="ap-benefits-eyebrow">Por qué este portal</div>
-      <h2 class="ap-benefits-title">Todo lo que necesitas para <span class="accent">gestionar los traslados</span> de tus clientes.</h2>
-      <p class="ap-benefits-lead">Si tu hotel, restaurante o establecimiento colabora con nosotros, desde aquí puedes reservar, modificar y hacer seguimiento de los servicios. Sin llamadas, sin esperas.</p>
+      <div class="ap-benefits-eyebrow">¿Qué es Preferent?</div>
+      <h2 class="ap-benefits-title">Hay clientes que aportan un valor enorme al taxi local. <span class="accent">Teníamos que devolvérselo.</span></h2>
+      <p class="ap-benefits-lead">Un conjunto de medidas para mejorar y simplificar la gestión de los servicios de taxi de tu recepción. Si prefieres las soluciones a las comisiones, Preferent te aportará:</p>
 
       <ul class="ap-benefits-list">
         <li class="ap-benefit">
@@ -876,8 +813,8 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
           </span>
           <div class="ap-benefit-body">
-            <h4>Solicitud de servicios inmediata</h4>
-            <p>Pide un taxi para tus clientes al instante, sin llamadas ni esperas.</p>
+            <h4>Reservas sin límites de destinos</h4>
+            <p>El valor de poder reservarlo todo. Los restaurantes, los parques acuáticos o los pequeños traslados de tus clientes serán tratados como los servicios de alto valor.</p>
           </div>
         </li>
         <li class="ap-benefit">
@@ -885,8 +822,8 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
           </span>
           <div class="ap-benefit-body">
-            <h4>Reservas sin límite de destinos</h4>
-            <p>Gestiona traslados a cualquier punto, sin restricciones de zona.</p>
+            <h4>Prioridad y disponibilidad 24/7</h4>
+            <p>Siempre estamos y siempre estaremos. Y cuando pasen esos momentos puntuales de acumulación de servicios, también. Podemos tardar más o menos, pero tus clientes serán los primeros.</p>
           </div>
         </li>
         <li class="ap-benefit">
@@ -894,8 +831,8 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
           </span>
           <div class="ap-benefit-body">
-            <h4>Herramienta web para tu recepción</h4>
-            <p>Tu personal lo gestiona todo desde un panel sencillo, sin formación técnica.</p>
+            <h4>Herramienta web</h4>
+            <p>Tiene todo el sentido del mundo que una recepción de un hotel gestione los taxis cómodamente desde su propio PC.</p>
           </div>
         </li>
         <li class="ap-benefit">
@@ -903,8 +840,8 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           </span>
           <div class="ap-benefit-body">
-            <h4>Tiempo de espera por GPS</h4>
-            <p>Consulta en tiempo real cuánto tarda el taxi en llegar.</p>
+            <h4>Solicitud de servicios inmediata</h4>
+            <p>Pide taxis en segundos sin esperas. Mira el estado del servicio y cuando se asigne a un vehículo, síguelo por GPS en tiempo real hasta la puerta de tu hotel con la información de tiempo exacto hasta su llegada.</p>
           </div>
         </li>
         <li class="ap-benefit">
@@ -912,22 +849,11 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </span>
           <div class="ap-benefit-body">
-            <h4>Prioridad de flota</h4>
-            <p>Tus servicios tienen preferencia: tiempos de espera más cortos.</p>
+            <h4>Agenda de reservas</h4>
+            <p>Agenda y reserva lo que necesites. Todo registrado, todo ordenado. Modifica, adelanta o retrasa. Minimizamos errores, mejoramos la experiencia de tus visitantes.</p>
           </div>
         </li>
       </ul>
-
-      <div class="ap-benefits-cta">
-        <div class="ap-benefits-cta-text">
-          <small>¿Aún no eres partner?</small>
-          <p>Consulta las condiciones para disfrutar de este servicio en tu establecimiento escribiendo a <strong>info@taxisantasusanna.com</strong></p>
-        </div>
-        <a class="ap-benefits-cta-mail" href="mailto:info@taxisantasusanna.com?subject=Solicitud%20de%20alta%20partner%20Taxi%20Santa%20Susanna">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          Solicitar alta
-        </a>
-      </div>
     </div>
 
     <!-- Col derecha: Login card -->
@@ -1227,42 +1153,9 @@
 })();
 </script>
 <script>
-// ===== MOBILE NAV DRAWER =====
-(function() {
-  const hamburger = document.getElementById('nav-hamburger');
-  const drawer = document.getElementById('nav-drawer');
-  const overlay = document.getElementById('nav-drawer-overlay');
-  if (!hamburger || !drawer || !overlay) return;
-  const closeBtn = drawer.querySelector('.nav-drawer-close');
-  const links = drawer.querySelectorAll('.nav-drawer-menu a, .nav-drawer-cta');
-  function open() {
-    drawer.classList.add('is-open');
-    overlay.classList.add('is-open');
-    hamburger.classList.add('is-open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    drawer.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('nav-drawer-active');
-  }
-  function close() {
-    drawer.classList.remove('is-open');
-    overlay.classList.remove('is-open');
-    hamburger.classList.remove('is-open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    drawer.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('nav-drawer-active');
-  }
-  hamburger.addEventListener('click', () => {
-    if (drawer.classList.contains('is-open')) close(); else open();
-  });
-  closeBtn?.addEventListener('click', close);
-  overlay.addEventListener('click', close);
-  links.forEach(l => l.addEventListener('click', close));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
-  });
-})();
 </script>
 
 
+<script src="nav.js"></script>
 </body>
 </html>
