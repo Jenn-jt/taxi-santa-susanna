@@ -43,10 +43,10 @@
   display: inline-block;
 }
 .qs-h1 {
-  font-size: 56px;
+  font-size: 64px;
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.022em;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
   margin: 0 0 18px;
   max-width: 880px;
 }
@@ -739,61 +739,6 @@
   letter-spacing: 0.04em;
 }
 
-/* Partners — solo logo. La tarjeta es solo un contenedor visual; el contenido viene
-   de un loop (CPT 'partner' con featured_image) en el theme de WordPress. */
-.qs-partners-section {
-  background: linear-gradient(180deg, #ffffff 0%, #f8faf6 100%);
-}
-.qs-partners-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-.qs-partner {
-  background: white;
-  border: 0.5px solid #e0e6e2;
-  border-radius: 14px;
-  height: 110px;
-  padding: 18px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-.qs-partner::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: #008F4C;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-.qs-partner:hover {
-  border-color: #B2DDC9;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0,143,76,0.1);
-}
-.qs-partner:hover::before { transform: scaleX(1); }
-.qs-partner img {
-  max-height: 100%;
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: grayscale(20%);
-  opacity: 0.92;
-  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-}
-.qs-partner:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: scale(1.06);
-}
-
 /* CTA reutilizado — padding completo para que cubra el hero sticky por detrás */
 .qs-cta-final { padding: 64px 24px; background: #ffffff; }
 .qs-cta-final-inner { max-width: 1100px; margin: 0 auto; }
@@ -807,7 +752,6 @@
   .qs-historia, .qs-flota-grid, .qs-zona-inner { grid-template-columns: 1fr; gap: 36px; }
   .qs-valores-grid { grid-template-columns: repeat(2, 1fr); }
   .qs-servicios-grid { grid-template-columns: 1fr; }
-  .qs-partners-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 640px) {
   .qs-hero { padding: 160px 20px 44px; min-height: 320px; }
@@ -827,7 +771,6 @@
   .qs-servicio h3 { font-size: 20px; }
   .qs-flota-text h2 { font-size: 26px; }
   .qs-flota-features { grid-template-columns: 1fr; gap: 10px; }
-  .qs-partners-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .qs-zona-section { padding: 48px 20px; }
   .qs-zona-text h2 { font-size: 24px; }
   .qs-zona-text > p { font-size: 14px; }
@@ -967,25 +910,6 @@
           <li>Mascotas bienvenidas</li>
         </ul>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== PARTNERS ====== -->
-<section class="qs-section qs-partners-section">
-  <div class="qs-section-inner">
-    <h2 class="qs-section-title">Confían en nosotros</h2>
-    <p class="qs-section-sub">Instituciones, mutuas y compañías que trabajan con nuestro servicio cada día.</p>
-    <!-- Partners: solo el logo + alt. Estructura preparada para WP loop (CPT 'partner' con featured_image). -->
-    <div class="qs-partners-grid">
-      <div class="qs-partner"><img src="images/partner-santa-susanna.png" alt="Ajuntament de Santa Susanna" loading="lazy"></div>
-      <div class="qs-partner"><img src="images/partner-consell-comarcal.jpg" alt="Consell Comarcal del Maresme" loading="lazy"></div>
-      <div class="qs-partner"><img src="images/partner-egarsat.png" alt="Egarsat — Mutua" loading="lazy"></div>
-      <div class="qs-partner"><img src="images/partner-fremap.jpg" alt="Fremap — Mutua" loading="lazy"></div>
-      <div class="qs-partner"><img src="images/partner-emirates.png" alt="Fly Emirates" loading="lazy"></div>
-      <div class="qs-partner"><img src="images/partner-vueling.png" alt="Vueling" loading="lazy"></div>
-      <div class="qs-partner"><img src="images/partner-gitaxi.png" alt="GitTaxi" loading="lazy"></div>
-      <div class="qs-partner"><img src="images/partner-tabos-grup.png" alt="Tabós Grup" loading="lazy"></div>
     </div>
   </div>
 </section>
