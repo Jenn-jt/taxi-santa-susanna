@@ -118,11 +118,30 @@
   position: relative;
   padding: 152px 24px 56px;
   min-height: 0; height: 480px;
-  background: linear-gradient(180deg, #002313 0%, #004726 100%);
+  background: #002313;
   color: #ffffff;
   overflow: hidden;
   display: flex;
   align-items: center;
+}
+.ap-hero-photo {
+  position: absolute; inset: 0;
+  background-image: url('https://jenn-jt.github.io/taxi-santa-susanna/images/hero-hoteles-premium.jpg');
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.04);
+  transform-origin: center center;
+}
+.ap-hero-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(95deg,
+      rgba(0,20,12,0.72) 0%,
+      rgba(0,20,12,0.45) 50%,
+      rgba(0,20,12,0.20) 100%),
+    linear-gradient(180deg,
+      transparent 60%,
+      rgba(0,15,8,0.55) 100%);
 }
 .ap-hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
 .ap-hero-eyebrow {
@@ -330,6 +349,8 @@
 
 <!-- ====== HERO ====== -->
 <section class="ap-hero">
+  <div class="ap-hero-photo"></div>
+  <div class="ap-hero-overlay"></div>
   <div class="ap-hero-inner">
     <h1 class="ap-hero-h1">Hotel <span class="accent">Preferent</span></h1>
     <p class="ap-hero-sub">Reinventamos el taxi. No importa el destino, importa el origen.</p>
